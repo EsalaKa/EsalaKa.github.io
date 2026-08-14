@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Differential Equations | dy/dx</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<!-- MathJax -->
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]'], ['$$', '$$']]
+  }
+};
+</script>
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+</head>
+
+
+<body>
+
+
+<header class="site-header">
+
+<div class="brand">
+<a href="../index.html">dy/dx</a>
+</div>
+
+<nav class="top-nav">
+<a href="../index.html">Home</a>
+<a href="../index.html#path">Learning Path</a>
+<a href="../notes.html">PDF Notes</a>
+<a href="../about.html">About</a>
+</nav>
+
+</header>
+
+
+<main>
+
+
+<section class="hero">
+
+<p class="eyebrow">
+CHAPTER 06
+</p>
+
+<h1>
+Differential Equations
+</h1>
+
+<p class="hero-text">
+Use derivatives to describe how quantities change and how mathematical
+systems evolve over time.
+</p>
+
+<div class="hero-math">
+
+\[
+\text{quantity}
+\rightarrow
+\text{rate of change}
+\rightarrow
+\text{differential equation}
+\rightarrow
+\text{solution}
+\]
+
+</div>
+
+</section>
+
+
+
+<section class="learning-path">
+
+<p class="section-label">
+DIFFERENTIAL EQUATIONS
+</p>
+
+<h2>
+Equations that describe change
+</h2>
+
+<div class="chapter-grid">
+
+
+<a class="chapter-card" href="what-is-ode.html">
+<span class="chapter-number">01</span>
+<h3>What Is a Differential Equation?</h3>
+<p>
+Understand an equation that relates an unknown function to one or more of its derivatives.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="variables.html">
+<span class="chapter-number">02</span>
+<h3>Dependent and Independent Variables</h3>
+<p>
+Understand which quantity changes and which variable describes that change.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="order.html">
+<span class="chapter-number">03</span>
+<h3>Order of a Differential Equation</h3>
+<p>
+Classify differential equations according to the highest derivative present.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="solutions.html">
+<span class="chapter-number">04</span>
+<h3>Solutions of Differential Equations</h3>
+<p>
+Understand what it means for a function to satisfy a differential equation.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="initial-conditions.html">
+<span class="chapter-number">05</span>
+<h3>Initial Conditions</h3>
+<p>
+Use known values of a system to determine a particular solution.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="separation.html">
+<span class="chapter-number">06</span>
+<h3>Separation of Variables</h3>
+<p>
+Solve suitable first-order equations by separating dependent and independent variables.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="first-order-linear.html">
+<span class="chapter-number">07</span>
+<h3>Linear First-Order ODEs</h3>
+<p>
+Solve equations of the form \(y' + P(x)y = Q(x)\) using an integrating factor.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="autonomous-equations.html">
+<span class="chapter-number">08</span>
+<h3>Autonomous Equations</h3>
+<p>
+Study equations where the rate of change depends only on the current state.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="equilibria.html">
+<span class="chapter-number">09</span>
+<h3>Equilibria</h3>
+<p>
+Find states where the system has zero rate of change.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="stability.html">
+<span class="chapter-number">10</span>
+<h3>Stability</h3>
+<p>
+Understand whether nearby solutions move toward or away from an equilibrium.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="second-order.html">
+<span class="chapter-number">11</span>
+<h3>Second-Order ODEs</h3>
+<p>
+Study differential equations involving second derivatives and their solutions.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="systems.html">
+<span class="chapter-number">12</span>
+<h3>Systems of ODEs</h3>
+<p>
+Describe several quantities whose rates of change depend on one another.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="phase-plane.html">
+<span class="chapter-number">13</span>
+<h3>Phase-Plane Ideas</h3>
+<p>
+Represent the behaviour of two-dimensional systems using trajectories in state space.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="euler-method.html">
+<span class="chapter-number">14</span>
+<h3>Euler's Method</h3>
+<p>
+Approximate solutions numerically using small finite time steps.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="modelling.html">
+<span class="chapter-number">15</span>
+<h3>Differential Equations in Models</h3>
+<p>
+Translate assumptions about rates of change into mathematical models.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+</div>
+
+</section>
+
+
+
+<section class="principle">
+
+<h2>
+The central idea
+</h2>
+
+<div class="principle-math">
+
+\[
+\frac{dy}{dt}=f(t,y)
+\]
+
+</div>
+
+<p>
+A differential equation does not usually tell us the value of \(y\)
+directly. It tells us how \(y\) changes. Solving the equation means finding
+the function whose change follows that rule.
+</p>
+
+</section>
+
+
+</main>
+
+
+<footer>
+
+<div>
+<strong>dy/dx</strong>
+<p>Calculus Learning</p>
+</div>
+
+<p class="footer-note">
+Mathematics from foundations to stochastic modelling.
+</p>
+
+</footer>
+
+
+</body>
+
+</html>
