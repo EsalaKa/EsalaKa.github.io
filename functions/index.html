@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Functions and Elementary Models | dy/dx</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<!-- MathJax -->
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]'], ['$$', '$$']]
+  }
+};
+</script>
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+</head>
+
+
+<body>
+
+<header class="site-header">
+
+<div class="brand">
+<a href="../index.html">dy/dx</a>
+</div>
+
+<nav class="top-nav">
+<a href="../index.html">Home</a>
+<a href="../index.html#path">Learning Path</a>
+<a href="../notes.html">PDF Notes</a>
+<a href="../about.html">About</a>
+</nav>
+
+</header>
+
+
+<main>
+
+
+<section class="hero">
+
+<p class="eyebrow">
+CHAPTER 02
+</p>
+
+<h1>
+Functions and Elementary Models
+</h1>
+
+<p class="hero-text">
+Understand how mathematics describes relationships between quantities.
+</p>
+
+<div class="hero-math">
+
+\[
+x
+\longrightarrow
+f
+\longrightarrow
+f(x)
+\]
+
+</div>
+
+</section>
+
+
+
+<section class="learning-path">
+
+<p class="section-label">
+FUNCTIONS
+</p>
+
+<h2>
+Functions as mathematical relationships
+</h2>
+
+
+<div class="chapter-grid">
+
+
+<a class="chapter-card" href="function-concept.html">
+<span class="chapter-number">01</span>
+<h3>What Is a Function?</h3>
+<p>Understand a function as a rule or mapping that assigns outputs to inputs.</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="function-notation.html">
+<span class="chapter-number">02</span>
+<h3>Function Notation</h3>
+<p>Understand \(f(x)\), function names, inputs, outputs and evaluation.</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="domain-range.html">
+<span class="chapter-number">03</span>
+<h3>Domain, Codomain and Range</h3>
+<p>Understand which inputs are allowed and which outputs a function can produce.</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="linear-functions.html">
+<span class="chapter-number">04</span>
+<h3>Linear Functions</h3>
+<p>Constant rates of change, straight lines, gradients and intercepts.</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="quadratic-functions.html">
+<span class="chapter-number">05</span>
+<h3>Quadratic Functions</h3>
+<p>Parabolas, roots, turning points and the structure of quadratic relationships.</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="polynomial-functions.html">
+<span class="chapter-number">06</span>
+<h3>Polynomial Functions</h3>
+<p>Understand polynomial expressions, degree, roots and their graphs.</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="rational-functions.html">
+<span class="chapter-number">07</span>
+<h3>Rational Functions</h3>
+<p>Functions formed from ratios of polynomials and the restrictions they introduce.</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="exponential-functions.html">
+<span class="chapter-number">08</span>
+<h3>Exponential Functions</h3>
+<p>Multiplicative change, exponential growth and exponential decay.</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="logarithmic-functions.html">
+<span class="chapter-number">09</span>
+<h3>Logarithmic Functions</h3>
+<p>Logarithms as inverse operations of exponentiation and their mathematical meaning.</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="trigonometric-functions.html">
+<span class="chapter-number">10</span>
+<h3>Trigonometric Functions</h3>
+<p>Sine, cosine and tangent as functions describing angles and periodic behaviour.</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="composite-functions.html">
+<span class="chapter-number">11</span>
+<h3>Composite Functions</h3>
+<p>Understand how the output of one function can become the input of another.</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="inverse-functions.html">
+<span class="chapter-number">12</span>
+<h3>Inverse Functions</h3>
+<p>Understand how an inverse function reverses the action of a function.</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="transformations.html">
+<span class="chapter-number">13</span>
+<h3>Transformations of Functions</h3>
+<p>Translations, reflections and scaling of functions and their graphs.</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+</div>
+
+</section>
+
+
+
+<section class="principle">
+
+<h2>
+Where this is leading
+</h2>
+
+<div class="principle-math">
+
+\[
+x
+\rightarrow
+f(x)
+\rightarrow
+f(x+\Delta x)
+\rightarrow
+\frac{f(x+\Delta x)-f(x)}{\Delta x}
+\]
+
+</div>
+
+<p>
+Once functions are understood, we can ask how their outputs change when
+their inputs change. This leads naturally to rates of change, limits and
+derivatives.
+</p>
+
+</section>
+
+
+</main>
+
+
+<footer>
+
+<div>
+<strong>dy/dx</strong>
+<p>Calculus Learning</p>
+</div>
+
+<p class="footer-note">
+Mathematics from first principles to stochastic modelling.
+</p>
+
+</footer>
+
+
+</body>
+
+</html>
