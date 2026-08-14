@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Probability Foundations | dy/dx</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<!-- MathJax -->
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]'], ['$$', '$$']]
+  }
+};
+</script>
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+</head>
+
+
+<body>
+
+<header class="site-header">
+
+<div class="brand">
+<a href="../index.html">dy/dx</a>
+</div>
+
+<nav class="top-nav">
+<a href="../index.html">Home</a>
+<a href="../index.html#path">Learning Path</a>
+<a href="../notes.html">PDF Notes</a>
+<a href="../about.html">About</a>
+</nav>
+
+</header>
+
+
+<main>
+
+
+<section class="hero">
+
+<p class="eyebrow">
+CHAPTER 09
+</p>
+
+<h1>
+Probability Foundations
+</h1>
+
+<p class="hero-text">
+Develop the probability ideas needed to understand uncertainty,
+random variables and stochastic models.
+</p>
+
+<div class="hero-math">
+
+\[
+\text{outcomes}
+\rightarrow
+\text{events}
+\rightarrow
+\text{probability}
+\rightarrow
+\text{random variables}
+\]
+
+</div>
+
+</section>
+
+
+
+<section class="learning-path">
+
+<p class="section-label">
+PROBABILITY
+</p>
+
+<h2>
+From uncertainty to random variables
+</h2>
+
+<div class="chapter-grid">
+
+
+<a class="chapter-card" href="random-experiments.html">
+<span class="chapter-number">01</span>
+<h3>Random Experiments</h3>
+<p>
+Understand situations where the possible outcomes are known but the actual outcome is uncertain.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="outcomes-events.html">
+<span class="chapter-number">02</span>
+<h3>Outcomes and Events</h3>
+<p>
+Distinguish individual outcomes from collections of outcomes called events.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="probability.html">
+<span class="chapter-number">03</span>
+<h3>Probability</h3>
+<p>
+Interpret probability as a numerical measure of uncertainty between \(0\) and \(1\).
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="conditional-probability.html">
+<span class="chapter-number">04</span>
+<h3>Conditional Probability</h3>
+<p>
+Update probabilities when additional information is known.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="independence.html">
+<span class="chapter-number">05</span>
+<h3>Independence</h3>
+<p>
+Understand when knowledge of one event does not change the probability of another.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="random-variables.html">
+<span class="chapter-number">06</span>
+<h3>Random Variables</h3>
+<p>
+Represent outcomes of a random experiment using numerical values.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="discrete-distributions.html">
+<span class="chapter-number">07</span>
+<h3>Discrete Distributions</h3>
+<p>
+Describe probabilities assigned to countable values of a random variable.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="continuous-distributions.html">
+<span class="chapter-number">08</span>
+<h3>Continuous Distributions</h3>
+<p>
+Describe probabilities using density functions over continuous ranges of values.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="expectation.html">
+<span class="chapter-number">09</span>
+<h3>Expectation</h3>
+<p>
+Understand the probability-weighted average value of a random variable.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="variance.html">
+<span class="chapter-number">10</span>
+<h3>Variance and Standard Deviation</h3>
+<p>
+Measure how strongly random outcomes are spread around their expected value.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="covariance.html">
+<span class="chapter-number">11</span>
+<h3>Covariance and Correlation</h3>
+<p>
+Measure how two random quantities tend to vary together.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="conditional-expectation.html">
+<span class="chapter-number">12</span>
+<h3>Conditional Expectation</h3>
+<p>
+Understand expected values when some information about the system is already known.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+</div>
+
+</section>
+
+
+
+<section class="principle">
+
+<h2>
+The central idea
+</h2>
+
+<div class="principle-math">
+
+\[
+\mathbb{E}[X]
+=
+\sum_x x\,P(X=x)
+\]
+
+</div>
+
+<p>
+Probability describes uncertainty. Random variables attach numbers to uncertain
+outcomes, allowing us to calculate quantities such as expectation and variance
+and eventually build stochastic models.
+</p>
+
+</section>
+
+
+</main>
+
+
+<footer>
+
+<div>
+<strong>dy/dx</strong>
+<p>Calculus Learning</p>
+</div>
+
+<p class="footer-note">
+Mathematics from foundations to stochastic modelling.
+</p>
+
+</footer>
+
+
+</body>
+
+</html>
