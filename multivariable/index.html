@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Multivariable Calculus | dy/dx</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<!-- MathJax -->
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]'], ['$$', '$$']]
+  }
+};
+</script>
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+</head>
+
+
+<body>
+
+<header class="site-header">
+
+<div class="brand">
+<a href="../index.html">dy/dx</a>
+</div>
+
+<nav class="top-nav">
+<a href="../index.html">Home</a>
+<a href="../index.html#path">Learning Path</a>
+<a href="../notes.html">PDF Notes</a>
+<a href="../about.html">About</a>
+</nav>
+
+</header>
+
+
+<main>
+
+
+<section class="hero">
+
+<p class="eyebrow">
+CHAPTER 07
+</p>
+
+<h1>
+Multivariable Calculus
+</h1>
+
+<p class="hero-text">
+Extend calculus from functions of one variable to functions that depend on several variables.
+</p>
+
+<div class="hero-math">
+
+\[
+f(x)
+\rightarrow
+f(x,y)
+\rightarrow
+f(x,y,z)
+\]
+
+</div>
+
+</section>
+
+
+
+<section class="learning-path">
+
+<p class="section-label">
+MULTIVARIABLE CALCULUS
+</p>
+
+<h2>
+Calculus with several variables
+</h2>
+
+<div class="chapter-grid">
+
+
+<a class="chapter-card" href="several-variables.html">
+<span class="chapter-number">01</span>
+<h3>Functions of Several Variables</h3>
+<p>
+Understand functions whose outputs depend on two or more independent variables.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="partial-derivatives.html">
+<span class="chapter-number">02</span>
+<h3>Partial Derivatives</h3>
+<p>
+Differentiate with respect to one variable while holding the others fixed.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="higher-partials.html">
+<span class="chapter-number">03</span>
+<h3>Higher Partial Derivatives</h3>
+<p>
+Understand second and higher partial derivatives, including mixed partial derivatives.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="total-derivative.html">
+<span class="chapter-number">04</span>
+<h3>Total Derivatives</h3>
+<p>
+Describe how a multivariable function changes when several inputs change together.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="chain-rule.html">
+<span class="chapter-number">05</span>
+<h3>Multivariable Chain Rule</h3>
+<p>
+Track change through functions that depend on other changing variables.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="gradient.html">
+<span class="chapter-number">06</span>
+<h3>The Gradient</h3>
+<p>
+Represent the direction and magnitude of greatest local increase.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="directional-derivatives.html">
+<span class="chapter-number">07</span>
+<h3>Directional Derivatives</h3>
+<p>
+Measure how a function changes in a chosen direction.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="tangent-planes.html">
+<span class="chapter-number">08</span>
+<h3>Tangent Planes and Linear Approximation</h3>
+<p>
+Approximate a surface near a point using its local linear behaviour.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="multiple-integrals.html">
+<span class="chapter-number">09</span>
+<h3>Multiple Integrals</h3>
+<p>
+Extend integration to regions in two and three dimensions.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="vector-fields.html">
+<span class="chapter-number">10</span>
+<h3>Vector Fields</h3>
+<p>
+Assign a vector to each point in space and interpret changing directions and magnitudes.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="divergence.html">
+<span class="chapter-number">11</span>
+<h3>Divergence</h3>
+<p>
+Measure the local tendency of a vector field to spread outward or converge inward.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="curl.html">
+<span class="chapter-number">12</span>
+<h3>Curl</h3>
+<p>
+Measure the local rotational tendency of a vector field.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="line-integrals.html">
+<span class="chapter-number">13</span>
+<h3>Line Integrals</h3>
+<p>
+Accumulate scalar or vector quantities along a curve.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="surface-integrals.html">
+<span class="chapter-number">14</span>
+<h3>Surface Integrals</h3>
+<p>
+Accumulate quantities over surfaces in three-dimensional space.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+</div>
+
+</section>
+
+
+
+<section class="principle">
+
+<h2>
+The central idea
+</h2>
+
+<div class="principle-math">
+
+\[
+f(x,y)
+\quad\Longrightarrow\quad
+\frac{\partial f}{\partial x},
+\frac{\partial f}{\partial y}
+\quad\Longrightarrow\quad
+\nabla f
+\]
+
+</div>
+
+<p>
+Single-variable calculus studies change along one input direction.
+Multivariable calculus studies how a quantity changes when several
+independent variables are involved.
+</p>
+
+</section>
+
+
+</main>
+
+
+<footer>
+
+<div>
+<strong>dy/dx</strong>
+<p>Calculus Learning</p>
+</div>
+
+<p class="footer-note">
+Mathematics from foundations to stochastic modelling.
+</p>
+
+</footer>
+
+
+</body>
+
+</html>
