@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Number Systems | dy/dx</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']]
+  }
+};
+</script>
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+
+
+<body>
+
+<header class="site-header">
+
+<div class="brand">
+<a href="../index.html">dy/dx</a>
+</div>
+
+<nav class="top-nav">
+<a href="../index.html">Home</a>
+<a href="index.html">Foundations</a>
+</nav>
+
+</header>
+
+
+<main>
+
+
+<section class="hero">
+
+<p class="eyebrow">FOUNDATIONS 01</p>
+
+<h1>Number Systems</h1>
+
+<p class="hero-text">
+Different number systems arise because different mathematical problems
+require different kinds of numbers.
+</p>
+
+</section>
+
+
+<section class="principle">
+
+<h2>The main idea</h2>
+
+<p>
+We do not have several unrelated kinds of numbers.
+Instead, the main number systems fit inside one another:
+</p>
+
+<div class="principle-math">
+
+\[
+\mathbb{N}
+\subset
+\mathbb{Z}
+\subset
+\mathbb{Q}
+\subset
+\mathbb{R}.
+\]
+
+</div>
+
+<p>
+The symbol \(\subset\) means <strong>is contained in</strong>.
+</p>
+
+<p>
+So every natural number is an integer, every integer is rational,
+and every rational number is real.
+</p>
+
+</section>
+
+
+<section class="learning-path">
+
+<div class="chapter-grid">
+
+
+<div class="chapter-card">
+
+<span class="chapter-number">01</span>
+
+<h3>Natural numbers</h3>
+
+<p>
+Natural numbers are the numbers used for counting:
+</p>
+
+\[
+1,\;2,\;3,\;4,\ldots
+\]
+
+<p>
+We write
+</p>
+
+\[
+\mathbb{N}=\{1,2,3,\ldots\}.
+\]
+
+<p>
+Some conventions also include \(0\) in \(\mathbb N\), so it is useful
+to state which convention is being used.
+</p>
+
+</div>
+
+
+<div class="chapter-card">
+
+<span class="chapter-number">02</span>
+
+<h3>Integers</h3>
+
+<p>
+Counting numbers are not enough when negative values are needed.
+Adding zero and the negative whole numbers gives the integers:
+</p>
+
+\[
+\mathbb{Z}
+=
+\{\ldots,-3,-2,-1,0,1,2,3,\ldots\}.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+\mathbb{N}\subset\mathbb{Z}.
+\]
+
+</div>
+
+
+<div class="chapter-card">
+
+<span class="chapter-number">03</span>
+
+<h3>Rational numbers</h3>
+
+<p>
+Integers are not enough when division produces parts of a whole.
+A rational number is any number that can be written as
+</p>
+
+\[
+\frac{p}{q},
+\qquad
+p,q\in\mathbb{Z},
+\qquad
+q\neq0.
+\]
+
+<p>
+For example,
+</p>
+
+\[
+\frac12,\qquad
+-\frac34,\qquad
+5=\frac51.
+\]
+
+<p>
+A number does not have to <em>look</em> like a fraction to be rational.
+It only needs to be possible to write it as one.
+</p>
+
+</div>
+
+
+<div class="chapter-card">
+
+<span class="chapter-number">04</span>
+
+<h3>Decimals can also be rational</h3>
+
+<p>
+For example,
+</p>
+
+\[
+0.5=\frac12
+\]
+
+<p>
+and
+</p>
+
+\[
+0.333\ldots=\frac13.
+\]
+
+<p>
+Terminating decimals and repeating decimals are rational numbers.
+</p>
+
+</div>
+
+
+<div class="chapter-card">
+
+<span class="chapter-number">05</span>
+
+<h3>Irrational numbers</h3>
+
+<p>
+Not every number can be written as a fraction of two integers.
+Such numbers are called irrational.
+</p>
+
+<p>
+Examples include
+</p>
+
+\[
+\sqrt{2},\qquad \pi,\qquad e.
+\]
+
+<p>
+Their decimal expansions continue indefinitely without eventually
+repeating a fixed pattern.
+</p>
+
+</div>
+
+
+<div class="chapter-card">
+
+<span class="chapter-number">06</span>
+
+<h3>Real numbers</h3>
+
+<p>
+The real numbers contain both rational and irrational numbers.
+</p>
+
+\[
+\mathbb{R}
+=
+\{\text{all rational and irrational numbers}\}.
+\]
+
+<p>
+Every point on the ordinary number line represents a real number.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<section class="principle">
+
+<h2>One number can belong to several sets</h2>
+
+<p>
+Consider the number \(3\).
+</p>
+
+<p>
+It is a natural number:
+</p>
+
+\[
+3\in\mathbb{N}.
+\]
+
+<p>
+It is also an integer:
+</p>
+
+\[
+3\in\mathbb{Z}.
+\]
+
+<p>
+And because
+</p>
+
+\[
+3=\frac31,
+\]
+
+<p>
+it is rational and therefore real.
+</p>
+
+\[
+3\in
+\mathbb{N},
+\mathbb{Z},
+\mathbb{Q},
+\mathbb{R}.
+\]
+
+<p>
+The symbol \(\in\) means <strong>is an element of</strong>.
+</p>
+
+</section>
+
+
+<section class="principle">
+
+<h2>Why this matters for calculus</h2>
+
+<p>
+Calculus studies quantities that can change continuously.
+For example, between \(1\) and \(2\) there are infinitely many real numbers.
+</p>
+
+\[
+1
+<
+1.1
+<
+1.01\text{?}
+\]
+
+<p>
+But numerical order must be read carefully. For example,
+</p>
+
+\[
+1<1.01<1.1<2.
+\]
+
+<p>
+And no matter how close two different real numbers are, another real
+number can be found between them.
+</p>
+
+<p>
+This continuous number line provides the setting in which we later study
+limits, derivatives and integrals.
+</p>
+
+<div class="principle-math">
+
+\[
+\mathbb{R}
+\longrightarrow
+x
+\longrightarrow
+f(x)
+\longrightarrow
+\lim
+\longrightarrow
+\frac{dy}{dx}.
+\]
+
+</div>
+
+</section>
+
+
+<section class="principle">
+
+<h2>Remember the structure</h2>
+
+<div class="principle-math">
+
+\[
+\boxed{\mathbb N}
+\subset
+\boxed{\mathbb Z}
+\subset
+\boxed{\mathbb Q}
+\subset
+\boxed{\mathbb R}
+\]
+
+</div>
+
+<p>
+Each step enlarges the collection of numbers available to us.
+</p>
+
+</section>
+
+
+<section class="principle">
+
+<p>
+<a href="index.html">← Foundations</a>
+&nbsp;&nbsp;&nbsp;
+<a href="expressions.html">Next: Algebraic Expressions →</a>
+</p>
+
+</section>
+
+
+</main>
+
+
+<footer>
+
+<strong>dy/dx</strong>
+<p>Calculus Learning</p>
+
+</footer>
+
+
+</body>
+</html>
