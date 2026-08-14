@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Integration | dy/dx</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<!-- MathJax -->
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]'], ['$$', '$$']]
+  }
+};
+</script>
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+</head>
+
+
+<body>
+
+<header class="site-header">
+
+<div class="brand">
+<a href="../index.html">dy/dx</a>
+</div>
+
+<nav class="top-nav">
+<a href="../index.html">Home</a>
+<a href="../index.html#path">Learning Path</a>
+<a href="../notes.html">PDF Notes</a>
+<a href="../about.html">About</a>
+</nav>
+
+</header>
+
+
+<main>
+
+
+<section class="hero">
+
+<p class="eyebrow">
+CHAPTER 05
+</p>
+
+<h1>
+Integration
+</h1>
+
+<p class="hero-text">
+Understand integration as accumulation, area and the inverse relationship
+to differentiation.
+</p>
+
+<div class="hero-math">
+
+\[
+\text{small contributions}
+\rightarrow
+\text{sum}
+\rightarrow
+\text{limit}
+\rightarrow
+\int
+\]
+
+</div>
+
+</section>
+
+
+
+<section class="learning-path">
+
+<p class="section-label">
+INTEGRATION
+</p>
+
+<h2>
+From accumulation to the integral
+</h2>
+
+<div class="chapter-grid">
+
+
+<a class="chapter-card" href="accumulation.html">
+<span class="chapter-number">01</span>
+<h3>Accumulation</h3>
+<p>
+Understand integration as the accumulation of many small contributions.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="area.html">
+<span class="chapter-number">02</span>
+<h3>Area and Signed Area</h3>
+<p>
+Understand how areas above and below an axis contribute to an integral.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="riemann-sums.html">
+<span class="chapter-number">03</span>
+<h3>Riemann Sums</h3>
+<p>
+Approximate accumulation using finite sums and increasingly small intervals.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="definite-integral.html">
+<span class="chapter-number">04</span>
+<h3>The Definite Integral</h3>
+<p>
+Understand the limiting process represented by \(\int_a^b f(x)\,dx\).
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="antiderivatives.html">
+<span class="chapter-number">05</span>
+<h3>Antiderivatives</h3>
+<p>
+Reverse differentiation by finding functions with a given derivative.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="indefinite-integral.html">
+<span class="chapter-number">06</span>
+<h3>The Indefinite Integral</h3>
+<p>
+Understand \(\int f(x)\,dx\), constants of integration and families of antiderivatives.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="fundamental-theorem.html">
+<span class="chapter-number">07</span>
+<h3>Fundamental Theorem of Calculus</h3>
+<p>
+Understand the fundamental connection between differentiation and integration.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="substitution.html">
+<span class="chapter-number">08</span>
+<h3>Integration by Substitution</h3>
+<p>
+Reverse the chain rule by introducing a suitable change of variable.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="integration-by-parts.html">
+<span class="chapter-number">09</span>
+<h3>Integration by Parts</h3>
+<p>
+Reverse the product rule to integrate products of functions.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="partial-fractions.html">
+<span class="chapter-number">10</span>
+<h3>Integration Using Partial Fractions</h3>
+<p>
+Rewrite rational expressions into simpler terms that can be integrated.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="improper-integrals.html">
+<span class="chapter-number">11</span>
+<h3>Improper Integrals</h3>
+<p>
+Use limits when an interval is unbounded or the integrand becomes unbounded.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="applications.html">
+<span class="chapter-number">12</span>
+<h3>Applications of Integration</h3>
+<p>
+Use integration to calculate accumulated change, areas, volumes and other quantities.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+</div>
+
+</section>
+
+
+
+<section class="principle">
+
+<h2>
+The central connection
+</h2>
+
+<div class="principle-math">
+
+\[
+F'(x)=f(x)
+\qquad\Longleftrightarrow\qquad
+\int_a^b f(x)\,dx
+=
+F(b)-F(a)
+\]
+
+</div>
+
+<p>
+Differentiation describes local change. Integration accumulates local
+change. The Fundamental Theorem of Calculus connects these two central
+ideas.
+</p>
+
+</section>
+
+
+</main>
+
+
+<footer>
+
+<div>
+<strong>dy/dx</strong>
+<p>Calculus Learning</p>
+</div>
+
+<p class="footer-note">
+Mathematics from foundations to stochastic modelling.
+</p>
+
+</footer>
+
+
+</body>
+
+</html>
