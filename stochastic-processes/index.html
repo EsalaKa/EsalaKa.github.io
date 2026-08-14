@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Stochastic Processes | dy/dx</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<!-- MathJax -->
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]'], ['$$', '$$']]
+  }
+};
+</script>
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+</head>
+
+
+<body>
+
+<header class="site-header">
+
+<div class="brand">
+<a href="../index.html">dy/dx</a>
+</div>
+
+<nav class="top-nav">
+<a href="../index.html">Home</a>
+<a href="../index.html#path">Learning Path</a>
+<a href="../notes.html">PDF Notes</a>
+<a href="../about.html">About</a>
+</nav>
+
+</header>
+
+
+<main>
+
+
+<section class="hero">
+
+<p class="eyebrow">
+CHAPTER 10
+</p>
+
+<h1>
+Stochastic Processes
+</h1>
+
+<p class="hero-text">
+Study systems that evolve randomly through time and connect probability
+with dynamic mathematical models.
+</p>
+
+<div class="hero-math">
+
+\[
+\text{random variable}
+\rightarrow
+\text{random process}
+\rightarrow
+\text{trajectory}
+\]
+
+</div>
+
+</section>
+
+
+
+<section class="learning-path">
+
+<p class="section-label">
+STOCHASTIC PROCESSES
+</p>
+
+<h2>
+Random systems evolving through time
+</h2>
+
+<div class="chapter-grid">
+
+
+<a class="chapter-card" href="what-is-stochastic-process.html">
+<span class="chapter-number">01</span>
+<h3>What Is a Stochastic Process?</h3>
+<p>
+Understand a family of random variables indexed by time or another parameter.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="state-spaces.html">
+<span class="chapter-number">02</span>
+<h3>State Spaces</h3>
+<p>
+Describe the possible states that a stochastic system can occupy.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="discrete-continuous-time.html">
+<span class="chapter-number">03</span>
+<h3>Discrete and Continuous Time</h3>
+<p>
+Distinguish processes observed at fixed time steps from processes evolving continuously.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="trajectories.html">
+<span class="chapter-number">04</span>
+<h3>Random Trajectories</h3>
+<p>
+Understand one realised path of a stochastic process through time.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="markov-property.html">
+<span class="chapter-number">05</span>
+<h3>The Markov Property</h3>
+<p>
+Understand when the future depends on the present state but not the full past history.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="dtmc.html">
+<span class="chapter-number">06</span>
+<h3>Discrete-Time Markov Chains</h3>
+<p>
+Study Markov processes that move between states at fixed time steps.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="transition-matrices.html">
+<span class="chapter-number">07</span>
+<h3>Transition Matrices</h3>
+<p>
+Represent probabilities of moving between states using a matrix.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="probability-vectors.html">
+<span class="chapter-number">08</span>
+<h3>Probability Vectors</h3>
+<p>
+Represent the probability distribution across all possible states.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="ctmc.html">
+<span class="chapter-number">09</span>
+<h3>Continuous-Time Markov Chains</h3>
+<p>
+Study Markov processes where events occur at random continuous times.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="transition-rates.html">
+<span class="chapter-number">10</span>
+<h3>Transition Rates</h3>
+<p>
+Describe how quickly a continuous-time process moves between states.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="generator-matrix.html">
+<span class="chapter-number">11</span>
+<h3>Generator Matrices</h3>
+<p>
+Represent transition rates and the infinitesimal behaviour of a CTMC.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="waiting-times.html">
+<span class="chapter-number">12</span>
+<h3>Waiting Times</h3>
+<p>
+Understand exponential waiting times between events in continuous-time processes.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="gillespie.html">
+<span class="chapter-number">13</span>
+<h3>Gillespie Simulation</h3>
+<p>
+Simulate one exact trajectory of a continuous-time Markov process.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="poisson-process.html">
+<span class="chapter-number">14</span>
+<h3>The Poisson Process</h3>
+<p>
+Study a basic counting process with random event times and constant rate.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="brownian-motion.html">
+<span class="chapter-number">15</span>
+<h3>Brownian Motion</h3>
+<p>
+Introduce a continuous stochastic process with normally distributed independent increments.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+</div>
+
+</section>
+
+
+
+<section class="principle">
+
+<h2>
+The central idea
+</h2>
+
+<div class="principle-math">
+
+\[
+\{X_t:t\ge0\}
+\]
+
+</div>
+
+<p>
+A stochastic process does not describe one deterministic path.
+It describes a collection of possible random trajectories together with
+their probability structure.
+</p>
+
+</section>
+
+
+</main>
+
+
+<footer>
+
+<div>
+<strong>dy/dx</strong>
+<p>Calculus Learning</p>
+</div>
+
+<p class="footer-note">
+Mathematics from foundations to stochastic modelling.
+</p>
+
+</footer>
+
+
+</body>
+
+</html>
