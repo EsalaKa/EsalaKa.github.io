@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Stochastic Calculus | dy/dx</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<!-- MathJax -->
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]'], ['$$', '$$']]
+  }
+};
+</script>
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+</head>
+
+
+<body>
+
+<header class="site-header">
+
+<div class="brand">
+<a href="../index.html">dy/dx</a>
+</div>
+
+<nav class="top-nav">
+<a href="../index.html">Home</a>
+<a href="../index.html#path">Learning Path</a>
+<a href="../notes.html">PDF Notes</a>
+<a href="../about.html">About</a>
+</nav>
+
+</header>
+
+
+<main>
+
+
+<section class="hero">
+
+<p class="eyebrow">
+CHAPTER 11
+</p>
+
+<h1>
+Stochastic Calculus
+</h1>
+
+<p class="hero-text">
+Extend ordinary calculus to systems whose changes contain both
+deterministic and random components.
+</p>
+
+<div class="hero-math">
+
+\[
+dx
+\rightarrow
+dt
+\rightarrow
+dW_t
+\rightarrow
+dX_t
+\]
+
+</div>
+
+</section>
+
+
+
+<section class="learning-path">
+
+<p class="section-label">
+STOCHASTIC CALCULUS
+</p>
+
+<h2>
+Calculus with random change
+</h2>
+
+<div class="chapter-grid">
+
+
+<a class="chapter-card" href="deterministic-stochastic-change.html">
+<span class="chapter-number">01</span>
+<h3>Deterministic and Stochastic Change</h3>
+<p>
+Compare predictable rates of change with systems containing random variation.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="from-dx-to-dx.html">
+<span class="chapter-number">02</span>
+<h3>From \(dx\) to \(dX_t\)</h3>
+<p>
+Move from ordinary differentials to differentials of stochastic processes.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="brownian-increments.html">
+<span class="chapter-number">03</span>
+<h3>Brownian Increments</h3>
+<p>
+Understand random increments of Brownian motion over small time intervals.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="dt-dw.html">
+<span class="chapter-number">04</span>
+<h3>\(dt\) and \(dW_t\)</h3>
+<p>
+Understand the different roles and scales of deterministic and random increments.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="sdes.html">
+<span class="chapter-number">05</span>
+<h3>Stochastic Differential Equations</h3>
+<p>
+Describe systems whose change includes both drift and random diffusion.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="drift-diffusion.html">
+<span class="chapter-number">06</span>
+<h3>Drift and Diffusion</h3>
+<p>
+Interpret the deterministic and stochastic parts of an SDE.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="euler-maruyama.html">
+<span class="chapter-number">07</span>
+<h3>Euler–Maruyama Method</h3>
+<p>
+Approximate stochastic differential equations numerically using discrete time steps.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="ito-calculus.html">
+<span class="chapter-number">08</span>
+<h3>Itô Calculus</h3>
+<p>
+Understand why ordinary differential rules must be modified for Brownian motion.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="ito-lemma.html">
+<span class="chapter-number">09</span>
+<h3>Itô's Lemma</h3>
+<p>
+Apply the stochastic version of the chain rule to functions of stochastic processes.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="moments.html">
+<span class="chapter-number">10</span>
+<h3>Moments of Stochastic Processes</h3>
+<p>
+Study expectation, variance and higher moments of stochastic systems.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="moment-equations.html">
+<span class="chapter-number">11</span>
+<h3>Moment Equations</h3>
+<p>
+Derive differential equations for expected values and variances.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="stochastic-models.html">
+<span class="chapter-number">12</span>
+<h3>Stochastic Modelling Applications</h3>
+<p>
+Apply stochastic calculus to biological, physical and other dynamic systems.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+</div>
+
+</section>
+
+
+
+<section class="principle">
+
+<h2>
+The central idea
+</h2>
+
+<div class="principle-math">
+
+\[
+dX_t
+=
+\mu(X_t,t)\,dt
++
+\sigma(X_t,t)\,dW_t
+\]
+
+</div>
+
+<p>
+The drift term describes systematic change.
+The diffusion term describes random variation.
+Stochastic calculus provides the mathematical rules needed to work with both together.
+</p>
+
+</section>
+
+
+</main>
+
+
+<footer>
+
+<div>
+<strong>dy/dx</strong>
+<p>Calculus Learning</p>
+</div>
+
+<p class="footer-note">
+Mathematics from foundations to stochastic modelling.
+</p>
+
+</footer>
+
+
+</body>
+
+</html>
