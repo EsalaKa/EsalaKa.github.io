@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Calculus for Modelling | dy/dx</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<!-- MathJax -->
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]'], ['$$', '$$']]
+  }
+};
+</script>
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+</head>
+
+
+<body>
+
+<header class="site-header">
+
+<div class="brand">
+<a href="../index.html">dy/dx</a>
+</div>
+
+<nav class="top-nav">
+<a href="../index.html">Home</a>
+<a href="../index.html#path">Learning Path</a>
+<a href="../notes.html">PDF Notes</a>
+<a href="../about.html">About</a>
+</nav>
+
+</header>
+
+
+<main>
+
+
+<section class="hero">
+
+<p class="eyebrow">
+CHAPTER 08
+</p>
+
+<h1>
+Calculus for Modelling
+</h1>
+
+<p class="hero-text">
+Use calculus to describe real systems, interpret rates and understand how mathematical models evolve.
+</p>
+
+<div class="hero-math">
+
+\[
+\text{assumptions}
+\rightarrow
+\text{rates}
+\rightarrow
+\text{equations}
+\rightarrow
+\text{model behaviour}
+\]
+
+</div>
+
+</section>
+
+
+
+<section class="learning-path">
+
+<p class="section-label">
+MATHEMATICAL MODELLING
+</p>
+
+<h2>
+From rates to mathematical models
+</h2>
+
+<div class="chapter-grid">
+
+
+<a class="chapter-card" href="rates.html">
+<span class="chapter-number">01</span>
+<h3>Rates in Mathematical Models</h3>
+<p>
+Interpret rates as change per unit of another quantity, usually time.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="parameters.html">
+<span class="chapter-number">02</span>
+<h3>Variables and Parameters</h3>
+<p>
+Distinguish changing model variables from quantities treated as fixed parameters.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="growth-decay.html">
+<span class="chapter-number">03</span>
+<h3>Growth and Decay</h3>
+<p>
+Model systems whose rate of change is proportional to the current amount.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="logistic-growth.html">
+<span class="chapter-number">04</span>
+<h3>Logistic Growth</h3>
+<p>
+Extend exponential growth by introducing limits caused by finite resources.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="population-models.html">
+<span class="chapter-number">05</span>
+<h3>Population Models</h3>
+<p>
+Use differential equations to describe births, deaths and population change.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="epidemic-models.html">
+<span class="chapter-number">06</span>
+<h3>Epidemic Models</h3>
+<p>
+Describe susceptible, infectious and recovered populations using systems of equations.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="compartment-models.html">
+<span class="chapter-number">07</span>
+<h3>Compartment Models</h3>
+<p>
+Represent systems by dividing a population or quantity into interacting states.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="equilibria.html">
+<span class="chapter-number">08</span>
+<h3>Equilibria in Models</h3>
+<p>
+Identify states where all model rates of change are zero.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="thresholds.html">
+<span class="chapter-number">09</span>
+<h3>Thresholds</h3>
+<p>
+Understand parameter values that separate qualitatively different model behaviours.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="stability.html">
+<span class="chapter-number">10</span>
+<h3>Stability in Models</h3>
+<p>
+Study whether small disturbances move a system back toward or away from equilibrium.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="numerical-methods.html">
+<span class="chapter-number">11</span>
+<h3>Numerical Approximation</h3>
+<p>
+Approximate model solutions when exact analytical solutions are unavailable.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="assumptions.html">
+<span class="chapter-number">12</span>
+<h3>Model Assumptions</h3>
+<p>
+Understand how mathematical simplifications define what a model can and cannot represent.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+<a class="chapter-card" href="limitations.html">
+<span class="chapter-number">13</span>
+<h3>Model Limitations</h3>
+<p>
+Interpret model outputs carefully by recognising uncertainty and simplification.
+</p>
+<span class="chapter-link">Learn →</span>
+</a>
+
+
+</div>
+
+</section>
+
+
+
+<section class="principle">
+
+<h2>
+The modelling idea
+</h2>
+
+<div class="principle-math">
+
+\[
+\frac{dX}{dt}
+=
+\text{inflow rate}
+-
+\text{outflow rate}
+\]
+
+</div>
+
+<p>
+Many mathematical models are built by describing the processes that increase
+or decrease a quantity. Calculus converts those assumptions into equations
+that describe how the system changes.
+</p>
+
+</section>
+
+
+</main>
+
+
+<footer>
+
+<div>
+<strong>dy/dx</strong>
+<p>Calculus Learning</p>
+</div>
+
+<p class="footer-note">
+Mathematics from foundations to stochastic modelling.
+</p>
+
+</footer>
+
+
+</body>
+
+</html>
