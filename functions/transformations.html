@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Transformations of Functions | dy/dx</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']]
+  }
+};
+</script>
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+</head>
+
+<body>
+
+<header class="site-header">
+
+<div class="brand">
+<a href="../index.html">dy/dx</a>
+</div>
+
+<nav class="top-nav">
+<a href="../index.html">Home</a>
+<a href="index.html">Functions</a>
+</nav>
+
+</header>
+
+
+<main>
+
+<section class="lesson-header">
+
+<p class="eyebrow">FUNCTIONS 13</p>
+
+<h1>Transformations of Functions</h1>
+
+<p class="lesson-intro">
+A transformation changes the position or shape of a graph in a predictable way.
+</p>
+
+</section>
+
+
+<section class="lesson-content">
+
+<h2>The main idea</h2>
+
+<p>
+Start with a function
+</p>
+
+<div class="lesson-math">
+
+\[
+y=f(x).
+\]
+
+</div>
+
+<p>
+Changing the expression inside or outside \(f\) produces a related graph.
+</p>
+
+
+<h3>1. Vertical translation</h3>
+
+<p>
+Adding a constant outside the function shifts the graph vertically.
+</p>
+
+\[
+y=f(x)+a.
+\]
+
+<p>
+If \(a>0\), the graph moves upward by \(a\) units.
+If \(a<0\), it moves downward.
+</p>
+
+<p>
+For example,
+</p>
+
+\[
+y=x^2
+\]
+
+<p>
+becomes
+</p>
+
+\[
+y=x^2+3,
+\]
+
+<p>
+which is the same parabola shifted upward by \(3\).
+</p>
+
+
+<h3>2. Horizontal translation</h3>
+
+<p>
+Changing the input shifts the graph horizontally.
+</p>
+
+\[
+y=f(x-a).
+\]
+
+<p>
+If \(a>0\), the graph moves to the right by \(a\) units.
+</p>
+
+<p>
+For example,
+</p>
+
+\[
+y=(x-2)^2
+\]
+
+<p>
+is the graph of \(y=x^2\) shifted \(2\) units to the right.
+</p>
+
+<p>
+Notice that the horizontal shift appears with the opposite sign inside the function.
+</p>
+
+
+<h3>3. Vertical stretching</h3>
+
+<p>
+Multiplying the output by a constant changes all vertical distances from the \(x\)-axis.
+</p>
+
+\[
+y=af(x).
+\]
+
+<p>
+For example,
+</p>
+
+\[
+y=2x^2
+\]
+
+<p>
+has outputs twice as large as those of
+</p>
+
+\[
+y=x^2.
+\]
+
+<p>
+This produces a vertical stretch by factor \(2\).
+</p>
+
+
+<h3>4. Vertical reflection</h3>
+
+<p>
+Multiplying the function by \(-1\) changes every output \(y\) to \(-y\).
+</p>
+
+<div class="lesson-math">
+
+\[
+y=-f(x).
+\]
+
+</div>
+
+<p>
+The graph is therefore reflected in the \(x\)-axis.
+</p>
+
+<p>
+For example,
+</p>
+
+\[
+y=-x^2
+\]
+
+<p>
+is the reflection of \(y=x^2\) in the \(x\)-axis.
+</p>
+
+
+<h3>5. Horizontal reflection</h3>
+
+<p>
+Replacing \(x\) by \(-x\) gives
+</p>
+
+\[
+y=f(-x).
+\]
+
+<p>
+This reflects the graph in the \(y\)-axis.
+</p>
+
+<p>
+For example, if
+</p>
+
+\[
+f(x)=e^x,
+\]
+
+<p>
+then
+</p>
+
+\[
+f(-x)=e^{-x}.
+\]
+
+<p>
+The graph of \(e^{-x}\) is the reflection of the graph of \(e^x\) in the \(y\)-axis.
+</p>
+
+
+<h3>6. Horizontal scaling</h3>
+
+<p>
+Replacing \(x\) by \(bx\) changes horizontal distances.
+</p>
+
+\[
+y=f(bx).
+\]
+
+<p>
+If \(b>1\), the graph is compressed horizontally.
+</p>
+
+<p>
+For example,
+</p>
+
+\[
+y=\sin(2x)
+\]
+
+<p>
+completes its cycle twice as quickly as
+</p>
+
+\[
+y=\sin x.
+\]
+
+<p>
+So its horizontal scale is reduced by a factor of \(2\).
+</p>
+
+
+<h3>7. Several transformations together</h3>
+
+<p>
+Consider
+</p>
+
+<div class="lesson-math">
+
+\[
+y=2(x-3)^2+1.
+\]
+
+</div>
+
+<p>
+Starting from
+</p>
+
+\[
+y=x^2,
+\]
+
+<p>
+the graph is shifted \(3\) units to the right, stretched vertically by factor \(2\), and shifted \(1\) unit upward.
+</p>
+
+<p>
+Its turning point is therefore
+</p>
+
+\[
+(3,1).
+\]
+
+
+<h3>8. Inside and outside changes</h3>
+
+<p>
+A useful distinction is:
+</p>
+
+\[
+f(x)+a
+\]
+
+<p>
+changes the <strong>output</strong>, so the effect is vertical.
+</p>
+
+<p>
+But
+</p>
+
+\[
+f(x-a)
+\]
+
+<p>
+changes the <strong>input</strong>, so the effect is horizontal.
+</p>
+
+<p>
+Thinking in terms of input and output makes transformation rules easier to understand rather than memorise.
+</p>
+
+
+<h3>9. Why transformations matter</h3>
+
+<p>
+Many apparently different functions are transformed versions of a small number of basic functions.
+</p>
+
+<div class="lesson-math">
+
+\[
+f(x)
+\quad\longrightarrow\quad
+A f\!\left(B(x-C)\right)+D.
+\]
+
+</div>
+
+<p>
+Understanding this structure makes graphs easier to interpret and prepares us for studying how transformations affect derivatives.
+</p>
+
+
+<div class="lesson-navigation">
+
+<a href="inverse-functions.html">
+← Inverse Functions
+</a>
+
+<a href="../limits/index.html">
+Next: Change and Limits →
+</a>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<div>
+<strong>dy/dx</strong>
+<p>Calculus Learning</p>
+</div>
+
+</footer>
+
+</body>
+
+</html>
