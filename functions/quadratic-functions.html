@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Quadratic Functions | dy/dx</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']]
+  }
+};
+</script>
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+</head>
+
+<body>
+
+<header class="site-header">
+
+<div class="brand">
+<a href="../index.html">dy/dx</a>
+</div>
+
+<nav class="top-nav">
+<a href="../index.html">Home</a>
+<a href="index.html">Functions</a>
+</nav>
+
+</header>
+
+
+<main>
+
+<section class="lesson-header">
+
+<p class="eyebrow">FUNCTIONS 05</p>
+
+<h1>Quadratic Functions</h1>
+
+<p class="lesson-intro">
+A quadratic function contains a squared variable and has a curved graph called a parabola.
+</p>
+
+</section>
+
+
+<section class="lesson-content">
+
+<h2>The main idea</h2>
+
+<p>
+A quadratic function has the form
+</p>
+
+<div class="lesson-math">
+
+\[
+f(x)=ax^2+bx+c,
+\qquad a\neq0.
+\]
+
+</div>
+
+<p>
+The highest power of \(x\) is \(2\), which is what makes the function quadratic.
+</p>
+
+
+<h3>1. The shape of the graph</h3>
+
+<p>
+The graph of a quadratic function is a parabola.
+</p>
+
+<p>
+If
+</p>
+
+\[
+a>0,
+\]
+
+<p>
+the parabola opens upward.
+</p>
+
+<p>
+If
+</p>
+
+\[
+a<0,
+\]
+
+<p>
+the parabola opens downward.
+</p>
+
+
+<h3>2. A simple example</h3>
+
+<p>
+Consider
+</p>
+
+\[
+f(x)=x^2.
+\]
+
+<p>
+Then
+</p>
+
+\[
+f(-2)=4,
+\qquad
+f(-1)=1,
+\qquad
+f(0)=0,
+\qquad
+f(1)=1,
+\qquad
+f(2)=4.
+\]
+
+<p>
+The graph is symmetric about the \(y\)-axis.
+</p>
+
+
+<h3>3. Roots</h3>
+
+<p>
+A root is an input where the function has value zero.
+</p>
+
+<p>
+So roots satisfy
+</p>
+
+\[
+f(x)=0.
+\]
+
+<p>
+For example,
+</p>
+
+\[
+f(x)=x^2-5x+6.
+\]
+
+<p>
+Factorising gives
+</p>
+
+\[
+f(x)=(x-2)(x-3).
+\]
+
+<p>
+Therefore the roots are
+</p>
+
+\[
+x=2
+\qquad\text{and}\qquad
+x=3.
+\]
+
+<p>
+On the graph, these are the points where the curve crosses the \(x\)-axis.
+</p>
+
+
+<h3>4. The turning point</h3>
+
+<p>
+A parabola has one turning point.
+</p>
+
+<p>
+For
+</p>
+
+\[
+f(x)=x^2,
+\]
+
+<p>
+the turning point is
+</p>
+
+\[
+(0,0).
+\]
+
+<p>
+If the parabola opens upward, the turning point is a minimum.
+If it opens downward, it is a maximum.
+</p>
+
+
+<h3>5. Completing the square</h3>
+
+<p>
+A quadratic can often be rewritten in the form
+</p>
+
+<div class="lesson-math">
+
+\[
+f(x)=a(x-h)^2+k.
+\]
+
+</div>
+
+<p>
+This form makes the turning point easy to identify:
+</p>
+
+\[
+(h,k).
+\]
+
+<p>
+For example,
+</p>
+
+\[
+x^2-4x+7
+\]
+
+<p>
+can be written as
+</p>
+
+\[
+(x-2)^2+3.
+\]
+
+<p>
+So the turning point is
+</p>
+
+\[
+(2,3).
+\]
+
+
+<h3>6. The axis of symmetry</h3>
+
+<p>
+The parabola is symmetric about the vertical line through its turning point.
+</p>
+
+<p>
+For
+</p>
+
+\[
+f(x)=a(x-h)^2+k,
+\]
+
+<p>
+the axis of symmetry is
+</p>
+
+\[
+x=h.
+\]
+
+
+<h3>7. The quadratic formula</h3>
+
+<p>
+For
+</p>
+
+\[
+ax^2+bx+c=0,
+\]
+
+<p>
+the solutions are
+</p>
+
+<div class="lesson-math">
+
+\[
+x=
+\frac{-b\pm\sqrt{b^2-4ac}}{2a}.
+\]
+
+</div>
+
+<p>
+This formula finds the roots even when factorisation is not simple.
+</p>
+
+
+<h3>8. The discriminant</h3>
+
+<p>
+The expression
+</p>
+
+\[
+b^2-4ac
+\]
+
+<p>
+is called the discriminant.
+</p>
+
+<p>
+It tells us how many real roots the quadratic has.
+</p>
+
+\[
+b^2-4ac>0
+\]
+
+<p>
+gives two distinct real roots,
+</p>
+
+\[
+b^2-4ac=0
+\]
+
+<p>
+gives one repeated real root, and
+</p>
+
+\[
+b^2-4ac<0
+\]
+
+<p>
+gives no real roots.
+</p>
+
+
+<h3>9. Why quadratic functions matter for calculus</h3>
+
+<p>
+Unlike a straight line, a quadratic curve does not have a constant slope.
+</p>
+
+<p>
+For example, for
+</p>
+
+\[
+f(x)=x^2,
+\]
+
+<p>
+the curve becomes steeper as \(|x|\) increases.
+</p>
+
+<p>
+Calculus allows us to measure the slope at each point.
+</p>
+
+<div class="lesson-math">
+
+\[
+f(x)=x^2
+\quad\longrightarrow\quad
+f'(x)=2x.
+\]
+
+</div>
+
+
+<div class="lesson-navigation">
+
+<a href="linear-functions.html">
+← Linear Functions
+</a>
+
+<a href="polynomial-functions.html">
+Next: Polynomial Functions →
+</a>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<div>
+<strong>dy/dx</strong>
+<p>Calculus Learning</p>
+</div>
+
+</footer>
+
+</body>
+
+</html>
