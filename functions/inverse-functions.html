@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Inverse Functions | dy/dx</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']]
+  }
+};
+</script>
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+</head>
+
+<body>
+
+<header class="site-header">
+
+<div class="brand">
+<a href="../index.html">dy/dx</a>
+</div>
+
+<nav class="top-nav">
+<a href="../index.html">Home</a>
+<a href="index.html">Functions</a>
+</nav>
+
+</header>
+
+
+<main>
+
+<section class="lesson-header">
+
+<p class="eyebrow">FUNCTIONS 12</p>
+
+<h1>Inverse Functions</h1>
+
+<p class="lesson-intro">
+An inverse function reverses the action of the original function.
+</p>
+
+</section>
+
+
+<section class="lesson-content">
+
+<h2>The main idea</h2>
+
+<p>
+If a function maps an input \(x\) to an output \(y\),
+its inverse maps that output back to the original input.
+</p>
+
+<div class="lesson-math">
+
+\[
+x
+\xrightarrow{\ f\ }
+y
+\xrightarrow{\ f^{-1}\ }
+x
+\]
+
+</div>
+
+
+<h3>1. A simple example</h3>
+
+<p>
+Suppose
+</p>
+
+\[
+f(x)=x+3.
+\]
+
+<p>
+The function adds \(3\).
+</p>
+
+<p>
+To reverse this, subtract \(3\):
+</p>
+
+\[
+f^{-1}(x)=x-3.
+\]
+
+<p>
+So
+</p>
+
+\[
+f^{-1}(f(x))=x.
+\]
+
+
+<h3>2. Inverse notation</h3>
+
+<p>
+The notation
+</p>
+
+\[
+f^{-1}(x)
+\]
+
+<p>
+means the inverse function of \(f\).
+</p>
+
+<p>
+It does not mean
+</p>
+
+\[
+\frac{1}{f(x)}.
+\]
+
+<p>
+These are completely different expressions.
+</p>
+
+
+<h3>3. Finding an inverse</h3>
+
+<p>
+Consider
+</p>
+
+\[
+f(x)=2x+5.
+\]
+
+<p>
+Write
+</p>
+
+\[
+y=2x+5.
+\]
+
+<p>
+Now solve for \(x\):
+</p>
+
+\[
+y-5=2x,
+\]
+
+\[
+x=\frac{y-5}{2}.
+\]
+
+<p>
+Interchange \(x\) and \(y\):
+</p>
+
+\[
+y=\frac{x-5}{2}.
+\]
+
+<p>
+Therefore,
+</p>
+
+<div class="lesson-math">
+
+\[
+f^{-1}(x)=\frac{x-5}{2}.
+\]
+
+</div>
+
+
+<h3>4. Checking an inverse</h3>
+
+<p>
+A correct inverse should undo the original function.
+</p>
+
+<p>
+For
+</p>
+
+\[
+f(x)=2x+5
+\]
+
+<p>
+and
+</p>
+
+\[
+f^{-1}(x)=\frac{x-5}{2},
+\]
+
+<p>
+we have
+</p>
+
+\[
+f^{-1}(f(x))
+=
+\frac{(2x+5)-5}{2}
+=
+x.
+\]
+
+<p>
+So the inverse works.
+</p>
+
+
+<h3>5. Not every function has an inverse</h3>
+
+<p>
+For an inverse function to exist, different inputs must not produce the same output.
+</p>
+
+<p>
+For example,
+</p>
+
+\[
+f(x)=x^2
+\]
+
+<p>
+gives
+</p>
+
+\[
+f(2)=4
+\]
+
+<p>
+and
+</p>
+
+\[
+f(-2)=4.
+\]
+
+<p>
+So on all real numbers, \(f(x)=x^2\) does not have an inverse function.
+</p>
+
+
+<h3>6. Restricting the domain</h3>
+
+<p>
+If we restrict the domain of
+</p>
+
+\[
+f(x)=x^2
+\]
+
+<p>
+to
+</p>
+
+\[
+x\ge0,
+\]
+
+<p>
+then each output corresponds to only one input.
+</p>
+
+<p>
+The inverse is then
+</p>
+
+\[
+f^{-1}(x)=\sqrt{x}.
+\]
+
+
+<h3>7. Graphs of inverse functions</h3>
+
+<p>
+The graphs of a function and its inverse are reflections of each other in the line
+</p>
+
+\[
+y=x.
+\]
+
+<p>
+This happens because the coordinates
+</p>
+
+\[
+(x,y)
+\]
+
+<p>
+become
+</p>
+
+\[
+(y,x)
+\]
+
+<p>
+when input and output are reversed.
+</p>
+
+
+<h3>8. Exponential and logarithmic functions</h3>
+
+<p>
+The exponential function
+</p>
+
+\[
+f(x)=e^x
+\]
+
+<p>
+has inverse
+</p>
+
+\[
+f^{-1}(x)=\ln x.
+\]
+
+<p>
+So
+</p>
+
+\[
+\ln(e^x)=x
+\]
+
+<p>
+and, for \(x>0\),
+</p>
+
+\[
+e^{\ln x}=x.
+\]
+
+
+<h3>9. Why inverse functions matter for calculus</h3>
+
+<p>
+Inverse functions allow us to reverse mathematical relationships.
+</p>
+
+<p>
+They are especially important for logarithms, inverse trigonometric functions and solving equations.
+</p>
+
+<div class="lesson-math">
+
+\[
+\text{function}
+\longleftrightarrow
+\text{inverse function}
+\]
+
+</div>
+
+
+<div class="lesson-navigation">
+
+<a href="composite-functions.html">
+← Composite Functions
+</a>
+
+<a href="transformations.html">
+Next: Transformations of Functions →
+</a>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<div>
+<strong>dy/dx</strong>
+<p>Calculus Learning</p>
+</div>
+
+</footer>
+
+</body>
+
+</html>
