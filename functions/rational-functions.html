@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Rational Functions | dy/dx</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']]
+  }
+};
+</script>
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+</head>
+
+<body>
+
+<header class="site-header">
+
+<div class="brand">
+<a href="../index.html">dy/dx</a>
+</div>
+
+<nav class="top-nav">
+<a href="../index.html">Home</a>
+<a href="index.html">Functions</a>
+</nav>
+
+</header>
+
+
+<main>
+
+<section class="lesson-header">
+
+<p class="eyebrow">FUNCTIONS 07</p>
+
+<h1>Rational Functions</h1>
+
+<p class="lesson-intro">
+A rational function is a quotient of two polynomial functions.
+</p>
+
+</section>
+
+
+<section class="lesson-content">
+
+<h2>The main idea</h2>
+
+<p>
+A rational function has the form
+</p>
+
+<div class="lesson-math">
+
+\[
+f(x)=\frac{P(x)}{Q(x)},
+\]
+
+</div>
+
+<p>
+where \(P(x)\) and \(Q(x)\) are polynomials and
+</p>
+
+\[
+Q(x)\neq0.
+\]
+
+<p>
+The denominator cannot be zero because division by zero is undefined.
+</p>
+
+
+<h3>1. A simple example</h3>
+
+<p>
+Consider
+</p>
+
+\[
+f(x)=\frac{1}{x}.
+\]
+
+<p>
+The function is defined for every real \(x\) except
+</p>
+
+\[
+x=0.
+\]
+
+<p>
+So its domain is
+</p>
+
+\[
+\mathbb R\setminus\{0\}.
+\]
+
+
+<h3>2. Domain restrictions</h3>
+
+<p>
+For a rational function, values that make the denominator zero must be excluded.
+</p>
+
+<p>
+For example,
+</p>
+
+\[
+f(x)=\frac{x+1}{x-3}.
+\]
+
+<p>
+The denominator is zero when
+</p>
+
+\[
+x=3.
+\]
+
+<p>
+Therefore \(x=3\) is not in the domain.
+</p>
+
+
+<h3>3. Vertical asymptotes</h3>
+
+<p>
+A value excluded from the domain may correspond to a vertical asymptote.
+</p>
+
+<p>
+For
+</p>
+
+\[
+f(x)=\frac{1}{x},
+\]
+
+<p>
+the graph approaches the vertical line
+</p>
+
+\[
+x=0
+\]
+
+<p>
+without reaching it.
+</p>
+
+
+<h3>4. Horizontal behaviour</h3>
+
+<p>
+Rational functions may also approach a fixed value as \(|x|\) becomes large.
+</p>
+
+<p>
+For example,
+</p>
+
+\[
+f(x)=\frac{1}{x}.
+\]
+
+<p>
+As \(x\) becomes very large in magnitude,
+</p>
+
+\[
+\frac{1}{x}
+\]
+
+<p>
+gets closer to \(0\).
+</p>
+
+<p>
+So the graph approaches the horizontal line
+</p>
+
+\[
+y=0.
+\]
+
+
+<h3>5. Simplifying rational expressions</h3>
+
+<p>
+A rational expression can sometimes be simplified by cancelling common factors.
+</p>
+
+<p>
+For example,
+</p>
+
+\[
+\frac{x^2-1}{x-1}
+\]
+
+<p>
+factorises as
+</p>
+
+\[
+\frac{(x-1)(x+1)}{x-1}.
+\]
+
+<p>
+For \(x\neq1\),
+</p>
+
+\[
+\frac{x^2-1}{x-1}=x+1.
+\]
+
+<p>
+But \(x=1\) is still excluded from the original function.
+</p>
+
+
+<h3>6. A removable discontinuity</h3>
+
+<p>
+The previous example behaves like
+</p>
+
+\[
+y=x+1
+\]
+
+<p>
+for every allowed value of \(x\), but the point corresponding to \(x=1\) is missing.
+</p>
+
+<p>
+This missing point is called a removable discontinuity.
+</p>
+
+
+<h3>7. Rational functions and limits</h3>
+
+<p>
+Rational functions are useful for introducing limits because the graph may approach values that are not actually reached.
+</p>
+
+<p>
+For example,
+</p>
+
+\[
+\frac{x^2-1}{x-1}
+\]
+
+<p>
+is undefined at \(x=1\), but for nearby values it behaves like
+</p>
+
+\[
+x+1.
+\]
+
+<p>
+So the function approaches
+</p>
+
+\[
+2
+\]
+
+<p>
+as \(x\) approaches \(1\).
+</p>
+
+
+<h3>8. Why rational functions matter for calculus</h3>
+
+<p>
+Rational functions naturally introduce several important calculus ideas:
+domain restrictions, asymptotes, continuity and limits.
+</p>
+
+<div class="lesson-math">
+
+\[
+\text{rational functions}
+\longrightarrow
+\text{limits}
+\longrightarrow
+\text{continuity}
+\longrightarrow
+\text{derivatives}
+\]
+
+</div>
+
+
+<div class="lesson-navigation">
+
+<a href="polynomial-functions.html">
+← Polynomial Functions
+</a>
+
+<a href="exponential-functions.html">
+Next: Exponential Functions →
+</a>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<div>
+<strong>dy/dx</strong>
+<p>Calculus Learning</p>
+</div>
+
+</footer>
+
+</body>
+
+</html>
