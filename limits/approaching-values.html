@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Approaching a Value | dy/dx</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']]
+  }
+};
+</script>
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+</head>
+
+<body>
+
+<header class="site-header">
+
+<div class="brand">
+<a href="../index.html">dy/dx</a>
+</div>
+
+<nav class="top-nav">
+<a href="../index.html">Home</a>
+<a href="index.html">Change and Limits</a>
+</nav>
+
+</header>
+
+
+<main>
+
+<section class="lesson-header">
+
+<p class="eyebrow">CHANGE AND LIMITS 05</p>
+
+<h1>Approaching a Value</h1>
+
+<p class="lesson-intro">
+To approach a value means to get arbitrarily close to it, without requiring equality.
+</p>
+
+</section>
+
+
+<section class="lesson-content">
+
+<h2>The main idea</h2>
+
+<p>
+Consider the sequence
+</p>
+
+<div class="lesson-math">
+
+\[
+2.9,\qquad
+2.99,\qquad
+2.999,\qquad
+2.9999,\qquad\ldots
+\]
+
+</div>
+
+<p>
+These numbers are getting closer and closer to \(3\).
+</p>
+
+<p>
+We describe this by saying that the values
+<strong>approach \(3\)</strong>.
+</p>
+
+
+<h3>1. Approaching does not mean equal</h3>
+
+<p>
+The number
+</p>
+
+\[
+2.999
+\]
+
+<p>
+is not equal to \(3\).
+</p>
+
+<p>
+But its distance from \(3\) is only
+</p>
+
+\[
+3-2.999=0.001.
+\]
+
+<p>
+The value can be made as close to \(3\) as we wish.
+</p>
+
+
+<h3>2. The notation \(x\to a\)</h3>
+
+<p>
+The notation
+</p>
+
+<div class="lesson-math">
+
+\[
+x\to a
+\]
+
+</div>
+
+<p>
+is read as
+</p>
+
+<p>
+<strong>“\(x\) approaches \(a\)”</strong>
+</p>
+
+<p>
+or
+</p>
+
+<p>
+<strong>“\(x\) tends to \(a\)”</strong>.
+</p>
+
+<p>
+It describes what happens as \(x\) gets arbitrarily close to \(a\).
+</p>
+
+
+<h3>3. Approaching from the left</h3>
+
+<p>
+Values smaller than \(3\) can approach \(3\):
+</p>
+
+\[
+2.9,\qquad
+2.99,\qquad
+2.999,\qquad
+2.9999,\qquad\ldots
+\]
+
+<p>
+They move toward \(3\) from the left side of the number line.
+</p>
+
+<div style="max-width:680px; margin:28px auto;">
+
+<svg viewBox="0 0 680 150"
+     width="100%"
+     role="img"
+     aria-labelledby="left-title left-desc"
+     xmlns="http://www.w3.org/2000/svg">
+
+<title id="left-title">
+Approaching three from the left
+</title>
+
+<desc id="left-desc">
+Points smaller than three move progressively closer to three on a number line.
+</desc>
+
+<line x1="60" y1="75" x2="620" y2="75"
+      stroke="currentColor" stroke-width="2"/>
+
+<line x1="570" y1="62" x2="570" y2="88"
+      stroke="currentColor" stroke-width="2"/>
+
+<text x="564" y="115"
+      font-size="18"
+      fill="currentColor">3</text>
+
+<circle cx="250" cy="75" r="5" fill="currentColor"/>
+<circle cx="390" cy="75" r="5" fill="currentColor"/>
+<circle cx="475" cy="75" r="5" fill="currentColor"/>
+<circle cx="530" cy="75" r="5" fill="currentColor"/>
+
+<line x1="265" y1="45" x2="545" y2="45"
+      stroke="currentColor" stroke-width="2"/>
+
+<polygon points="545,45 530,37 530,53"
+         fill="currentColor"/>
+
+<text x="315" y="30"
+      font-size="16"
+      fill="currentColor">
+values approach 3
+</text>
+
+</svg>
+
+</div>
+
+<p>
+This is written
+</p>
+
+\[
+x\to3^-.
+\]
+
+<p>
+The superscript \(-\) means approaching from values less than \(3\).
+</p>
+
+
+<h3>4. Approaching from the right</h3>
+
+<p>
+Values larger than \(3\) can also approach \(3\):
+</p>
+
+\[
+3.1,\qquad
+3.01,\qquad
+3.001,\qquad
+3.0001,\qquad\ldots
+\]
+
+<p>
+They approach \(3\) from the right side.
+</p>
+
+<p>
+This is written
+</p>
+
+\[
+x\to3^+.
+\]
+
+<p>
+The superscript \(+\) means approaching from values greater than \(3\).
+</p>
+
+
+<h3>5. Approaching from both sides</h3>
+
+<p>
+When we simply write
+</p>
+
+\[
+x\to3,
+\]
+
+<p>
+we normally consider values approaching \(3\) from both sides.
+</p>
+
+<div class="lesson-math">
+
+\[
+2.99
+\longrightarrow
+3
+\longleftarrow
+3.01
+\]
+
+</div>
+
+<p>
+The important question is what happens as the distance between \(x\) and \(3\) becomes arbitrarily small.
+</p>
+
+
+<h3>6. Distance is the important idea</h3>
+
+<p>
+The distance between \(x\) and \(a\) is
+</p>
+
+\[
+|x-a|.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+x\to a
+\]
+
+<p>
+means that
+</p>
+
+<div class="lesson-math">
+
+\[
+|x-a|
+\]
+
+</div>
+
+<p>
+can be made as small as we wish.
+</p>
+
+<p>
+This is a more precise way to understand the phrase
+<strong>“getting closer and closer.”</strong>
+</p>
+
+
+<h3>7. What happens to a function?</h3>
+
+<p>
+Now suppose
+</p>
+
+\[
+f(x)=x^2.
+\]
+
+<p>
+Let \(x\) approach \(2\).
+</p>
+
+\[
+1.9,\qquad
+1.99,\qquad
+1.999,\qquad\ldots
+\]
+
+<p>
+The corresponding function values are
+</p>
+
+\[
+3.61,\qquad
+3.9601,\qquad
+3.996001,\qquad\ldots
+\]
+
+<p>
+They approach
+</p>
+
+\[
+4.
+\]
+
+<p>
+Similarly, approaching \(2\) from the other side,
+</p>
+
+\[
+2.1,\qquad
+2.01,\qquad
+2.001,\qquad\ldots
+\]
+
+<p>
+gives
+</p>
+
+\[
+4.41,\qquad
+4.0401,\qquad
+4.004001,\qquad\ldots
+\]
+
+<p>
+which also approach \(4\).
+</p>
+
+
+<h3>8. Input approaching and output approaching</h3>
+
+<p>
+We are now studying two things at the same time:
+</p>
+
+<div class="lesson-math">
+
+\[
+x\to2
+\]
+
+<p>
+and
+</p>
+
+\[
+f(x)\to4.
+\]
+
+</div>
+
+<p>
+In words:
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{as }x\text{ approaches }2,
+\quad
+f(x)\text{ approaches }4
+}
+\]
+
+</div>
+
+<p>
+This is the central idea behind a limit.
+</p>
+
+
+<h3>9. Why equality is not the main question</h3>
+
+<p>
+When studying a limit, we are interested in the behaviour of the function
+<strong>near</strong> a point.
+</p>
+
+<p>
+The question is not initially
+</p>
+
+\[
+\text{“What is }f(a)\text{?”}
+\]
+
+<p>
+but rather
+</p>
+
+\[
+\text{“What does }f(x)\text{ approach as }x\to a\text{?”}
+\]
+
+<p>
+These questions are related, but they are not the same.
+</p>
+
+
+<h3>10. Returning to the secant line</h3>
+
+<p>
+In the previous lesson, two points \(P\) and \(Q\) determined a secant line.
+</p>
+
+<p>
+We kept \(P\) fixed and moved \(Q\) closer to \(P\).
+</p>
+
+<p>
+In terms of the horizontal separation,
+</p>
+
+\[
+\Delta x\to0.
+\]
+
+<p>
+This does not mean that we immediately substitute
+</p>
+
+\[
+\Delta x=0.
+\]
+
+<p>
+It means that we study what happens while \(\Delta x\) becomes arbitrarily small.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\Delta x\to0
+\quad\text{is not the same statement as}\quad
+\Delta x=0.
+}
+\]
+
+</div>
+
+
+<h3>11. The next step</h3>
+
+<p>
+We now have the idea needed to understand limit notation.
+</p>
+
+<p>
+If \(f(x)\) approaches \(L\) as \(x\) approaches \(a\), we write
+</p>
+
+<div class="lesson-math">
+
+\[
+\lim_{x\to a}f(x)=L.
+\]
+
+</div>
+
+<p>
+The next lesson explains exactly what this notation means.
+</p>
+
+
+<div class="lesson-navigation">
+
+<a href="secant-lines.html">
+← Secant Lines
+</a>
+
+<a href="limits.html">
+Next: The Idea of a Limit →
+</a>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<div>
+<strong>dy/dx</strong>
+<p>Calculus Learning</p>
+</div>
+
+</footer>
+
+</body>
+
+</html>
