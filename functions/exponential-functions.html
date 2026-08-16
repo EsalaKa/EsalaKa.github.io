@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Exponential Functions | dy/dx</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']]
+  }
+};
+</script>
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+</head>
+
+<body>
+
+<header class="site-header">
+
+<div class="brand">
+<a href="../index.html">dy/dx</a>
+</div>
+
+<nav class="top-nav">
+<a href="../index.html">Home</a>
+<a href="index.html">Functions</a>
+</nav>
+
+</header>
+
+
+<main>
+
+<section class="lesson-header">
+
+<p class="eyebrow">FUNCTIONS 08</p>
+
+<h1>Exponential Functions</h1>
+
+<p class="lesson-intro">
+An exponential function changes by a constant factor over equal changes in the input.
+</p>
+
+</section>
+
+
+<section class="lesson-content">
+
+<h2>The main idea</h2>
+
+<p>
+An exponential function has the form
+</p>
+
+<div class="lesson-math">
+
+\[
+f(x)=Ab^x,
+\qquad
+A\neq0,\quad b>0,\quad b\neq1.
+\]
+
+</div>
+
+<p>
+The variable \(x\) appears in the exponent.
+This is what distinguishes an exponential function from a polynomial.
+</p>
+
+
+<h3>1. Constant factor rather than constant difference</h3>
+
+<p>
+Consider
+</p>
+
+\[
+f(x)=2^x.
+\]
+
+<p>
+For consecutive integer values of \(x\),
+</p>
+
+\[
+f(0)=1,\qquad
+f(1)=2,\qquad
+f(2)=4,\qquad
+f(3)=8.
+\]
+
+<p>
+Each time \(x\) increases by \(1\), the output is multiplied by \(2\).
+</p>
+
+<p>
+So exponential change is based on a constant <strong>factor</strong>, not a constant difference.
+</p>
+
+
+<h3>2. Exponential growth</h3>
+
+<p>
+If
+</p>
+
+\[
+b>1,
+\]
+
+<p>
+then \(b^x\) increases as \(x\) increases.
+This is exponential growth.
+</p>
+
+<p>
+For example,
+</p>
+
+\[
+f(x)=3^x
+\]
+
+<p>
+multiplies by \(3\) whenever \(x\) increases by \(1\).
+</p>
+
+
+<h3>3. Exponential decay</h3>
+
+<p>
+If
+</p>
+
+\[
+0<b<1,
+\]
+
+<p>
+then \(b^x\) decreases as \(x\) increases.
+This is exponential decay.
+</p>
+
+<p>
+For example,
+</p>
+
+\[
+f(x)=\left(\frac12\right)^x.
+\]
+
+<p>
+Each increase of \(1\) in \(x\) multiplies the output by \(\frac12\).
+</p>
+
+
+<h3>4. The role of \(A\)</h3>
+
+<p>
+In
+</p>
+
+\[
+f(x)=Ab^x,
+\]
+
+<p>
+putting \(x=0\) gives
+</p>
+
+\[
+f(0)=Ab^0=A.
+\]
+
+<p>
+So \(A\) gives the initial value when the input begins at \(x=0\).
+</p>
+
+
+<h3>5. Percentage growth</h3>
+
+<p>
+If a quantity increases by a proportion \(r\) during each time period, then its new value is multiplied by
+</p>
+
+\[
+1+r.
+\]
+
+<p>
+Therefore a simple discrete growth model is
+</p>
+
+<div class="lesson-math">
+
+\[
+P_n=P_0(1+r)^n.
+\]
+
+</div>
+
+<p>
+For example, a \(5\%\) increase means
+</p>
+
+\[
+r=0.05,
+\]
+
+<p>
+so the quantity is multiplied by
+</p>
+
+\[
+1.05
+\]
+
+<p>
+during each period.
+</p>
+
+
+<h3>6. The number \(e\)</h3>
+
+<p>
+A particularly important exponential function is
+</p>
+
+\[
+f(x)=e^x,
+\]
+
+<p>
+where
+</p>
+
+\[
+e\approx2.71828.
+\]
+
+<p>
+The number \(e\) appears naturally in models involving continuous growth and decay.
+</p>
+
+
+<h3>7. Continuous exponential growth</h3>
+
+<p>
+A common continuous model is
+</p>
+
+<div class="lesson-math">
+
+\[
+P(t)=P_0e^{kt}.
+\]
+
+</div>
+
+<p>
+Here \(P_0\) is the value at \(t=0\), and \(k\) controls the rate of change.
+</p>
+
+<p>
+If
+</p>
+
+\[
+k>0,
+\]
+
+<p>
+the quantity grows.
+</p>
+
+<p>
+If
+</p>
+
+\[
+k<0,
+\]
+
+<p>
+the quantity decays.
+</p>
+
+
+<h3>8. Why \(e^x\) is special</h3>
+
+<p>
+The exponential function \(e^x\) has a remarkable calculus property:
+its rate of change equals its own value.
+</p>
+
+<div class="lesson-math">
+
+\[
+\frac{d}{dx}e^x=e^x.
+\]
+
+</div>
+
+<p>
+This is why \(e\) appears so frequently in differential equations and mathematical models.
+</p>
+
+
+<h3>9. Exponential models</h3>
+
+<p>
+Exponential functions are useful when the rate of change depends on the current amount.
+</p>
+
+<p>
+A simple model has the form
+</p>
+
+\[
+\frac{dP}{dt}=kP.
+\]
+
+<p>
+Its solution is
+</p>
+
+\[
+P(t)=P_0e^{kt}.
+\]
+
+<p>
+This structure appears in population growth, radioactive decay, finance and many other mathematical models.
+</p>
+
+
+<h3>10. Linear versus exponential change</h3>
+
+<p>
+A linear function changes by a constant amount:
+</p>
+
+\[
+f(x)=mx+c.
+\]
+
+<p>
+An exponential function changes by a constant factor:
+</p>
+
+\[
+g(x)=Ab^x.
+\]
+
+<p>
+This difference is fundamental when choosing a mathematical model.
+</p>
+
+
+<div class="lesson-navigation">
+
+<a href="rational-functions.html">
+← Rational Functions
+</a>
+
+<a href="logarithmic-functions.html">
+Next: Logarithmic Functions →
+</a>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<div>
+<strong>dy/dx</strong>
+<p>Calculus Learning</p>
+</div>
+
+</footer>
+
+</body>
+
+</html>
