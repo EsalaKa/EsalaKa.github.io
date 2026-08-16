@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Finite Change | dy/dx</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']]
+  }
+};
+</script>
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+</head>
+
+<body>
+
+<header class="site-header">
+
+<div class="brand">
+<a href="../index.html">dy/dx</a>
+</div>
+
+<nav class="top-nav">
+<a href="../index.html">Home</a>
+<a href="index.html">Change and Limits</a>
+</nav>
+
+</header>
+
+
+<main>
+
+<section class="lesson-header">
+
+<p class="eyebrow">CHANGE AND LIMITS 02</p>
+
+<h1>Finite Change</h1>
+
+<p class="lesson-intro">
+A finite change is the actual difference between two distinct values.
+</p>
+
+</section>
+
+
+<section class="lesson-content">
+
+<h2>The main idea</h2>
+
+<p>
+Suppose \(x\) begins at \(x_1\) and ends at \(x_2\).
+The change in \(x\) is
+</p>
+
+<div class="lesson-math">
+
+\[
+\Delta x=x_2-x_1.
+\]
+
+</div>
+
+<p>
+The symbol \(\Delta x\) therefore represents a difference between two values.
+</p>
+
+
+<h3>1. Why it is called finite</h3>
+
+<p>
+A finite change has an actual size.
+</p>
+
+<p>
+For example, if
+</p>
+
+\[
+x_1=2,
+\qquad
+x_2=2.5,
+\]
+
+<p>
+then
+</p>
+
+\[
+\Delta x=2.5-2=0.5.
+\]
+
+<p>
+Here \(0.5\) is the finite change in \(x\).
+</p>
+
+
+<h3>2. Writing the final value using \(\Delta x\)</h3>
+
+<p>
+From
+</p>
+
+\[
+\Delta x=x_2-x_1,
+\]
+
+<p>
+we can rearrange to obtain
+</p>
+
+\[
+x_2=x_1+\Delta x.
+\]
+
+<p>
+If the initial value is simply called \(x\), the new value can therefore be written as
+</p>
+
+<div class="lesson-math">
+
+\[
+x+\Delta x.
+\]
+
+</div>
+
+<p>
+This notation will be used repeatedly in calculus.
+</p>
+
+
+<h3>3. A function also changes</h3>
+
+<p>
+Suppose
+</p>
+
+\[
+y=f(x).
+\]
+
+<p>
+Initially, the input is \(x\), so the output is
+</p>
+
+\[
+f(x).
+\]
+
+<p>
+After the input changes by \(\Delta x\), the new input is
+</p>
+
+\[
+x+\Delta x,
+\]
+
+<p>
+so the new output is
+</p>
+
+\[
+f(x+\Delta x).
+\]
+
+
+<h3>4. Finding the change in the output</h3>
+
+<p>
+Change always means final value minus initial value.
+</p>
+
+<p>
+Therefore,
+</p>
+
+<div class="lesson-math">
+
+\[
+\Delta y
+=
+f(x+\Delta x)-f(x).
+\]
+
+</div>
+
+<p>
+This formula describes the actual change in the output caused by the finite change \(\Delta x\).
+</p>
+
+
+<h3>5. Example with \(f(x)=x^2\)</h3>
+
+<p>
+Let
+</p>
+
+\[
+f(x)=x^2.
+\]
+
+<p>
+Suppose \(x\) changes from \(2\) to \(2.5\).
+Then
+</p>
+
+\[
+\Delta x=0.5.
+\]
+
+<p>
+The initial output is
+</p>
+
+\[
+f(2)=4,
+\]
+
+<p>
+and the final output is
+</p>
+
+\[
+f(2.5)=6.25.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+\Delta y=6.25-4=2.25.
+\]
+
+
+<h3>6. The same idea algebraically</h3>
+
+<p>
+For
+</p>
+
+\[
+f(x)=x^2,
+\]
+
+<p>
+the new output is
+</p>
+
+\[
+f(x+\Delta x)
+=
+(x+\Delta x)^2.
+\]
+
+<p>
+Expanding,
+</p>
+
+\[
+f(x+\Delta x)
+=
+x^2+2x\Delta x+(\Delta x)^2.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+\Delta y
+=
+f(x+\Delta x)-f(x)
+\]
+
+<p>
+gives
+</p>
+
+\[
+\Delta y
+=
+2x\Delta x+(\Delta x)^2.
+\]
+
+
+<h3>7. The rate over the finite interval</h3>
+
+<p>
+We can now compare the output change with the input change:
+</p>
+
+\[
+\frac{\Delta y}{\Delta x}.
+\]
+
+<p>
+For \(f(x)=x^2\),
+</p>
+
+\[
+\frac{\Delta y}{\Delta x}
+=
+\frac{2x\Delta x+(\Delta x)^2}{\Delta x}.
+\]
+
+<p>
+For \(\Delta x\neq0\),
+</p>
+
+\[
+\frac{\Delta y}{\Delta x}
+=
+2x+\Delta x.
+\]
+
+<p>
+This is the average rate of change over the finite interval.
+</p>
+
+
+<h3>8. The important distinction</h3>
+
+<p>
+A finite change does not mean an infinitely small change.
+</p>
+
+<div class="lesson-math">
+
+\[
+\Delta x
+=
+\text{an actual difference between two values}.
+\]
+
+</div>
+
+<p>
+It may be large or very small, but while \(\Delta x\neq0\), the two input values remain distinct.
+</p>
+
+
+<h3>9. Where this leads</h3>
+
+<p>
+For \(f(x)=x^2\), we found
+</p>
+
+\[
+\frac{\Delta y}{\Delta x}
+=
+2x+\Delta x.
+\]
+
+<p>
+Now imagine making \(\Delta x\) smaller and smaller:
+</p>
+
+\[
+0.5,\quad
+0.1,\quad
+0.01,\quad
+0.001,\quad\ldots
+\]
+
+<p>
+Then
+</p>
+
+\[
+2x+\Delta x
+\]
+
+<p>
+gets closer and closer to
+</p>
+
+\[
+2x.
+\]
+
+<p>
+This idea of approaching a value is the beginning of the concept of a limit.
+</p>
+
+
+<div class="lesson-navigation">
+
+<a href="meaning-of-change.html">
+← What Change Means
+</a>
+
+<a href="average-rate.html">
+Next: Average Rate of Change →
+</a>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<div>
+<strong>dy/dx</strong>
+<p>Calculus Learning</p>
+</div>
+
+</footer>
+
+</body>
+
+</html>
