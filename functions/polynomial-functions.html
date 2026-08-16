@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Polynomial Functions | dy/dx</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']]
+  }
+};
+</script>
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+</head>
+
+<body>
+
+<header class="site-header">
+
+<div class="brand">
+<a href="../index.html">dy/dx</a>
+</div>
+
+<nav class="top-nav">
+<a href="../index.html">Home</a>
+<a href="index.html">Functions</a>
+</nav>
+
+</header>
+
+
+<main>
+
+<section class="lesson-header">
+
+<p class="eyebrow">FUNCTIONS 06</p>
+
+<h1>Polynomial Functions</h1>
+
+<p class="lesson-intro">
+A polynomial is built from powers of a variable with non-negative integer exponents.
+</p>
+
+</section>
+
+
+<section class="lesson-content">
+
+<h2>The main idea</h2>
+
+<p>
+A polynomial function has the form
+</p>
+
+<div class="lesson-math">
+
+\[
+f(x)
+=
+a_nx^n+a_{n-1}x^{n-1}+\cdots+a_1x+a_0,
+\]
+
+</div>
+
+<p>
+where the exponents are non-negative integers and the coefficients are constants.
+</p>
+
+
+<h3>1. Examples</h3>
+
+<p>
+These are polynomial functions:
+</p>
+
+\[
+f(x)=3x+2,
+\]
+
+\[
+g(x)=x^2-4x+1,
+\]
+
+\[
+h(x)=2x^4-x^3+5.
+\]
+
+<p>
+Linear and quadratic functions are therefore special cases of polynomial functions.
+</p>
+
+
+<h3>2. Degree</h3>
+
+<p>
+The degree of a non-zero polynomial is the highest power of the variable with a non-zero coefficient.
+</p>
+
+<p>
+For example,
+</p>
+
+\[
+f(x)=4x^5-2x^2+7
+\]
+
+<p>
+has degree
+</p>
+
+\[
+5.
+\]
+
+<p>
+The degree gives useful information about the overall behaviour of the polynomial.
+</p>
+
+
+<h3>3. Coefficients</h3>
+
+<p>
+In
+</p>
+
+\[
+f(x)=3x^3-5x+2,
+\]
+
+<p>
+the coefficients are
+</p>
+
+\[
+3,\qquad 0,\qquad -5,\qquad 2.
+\]
+
+<p>
+The coefficient of \(x^2\) is \(0\), even though that term is not written explicitly.
+</p>
+
+
+<h3>4. Constant term</h3>
+
+<p>
+The term with no variable is the constant term.
+</p>
+
+<p>
+For
+</p>
+
+\[
+f(x)=2x^3+x-6,
+\]
+
+<p>
+the constant term is
+</p>
+
+\[
+-6.
+\]
+
+<p>
+It also gives the value of the polynomial at \(x=0\):
+</p>
+
+\[
+f(0)=-6.
+\]
+
+
+<h3>5. Roots</h3>
+
+<p>
+A root of a polynomial is a value of \(x\) for which
+</p>
+
+\[
+f(x)=0.
+\]
+
+<p>
+For example,
+</p>
+
+\[
+f(x)=x^2-5x+6
+\]
+
+<p>
+can be written as
+</p>
+
+\[
+f(x)=(x-2)(x-3).
+\]
+
+<p>
+Therefore the roots are
+</p>
+
+\[
+x=2
+\qquad\text{and}\qquad
+x=3.
+\]
+
+
+<h3>6. Factors and roots</h3>
+
+<p>
+If \(x=r\) is a root of a polynomial, then
+</p>
+
+\[
+x-r
+\]
+
+<p>
+is a factor.
+</p>
+
+<p>
+So the statements
+</p>
+
+\[
+f(r)=0
+\]
+
+<p>
+and
+</p>
+
+\[
+x-r \text{ is a factor of } f(x)
+\]
+
+<p>
+describe the same underlying idea.
+</p>
+
+
+<h3>7. End behaviour</h3>
+
+<p>
+For large values of \(|x|\), the highest-power term usually dominates the behaviour of the polynomial.
+</p>
+
+<p>
+For example, in
+</p>
+
+\[
+f(x)=2x^4-3x+1,
+\]
+
+<p>
+the term
+</p>
+
+\[
+2x^4
+\]
+
+<p>
+has the strongest effect when \(|x|\) becomes very large.
+</p>
+
+
+<h3>8. Smoothness</h3>
+
+<p>
+Polynomial functions have no breaks, jumps or sharp corners.
+</p>
+
+<p>
+Their graphs are smooth and continuous for all real \(x\).
+</p>
+
+<p>
+This makes them especially important in calculus.
+</p>
+
+
+<h3>9. Why polynomial functions matter for calculus</h3>
+
+<p>
+Polynomials are among the easiest functions to differentiate and integrate.
+</p>
+
+<p>
+For example,
+</p>
+
+\[
+f(x)=x^3
+\]
+
+<p>
+has derivative
+</p>
+
+\[
+f'(x)=3x^2.
+\]
+
+<p>
+More complicated functions can also often be approximated by polynomials.
+</p>
+
+
+<div class="lesson-navigation">
+
+<a href="quadratic-functions.html">
+← Quadratic Functions
+</a>
+
+<a href="rational-functions.html">
+Next: Rational Functions →
+</a>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<div>
+<strong>dy/dx</strong>
+<p>Calculus Learning</p>
+</div>
+
+</footer>
+
+</body>
+
+</html>
