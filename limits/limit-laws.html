@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Limit Laws | dy/dx</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']]
+  }
+};
+</script>
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+</head>
+
+<body>
+
+<header class="site-header">
+
+<div class="brand">
+<a href="../index.html">dy/dx</a>
+</div>
+
+<nav class="top-nav">
+<a href="../index.html">Home</a>
+<a href="index.html">Change and Limits</a>
+</nav>
+
+</header>
+
+
+<main>
+
+<section class="lesson-header">
+
+<p class="eyebrow">CHANGE AND LIMITS 07</p>
+
+<h1>Limit Laws</h1>
+
+<p class="lesson-intro">
+Limit laws let us calculate many limits from simpler limits.
+</p>
+
+</section>
+
+
+<section class="lesson-content">
+
+<h2>The main idea</h2>
+
+<p>
+Suppose
+</p>
+
+\[
+\lim_{x\to a}f(x)=L
+\]
+
+<p>
+and
+</p>
+
+\[
+\lim_{x\to a}g(x)=M.
+\]
+
+<p>
+Then limits usually behave in the same way as ordinary algebraic operations.
+</p>
+
+
+<h3>1. Constant rule</h3>
+
+<p>
+The limit of a constant is the constant itself:
+</p>
+
+<div class="lesson-math">
+
+\[
+\lim_{x\to a}c=c.
+\]
+
+</div>
+
+<p>
+For example,
+</p>
+
+\[
+\lim_{x\to3}7=7.
+\]
+
+
+<h3>2. Sum rule</h3>
+
+<p>
+The limit of a sum is the sum of the limits:
+</p>
+
+\[
+\lim_{x\to a}[f(x)+g(x)]
+=
+L+M.
+\]
+
+<p>
+For example,
+</p>
+
+\[
+\lim_{x\to2}(x^2+x)
+=
+4+2
+=
+6.
+\]
+
+
+<h3>3. Difference rule</h3>
+
+<p>
+The limit of a difference is the difference of the limits:
+</p>
+
+\[
+\lim_{x\to a}[f(x)-g(x)]
+=
+L-M.
+\]
+
+
+<h3>4. Constant multiple rule</h3>
+
+<p>
+A constant multiplier can be taken outside the limit:
+</p>
+
+\[
+\lim_{x\to a}[cf(x)]
+=
+cL.
+\]
+
+<p>
+For example,
+</p>
+
+\[
+\lim_{x\to2}3x^2
+=
+3(4)
+=
+12.
+\]
+
+
+<h3>5. Product rule</h3>
+
+<p>
+The limit of a product is the product of the limits:
+</p>
+
+<div class="lesson-math">
+
+\[
+\lim_{x\to a}[f(x)g(x)]
+=
+LM.
+\]
+
+</div>
+
+<p>
+For example,
+</p>
+
+\[
+\lim_{x\to2}x(x+1)
+=
+2(3)
+=
+6.
+\]
+
+
+<h3>6. Quotient rule</h3>
+
+<p>
+The limit of a quotient is the quotient of the limits, provided the denominator does not approach zero:
+</p>
+
+\[
+\lim_{x\to a}
+\frac{f(x)}{g(x)}
+=
+\frac{L}{M},
+\qquad M\neq0.
+\]
+
+<p>
+For example,
+</p>
+
+\[
+\lim_{x\to2}
+\frac{x+1}{x+3}
+=
+\frac35.
+\]
+
+
+<h3>7. Power rule</h3>
+
+<p>
+For a positive integer \(n\),
+</p>
+
+\[
+\lim_{x\to a}[f(x)]^n
+=
+L^n.
+\]
+
+<p>
+For example,
+</p>
+
+\[
+\lim_{x\to3}x^2
+=
+3^2
+=
+9.
+\]
+
+
+<h3>8. Direct substitution</h3>
+
+<p>
+For many familiar functions, the limit can be found simply by substituting the approaching value.
+</p>
+
+<p>
+For example,
+</p>
+
+\[
+\lim_{x\to2}(x^2+3x-1)
+\]
+
+<p>
+is
+</p>
+
+\[
+2^2+3(2)-1
+=
+9.
+\]
+
+<p>
+This works because polynomial functions are continuous.
+</p>
+
+
+<h3>9. When substitution fails</h3>
+
+<p>
+Consider
+</p>
+
+\[
+\lim_{x\to1}
+\frac{x^2-1}{x-1}.
+\]
+
+<p>
+Direct substitution gives
+</p>
+
+\[
+\frac00,
+\]
+
+<p>
+which is undefined.
+</p>
+
+<p>
+This does not mean the limit does not exist.
+It means the expression must be simplified first.
+</p>
+
+<p>
+Factorising,
+</p>
+
+\[
+x^2-1=(x-1)(x+1).
+\]
+
+<p>
+So, for \(x\neq1\),
+</p>
+
+\[
+\frac{x^2-1}{x-1}=x+1.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+\lim_{x\to1}
+\frac{x^2-1}{x-1}
+=
+\lim_{x\to1}(x+1)
+=
+2.
+\]
+
+
+<h3>10. Why \(0/0\) is important</h3>
+
+<p>
+An expression such as
+</p>
+
+\[
+\frac00
+\]
+
+<p>
+is called an <strong>indeterminate form</strong>.
+</p>
+
+<p>
+It does not determine the limit by itself.
+Different functions can produce the form \(0/0\) but have different limits.
+</p>
+
+<p>
+So when substitution gives \(0/0\), we need more analysis.
+</p>
+
+
+<h3>11. Example using several laws</h3>
+
+<p>
+Find
+</p>
+
+\[
+\lim_{x\to2}
+\frac{x^2+3x+1}{x+4}.
+\]
+
+<p>
+Using the limit laws,
+</p>
+
+\[
+\lim_{x\to2}(x^2+3x+1)
+=
+4+6+1
+=
+11,
+\]
+
+<p>
+and
+</p>
+
+\[
+\lim_{x\to2}(x+4)=6.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+\lim_{x\to2}
+\frac{x^2+3x+1}{x+4}
+=
+\frac{11}{6}.
+\]
+
+
+<h3>12. The practical idea</h3>
+
+<p>
+When finding a limit, first try direct substitution.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{Substitute first}
+\rightarrow
+\text{simplify if necessary}
+\rightarrow
+\text{then evaluate the limit}
+}
+\]
+
+</div>
+
+<p>
+If substitution gives an ordinary number, the calculation is usually finished.
+If it gives an indeterminate form such as \(0/0\), further work is needed.
+</p>
+
+
+<div class="lesson-navigation">
+
+<a href="limits.html">
+← The Idea of a Limit
+</a>
+
+<a href="one-sided-limits.html">
+Next: One-Sided Limits →
+</a>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<div>
+<strong>dy/dx</strong>
+<p>Calculus Learning</p>
+</div>
+
+</footer>
+
+</body>
+
+</html>
