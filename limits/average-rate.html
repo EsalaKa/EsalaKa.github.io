@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Average Rate of Change | dy/dx</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']]
+  }
+};
+</script>
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+</head>
+
+<body>
+
+<header class="site-header">
+
+<div class="brand">
+<a href="../index.html">dy/dx</a>
+</div>
+
+<nav class="top-nav">
+<a href="../index.html">Home</a>
+<a href="index.html">Change and Limits</a>
+</nav>
+
+</header>
+
+
+<main>
+
+<section class="lesson-header">
+
+<p class="eyebrow">CHANGE AND LIMITS 03</p>
+
+<h1>Average Rate of Change</h1>
+
+<p class="lesson-intro">
+Average rate of change compares how much the output changes with how much the input changes.
+</p>
+
+</section>
+
+
+<section class="lesson-content">
+
+<h2>The main idea</h2>
+
+<p>
+Suppose \(x\) changes by \(\Delta x\) and, as a result,
+\(y\) changes by \(\Delta y\).
+</p>
+
+<p>
+The average rate of change is
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{average rate of change}
+=
+\frac{\Delta y}{\Delta x}
+}
+\]
+
+</div>
+
+<p>
+It tells us the amount of change in \(y\) per unit change in \(x\).
+</p>
+
+
+<h3>1. A simple example</h3>
+
+<p>
+Suppose
+</p>
+
+\[
+x:2\rightarrow5
+\]
+
+<p>
+and
+</p>
+
+\[
+y:4\rightarrow10.
+\]
+
+<p>
+Then
+</p>
+
+\[
+\Delta x=5-2=3
+\]
+
+<p>
+and
+</p>
+
+\[
+\Delta y=10-4=6.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+\frac{\Delta y}{\Delta x}
+=
+\frac63
+=
+2.
+\]
+
+<p>
+On average, \(y\) increases by \(2\) units for each unit increase in \(x\).
+</p>
+
+
+<h3>2. For a function</h3>
+
+<p>
+Suppose
+</p>
+
+\[
+y=f(x).
+\]
+
+<p>
+Between the inputs \(x_1\) and \(x_2\),
+</p>
+
+\[
+\Delta x=x_2-x_1
+\]
+
+<p>
+and
+</p>
+
+\[
+\Delta y=f(x_2)-f(x_1).
+\]
+
+<p>
+Therefore,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\frac{\Delta y}{\Delta x}
+=
+\frac{f(x_2)-f(x_1)}
+{x_2-x_1}
+}
+\]
+
+</div>
+
+
+<h3>3. Example with a curved function</h3>
+
+<p>
+Consider
+</p>
+
+\[
+f(x)=x^2.
+\]
+
+<p>
+Find the average rate of change from
+</p>
+
+\[
+x=1
+\]
+
+<p>
+to
+</p>
+
+\[
+x=3.
+\]
+
+<p>
+The corresponding outputs are
+</p>
+
+\[
+f(1)=1
+\]
+
+<p>
+and
+</p>
+
+\[
+f(3)=9.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+\Delta x=3-1=2
+\]
+
+<p>
+and
+</p>
+
+\[
+\Delta y=9-1=8.
+\]
+
+<p>
+Hence,
+</p>
+
+<div class="lesson-math">
+
+\[
+\frac{\Delta y}{\Delta x}
+=
+\frac82
+=
+4.
+\]
+
+</div>
+
+
+<h3>4. What does the value \(4\) mean?</h3>
+
+<p>
+It does not mean that the slope of \(y=x^2\) is always \(4\).
+</p>
+
+<p>
+It means that between \(x=1\) and \(x=3\), the output changes by an average of \(4\) units for each unit change in \(x\).
+</p>
+
+<p>
+A curved function can have different average rates over different intervals.
+</p>
+
+
+<h3>5. The geometric meaning</h3>
+
+<p>
+On the graph of \(y=f(x)\), consider the two points
+</p>
+
+\[
+P=(x_1,f(x_1))
+\]
+
+<p>
+and
+</p>
+
+\[
+Q=(x_2,f(x_2)).
+\]
+
+<p>
+The gradient of the straight line joining \(P\) and \(Q\) is
+</p>
+
+\[
+\frac{f(x_2)-f(x_1)}
+{x_2-x_1}.
+\]
+
+<p>
+This straight line is called a <strong>secant line</strong>.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{average rate of change}
+=
+\text{gradient of the secant line}
+}
+\]
+
+</div>
+
+
+<h3>6. Another useful form</h3>
+
+<p>
+Instead of writing the second input as \(x_2\), we can write it as
+</p>
+
+\[
+x+\Delta x.
+\]
+
+<p>
+Then the two outputs are
+</p>
+
+\[
+f(x)
+\]
+
+<p>
+and
+</p>
+
+\[
+f(x+\Delta x).
+\]
+
+<p>
+Therefore,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\frac{\Delta y}{\Delta x}
+=
+\frac{f(x+\Delta x)-f(x)}
+{\Delta x}
+}
+\]
+
+</div>
+
+<p>
+This expression is called a <strong>difference quotient</strong>.
+</p>
+
+
+<h3>7. Example with \(f(x)=x^2\)</h3>
+
+<p>
+For
+</p>
+
+\[
+f(x)=x^2,
+\]
+
+<p>
+the difference quotient is
+</p>
+
+\[
+\frac{(x+\Delta x)^2-x^2}
+{\Delta x}.
+\]
+
+<p>
+Expanding,
+</p>
+
+\[
+=
+\frac{x^2+2x\Delta x+(\Delta x)^2-x^2}
+{\Delta x}.
+\]
+
+<p>
+So, for \(\Delta x\neq0\),
+</p>
+
+\[
+\frac{\Delta y}{\Delta x}
+=
+2x+\Delta x.
+\]
+
+
+<h3>8. Making the interval smaller</h3>
+
+<p>
+Suppose we begin at \(x=2\).
+Then
+</p>
+
+\[
+\frac{\Delta y}{\Delta x}
+=
+4+\Delta x.
+\]
+
+<p>
+Now make \(\Delta x\) smaller:
+</p>
+
+\[
+\begin{array}{c|c}
+\Delta x & 4+\Delta x\\
+\hline
+1 & 5\\
+0.5 & 4.5\\
+0.1 & 4.1\\
+0.01 & 4.01\\
+0.001 & 4.001
+\end{array}
+\]
+
+<p>
+The average rate gets closer and closer to
+</p>
+
+\[
+4.
+\]
+
+
+<h3>9. The question that creates calculus</h3>
+
+<p>
+Average rate of change uses two different points.
+</p>
+
+<p>
+But what if we want the rate of change at exactly one point?
+</p>
+
+<p>
+We cannot simply put
+</p>
+
+\[
+\Delta x=0
+\]
+
+<p>
+into
+</p>
+
+\[
+\frac{f(x+\Delta x)-f(x)}
+{\Delta x},
+\]
+
+<p>
+because that would produce division by zero.
+</p>
+
+<p>
+Instead, calculus studies what happens as
+</p>
+
+<div class="lesson-math">
+
+\[
+\Delta x\rightarrow0.
+\]
+
+</div>
+
+<p>
+The two points move closer together, and the secant line approaches a tangent line.
+This is where the idea of a limit becomes essential.
+</p>
+
+
+<div class="lesson-navigation">
+
+<a href="finite-change.html">
+← Finite Change
+</a>
+
+<a href="secant-lines.html">
+Next: Secant Lines →
+</a>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<div>
+<strong>dy/dx</strong>
+<p>Calculus Learning</p>
+</div>
+
+</footer>
+
+</body>
+
+</html>
