@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Continuity | dy/dx</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']]
+  }
+};
+</script>
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+</head>
+
+<body>
+
+<header class="site-header">
+
+<div class="brand">
+<a href="../index.html">dy/dx</a>
+</div>
+
+<nav class="top-nav">
+<a href="../index.html">Home</a>
+<a href="index.html">Change and Limits</a>
+</nav>
+
+</header>
+
+
+<main>
+
+<section class="lesson-header">
+
+<p class="eyebrow">CHANGE AND LIMITS 09</p>
+
+<h1>Continuity</h1>
+
+<p class="lesson-intro">
+A function is continuous at a point when its nearby values approach its actual value there.
+</p>
+
+</section>
+
+
+<section class="lesson-content">
+
+<h2>The main idea</h2>
+
+<p>
+A function \(f\) is continuous at \(x=a\) when
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\lim_{x\to a}f(x)=f(a)
+}
+\]
+
+</div>
+
+<p>
+So the limit and the actual function value agree.
+</p>
+
+
+<h3>1. Three conditions for continuity</h3>
+
+<p>
+For \(f\) to be continuous at \(x=a\), three things must hold.
+</p>
+
+<p>
+First, the function must be defined at \(a\):
+</p>
+
+\[
+f(a)\text{ exists.}
+\]
+
+<p>
+Second, the limit must exist:
+</p>
+
+\[
+\lim_{x\to a}f(x)\text{ exists.}
+\]
+
+<p>
+Third, they must be equal:
+</p>
+
+\[
+\lim_{x\to a}f(x)=f(a).
+\]
+
+
+<h3>2. A simple continuous function</h3>
+
+<p>
+Consider
+</p>
+
+\[
+f(x)=x^2.
+\]
+
+<p>
+At \(x=2\),
+</p>
+
+\[
+f(2)=4.
+\]
+
+<p>
+Also,
+</p>
+
+\[
+\lim_{x\to2}x^2=4.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+\lim_{x\to2}f(x)=f(2),
+\]
+
+<p>
+so \(f\) is continuous at \(x=2\).
+</p>
+
+
+<h3>3. Continuous on an interval</h3>
+
+<p>
+If a function is continuous at every point of an interval, we say it is continuous on that interval.
+</p>
+
+<p>
+Polynomial functions are continuous for all real \(x\).
+</p>
+
+<p>
+For example,
+</p>
+
+\[
+f(x)=x^3-2x+1
+\]
+
+<p>
+is continuous on
+</p>
+
+\[
+(-\infty,\infty).
+\]
+
+
+<h3>4. A removable discontinuity</h3>
+
+<p>
+Consider
+</p>
+
+\[
+f(x)=\frac{x^2-1}{x-1}.
+\]
+
+<p>
+For \(x\neq1\),
+</p>
+
+\[
+f(x)=x+1.
+\]
+
+<p>
+So
+</p>
+
+\[
+\lim_{x\to1}f(x)=2.
+\]
+
+<p>
+But the original function is undefined at \(x=1\).
+</p>
+
+<p>
+Therefore the function is not continuous there.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{limit exists}
+\quad\text{but}\quad
+f(1)\text{ does not exist}
+}
+\]
+
+</div>
+
+
+<h3>5. Filling the hole</h3>
+
+<p>
+If we define
+</p>
+
+\[
+f(1)=2,
+\]
+
+<p>
+then
+</p>
+
+\[
+\lim_{x\to1}f(x)=f(1)=2.
+\]
+
+<p>
+The discontinuity has been removed.
+</p>
+
+<p>
+This is why it is called a removable discontinuity.
+</p>
+
+
+<h3>6. A jump discontinuity</h3>
+
+<p>
+Suppose
+</p>
+
+\[
+f(x)=
+\begin{cases}
+1, & x<0,\\
+3, & x\ge0.
+\end{cases}
+\]
+
+<p>
+Then
+</p>
+
+\[
+\lim_{x\to0^-}f(x)=1
+\]
+
+<p>
+and
+</p>
+
+\[
+\lim_{x\to0^+}f(x)=3.
+\]
+
+<p>
+Since the two one-sided limits are different,
+</p>
+
+\[
+\lim_{x\to0}f(x)
+\]
+
+<p>
+does not exist.
+</p>
+
+<p>
+So the function is not continuous at \(x=0\).
+</p>
+
+
+<h3>7. Infinite discontinuity</h3>
+
+<p>
+Consider
+</p>
+
+\[
+f(x)=\frac{1}{x}.
+\]
+
+<p>
+At \(x=0\), the function is undefined.
+</p>
+
+<p>
+As \(x\) approaches \(0\), the function becomes unbounded.
+</p>
+
+\[
+\frac1x\to\infty
+\quad\text{or}\quad
+-\infty
+\]
+
+<p>
+depending on the direction of approach.
+</p>
+
+<p>
+This gives an infinite discontinuity.
+</p>
+
+
+<h3>8. Visual idea</h3>
+
+<div style="max-width:650px; margin:30px auto;">
+
+<svg viewBox="0 0 650 390"
+     width="100%"
+     role="img"
+     aria-labelledby="continuity-title continuity-desc"
+     xmlns="http://www.w3.org/2000/svg">
+
+<title id="continuity-title">
+Continuous and discontinuous graph behaviour
+</title>
+
+<desc id="continuity-desc">
+A smooth curve is shown on the left and a curve with a missing point is shown on the right.
+</desc>
+
+<line x1="60" y1="315" x2="590" y2="315"
+      stroke="currentColor" stroke-width="2"/>
+
+<line x1="120" y1="350" x2="120" y2="40"
+      stroke="currentColor" stroke-width="2"/>
+
+<path d="
+M 130 285
+C 200 255, 250 210, 300 155
+C 350 105, 410 80, 500 65
+"
+fill="none"
+stroke="currentColor"
+stroke-width="3"/>
+
+<circle cx="300" cy="155"
+        r="7"
+        fill="currentColor"/>
+
+<text x="270" y="140"
+      font-size="16"
+      fill="currentColor">
+continuous point
+</text>
+
+<circle cx="430" cy="88"
+        r="8"
+        fill="white"
+        stroke="currentColor"
+        stroke-width="3"/>
+
+<text x="445" y="80"
+      font-size="16"
+      fill="currentColor">
+missing point
+</text>
+
+</svg>
+
+</div>
+
+
+<h3>9. Continuous does not mean straight</h3>
+
+<p>
+A continuous graph may be curved.
+</p>
+
+<p>
+For example,
+</p>
+
+\[
+y=x^2
+\]
+
+<p>
+is continuous even though its slope changes.
+</p>
+
+<p>
+Continuity concerns breaks or gaps, not whether the graph is straight.
+</p>
+
+
+<h3>10. Continuous does not mean differentiable</h3>
+
+<p>
+A function can be continuous at a point but still fail to have a derivative there.
+</p>
+
+<p>
+For example,
+</p>
+
+\[
+f(x)=|x|
+\]
+
+<p>
+is continuous at \(x=0\), but its graph has a sharp corner there.
+</p>
+
+<p>
+The left and right slopes are different, so the derivative at \(0\) does not exist.
+</p>
+
+
+<h3>11. Why continuity matters for calculus</h3>
+
+<p>
+Differentiability requires continuity.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{differentiable}
+\Longrightarrow
+\text{continuous}
+}
+\]
+
+</div>
+
+<p>
+But the reverse is not always true.
+</p>
+
+<p>
+Continuity therefore provides an important bridge between limits and derivatives.
+</p>
+
+
+<h3>12. The next step</h3>
+
+<p>
+We now understand finite change, average rate of change, secant lines, limits and continuity.
+</p>
+
+<p>
+The next idea is to let the secant line approach a tangent line and define the derivative from first principles.
+</p>
+
+<div class="lesson-math">
+
+\[
+\frac{\Delta y}{\Delta x}
+\quad\xrightarrow[\Delta x\to0]{}
+\quad
+\frac{dy}{dx}.
+\]
+
+</div>
+
+
+<div class="lesson-navigation">
+
+<a href="one-sided-limits.html">
+← One-Sided Limits
+</a>
+
+<a href="../derivatives/index.html">
+Next: Differentiation →
+</a>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<div>
+<strong>dy/dx</strong>
+<p>Calculus Learning</p>
+</div>
+
+</footer>
+
+</body>
+
+</html>
