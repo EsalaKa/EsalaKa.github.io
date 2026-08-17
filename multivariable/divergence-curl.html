@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Divergence and Curl | dy/dx</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']]
+  }
+};
+</script>
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+</head>
+
+
+<body>
+
+
+<header class="site-header">
+
+<div class="brand">
+<a href="../index.html">dy/dx</a>
+</div>
+
+<nav class="top-nav">
+<a href="../index.html">Home</a>
+<a href="index.html">Multivariable Calculus</a>
+</nav>
+
+</header>
+
+
+<main>
+
+
+<section class="lesson-header">
+
+<p class="eyebrow">MULTIVARIABLE CALCULUS 09</p>
+
+<h1>Divergence and Curl</h1>
+
+<p class="lesson-intro">
+Divergence measures local spreading or compression in a vector field, while curl measures local rotational tendency.
+</p>
+
+</section>
+
+
+<section class="lesson-content">
+
+
+<h2>The main idea</h2>
+
+<p>
+Suppose we have a two-dimensional vector field
+</p>
+
+\[
+\mathbf{F}(x,y)
+=
+\begin{pmatrix}
+P(x,y)\\
+Q(x,y)
+\end{pmatrix}.
+\]
+
+<p>
+At every point, the field gives a direction and magnitude.
+</p>
+
+<p>
+Two important questions are:
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{Is the field locally spreading outward or flowing inward?}
+}
+\]
+
+\[
+\boxed{
+\text{Does the field have a local tendency to rotate?}
+}
+\]
+
+</div>
+
+<p>
+Divergence answers the first question. Curl answers the second.
+</p>
+
+
+<h3>1. Divergence</h3>
+
+<p>
+For
+</p>
+
+\[
+\mathbf{F}
+=
+\begin{pmatrix}
+P\\
+Q
+\end{pmatrix},
+\]
+
+<p>
+the divergence is
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\nabla\cdot\mathbf{F}
+=
+\frac{\partial P}{\partial x}
++
+\frac{\partial Q}{\partial y}
+}
+\]
+
+</div>
+
+<p>
+The result is a scalar.
+</p>
+
+
+<h3>2. Reading the notation</h3>
+
+<p>
+The expression
+</p>
+
+\[
+\nabla\cdot\mathbf{F}
+\]
+
+<p>
+is read as
+</p>
+
+<p>
+<strong>“the divergence of \(\mathbf{F}\)”</strong>
+</p>
+
+<p>
+or sometimes</p>
+
+<p>
+<strong>“del dot \(\mathbf{F}\)”</strong>.
+</p>
+
+
+<h3>3. What does divergence measure?</h3>
+
+<p>
+Imagine a very small region surrounding a point in a flowing fluid.
+</p>
+
+<p>
+If more fluid flows out of the region than flows into it, the point behaves locally like a source.
+</p>
+
+<p>
+If more flows in than out, it behaves locally like a sink.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\nabla\cdot\mathbf{F}>0
+\quad\Rightarrow\quad
+\text{local outward spreading}
+}
+\]
+
+\[
+\boxed{
+\nabla\cdot\mathbf{F}<0
+\quad\Rightarrow\quad
+\text{local inward compression}
+}
+\]
+
+\[
+\boxed{
+\nabla\cdot\mathbf{F}=0
+\quad\Rightarrow\quad
+\text{no net local expansion}
+}
+\]
+
+</div>
+
+
+<h3>4. Example of positive divergence</h3>
+
+<p>
+Consider
+</p>
+
+\[
+\mathbf{F}(x,y)
+=
+\begin{pmatrix}
+x\\
+y
+\end{pmatrix}.
+\]
+
+<p>
+Here,
+</p>
+
+\[
+P=x,
+\qquad
+Q=y.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+\frac{\partial P}{\partial x}=1
+\]
+
+<p>
+and
+</p>
+
+\[
+\frac{\partial Q}{\partial y}=1.
+\]
+
+<p>
+Hence,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\nabla\cdot\mathbf{F}=2
+}
+\]
+
+</div>
+
+<p>
+The positive value agrees with the fact that the vectors point outward from the origin.
+</p>
+
+
+<h3>5. Outward-flow diagram</h3>
+
+<div style="max-width:650px; margin:30px auto;">
+
+<svg viewBox="0 0 650 400"
+     width="100%"
+     role="img"
+     aria-labelledby="div-title div-desc"
+     xmlns="http://www.w3.org/2000/svg">
+
+<title id="div-title">
+Vector field with positive divergence
+</title>
+
+<desc id="div-desc">
+Arrows point outward from a central point, illustrating local positive divergence.
+</desc>
+
+<circle cx="325" cy="200" r="7"
+        fill="currentColor"/>
+
+<!-- horizontal -->
+<line x1="295" y1="200" x2="205" y2="200"
+      stroke="currentColor" stroke-width="3"/>
+<polygon points="195,200 211,191 211,209"
+         fill="currentColor"/>
+
+<line x1="355" y1="200" x2="445" y2="200"
+      stroke="currentColor" stroke-width="3"/>
+<polygon points="455,200 439,191 439,209"
+         fill="currentColor"/>
+
+<!-- vertical -->
+<line x1="325" y1="170" x2="325" y2="85"
+      stroke="currentColor" stroke-width="3"/>
+<polygon points="325,75 316,91 334,91"
+         fill="currentColor"/>
+
+<line x1="325" y1="230" x2="325" y2="315"
+      stroke="currentColor" stroke-width="3"/>
+<polygon points="325,325 316,309 334,309"
+         fill="currentColor"/>
+
+<!-- diagonals -->
+<line x1="302" y1="177" x2="240" y2="115"
+      stroke="currentColor" stroke-width="2"/>
+<polygon points="233,108 250,114 239,125"
+         fill="currentColor"/>
+
+<line x1="348" y1="177" x2="410" y2="115"
+      stroke="currentColor" stroke-width="2"/>
+<polygon points="417,108 411,125 400,114"
+         fill="currentColor"/>
+
+<line x1="302" y1="223" x2="240" y2="285"
+      stroke="currentColor" stroke-width="2"/>
+<polygon points="233,292 239,275 250,286"
+         fill="currentColor"/>
+
+<line x1="348" y1="223" x2="410" y2="285"
+      stroke="currentColor" stroke-width="2"/>
+<polygon points="417,292 400,286 411,275"
+         fill="currentColor"/>
+
+<text x="260" y="365"
+      font-size="17"
+      fill="currentColor">
+positive divergence
+</text>
+
+</svg>
+
+</div>
+
+
+<h3>6. Example of negative divergence</h3>
+
+<p>
+Consider
+</p>
+
+\[
+\mathbf{F}(x,y)
+=
+\begin{pmatrix}
+-x\\
+-y
+\end{pmatrix}.
+\]
+
+<p>
+Then
+</p>
+
+\[
+\frac{\partial(-x)}{\partial x}=-1
+\]
+
+<p>
+and
+</p>
+
+\[
+\frac{\partial(-y)}{\partial y}=-1.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+\boxed{
+\nabla\cdot\mathbf{F}=-2
+}
+\]
+
+<p>
+The vectors point inward, so the field has negative divergence.
+</p>
+
+
+<h3>7. Zero divergence does not mean zero field</h3>
+
+<p>
+Consider
+</p>
+
+\[
+\mathbf{F}(x,y)
+=
+\begin{pmatrix}
+-y\\
+x
+\end{pmatrix}.
+\]
+
+<p>
+Then
+</p>
+
+\[
+\frac{\partial(-y)}{\partial x}=0
+\]
+
+<p>
+and
+</p>
+
+\[
+\frac{\partial x}{\partial y}=0.
+\]
+
+<p>
+So
+</p>
+
+\[
+\boxed{
+\nabla\cdot\mathbf{F}=0
+}
+\]
+
+<p>
+The field is not zero. It simply has no net local expansion or contraction.
+</p>
+
+
+<h3>8. Curl</h3>
+
+<p>
+Curl measures local rotational tendency.
+</p>
+
+<p>
+For a two-dimensional field
+</p>
+
+\[
+\mathbf{F}
+=
+\begin{pmatrix}
+P\\
+Q
+\end{pmatrix},
+\]
+
+<p>
+the scalar rotational component is
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\frac{\partial Q}{\partial x}
+-
+\frac{\partial P}{\partial y}
+}
+\]
+
+</div>
+
+<p>
+This is the component of the three-dimensional curl perpendicular to the \(xy\)-plane.
+</p>
+
+
+<h3>9. Example of rotation</h3>
+
+<p>
+Again consider
+</p>
+
+\[
+\mathbf{F}(x,y)
+=
+\begin{pmatrix}
+-y\\
+x
+\end{pmatrix}.
+\]
+
+<p>
+Here,
+</p>
+
+\[
+P=-y,
+\qquad
+Q=x.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+\frac{\partial Q}{\partial x}=1
+\]
+
+<p>
+and
+</p>
+
+\[
+\frac{\partial P}{\partial y}=-1.
+\]
+
+<p>
+Hence,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\frac{\partial Q}{\partial x}
+-
+\frac{\partial P}{\partial y}
+=
+2
+}
+\]
+
+</div>
+
+<p>
+The nonzero result agrees with the rotational behaviour of the field.
+</p>
+
+
+<h3>10. Rotational-field diagram</h3>
+
+<div style="max-width:650px; margin:30px auto;">
+
+<svg viewBox="0 0 650 400"
+     width="100%"
+     role="img"
+     aria-labelledby="curl-title curl-desc"
+     xmlns="http://www.w3.org/2000/svg">
+
+<title id="curl-title">
+Vector field with rotational tendency
+</title>
+
+<desc id="curl-desc">
+Arrows circulate counterclockwise around a central point, illustrating nonzero curl.
+</desc>
+
+<circle cx="325" cy="200" r="105"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        opacity="0.25"/>
+
+<!-- top arrow left -->
+<line x1="365" y1="95" x2="285" y2="95"
+      stroke="currentColor"
+      stroke-width="3"/>
+<polygon points="275,95 291,86 291,104"
+         fill="currentColor"/>
+
+<!-- left arrow down -->
+<line x1="220" y1="160" x2="220" y2="240"
+      stroke="currentColor"
+      stroke-width="3"/>
+<polygon points="220,250 211,234 229,234"
+         fill="currentColor"/>
+
+<!-- bottom arrow right -->
+<line x1="285" y1="305" x2="365" y2="305"
+      stroke="currentColor"
+      stroke-width="3"/>
+<polygon points="375,305 359,296 359,314"
+         fill="currentColor"/>
+
+<!-- right arrow up -->
+<line x1="430" y1="240" x2="430" y2="160"
+      stroke="currentColor"
+      stroke-width="3"/>
+<polygon points="430,150 421,166 439,166"
+         fill="currentColor"/>
+
+<circle cx="325" cy="200" r="6"
+        fill="currentColor"/>
+
+<text x="260" y="360"
+      font-size="17"
+      fill="currentColor">
+rotational tendency
+</text>
+
+</svg>
+
+</div>
+
+
+<h3>11. Curl in three dimensions</h3>
+
+<p>
+For a three-dimensional vector field
+</p>
+
+\[
+\mathbf{F}
+=
+\begin{pmatrix}
+P\\
+Q\\
+R
+\end{pmatrix},
+\]
+
+<p>
+the curl is a vector:
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\nabla\times\mathbf{F}
+=
+\begin{pmatrix}
+R_y-Q_z\\
+P_z-R_x\\
+Q_x-P_y
+\end{pmatrix}
+}
+\]
+
+</div>
+
+
+<h3>12. Determinant notation for curl</h3>
+
+<p>
+The same expression is often remembered using
+</p>
+
+\[
+\nabla\times\mathbf{F}
+=
+\begin{vmatrix}
+\mathbf{i} & \mathbf{j} & \mathbf{k}\\
+\partial/\partial x &
+\partial/\partial y &
+\partial/\partial z\\
+P & Q & R
+\end{vmatrix}.
+\]
+
+<p>
+This is a useful mnemonic for calculating the components of the curl.
+</p>
+
+
+<h3>13. Physical intuition for curl</h3>
+
+<p>
+Imagine placing a tiny paddle wheel in a flowing fluid.
+</p>
+
+<p>
+If the local flow tends to make the wheel rotate, the curl is nonzero.
+</p>
+
+<p>
+The direction of the curl vector gives the axis of local rotation, according to the right-hand rule.
+</p>
+
+
+<h3>14. Divergence and curl are different</h3>
+
+<p>
+A field can spread without rotating.
+</p>
+
+<p>
+For example,
+</p>
+
+\[
+\mathbf{F}=(x,y)
+\]
+
+<p>
+has positive divergence but zero two-dimensional curl.
+</p>
+
+<p>
+A field can also rotate without spreading.
+</p>
+
+<p>
+For example,
+</p>
+
+\[
+\mathbf{F}=(-y,x)
+\]
+
+<p>
+has zero divergence but nonzero curl.
+</p>
+
+
+<h3>15. Comparison</h3>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\nabla\cdot\mathbf{F}
+\quad
+\text{measures local expansion or compression}
+}
+\]
+
+\[
+\boxed{
+\nabla\times\mathbf{F}
+\quad
+\text{measures local rotation}
+}
+\]
+
+</div>
+
+
+<h3>16. The operator \(\nabla\)</h3>
+
+<p>
+In three dimensions,
+</p>
+
+\[
+\nabla
+=
+\begin{pmatrix}
+\partial/\partial x\\
+\partial/\partial y\\
+\partial/\partial z
+\end{pmatrix}.
+\]
+
+<p>
+Applying it to a scalar field gives the gradient:
+</p>
+
+\[
+\boxed{
+\nabla f
+=
+\text{gradient}
+}
+\]
+
+<p>
+Taking its dot product with a vector field gives divergence:
+</p>
+
+\[
+\boxed{
+\nabla\cdot\mathbf{F}
+=
+\text{divergence}
+}
+\]
+
+<p>
+Taking its cross product with a vector field gives curl:
+</p>
+
+\[
+\boxed{
+\nabla\times\mathbf{F}
+=
+\text{curl}
+}
+\]
+
+
+<h3>17. Notice the different outputs</h3>
+
+<p>
+If \(f\) is a scalar field,
+</p>
+
+\[
+\nabla f
+\]
+
+<p>
+is a vector.
+</p>
+
+<p>
+If \(\mathbf{F}\) is a vector field,
+</p>
+
+\[
+\nabla\cdot\mathbf{F}
+\]
+
+<p>
+is a scalar.
+</p>
+
+<p>
+In three dimensions,
+</p>
+
+\[
+\nabla\times\mathbf{F}
+\]
+
+<p>
+is a vector.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{scalar}
+\xrightarrow{\nabla}
+\text{vector}
+}
+\]
+
+\[
+\boxed{
+\text{vector}
+\xrightarrow{\nabla\cdot}
+\text{scalar}
+}
+\]
+
+\[
+\boxed{
+\text{vector}
+\xrightarrow{\nabla\times}
+\text{vector}
+}
+\]
+
+</div>
+
+
+<h3>18. Divergence in conservation models</h3>
+
+<p>
+Suppose
+</p>
+
+\[
+\rho(x,y,z,t)
+\]
+
+<p>
+represents the density of some conserved quantity and
+</p>
+
+\[
+\mathbf{J}
+\]
+
+<p>
+represents its flux.
+</p>
+
+<p>
+A basic conservation equation is
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\frac{\partial\rho}{\partial t}
++
+\nabla\cdot\mathbf{J}
+=
+0
+}
+\]
+
+</div>
+
+<p>
+If material flows out of a small region, the amount remaining inside decreases.
+</p>
+
+
+<h3>19. Why this matters in mathematical modelling</h3>
+
+<p>
+Divergence and curl allow us to describe local properties of flows without following every individual particle.
+</p>
+
+<p>
+They appear in fluid dynamics, electromagnetism, diffusion, conservation laws and partial differential equations.
+</p>
+
+
+<h3>20. A useful warning</h3>
+
+<p>
+A picture of arrows can suggest whether a field is spreading or rotating, but divergence and curl are local derivative quantities.
+</p>
+
+<p>
+They are calculated from how the vector components change near each point.
+</p>
+
+<p>
+So the mathematical definitions, rather than visual appearance alone, determine their values.
+</p>
+
+
+<h3>21. The central idea</h3>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\mathbf{F}
+\longrightarrow
+\nabla\cdot\mathbf{F}
+\longrightarrow
+\text{local expansion}
+}
+\]
+
+\[
+\boxed{
+\mathbf{F}
+\longrightarrow
+\nabla\times\mathbf{F}
+\longrightarrow
+\text{local rotation}
+}
+\]
+
+</div>
+
+<p>
+Together, divergence and curl reveal two fundamental local behaviours hidden inside a vector field.
+</p>
+
+
+<div class="lesson-navigation">
+
+<a href="vector-fields.html">
+← Vector Fields
+</a>
+
+<a href="line-integrals.html">
+Next: Line Integrals →
+</a>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<div>
+<strong>dy/dx</strong>
+<p>Calculus Learning</p>
+</div>
+
+</footer>
+
+
+</body>
+
+</html>
