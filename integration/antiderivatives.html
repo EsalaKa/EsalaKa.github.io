@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Antiderivatives | dy/dx</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']]
+  }
+};
+</script>
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+</head>
+
+<body>
+
+<header class="site-header">
+
+<div class="brand">
+<a href="../index.html">dy/dx</a>
+</div>
+
+<nav class="top-nav">
+<a href="../index.html">Home</a>
+<a href="index.html">Integration</a>
+</nav>
+
+</header>
+
+
+<main>
+
+<section class="lesson-header">
+
+<p class="eyebrow">INTEGRATION 02</p>
+
+<h1>Antiderivatives</h1>
+
+<p class="lesson-intro">
+An antiderivative reverses differentiation: from a known derivative, we recover a function that could have produced it.
+</p>
+
+</section>
+
+
+<section class="lesson-content">
+
+
+<h2>The main idea</h2>
+
+<p>
+Suppose
+</p>
+
+\[
+F'(x)=f(x).
+\]
+
+<p>
+Then \(F(x)\) is called an <strong>antiderivative</strong> of \(f(x)\).
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+F'(x)=f(x)
+\quad\Longleftrightarrow\quad
+F(x)\text{ is an antiderivative of }f(x)
+}
+\]
+
+</div>
+
+
+<h3>1. Reversing differentiation</h3>
+
+<p>
+We know that
+</p>
+
+\[
+\frac{d}{dx}x^3=3x^2.
+\]
+
+<p>
+Therefore, if we start with
+</p>
+
+\[
+3x^2,
+\]
+
+<p>
+one antiderivative is
+</p>
+
+\[
+x^3.
+\]
+
+<p>
+So differentiation and antidifferentiation move in opposite directions:
+</p>
+
+<div class="lesson-math">
+
+\[
+x^3
+\quad\xrightarrow{\ d/dx\ }\quad
+3x^2
+\]
+
+\[
+3x^2
+\quad\xrightarrow{\ \text{antidifferentiate}\ }\quad
+x^3.
+\]
+
+</div>
+
+
+<h3>2. But the antiderivative is not unique</h3>
+
+<p>
+Consider
+</p>
+
+\[
+x^3,
+\qquad
+x^3+2,
+\qquad
+x^3-7.
+\]
+
+<p>
+Differentiating each gives
+</p>
+
+\[
+3x^2.
+\]
+
+<p>
+This happens because the derivative of every constant is zero.
+</p>
+
+<p>
+Therefore \(3x^2\) has infinitely many antiderivatives.
+</p>
+
+
+<h3>3. The constant of integration</h3>
+
+<p>
+We represent all possible antiderivatives by writing
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\int 3x^2\,dx=x^3+C
+}
+\]
+
+</div>
+
+<p>
+where \(C\) is an arbitrary constant.
+</p>
+
+<p>
+The symbol \(C\) is called the <strong>constant of integration</strong>.
+</p>
+
+
+<h3>4. Why \(C\) is necessary</h3>
+
+<p>
+Suppose
+</p>
+
+\[
+F(x)=x^3+C.
+\]
+
+<p>
+Then
+</p>
+
+\[
+F'(x)=3x^2
+\]
+
+<p>
+for every constant \(C\).
+</p>
+
+<p>
+Differentiation loses information about additive constants.
+Antidifferentiation therefore cannot recover which constant was originally present.
+</p>
+
+
+<h3>5. Indefinite integral notation</h3>
+
+<p>
+The notation
+</p>
+
+\[
+\int f(x)\,dx
+\]
+
+<p>
+means the family of antiderivatives of \(f(x)\).
+</p>
+
+<p>
+Thus,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\int f(x)\,dx=F(x)+C
+}
+\]
+
+</div>
+
+<p>
+whenever
+</p>
+
+\[
+F'(x)=f(x).
+\]
+
+<p>
+This is called an <strong>indefinite integral</strong>.
+</p>
+
+
+<h3>6. The reverse power rule</h3>
+
+<p>
+The differentiation rule
+</p>
+
+\[
+\frac{d}{dx}x^{n+1}
+=
+(n+1)x^n
+\]
+
+<p>
+can be reversed.
+</p>
+
+<p>
+Therefore,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\int x^n\,dx
+=
+\frac{x^{n+1}}{n+1}+C,
+\qquad n\neq-1
+}
+\]
+
+</div>
+
+<p>
+To integrate a power of \(x\):
+</p>
+
+<p>
+increase the power by \(1\), then divide by the new power.
+</p>
+
+
+<h3>7. Example</h3>
+
+<p>
+Consider
+</p>
+
+\[
+\int x^4\,dx.
+\]
+
+<p>
+Increase the power:
+</p>
+
+\[
+4+1=5.
+\]
+
+<p>
+Then divide by \(5\):
+</p>
+
+\[
+\boxed{
+\int x^4\,dx
+=
+\frac{x^5}{5}+C
+}
+\]
+
+
+<h3>8. Check by differentiating</h3>
+
+<p>
+We can check the answer:
+</p>
+
+\[
+\frac{d}{dx}
+\left(
+\frac{x^5}{5}+C
+\right)
+=
+\frac{1}{5}(5x^4)+0.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+\frac{d}{dx}
+\left(
+\frac{x^5}{5}+C
+\right)
+=
+x^4.
+\]
+
+<p>
+So the antiderivative is correct.
+</p>
+
+
+<h3>9. Constant multiples</h3>
+
+<p>
+Constants can be kept outside the integration process.
+</p>
+
+<p>
+For example,
+</p>
+
+\[
+\int 6x^2\,dx
+=
+6\int x^2\,dx.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+6\left(\frac{x^3}{3}\right)+C
+=
+2x^3+C.
+\]
+
+<p>
+So
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\int 6x^2\,dx
+=
+2x^3+C
+}
+\]
+
+</div>
+
+
+<h3>10. Integrating term by term</h3>
+
+<p>
+Sums and differences can be integrated term by term.
+</p>
+
+<p>
+Consider
+</p>
+
+\[
+\int(3x^2+4x-5)\,dx.
+\]
+
+<p>
+Integrate each term:
+</p>
+
+\[
+\int3x^2\,dx
++
+\int4x\,dx
+-
+\int5\,dx.
+\]
+
+<p>
+This gives
+</p>
+
+\[
+x^3+2x^2-5x+C.
+\]
+
+<p>
+Therefore,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\int(3x^2+4x-5)\,dx
+=
+x^3+2x^2-5x+C
+}
+\]
+
+</div>
+
+
+<h3>11. Integrating a constant</h3>
+
+<p>
+If \(c\) is constant, then
+</p>
+
+\[
+\boxed{
+\int c\,dx=cx+C
+}
+\]
+
+<p>
+because
+</p>
+
+\[
+\frac{d}{dx}(cx)=c.
+\]
+
+
+<h3>12. Negative powers</h3>
+
+<p>
+The reverse power rule also works for negative powers, except \(x^{-1}\).
+</p>
+
+<p>
+For example,
+</p>
+
+\[
+\int x^{-2}\,dx.
+\]
+
+<p>
+Increase the power:
+</p>
+
+\[
+-2+1=-1.
+\]
+
+<p>
+Then divide by \(-1\):
+</p>
+
+\[
+\boxed{
+\int x^{-2}\,dx
+=
+-x^{-1}+C
+=
+-\frac{1}{x}+C
+}
+\]
+
+
+<h3>13. Fractional powers</h3>
+
+<p>
+Roots can be written as powers.
+</p>
+
+<p>
+For example,
+</p>
+
+\[
+\sqrt{x}=x^{1/2}.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+\int\sqrt{x}\,dx
+=
+\int x^{1/2}\,dx.
+\]
+
+<p>
+Increase the power:
+</p>
+
+\[
+\frac12+1=\frac32.
+\]
+
+<p>
+Then divide by \(3/2\):
+</p>
+
+\[
+\boxed{
+\int\sqrt{x}\,dx
+=
+\frac{2}{3}x^{3/2}+C
+}
+\]
+
+
+<h3>14. Why \(n=-1\) is different</h3>
+
+<p>
+The power rule formula
+</p>
+
+\[
+\frac{x^{n+1}}{n+1}
+\]
+
+<p>
+cannot be used when
+</p>
+
+\[
+n=-1,
+\]
+
+<p>
+because then
+</p>
+
+\[
+n+1=0,
+\]
+
+<p>
+and division by zero is undefined.
+</p>
+
+<p>
+Instead,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\int\frac{1}{x}\,dx
+=
+\ln|x|+C
+}
+\]
+
+</div>
+
+<p>
+for \(x\neq0\).
+</p>
+
+
+<h3>15. Some basic antiderivatives</h3>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\int x^n\,dx
+=
+\frac{x^{n+1}}{n+1}+C,
+\qquad n\neq-1
+}
+\]
+
+\[
+\boxed{
+\int\frac{1}{x}\,dx
+=
+\ln|x|+C
+}
+\]
+
+\[
+\boxed{
+\int e^x\,dx
+=
+e^x+C
+}
+\]
+
+\[
+\boxed{
+\int\cos x\,dx
+=
+\sin x+C
+}
+\]
+
+\[
+\boxed{
+\int\sin x\,dx
+=
+-\cos x+C
+}
+\]
+
+</div>
+
+
+<h3>16. Derivative and antiderivative</h3>
+
+<p>
+Differentiation asks:
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{How is this function changing?}
+}
+\]
+
+</div>
+
+<p>
+Antidifferentiation asks the reverse question:
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{What function has this rate of change?}
+}
+\]
+
+</div>
+
+<p>
+For example,
+</p>
+
+\[
+F'(x)=2x
+\]
+
+<p>
+leads to
+</p>
+
+\[
+F(x)=x^2+C.
+\]
+
+
+<h3>17. Connection with accumulation</h3>
+
+<p>
+At first, integration appears to have two different meanings:
+</p>
+
+<p>
+one as <strong>accumulation</strong>, and another as <strong>antidifferentiation</strong>.
+</p>
+
+<p>
+These ideas are not separate.
+</p>
+
+<p>
+The Fundamental Theorem of Calculus shows that accumulated change can be calculated using antiderivatives.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{accumulation}
+\longleftrightarrow
+\text{antiderivative}
+}
+\]
+
+</div>
+
+
+<div class="lesson-navigation">
+
+<a href="accumulation.html">
+← Integration as Accumulation
+</a>
+
+<a href="definite-integrals.html">
+Next: Definite Integrals →
+</a>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<div>
+<strong>dy/dx</strong>
+<p>Calculus Learning</p>
+</div>
+
+</footer>
+
+</body>
+
+</html>
