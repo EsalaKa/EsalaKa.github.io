@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Why Stochastic Calculus? | dy/dx</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']]
+  }
+};
+</script>
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+</head>
+
+
+<body>
+
+
+<header class="site-header">
+
+<div class="brand">
+<a href="../index.html">dy/dx</a>
+</div>
+
+<nav class="top-nav">
+<a href="../index.html">Home</a>
+<a href="index.html">Stochastic Calculus</a>
+</nav>
+
+</header>
+
+
+<main>
+
+
+<section class="lesson-header">
+
+<p class="eyebrow">STOCHASTIC CALCULUS 01</p>
+
+<h1>Why Ordinary Calculus Is Not Enough</h1>
+
+<p class="lesson-intro">
+Ordinary calculus describes smooth or sufficiently regular change. Stochastic calculus extends these ideas to systems containing continuous random fluctuations.
+</p>
+
+</section>
+
+
+<section class="lesson-content">
+
+
+<h2>The main idea</h2>
+
+<p>
+In ordinary calculus, we often model a changing quantity \(X(t)\) using a differential equation such as
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\frac{dX}{dt}=f(X,t)
+}
+\]
+
+</div>
+
+<p>
+Once the initial condition is known, the equation determines how the system evolves.
+</p>
+
+<p>
+This is a <strong>deterministic model</strong>.
+</p>
+
+
+<h3>1. Deterministic change</h3>
+
+<p>
+Consider
+</p>
+
+\[
+\frac{dX}{dt}=2X.
+\]
+
+<p>
+If
+</p>
+
+\[
+X(0)=1,
+\]
+
+<p>
+then the solution is
+</p>
+
+\[
+\boxed{
+X(t)=e^{2t}
+}
+\]
+
+<p>
+The same initial condition and the same equation always give the same trajectory.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{same starting point}
++
+\text{same model}
+\Rightarrow
+\text{same trajectory}
+}
+\]
+
+</div>
+
+
+<h3>2. But many real systems contain randomness</h3>
+
+<p>
+In many systems, the direction of average change may be known, but the exact evolution is uncertain.
+</p>
+
+<p>
+Examples include population growth, epidemics, financial prices, molecular motion and environmental systems.
+</p>
+
+<p>
+The observed path may fluctuate around the behaviour predicted by a deterministic model.
+</p>
+
+
+<h3>3. A deterministic epidemic example</h3>
+
+<p>
+Suppose \(I(t)\) represents the number or proportion of infectious individuals.
+</p>
+
+<p>
+A simple deterministic model may have the form
+</p>
+
+\[
+\frac{dI}{dt}
+=
+\text{infection rate}
+-
+\text{recovery rate}.
+\]
+
+<p>
+For an SIS model,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\frac{dI}{dt}
+=
+\beta\frac{SI}{N}
+-
+\gamma I
+}
+\]
+
+</div>
+
+<p>
+This equation describes the net average direction of change.
+</p>
+
+
+<h3>4. What the deterministic equation does not describe</h3>
+
+<p>
+Actual infection and recovery events do not occur as smooth fractions of events.
+</p>
+
+<p>
+During a short period, there may be more infections than expected, fewer infections than expected, or more recoveries than expected.
+</p>
+
+<p>
+Therefore two epidemics with the same parameters and initial conditions can follow different paths.
+</p>
+
+
+<h3>5. Average behaviour and random behaviour</h3>
+
+<p>
+Suppose the deterministic model predicts a change
+</p>
+
+\[
+\Delta I_{\text{det}}.
+\]
+
+<p>
+A stochastic model allows the actual change to differ from this average direction:
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{actual change}
+=
+\text{systematic change}
++
+\text{random fluctuation}
+}
+\]
+
+</div>
+
+<p>
+This simple idea is the starting point for stochastic differential equations.
+</p>
+
+
+<h3>6. From an ODE to an SDE</h3>
+
+<p>
+An ordinary differential equation may be written in differential form as
+</p>
+
+\[
+dX_t
+=
+a(X_t,t)\,dt.
+\]
+
+<p>
+The term
+</p>
+
+\[
+a(X_t,t)\,dt
+\]
+
+<p>
+describes the deterministic change over a small time interval.
+</p>
+
+<p>
+To include continuous random fluctuations, we introduce another term:
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+dX_t
+=
+a(X_t,t)\,dt
++
+b(X_t,t)\,dW_t
+}
+\]
+
+</div>
+
+<p>
+This is a stochastic differential equation, or SDE.
+</p>
+
+
+<h3>7. The two parts of an SDE</h3>
+
+<p>
+The term
+</p>
+
+\[
+a(X_t,t)\,dt
+\]
+
+<p>
+is called the <strong>drift term</strong>.
+</p>
+
+<p>
+It represents the systematic or average local direction of change.
+</p>
+
+<p>
+The term
+</p>
+
+\[
+b(X_t,t)\,dW_t
+\]
+
+<p>
+is called the <strong>diffusion term</strong>.
+</p>
+
+<p>
+It represents continuous random fluctuations.
+</p>
+
+
+<h3>8. Drift</h3>
+
+<p>
+The drift coefficient
+</p>
+
+\[
+a(X_t,t)
+\]
+
+<p>
+plays a role similar to the rate appearing in an ordinary differential equation.
+</p>
+
+<p>
+If the stochastic term were removed,
+</p>
+
+\[
+dX_t=a(X_t,t)\,dt,
+\]
+
+<p>
+we would again have deterministic evolution.
+</p>
+
+
+<h3>9. Diffusion</h3>
+
+<p>
+The coefficient
+</p>
+
+\[
+b(X_t,t)
+\]
+
+<p>
+controls the strength of the random fluctuations.
+</p>
+
+<p>
+If \(b\) is larger, random deviations are generally larger.
+</p>
+
+<p>
+If
+</p>
+
+\[
+b=0,
+\]
+
+<p>
+the stochastic equation reduces to an ordinary deterministic equation.
+</p>
+
+
+<h3>10. What is \(W_t\)?</h3>
+
+<p>
+The symbol
+</p>
+
+\[
+W_t
+\]
+
+<p>
+denotes <strong>Brownian motion</strong>, also called a Wiener process.
+</p>
+
+<p>
+Brownian motion provides the basic source of continuous randomness used in many SDE models.
+</p>
+
+<p>
+Its change over a time interval is
+</p>
+
+\[
+\Delta W
+=
+W(t+\Delta t)-W(t).
+\]
+
+
+<h3>11. Brownian increments</h3>
+
+<p>
+For a time interval of length \(\Delta t\),
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\Delta W
+\sim
+N(0,\Delta t)
+}
+\]
+
+</div>
+
+<p>
+This means the Brownian increment is normally distributed with mean
+</p>
+
+\[
+0
+\]
+
+<p>
+and variance
+</p>
+
+\[
+\Delta t.
+\]
+
+<p>
+Therefore its standard deviation is
+</p>
+
+\[
+\boxed{
+\sqrt{\Delta t}
+}
+\]
+
+
+<h3>12. Generating a Brownian increment</h3>
+
+<p>
+If
+</p>
+
+\[
+Z\sim N(0,1),
+\]
+
+<p>
+then we can generate a Brownian increment using
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\Delta W
+=
+\sqrt{\Delta t}\,Z
+}
+\]
+
+</div>
+
+<p>
+The random number \(Z\) determines the random direction and relative size of the fluctuation.
+</p>
+
+
+<h3>13. Why \(\sqrt{\Delta t}\) rather than \(\Delta t\)?</h3>
+
+<p>
+Brownian motion has the property
+</p>
+
+\[
+\operatorname{Var}(\Delta W)=\Delta t.
+\]
+
+<p>
+Since standard deviation is the square root of variance,
+</p>
+
+\[
+\operatorname{SD}(\Delta W)
+=
+\sqrt{\Delta t}.
+\]
+
+<p>
+Therefore Brownian fluctuations naturally scale like
+</p>
+
+\[
+\boxed{
+\sqrt{\Delta t}
+}
+\]
+
+<p>
+rather than like \(\Delta t\).
+</p>
+
+
+<h3>14. A crucial difference in scale</h3>
+
+<p>
+Over a small time interval,
+</p>
+
+\[
+\text{drift change}
+\sim
+\Delta t,
+\]
+
+<p>
+while</p>
+
+\[
+\text{Brownian change}
+\sim
+\sqrt{\Delta t}.
+\]
+
+<p>
+For example, if
+</p>
+
+\[
+\Delta t=0.0001,
+\]
+
+<p>
+then
+</p>
+
+\[
+\Delta t=0.0001
+\]
+
+<p>
+but</p>
+
+\[
+\sqrt{\Delta t}=0.01.
+\]
+
+<p>
+This difference becomes fundamental in stochastic calculus.
+</p>
+
+
+<h3>15. Ordinary smooth paths</h3>
+
+<p>
+For a smooth deterministic function \(x(t)\), a small change behaves approximately like
+</p>
+
+\[
+\Delta x
+\approx
+x'(t)\Delta t.
+\]
+
+<p>
+Dividing by \(\Delta t\),
+</p>
+
+\[
+\frac{\Delta x}{\Delta t}
+\]
+
+<p>
+approaches a finite derivative as</p>
+
+\[
+\Delta t\to0.
+\]
+
+
+<h3>16. Brownian paths behave differently</h3>
+
+<p>
+A Brownian increment has typical size
+</p>
+
+\[
+\Delta W\sim\sqrt{\Delta t}.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+\frac{\Delta W}{\Delta t}
+\]
+
+<p>
+has typical size</p>
+
+\[
+\frac{\sqrt{\Delta t}}{\Delta t}
+=
+\frac{1}{\sqrt{\Delta t}}.
+\]
+
+<p>
+As</p>
+
+\[
+\Delta t\to0,
+\]
+
+<p>
+this does not approach an ordinary finite derivative.
+</p>
+
+
+<h3>17. Brownian motion is not differentiable in the ordinary sense</h3>
+
+<p>
+Brownian paths are continuous, but with probability one they are nowhere differentiable.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+W_t
+\text{ is continuous}
+}
+\]
+
+<p>
+but</p>
+
+\[
+\boxed{
+\frac{dW_t}{dt}
+\text{ does not exist as an ordinary derivative}
+}
+\]
+
+</div>
+
+<p>
+This is the main reason ordinary differential calculus cannot simply be applied to Brownian motion.
+</p>
+
+
+<h3>18. Continuous does not mean smooth</h3>
+
+<p>
+This distinction is important.
+</p>
+
+<p>
+A function can be continuous without being differentiable.
+</p>
+
+<p>
+Brownian motion is an extreme example: its path does not jump, but it remains irregular at every time scale.
+</p>
+
+
+<h3>19. Diagram: deterministic and stochastic paths</h3>
+
+<div style="max-width:760px; margin:30px auto;">
+
+<svg viewBox="0 0 760 430"
+     width="100%"
+     role="img"
+     aria-labelledby="paths-title paths-desc"
+     xmlns="http://www.w3.org/2000/svg">
+
+<title id="paths-title">
+Deterministic and stochastic trajectories
+</title>
+
+<desc id="paths-desc">
+A smooth deterministic trajectory is compared with several irregular stochastic trajectories fluctuating around a similar overall direction.
+</desc>
+
+<!-- axes -->
+
+<line x1="75" y1="350" x2="700" y2="350"
+      stroke="currentColor"
+      stroke-width="2"/>
+
+<line x1="75" y1="350" x2="75" y2="55"
+      stroke="currentColor"
+      stroke-width="2"/>
+
+<text x="705" y="355"
+      font-size="17"
+      fill="currentColor">t</text>
+
+<text x="50" y="50"
+      font-size="17"
+      fill="currentColor">X</text>
+
+<!-- deterministic curve -->
+
+<path d="
+M 75 315
+C 190 300, 300 260, 410 210
+C 520 160, 610 115, 685 85
+"
+fill="none"
+stroke="currentColor"
+stroke-width="4"/>
+
+<!-- stochastic path 1 -->
+
+<polyline points="
+75,315
+105,306
+135,313
+165,290
+195,297
+225,268
+255,278
+285,245
+315,254
+345,220
+375,232
+405,198
+435,211
+465,174
+495,188
+525,150
+555,164
+585,125
+615,139
+645,101
+685,92
+"
+fill="none"
+stroke="currentColor"
+stroke-width="2"
+opacity="0.55"/>
+
+<!-- stochastic path 2 -->
+
+<polyline points="
+75,315
+105,325
+135,300
+165,308
+195,280
+225,287
+255,255
+285,266
+315,235
+345,245
+375,205
+405,218
+435,185
+465,195
+495,160
+525,172
+555,135
+585,148
+615,110
+645,123
+685,78
+"
+fill="none"
+stroke="currentColor"
+stroke-width="2"
+opacity="0.4"/>
+
+<text x="465" y="75"
+      font-size="16"
+      fill="currentColor">
+deterministic trend
+</text>
+
+<text x="460" y="260"
+      font-size="16"
+      fill="currentColor">
+possible stochastic paths
+</text>
+
+</svg>
+
+</div>
+
+
+<h3>20. Why not just use the deterministic average?</h3>
+
+<p>
+A deterministic model can be very useful for describing typical or average behaviour.
+</p>
+
+<p>
+But the average alone does not describe uncertainty.
+</p>
+
+<p>
+Two stochastic systems can have similar expected behaviour but very different probabilities of extreme outcomes.
+</p>
+
+
+<h3>21. Example: epidemic decision making</h3>
+
+<p>
+Suppose a deterministic model predicts that the epidemic peak remains below hospital capacity.
+</p>
+
+<p>
+That result alone does not tell us the probability that random fluctuations could push the actual peak above capacity.
+</p>
+
+<p>
+A stochastic model allows questions such as
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+P(
+\text{hospital demand exceeds capacity}
+)
+}
+\]
+
+</div>
+
+<p>
+to be investigated.
+</p>
+
+
+<h3>22. One stochastic trajectory is not the final answer</h3>
+
+<p>
+A single simulation shows only one possible realisation.
+</p>
+
+<p>
+We normally generate many trajectories to study the distribution of possible outcomes.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{many stochastic trajectories}
+\rightarrow
+\text{distribution of outcomes}
+}
+\]
+
+</div>
+
+<p>
+From this distribution we can estimate quantities such as means, variances and probabilities.
+</p>
+
+
+<h3>23. Deterministic versus stochastic questions</h3>
+
+<p>
+A deterministic model may answer:
+</p>
+
+\[
+\boxed{
+\text{What trajectory does the model predict?}
+}
+\]
+
+<p>
+A stochastic model can additionally ask:
+</p>
+
+\[
+\boxed{
+\text{What outcomes are possible?}
+}
+\]
+
+\[
+\boxed{
+\text{How variable are they?}
+}
+\]
+
+\[
+\boxed{
+\text{What is the probability of an important event?}
+}
+\]
+
+
+<h3>24. Why new calculus is required</h3>
+
+<p>
+The problem is not simply that randomness has been added.
+</p>
+
+<p>
+The deeper issue is that Brownian motion has mathematical behaviour different from ordinary differentiable functions.
+</p>
+
+<p>
+For ordinary differentials, terms such as
+</p>
+
+\[
+(dt)^2
+\]
+
+<p>
+become negligible compared with \(dt\).
+</p>
+
+<p>
+For Brownian motion, however,
+</p>
+
+\[
+(dW_t)^2
+\]
+
+<p>
+behaves at the scale of \(dt\).
+</p>
+
+<p>
+Symbolically, stochastic calculus uses the fundamental scaling rule
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+(dW_t)^2=dt
+}
+\]
+
+</div>
+
+<p>
+This is not ordinary algebra. It expresses the quadratic-variation behaviour of Brownian motion.
+</p>
+
+
+<h3>25. Ordinary calculus and stochastic calculus</h3>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{Ordinary calculus}
+\quad
+\text{handles sufficiently regular change}
+}
+\]
+
+\[
+\boxed{
+\text{Stochastic calculus}
+\quad
+\text{handles change driven by Brownian motion}
+}
+\]
+
+</div>
+
+<p>
+Ordinary calculus is not discarded. Stochastic calculus extends it to a new type of random, irregular motion.
+</p>
+
+
+<h3>26. The central idea</h3>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+dX_t
+=
+a(X_t,t)\,dt
++
+b(X_t,t)\,dW_t
+}
+\]
+
+</div>
+
+<p>
+contains two fundamentally different forms of change:
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+a\,dt
+=
+\text{systematic change}
+}
+\]
+
+\[
+\boxed{
+b\,dW_t
+=
+\text{random fluctuation}
+}
+\]
+
+</div>
+
+<p>
+Understanding the unusual behaviour of \(dW_t\) is the key step from ordinary calculus to stochastic calculus.
+</p>
+
+
+<div class="lesson-navigation">
+
+<a href="../multivariable/integral-theorems.html">
+← Integral Theorems
+</a>
+
+<a href="brownian-motion.html">
+Next: Brownian Motion →
+</a>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<div>
+<strong>dy/dx</strong>
+<p>Calculus Learning</p>
+</div>
+
+</footer>
+
+
+</body>
+
+</html>
