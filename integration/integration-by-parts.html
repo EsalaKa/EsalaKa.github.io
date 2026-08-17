@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Integration by Parts | dy/dx</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']]
+  }
+};
+</script>
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+</head>
+
+<body>
+
+<header class="site-header">
+
+<div class="brand">
+<a href="../index.html">dy/dx</a>
+</div>
+
+<nav class="top-nav">
+<a href="../index.html">Home</a>
+<a href="index.html">Integration</a>
+</nav>
+
+</header>
+
+
+<main>
+
+<section class="lesson-header">
+
+<p class="eyebrow">INTEGRATION 06</p>
+
+<h1>Integration by Parts</h1>
+
+<p class="lesson-intro">
+Integration by parts reverses the product rule and is useful when an integrand is a product of two functions.
+</p>
+
+</section>
+
+
+<section class="lesson-content">
+
+<h2>The main idea</h2>
+
+<p>
+The product rule is
+</p>
+
+\[
+\frac{d}{dx}(uv)
+=
+u\frac{dv}{dx}
++
+v\frac{du}{dx}.
+\]
+
+<p>
+Using differential notation,
+</p>
+
+\[
+d(uv)=u\,dv+v\,du.
+\]
+
+<p>
+Rearranging,
+</p>
+
+\[
+u\,dv=d(uv)-v\,du.
+\]
+
+<p>
+Integrating gives
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\int u\,dv
+=
+uv-\int v\,du
+}
+\]
+
+</div>
+
+<p>
+This is the formula for integration by parts.
+</p>
+
+
+<h3>1. Why the rule works</h3>
+
+<p>
+Integration by parts is not an unrelated formula to memorise.
+It comes directly from the product rule.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{product rule}
+\quad\longleftrightarrow\quad
+\text{integration by parts}
+}
+\]
+
+</div>
+
+
+<h3>2. What are \(u\), \(dv\), \(du\) and \(v\)?</h3>
+
+<p>
+We split the integrand into two parts:
+</p>
+
+\[
+u
+\qquad\text{and}\qquad
+dv.
+\]
+
+<p>
+Then differentiate \(u\):
+</p>
+
+\[
+du=\frac{du}{dx}\,dx,
+\]
+
+<p>
+and integrate \(dv\) to obtain \(v\).
+</p>
+
+
+<h3>3. A simple example</h3>
+
+<p>
+Evaluate
+</p>
+
+\[
+\int x e^x\,dx.
+\]
+
+<p>
+Choose
+</p>
+
+\[
+u=x
+\]
+
+<p>
+and
+</p>
+
+\[
+dv=e^x\,dx.
+\]
+
+<p>
+Then
+</p>
+
+\[
+du=dx
+\]
+
+<p>
+and
+</p>
+
+\[
+v=e^x.
+\]
+
+<p>
+Using
+</p>
+
+\[
+\int u\,dv=uv-\int v\,du,
+\]
+
+<p>
+we obtain
+</p>
+
+\[
+\int xe^x\,dx
+=
+xe^x-\int e^x\,dx.
+\]
+
+<p>
+Therefore,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\int xe^x\,dx
+=
+xe^x-e^x+C
+}
+\]
+
+</div>
+
+<p>
+or
+</p>
+
+\[
+\boxed{
+\int xe^x\,dx
+=
+e^x(x-1)+C
+}
+\]
+
+
+<h3>4. How to choose \(u\)</h3>
+
+<p>
+A useful choice is often the factor that becomes simpler when differentiated.
+</p>
+
+<p>
+In
+</p>
+
+\[
+\int xe^x\,dx,
+\]
+
+<p>
+differentiating \(x\) gives
+</p>
+
+\[
+1,
+\]
+
+<p>
+which is simpler.
+</p>
+
+<p>
+Meanwhile \(e^x\) is easy to integrate.
+</p>
+
+
+<h3>5. Example with a logarithm</h3>
+
+<p>
+Evaluate
+</p>
+
+\[
+\int \ln x\,dx.
+\]
+
+<p>
+Although only one factor is visible, write
+</p>
+
+\[
+\ln x
+=
+(\ln x)(1).
+\]
+
+<p>
+Choose
+</p>
+
+\[
+u=\ln x,
+\qquad
+dv=dx.
+\]
+
+<p>
+Then
+</p>
+
+\[
+du=\frac1x\,dx
+\]
+
+<p>
+and
+</p>
+
+\[
+v=x.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+\int\ln x\,dx
+=
+x\ln x
+-
+\int x\left(\frac1x\right)dx.
+\]
+
+<p>
+So
+</p>
+
+\[
+=
+x\ln x-\int1\,dx.
+\]
+
+<p>
+Hence,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\int\ln x\,dx
+=
+x\ln x-x+C
+}
+\]
+
+</div>
+
+
+<h3>6. Example with trigonometric functions</h3>
+
+<p>
+Evaluate
+</p>
+
+\[
+\int x\cos x\,dx.
+\]
+
+<p>
+Choose
+</p>
+
+\[
+u=x,
+\qquad
+dv=\cos x\,dx.
+\]
+
+<p>
+Then
+</p>
+
+\[
+du=dx,
+\qquad
+v=\sin x.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+\int x\cos x\,dx
+=
+x\sin x-\int\sin x\,dx.
+\]
+
+<p>
+Since
+</p>
+
+\[
+\int\sin x\,dx=-\cos x,
+\]
+
+<p>
+we obtain
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\int x\cos x\,dx
+=
+x\sin x+\cos x+C
+}
+\]
+
+</div>
+
+
+<h3>7. Why the sign matters</h3>
+
+<p>
+The formula is
+</p>
+
+\[
+\int u\,dv
+=
+uv-\int v\,du.
+\]
+
+<p>
+The minus sign is essential.
+</p>
+
+<p>
+It comes directly from rearranging the product rule.
+</p>
+
+
+<h3>8. Repeated integration by parts</h3>
+
+<p>
+Sometimes one application is not enough.
+</p>
+
+<p>
+Consider
+</p>
+
+\[
+\int x^2e^x\,dx.
+\]
+
+<p>
+Choose
+</p>
+
+\[
+u=x^2,
+\qquad
+dv=e^x\,dx.
+\]
+
+<p>
+Then
+</p>
+
+\[
+du=2x\,dx,
+\qquad
+v=e^x.
+\]
+
+<p>
+So
+</p>
+
+\[
+\int x^2e^x\,dx
+=
+x^2e^x
+-
+2\int xe^x\,dx.
+\]
+
+<p>
+Using the previous result,
+</p>
+
+\[
+\int xe^x\,dx
+=
+xe^x-e^x.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+\int x^2e^x\,dx
+=
+x^2e^x-2xe^x+2e^x+C.
+\]
+
+<p>
+Thus,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\int x^2e^x\,dx
+=
+e^x(x^2-2x+2)+C
+}
+\]
+
+</div>
+
+
+<h3>9. Definite integrals</h3>
+
+<p>
+For definite integrals,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\int_a^b u\,dv
+=
+[uv]_a^b
+-
+\int_a^b v\,du
+}
+\]
+
+</div>
+
+<p>
+The product \(uv\) must be evaluated at the limits.
+</p>
+
+
+<h3>10. Example with limits</h3>
+
+<p>
+Evaluate
+</p>
+
+\[
+\int_0^1 xe^x\,dx.
+\]
+
+<p>
+Using
+</p>
+
+\[
+\int xe^x\,dx
+=
+xe^x-e^x,
+\]
+
+<p>
+we have
+</p>
+
+\[
+\int_0^1 xe^x\,dx
+=
+[xe^x-e^x]_0^1.
+\]
+
+<p>
+At \(x=1\),
+</p>
+
+\[
+e-e=0.
+\]
+
+<p>
+At \(x=0\),
+</p>
+
+\[
+0-1=-1.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+0-(-1)=1.
+\]
+
+<p>
+So
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\int_0^1 xe^x\,dx=1
+}
+\]
+
+</div>
+
+
+<h3>11. Choosing \(u\): a useful guide</h3>
+
+<p>
+A common guide is to prefer as \(u\) a function that becomes simpler when differentiated.
+</p>
+
+<p>
+For example, logarithmic and algebraic factors are often good choices.
+</p>
+
+<p>
+But this is a guide, not a theorem.
+The best choice is the one that makes the new integral simpler.
+</p>
+
+
+<h3>12. When integration by parts is useful</h3>
+
+<p>
+It is especially useful for products such as
+</p>
+
+\[
+x e^x,
+\]
+
+\[
+x\sin x,
+\]
+
+\[
+x\cos x,
+\]
+
+\[
+x\ln x,
+\]
+
+<p>
+and many similar expressions.
+</p>
+
+
+<h3>13. Connection with differentials</h3>
+
+<p>
+The notation
+</p>
+
+\[
+\int u\,dv
+\]
+
+<p>
+is natural because
+</p>
+
+\[
+dv=v'(x)\,dx.
+\]
+
+<p>
+Similarly,
+</p>
+
+\[
+du=u'(x)\,dx.
+\]
+
+<p>
+So the formula
+</p>
+
+\[
+\int u\,dv
+=
+uv-\int v\,du
+\]
+
+<p>
+is a compact differential form of the reversed product rule.
+</p>
+
+
+<h3>14. The practical method</h3>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+1.\; \text{Choose }u\text{ and }dv
+}
+\]
+
+\[
+\boxed{
+2.\; \text{Find }du\text{ and }v
+}
+\]
+
+\[
+\boxed{
+3.\; \text{Use }
+\int u\,dv=uv-\int v\,du
+}
+\]
+
+\[
+\boxed{
+4.\; \text{Simplify the remaining integral}
+}
+\]
+
+</div>
+
+<p>
+The aim is always to replace the original integral with one that is easier to evaluate.
+</p>
+
+
+<div class="lesson-navigation">
+
+<a href="substitution.html">
+← Integration by Substitution
+</a>
+
+<a href="partial-fractions.html">
+Next: Integration Using Partial Fractions →
+</a>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<div>
+<strong>dy/dx</strong>
+<p>Calculus Learning</p>
+</div>
+
+</footer>
+
+</body>
+
+</html>
