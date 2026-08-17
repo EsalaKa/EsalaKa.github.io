@@ -38,9 +38,12 @@ a { color: inherit; }
 .lesson-content svg text {
   fill: var(--graph-label) !important;
 }
-.lesson-content svg circle:not(.open-point) {
+/* Filled points are the default. Explicit white SVG circles remain hollow. */
+.lesson-content svg circle:not([fill="#fff"]):not([fill="#ffffff"]):not(.open-point) {
   fill: var(--graph-point) !important;
 }
+.lesson-content svg circle[fill="#fff"],
+.lesson-content svg circle[fill="#ffffff"],
 .lesson-content svg circle.open-point {
   fill: #ffffff !important;
   stroke: var(--graph-point) !important;
