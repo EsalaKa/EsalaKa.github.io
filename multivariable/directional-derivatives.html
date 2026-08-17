@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Directional Derivatives | dy/dx</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']]
+  }
+};
+</script>
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+</head>
+
+
+<body>
+
+
+<header class="site-header">
+
+<div class="brand">
+<a href="../index.html">dy/dx</a>
+</div>
+
+<nav class="top-nav">
+<a href="../index.html">Home</a>
+<a href="index.html">Multivariable Calculus</a>
+</nav>
+
+</header>
+
+
+<main>
+
+
+<section class="lesson-header">
+
+<p class="eyebrow">MULTIVARIABLE CALCULUS 04</p>
+
+<h1>Directional Derivatives</h1>
+
+<p class="lesson-intro">
+A directional derivative measures how quickly a multivariable function changes when we move in a chosen direction.
+</p>
+
+</section>
+
+
+<section class="lesson-content">
+
+
+<h2>The main idea</h2>
+
+<p>
+For a function
+</p>
+
+\[
+f(x,y),
+\]
+
+<p>
+the partial derivatives measure change in the coordinate directions.
+</p>
+
+<p>
+But we may want to move in some other direction.
+</p>
+
+<p>
+If \(\mathbf{u}\) is a unit vector, the directional derivative is
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+D_{\mathbf{u}}f
+=
+\nabla f\cdot\mathbf{u}
+}
+\]
+
+</div>
+
+<p>
+It gives the instantaneous rate of change of \(f\) in the direction \(\mathbf{u}\).
+</p>
+
+
+<h3>1. Why partial derivatives are only special cases</h3>
+
+<p>
+The partial derivative
+</p>
+
+\[
+\frac{\partial f}{\partial x}
+\]
+
+<p>
+measures change in the direction
+</p>
+
+\[
+\mathbf{e}_x=
+\begin{pmatrix}
+1\\
+0
+\end{pmatrix}.
+\]
+
+<p>
+Similarly,
+</p>
+
+\[
+\frac{\partial f}{\partial y}
+\]
+
+<p>
+measures change in the direction
+</p>
+
+\[
+\mathbf{e}_y=
+\begin{pmatrix}
+0\\
+1
+\end{pmatrix}.
+\]
+
+<p>
+A directional derivative extends this idea to any direction.
+</p>
+
+
+<h3>2. A direction vector</h3>
+
+<p>
+Suppose we want to move in the direction
+</p>
+
+\[
+\mathbf{v}
+=
+\begin{pmatrix}
+3\\
+4
+\end{pmatrix}.
+\]
+
+<p>
+Its magnitude is
+</p>
+
+\[
+\|\mathbf{v}\|
+=
+\sqrt{3^2+4^2}
+=
+5.
+\]
+
+<p>
+The corresponding unit vector is
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\mathbf{u}
+=
+\frac{\mathbf{v}}{\|\mathbf{v}\|}
+=
+\begin{pmatrix}
+3/5\\
+4/5
+\end{pmatrix}
+}
+\]
+
+</div>
+
+
+<h3>3. Why the direction vector should be a unit vector</h3>
+
+<p>
+The directional derivative should measure change per unit distance travelled.
+</p>
+
+<p>
+So the direction vector must have magnitude \(1\).
+</p>
+
+<p>
+Otherwise, its length would affect the numerical value of the derivative as well as its direction.
+</p>
+
+
+<h3>4. Example</h3>
+
+<p>
+Let
+</p>
+
+\[
+f(x,y)=x^2+y^2.
+\]
+
+<p>
+Then
+</p>
+
+\[
+\nabla f=
+\begin{pmatrix}
+2x\\
+2y
+\end{pmatrix}.
+\]
+
+<p>
+At the point
+</p>
+
+\[
+(1,2),
+\]
+
+<p>
+we have
+</p>
+
+\[
+\nabla f(1,2)
+=
+\begin{pmatrix}
+2\\
+4
+\end{pmatrix}.
+\]
+
+
+<h3>5. Direction \((3,4)\)</h3>
+
+<p>
+The corresponding unit vector is
+</p>
+
+\[
+\mathbf{u}
+=
+\begin{pmatrix}
+3/5\\
+4/5
+\end{pmatrix}.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+D_{\mathbf{u}}f
+=
+\begin{pmatrix}
+2\\
+4
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+3/5\\
+4/5
+\end{pmatrix}.
+\]
+
+<p>
+Using the dot product,
+</p>
+
+\[
+D_{\mathbf{u}}f
+=
+\frac65+\frac{16}{5}.
+\]
+
+<p>
+Hence,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+D_{\mathbf{u}}f
+=
+\frac{22}{5}
+}
+\]
+
+</div>
+
+
+<h3>6. What does this number mean?</h3>
+
+<p>
+At the point \((1,2)\), if we move in the direction
+</p>
+
+\[
+\begin{pmatrix}
+3/5\\
+4/5
+\end{pmatrix},
+\]
+
+<p>
+then \(f\) is increasing at an instantaneous rate of
+</p>
+
+\[
+\frac{22}{5}
+\]
+
+<p>
+per unit distance travelled.
+</p>
+
+
+<h3>7. Why the dot product appears</h3>
+
+<p>
+The dot product can be written as
+</p>
+
+\[
+\nabla f\cdot\mathbf{u}
+=
+\|\nabla f\|
+\|\mathbf{u}\|
+\cos\theta,
+\]
+
+<p>
+where \(\theta\) is the angle between the gradient and the chosen direction.
+</p>
+
+<p>
+Since \(\mathbf{u}\) is a unit vector,
+</p>
+
+\[
+\|\mathbf{u}\|=1.
+\]
+
+<p>
+Therefore,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+D_{\mathbf{u}}f
+=
+\|\nabla f\|\cos\theta
+}
+\]
+
+</div>
+
+
+<h3>8. Direction of greatest increase</h3>
+
+<p>
+The directional derivative is largest when
+</p>
+
+\[
+\cos\theta=1.
+\]
+
+<p>
+This happens when
+</p>
+
+\[
+\theta=0,
+\]
+
+<p>
+so the chosen direction is the same as the gradient direction.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{maximum increase occurs in the direction of }\nabla f
+}
+\]
+
+</div>
+
+
+<h3>9. Maximum rate of increase</h3>
+
+<p>
+When we move in the gradient direction,
+</p>
+
+\[
+D_{\mathbf{u}}f
+=
+\|\nabla f\|.
+\]
+
+<p>
+Therefore,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{maximum directional derivative}
+=
+\|\nabla f\|
+}
+\]
+
+</div>
+
+
+<h3>10. Direction of greatest decrease</h3>
+
+<p>
+The smallest directional derivative occurs when
+</p>
+
+\[
+\cos\theta=-1.
+\]
+
+<p>
+This means we move opposite to the gradient:
+</p>
+
+\[
+-\nabla f.
+\]
+
+<p>
+The rate is then
+</p>
+
+\[
+-\|\nabla f\|.
+\]
+
+<p>
+So
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+-\nabla f
+=
+\text{direction of steepest decrease}
+}
+\]
+
+</div>
+
+
+<h3>11. Movement perpendicular to the gradient</h3>
+
+<p>
+If the direction is perpendicular to the gradient,
+</p>
+
+\[
+\theta=\frac{\pi}{2}.
+\]
+
+<p>
+Then
+</p>
+
+\[
+\cos\theta=0.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+D_{\mathbf{u}}f=0.
+\]
+
+<p>
+There is no first-order change in the function in that direction.
+</p>
+
+
+<h3>12. Why this corresponds to a level curve</h3>
+
+<p>
+Along a level curve,
+</p>
+
+\[
+f(x,y)=c,
+\]
+
+<p>
+the function value remains constant.
+</p>
+
+<p>
+Therefore its directional derivative along the tangent to the level curve is zero.
+</p>
+
+<p>
+This explains again why
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\nabla f
+\perp
+\text{level curve}
+}
+\]
+
+</div>
+
+
+<h3>13. Diagram</h3>
+
+<div style="max-width:680px; margin:30px auto;">
+
+<svg viewBox="0 0 680 420"
+     width="100%"
+     role="img"
+     aria-labelledby="direction-title direction-desc"
+     xmlns="http://www.w3.org/2000/svg">
+
+<title id="direction-title">
+Gradient and directional derivative
+</title>
+
+<desc id="direction-desc">
+A point lies on a level curve. The gradient points perpendicular to the curve, while another unit vector forms an angle theta with the gradient.
+</desc>
+
+<line x1="70" y1="210" x2="610" y2="210"
+      stroke="currentColor"
+      stroke-width="2"/>
+
+<line x1="340" y1="370" x2="340" y2="45"
+      stroke="currentColor"
+      stroke-width="2"/>
+
+<circle cx="340" cy="210" r="125"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        opacity="0.55"/>
+
+<circle cx="445" cy="275" r="6"
+        fill="currentColor"/>
+
+<!-- gradient -->
+<line x1="445" y1="275" x2="555" y2="340"
+      stroke="currentColor"
+      stroke-width="3"/>
+
+<polygon points="562,344 546,342 553,328"
+         fill="currentColor"/>
+
+<text x="530" y="315"
+      font-size="17"
+      fill="currentColor">
+∇f
+</text>
+
+<!-- direction u -->
+<line x1="445" y1="275" x2="535" y2="230"
+      stroke="currentColor"
+      stroke-width="3"/>
+
+<polygon points="543,226 531,237 526,222"
+         fill="currentColor"/>
+
+<text x="520" y="215"
+      font-size="17"
+      fill="currentColor">
+u
+</text>
+
+<text x="480" y="265"
+      font-size="17"
+      fill="currentColor">
+θ
+</text>
+
+<text x="220" y="95"
+      font-size="16"
+      fill="currentColor">
+level curve
+</text>
+
+</svg>
+
+</div>
+
+
+<h3>14. Definition from first principles</h3>
+
+<p>
+Let \(\mathbf{u}\) be a unit vector.
+</p>
+
+<p>
+The directional derivative at a point \(\mathbf{x}\) can be defined by
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+D_{\mathbf{u}}f(\mathbf{x})
+=
+\lim_{h\to0}
+\frac{
+f(\mathbf{x}+h\mathbf{u})
+-
+f(\mathbf{x})
+}{h}
+}
+\]
+
+</div>
+
+<p>
+This is exactly the ordinary derivative idea applied along a line in the direction \(\mathbf{u}\).
+</p>
+
+
+<h3>15. Why \(\mathbf{x}+h\mathbf{u}\)?</h3>
+
+<p>
+Suppose the current point is
+</p>
+
+\[
+\mathbf{x}.
+\]
+
+<p>
+Moving a distance \(h\) in direction \(\mathbf{u}\) takes us to
+</p>
+
+\[
+\mathbf{x}+h\mathbf{u}.
+\]
+
+<p>
+So
+</p>
+
+\[
+f(\mathbf{x}+h\mathbf{u})-f(\mathbf{x})
+\]
+
+<p>
+is the resulting change in the function.
+</p>
+
+<p>
+Dividing by \(h\) gives change per unit distance, and taking \(h\to0\) gives the instantaneous rate.
+</p>
+
+
+<h3>16. Partial derivatives as directional derivatives</h3>
+
+<p>
+If
+</p>
+
+\[
+\mathbf{u}
+=
+\begin{pmatrix}
+1\\
+0
+\end{pmatrix},
+\]
+
+<p>
+then
+</p>
+
+\[
+D_{\mathbf{u}}f
+=
+\frac{\partial f}{\partial x}.
+\]
+
+<p>
+If
+</p>
+
+\[
+\mathbf{u}
+=
+\begin{pmatrix}
+0\\
+1
+\end{pmatrix},
+\]
+
+<p>
+then
+</p>
+
+\[
+D_{\mathbf{u}}f
+=
+\frac{\partial f}{\partial y}.
+\]
+
+<p>
+So partial derivatives are simply directional derivatives in the coordinate directions.
+</p>
+
+
+<h3>17. Three-dimensional version</h3>
+
+<p>
+For
+</p>
+
+\[
+f(x,y,z),
+\]
+
+<p>
+and a unit direction
+</p>
+
+\[
+\mathbf{u}
+=
+\begin{pmatrix}
+u_1\\
+u_2\\
+u_3
+\end{pmatrix},
+\]
+
+<p>
+the directional derivative is
+</p>
+
+\[
+\boxed{
+D_{\mathbf{u}}f
+=
+\nabla f\cdot\mathbf{u}
+}
+\]
+
+<p>
+where
+</p>
+
+\[
+\nabla f
+=
+\begin{pmatrix}
+f_x\\
+f_y\\
+f_z
+\end{pmatrix}.
+\]
+
+
+<h3>18. Modelling interpretation</h3>
+
+<p>
+Suppose an outcome
+</p>
+
+\[
+R(\beta,\gamma)
+\]
+
+<p>
+depends on two parameters.
+</p>
+
+<p>
+The gradient tells us the separate sensitivities.
+</p>
+
+<p>
+But perhaps both parameters change together in a particular direction.
+</p>
+
+<p>
+Then the directional derivative tells us how \(R\) changes under that combined parameter change.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+D_{\mathbf{u}}R
+=
+\nabla R\cdot\mathbf{u}
+}
+\]
+
+</div>
+
+
+<h3>19. The central idea</h3>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{partial derivative}
+=
+\text{change in a coordinate direction}
+}
+\]
+
+\[
+\boxed{
+\text{directional derivative}
+=
+\text{change in any chosen direction}
+}
+\]
+
+\[
+\boxed{
+D_{\mathbf{u}}f
+=
+\nabla f\cdot\mathbf{u}
+}
+\]
+
+</div>
+
+<p>
+The gradient contains the local change information; the directional derivative extracts the part corresponding to a chosen direction.
+</p>
+
+
+<div class="lesson-navigation">
+
+<a href="gradient.html">
+← The Gradient
+</a>
+
+<a href="total-differential.html">
+Next: Total Differential →
+</a>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<div>
+<strong>dy/dx</strong>
+<p>Calculus Learning</p>
+</div>
+
+</footer>
+
+
+</body>
+
+</html>
