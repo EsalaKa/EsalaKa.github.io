@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Autonomous Differential Equations | dy/dx</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']]
+  }
+};
+</script>
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+</head>
+
+
+<body>
+
+
+<header class="site-header">
+
+<div class="brand">
+<a href="../index.html">dy/dx</a>
+</div>
+
+<nav class="top-nav">
+<a href="../index.html">Home</a>
+<a href="index.html">Differential Equations</a>
+</nav>
+
+</header>
+
+
+<main>
+
+
+<section class="lesson-header">
+
+<p class="eyebrow">DIFFERENTIAL EQUATIONS 05</p>
+
+<h1>Autonomous Differential Equations</h1>
+
+<p class="lesson-intro">
+An autonomous differential equation gives the rate of change as a function of the current state, without explicit dependence on time.
+</p>
+
+</section>
+
+
+<section class="lesson-content">
+
+
+<h2>The main idea</h2>
+
+<p>
+An autonomous first-order differential equation has the form
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\frac{dy}{dt}=f(y)
+}
+\]
+
+</div>
+
+<p>
+The rate of change depends on the current value of \(y\), but time \(t\) does not appear explicitly on the right-hand side.
+</p>
+
+
+<h3>1. Why it is called autonomous</h3>
+
+<p>
+Consider
+</p>
+
+\[
+\frac{dy}{dt}=y(1-y).
+\]
+
+<p>
+To determine the rate of change, we only need to know the current value of \(y\).
+</p>
+
+<p>
+We do not need to know the current time.
+</p>
+
+<p>
+For example, whenever
+</p>
+
+\[
+y=\frac12,
+\]
+
+<p>
+the rate is
+</p>
+
+\[
+\frac{dy}{dt}
+=
+\frac12\left(1-\frac12\right)
+=
+\frac14.
+\]
+
+<p>
+This is true regardless of when the state \(y=1/2\) occurs.
+</p>
+
+
+<h3>2. Compare with a non-autonomous equation</h3>
+
+<p>
+The equation
+</p>
+
+\[
+\frac{dy}{dt}=ty
+\]
+
+<p>
+is not autonomous because the rate depends explicitly on time \(t\).
+</p>
+
+<p>
+By contrast,
+</p>
+
+\[
+\frac{dy}{dt}=y^2-1
+\]
+
+<p>
+is autonomous.
+</p>
+
+
+<h3>3. Equilibrium solutions</h3>
+
+<p>
+An equilibrium occurs where the rate of change is zero.
+</p>
+
+<p>
+For
+</p>
+
+\[
+\frac{dy}{dt}=f(y),
+\]
+
+<p>
+equilibria satisfy
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+f(y)=0
+}
+\]
+
+</div>
+
+<p>
+At such a state,
+</p>
+
+\[
+\frac{dy}{dt}=0,
+\]
+
+<p>
+so the solution remains constant.
+</p>
+
+
+<h3>4. Example</h3>
+
+<p>
+Consider
+</p>
+
+\[
+\frac{dy}{dt}=y(1-y).
+\]
+
+<p>
+Equilibria occur when
+</p>
+
+\[
+y(1-y)=0.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+y=0
+\]
+
+<p>
+or
+</p>
+
+\[
+y=1.
+\]
+
+<p>
+So the constant functions
+</p>
+
+\[
+\boxed{
+y(t)=0
+}
+\]
+
+<p>
+and
+</p>
+
+\[
+\boxed{
+y(t)=1
+}
+\]
+
+<p>
+are equilibrium solutions.
+</p>
+
+
+<h3>5. The sign of the derivative</h3>
+
+<p>
+The sign of
+</p>
+
+\[
+f(y)
+\]
+
+<p>
+tells us the direction in which the solution moves.
+</p>
+
+<p>
+If
+</p>
+
+\[
+f(y)>0,
+\]
+
+<p>
+then
+</p>
+
+\[
+\frac{dy}{dt}>0,
+\]
+
+<p>
+so \(y\) increases.
+</p>
+
+<p>
+If
+</p>
+
+\[
+f(y)<0,
+\]
+
+<p>
+then \(y\) decreases.
+</p>
+
+
+<h3>6. Sign analysis for the logistic example</h3>
+
+<p>
+For
+</p>
+
+\[
+\frac{dy}{dt}=y(1-y),
+\]
+
+<p>
+consider three regions.
+</p>
+
+<p>
+If
+</p>
+
+\[
+y<0,
+\]
+
+<p>
+then
+</p>
+
+\[
+y(1-y)<0,
+\]
+
+<p>
+so \(y\) decreases.
+</p>
+
+<p>
+If
+</p>
+
+\[
+0<y<1,
+\]
+
+<p>
+then
+</p>
+
+\[
+y(1-y)>0,
+\]
+
+<p>
+so \(y\) increases.
+</p>
+
+<p>
+If
+</p>
+
+\[
+y>1,
+\]
+
+<p>
+then
+</p>
+
+\[
+y(1-y)<0,
+\]
+
+<p>
+so \(y\) decreases.
+</p>
+
+
+<h3>7. Phase line</h3>
+
+<p>
+This information can be represented on a phase line.
+</p>
+
+<div style="max-width:520px; margin:30px auto;">
+
+<svg viewBox="0 0 520 220"
+     width="100%"
+     role="img"
+     aria-labelledby="phase-title phase-desc"
+     xmlns="http://www.w3.org/2000/svg">
+
+<title id="phase-title">
+Phase line for y prime equals y times one minus y
+</title>
+
+<desc id="phase-desc">
+Equilibria are marked at zero and one. Arrows point downward below zero, upward between zero and one, and downward above one.
+</desc>
+
+<line x1="260" y1="25" x2="260" y2="195"
+      stroke="currentColor" stroke-width="2"/>
+
+<circle cx="260" cy="70" r="7"
+        fill="currentColor"/>
+
+<circle cx="260" cy="150" r="7"
+        fill="currentColor"/>
+
+<text x="280" y="76"
+      font-size="17"
+      fill="currentColor">1</text>
+
+<text x="280" y="156"
+      font-size="17"
+      fill="currentColor">0</text>
+
+<!-- above 1: downward -->
+<line x1="260" y1="40" x2="260" y2="58"
+      stroke="currentColor" stroke-width="2"/>
+
+<polygon points="260,63 253,53 267,53"
+         fill="currentColor"/>
+
+<!-- between 0 and 1: upward -->
+<line x1="260" y1="135" x2="260" y2="90"
+      stroke="currentColor" stroke-width="2"/>
+
+<polygon points="260,84 253,96 267,96"
+         fill="currentColor"/>
+
+<!-- below 0: downward -->
+<line x1="260" y1="165" x2="260" y2="190"
+      stroke="currentColor" stroke-width="2"/>
+
+<polygon points="260,195 253,183 267,183"
+         fill="currentColor"/>
+
+<text x="120" y="115"
+      font-size="16"
+      fill="currentColor">
+direction of solution
+</text>
+
+</svg>
+
+</div>
+
+<p>
+The arrows show whether solutions move toward larger or smaller values of \(y\).
+</p>
+
+
+<h3>8. Stable equilibrium</h3>
+
+<p>
+An equilibrium is stable if nearby solutions move toward it.
+</p>
+
+<p>
+For the equation
+</p>
+
+\[
+\frac{dy}{dt}=y(1-y),
+\]
+
+<p>
+solutions below \(1\) but above \(0\) increase toward \(1\), while solutions above \(1\) decrease toward \(1\).
+</p>
+
+<p>
+Therefore,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+y=1
+\text{ is a stable equilibrium}
+}
+\]
+
+</div>
+
+
+<h3>9. Unstable equilibrium</h3>
+
+<p>
+Near \(y=0\), solutions move away from the equilibrium.
+</p>
+
+<p>
+Values slightly above \(0\) increase, while values slightly below \(0\) decrease.
+</p>
+
+<p>
+Therefore,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+y=0
+\text{ is an unstable equilibrium}
+}
+\]
+
+</div>
+
+
+<h3>10. Stability from signs</h3>
+
+<p>
+Suppose \(y^*\) is an equilibrium.
+</p>
+
+<p>
+If arrows on both sides point toward \(y^*\), it is stable.
+</p>
+
+<div class="lesson-math">
+
+\[
+\rightarrow\; y^*\; \leftarrow
+\]
+
+<p>
+means stable.
+</p>
+
+</div>
+
+<p>
+If arrows point away,
+</p>
+
+<div class="lesson-math">
+
+\[
+\leftarrow\; y^*\; \rightarrow
+\]
+
+<p>
+the equilibrium is unstable.
+</p>
+
+</div>
+
+
+<h3>11. Stability using \(f'(y^*)\)</h3>
+
+<p>
+For a one-dimensional autonomous equation
+</p>
+
+\[
+y'=f(y),
+\]
+
+<p>
+a useful local test is based on
+</p>
+
+\[
+f'(y^*).
+\]
+
+<p>
+If
+</p>
+
+\[
+f'(y^*)<0,
+\]
+
+<p>
+the equilibrium is typically locally asymptotically stable.
+</p>
+
+<p>
+If
+</p>
+
+\[
+f'(y^*)>0,
+\]
+
+<p>
+it is unstable.
+</p>
+
+
+<h3>12. Apply the derivative test</h3>
+
+<p>
+For
+</p>
+
+\[
+f(y)=y(1-y)=y-y^2,
+\]
+
+<p>
+we have
+</p>
+
+\[
+f'(y)=1-2y.
+\]
+
+<p>
+At \(y=0\),
+</p>
+
+\[
+f'(0)=1>0,
+\]
+
+<p>
+so \(y=0\) is unstable.
+</p>
+
+<p>
+At \(y=1\),
+</p>
+
+\[
+f'(1)=-1<0,
+\]
+
+<p>
+so \(y=1\) is stable.
+</p>
+
+
+<h3>13. Equilibrium analysis without solving the ODE</h3>
+
+<p>
+One important advantage of autonomous equations is that we can often understand long-term behaviour without finding an explicit formula for \(y(t)\).
+</p>
+
+<p>
+By finding equilibria and examining the sign of \(f(y)\), we can determine where solutions move.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{equilibria}
++
+\text{sign of }f(y)
+\longrightarrow
+\text{qualitative behaviour}
+}
+\]
+
+</div>
+
+
+<h3>14. Logistic population model</h3>
+
+<p>
+A common autonomous model is
+</p>
+
+\[
+\frac{dP}{dt}
+=
+rP\left(1-\frac{P}{K}\right),
+\]
+
+<p>
+where
+</p>
+
+\[
+r>0
+\]
+
+<p>
+is a growth parameter and \(K>0\) is the carrying capacity.
+</p>
+
+<p>
+The equilibria are
+</p>
+
+\[
+P=0
+\]
+
+<p>
+and
+</p>
+
+\[
+P=K.
+\]
+
+
+<h3>15. Meaning of the carrying capacity</h3>
+
+<p>
+If
+</p>
+
+\[
+0<P<K,
+\]
+
+<p>
+then
+</p>
+
+\[
+\frac{dP}{dt}>0,
+\]
+
+<p>
+so the population increases.
+</p>
+
+<p>
+If
+</p>
+
+\[
+P>K,
+\]
+
+<p>
+then
+</p>
+
+\[
+\frac{dP}{dt}<0,
+\]
+
+<p>
+so the population decreases.
+</p>
+
+<p>
+Thus solutions tend toward
+</p>
+
+\[
+P=K.
+\]
+
+<p>
+The carrying capacity is therefore a stable equilibrium.
+</p>
+
+
+<h3>16. Direction field idea</h3>
+
+<p>
+For an autonomous equation,
+</p>
+
+\[
+\frac{dy}{dt}=f(y),
+\]
+
+<p>
+all points with the same \(y\)-coordinate have the same slope.
+</p>
+
+<p>
+This means a direction field has horizontal bands of equal slope.
+</p>
+
+<p>
+Autonomous structure therefore makes the geometry of the differential equation especially clear.
+</p>
+
+
+<h3>17. Equilibrium solutions must be checked before separation</h3>
+
+<p>
+Suppose
+</p>
+
+\[
+\frac{dy}{dt}=f(y).
+\]
+
+<p>
+To separate variables, we may write
+</p>
+
+\[
+\frac{1}{f(y)}\,dy=dt.
+\]
+
+<p>
+But this division requires
+</p>
+
+\[
+f(y)\neq0.
+\]
+
+<p>
+Values satisfying
+</p>
+
+\[
+f(y)=0
+\]
+
+<p>
+are precisely the equilibrium solutions.
+</p>
+
+<p>
+So they must be identified separately before dividing.
+</p>
+
+
+<h3>18. The practical method</h3>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+1.\;
+\text{Write the equation as }y'=f(y)
+}
+\]
+
+\[
+\boxed{
+2.\;
+\text{Find equilibria from }f(y)=0
+}
+\]
+
+\[
+\boxed{
+3.\;
+\text{Determine the sign of }f(y)\text{ between equilibria}
+}
+\]
+
+\[
+\boxed{
+4.\;
+\text{Draw the phase line}
+}
+\]
+
+\[
+\boxed{
+5.\;
+\text{Classify stable and unstable equilibria}
+}
+\]
+
+\[
+\boxed{
+6.\;
+\text{Infer the long-term behaviour}
+}
+\]
+
+</div>
+
+
+<h3>19. The central idea</h3>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\frac{dy}{dt}=f(y)
+}
+\]
+
+\[
+\downarrow
+\]
+
+\[
+\boxed{
+f(y)=0
+\Rightarrow
+\text{equilibria}
+}
+\]
+
+\[
+\downarrow
+\]
+
+\[
+\boxed{
+\text{sign of }f(y)
+\Rightarrow
+\text{direction and stability}
+}
+\]
+
+</div>
+
+<p>
+Autonomous equations show that differential equations can often be understood qualitatively even before they are solved explicitly.
+</p>
+
+
+<div class="lesson-navigation">
+
+<a href="first-order-linear.html">
+← First-Order Linear Equations
+</a>
+
+<a href="phase-lines.html">
+Next: Phase Lines and Stability →
+</a>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<div>
+<strong>dy/dx</strong>
+<p>Calculus Learning</p>
+</div>
+
+</footer>
+
+
+</body>
+
+</html>
