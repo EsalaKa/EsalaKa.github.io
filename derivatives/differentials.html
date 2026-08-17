@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Differentials: dx and dy | dy/dx</title>
+<link rel="stylesheet" href="../style.css">
+<script>
+window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]}};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+<div class="brand"><a href="../index.html">dy/dx</a></div>
+<nav class="top-nav"><a href="../index.html">Home</a><a href="index.html">Differentiation</a></nav>
+</header>
+<main>
+<section class="lesson-header">
+<p class="eyebrow">DIFFERENTIATION 03</p>
+<h1>Differentials: \(dx\) and \(dy\)</h1>
+<p class="lesson-intro">Differentials describe small linear changes and connect derivative notation with practical calculations.</p>
+</section>
+<section class="lesson-content">
+<h2>The main idea</h2>
+<p>If \(y=f(x)\), then the derivative is</p>
+<div class="lesson-math">\[\boxed{\frac{dy}{dx}=f'(x)}\]</div>
+<p>Once the derivative is known, the differential of \(y\) is defined by</p>
+<div class="lesson-math">\[\boxed{dy=f'(x)\,dx}\]</div>
+<p>Here \(dx\) represents a small chosen change in the input, while \(dy\) is the corresponding linear change predicted by the derivative.</p>
+<h3>1. From finite changes to differentials</h3>
+<p>For a finite change \(\Delta x\), the exact change in the function is</p>
+\[\Delta y=f(x+\Delta x)-f(x).\]
+<p>For small \(\Delta x\), differentiability gives the approximation</p>
+\[\Delta y\approx f'(x)\Delta x.\]
+<p>The differential notation records the linear part of this change:</p>
+\[dy=f'(x)dx.\]
+<h3>2. Example</h3>
+<p>Let \(y=x^2\). Then</p>
+\[\frac{dy}{dx}=2x.\]
+<p>Therefore</p>
+<div class="lesson-math">\[\boxed{dy=2x\,dx}\]</div>
+<p>At \(x=3\), if \(dx=0.01\), then</p>
+\[dy=2(3)(0.01)=0.06.\]
+<p>So the derivative predicts a change of approximately \(0.06\) in \(y\).</p>
+<h3>3. Differential versus exact finite change</h3>
+<p>For the same example, the exact finite change is</p>
+\[\Delta y=(3.01)^2-3^2=0.0601.\]
+<p>The differential gives</p>
+\[dy=0.06.\]
+<p>Thus \(dy\) is the linear approximation to the actual finite change \(\Delta y\).</p>
+<div class="lesson-math">\[\boxed{\Delta y\approx dy\quad\text{for sufficiently small }\Delta x}\]</div>
+<h3>4. Is \(dy/dx\) a fraction?</h3>
+<p>The derivative \(dy/dx\) is defined through a limit, not originally as an ordinary fraction. However, after differentials are defined by \(dy=f'(x)dx\), the notation has a legitimate differential interpretation.</p>
+<p>This explains why some fraction-like manipulations are valid when they are supported by rules such as the chain rule or separation of variables.</p>
+<h3>5. The chain rule</h3>
+<p>If \(y=f(u)\) and \(u=g(x)\), then</p>
+\[dy=\frac{dy}{du}\,du\]
+<p>and</p>
+\[du=\frac{du}{dx}\,dx.\]
+<p>Substituting gives</p>
+\[dy=\frac{dy}{du}\frac{du}{dx}\,dx,\]
+<p>so</p>
+<div class="lesson-math">\[\boxed{\frac{dy}{dx}=\frac{dy}{du}\frac{du}{dx}}\]</div>
+<h3>6. Why differentials are useful</h3>
+<p>Differentials are useful for linear approximation, error estimation, differential equations and later multivariable and stochastic calculus.</p>
+<h3>7. The central idea</h3>
+<div class="lesson-math">\[\boxed{\frac{dy}{dx}=f'(x)\qquad\Longleftrightarrow\qquad dy=f'(x)dx}\]</div>
+<p>The derivative gives the local rate of change; the differential uses that rate to describe a small linear change.</p>
+<div class="lesson-navigation">
+<a href="derivative-notation.html">← Derivative Notation</a>
+<a href="power-rule.html">Next: The Power Rule →</a>
+</div>
+</section>
+</main>
+<footer><div><strong>dy/dx</strong><p>Calculus Learning</p></div></footer>
+</body>
+</html>
