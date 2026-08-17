@@ -1,0 +1,1258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Stochastic Differential Equations | dy/dx</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']]
+  }
+};
+</script>
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+</head>
+
+
+<body>
+
+
+<header class="site-header">
+
+<div class="brand">
+<a href="../index.html">dy/dx</a>
+</div>
+
+<nav class="top-nav">
+<a href="../index.html">Home</a>
+<a href="index.html">Stochastic Calculus</a>
+</nav>
+
+</header>
+
+
+<main>
+
+
+<section class="lesson-header">
+
+<p class="eyebrow">STOCHASTIC CALCULUS 03</p>
+
+<h1>Stochastic Differential Equations</h1>
+
+<p class="lesson-intro">
+A stochastic differential equation combines systematic change with continuous random fluctuation.
+</p>
+
+</section>
+
+
+<section class="lesson-content">
+
+
+<h2>The main idea</h2>
+
+<p>
+An ordinary differential equation may be written as
+</p>
+
+\[
+dX_t=a(X_t,t)\,dt.
+\]
+
+<p>
+A stochastic differential equation adds a Brownian-motion term:
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+dX_t
+=
+a(X_t,t)\,dt
++
+b(X_t,t)\,dW_t
+}
+\]
+
+</div>
+
+<p>
+The first term describes deterministic change and the second describes random fluctuation.
+</p>
+
+
+<h3>1. The state variable</h3>
+
+<p>
+The quantity
+</p>
+
+\[
+X_t
+\]
+
+<p>
+is the state of the system at time \(t\).
+</p>
+
+<p>
+Unlike an ordinary deterministic solution, \(X_t\) is a random variable for each fixed time \(t\).
+</p>
+
+<p>
+The collection
+</p>
+
+\[
+\{X_t:t\ge0\}
+\]
+
+<p>
+forms a stochastic process.
+</p>
+
+
+<h3>2. Drift term</h3>
+
+<p>
+The term
+</p>
+
+\[
+a(X_t,t)\,dt
+\]
+
+<p>
+is called the <strong>drift</strong>.
+</p>
+
+<p>
+The function
+</p>
+
+\[
+a(X_t,t)
+\]
+
+<p>
+gives the systematic local rate of change.
+</p>
+
+<p>
+If the diffusion term were removed, we would have the deterministic equation
+</p>
+
+\[
+dX_t=a(X_t,t)\,dt.
+\]
+
+
+<h3>3. Diffusion term</h3>
+
+<p>
+The term
+</p>
+
+\[
+b(X_t,t)\,dW_t
+\]
+
+<p>
+is called the <strong>diffusion term</strong>.
+</p>
+
+<p>
+The coefficient
+</p>
+
+\[
+b(X_t,t)
+\]
+
+<p>
+controls the strength of the random fluctuation.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{larger }|b|
+\Rightarrow
+\text{larger random fluctuations}
+}
+\]
+
+</div>
+
+
+<h3>4. Brownian motion supplies the randomness</h3>
+
+<p>
+The Brownian increment over a short interval satisfies
+</p>
+
+\[
+\Delta W
+\sim
+N(0,\Delta t).
+\]
+
+<p>
+Equivalently,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\Delta W
+=
+\sqrt{\Delta t}\,Z,
+\qquad
+Z\sim N(0,1)
+}
+\]
+
+</div>
+
+
+<h3>5. Small-time interpretation</h3>
+
+<p>
+Over a small time interval \(\Delta t\), the SDE
+</p>
+
+\[
+dX_t
+=
+a(X_t,t)\,dt
++
+b(X_t,t)\,dW_t
+\]
+
+<p>
+is approximated by
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\Delta X
+\approx
+a(X_t,t)\Delta t
++
+b(X_t,t)\Delta W
+}
+\]
+
+</div>
+
+<p>
+where
+</p>
+
+\[
+\Delta W
+=
+\sqrt{\Delta t}\,Z.
+\]
+
+
+<h3>6. The two different scales</h3>
+
+<p>
+The deterministic contribution has size
+</p>
+
+\[
+a\Delta t.
+\]
+
+<p>
+The random contribution has typical size
+</p>
+
+\[
+b\sqrt{\Delta t}.
+\]
+
+<p>
+Therefore,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{drift}
+\sim
+\Delta t
+}
+\]
+
+\[
+\boxed{
+\text{diffusion}
+\sim
+\sqrt{\Delta t}
+}
+\]
+
+</div>
+
+<p>
+This difference in scaling is fundamental.
+</p>
+
+
+<h3>7. A simple SDE</h3>
+
+<p>
+Consider
+</p>
+
+\[
+\boxed{
+dX_t
+=
+\mu\,dt
++
+\sigma\,dW_t
+}
+\]
+
+<p>
+where \(\mu\) and \(\sigma\) are constants.
+</p>
+
+<p>
+Here,
+</p>
+
+\[
+\mu
+\]
+
+<p>
+is the drift rate and
+</p>
+
+\[
+\sigma
+\]
+
+<p>
+is the diffusion strength.
+</p>
+
+
+<h3>8. Interpretation over a small interval</h3>
+
+<p>
+For a small time step \(\Delta t\),
+</p>
+
+\[
+\Delta X
+\approx
+\mu\Delta t
++
+\sigma\sqrt{\Delta t}\,Z.
+\]
+
+<p>
+The first part shifts the process systematically.
+</p>
+
+<p>
+The second part randomly moves it above or below that systematic change.
+</p>
+
+
+<h3>9. Example</h3>
+
+<p>
+Suppose
+</p>
+
+\[
+\mu=2,
+\qquad
+\sigma=0.5,
+\qquad
+\Delta t=0.04.
+\]
+
+<p>
+Then
+</p>
+
+\[
+\mu\Delta t
+=
+2(0.04)
+=
+0.08.
+\]
+
+<p>
+Also,
+</p>
+
+\[
+\sigma\sqrt{\Delta t}
+=
+0.5(0.2)
+=
+0.1.
+\]
+
+<p>
+So
+</p>
+
+\[
+\Delta X
+\approx
+0.08+0.1Z.
+\]
+
+<p>
+If
+</p>
+
+\[
+Z=1.3,
+\]
+
+<p>
+then
+</p>
+
+\[
+\Delta X
+\approx
+0.08+0.13
+=
+0.21.
+\]
+
+<p>
+If instead
+</p>
+
+\[
+Z=-1,
+\]
+
+<p>
+then
+</p>
+
+\[
+\Delta X
+\approx
+0.08-0.1
+=
+-0.02.
+\]
+
+<p>
+So the random term can overcome the positive drift during a particular short interval.
+</p>
+
+
+<h3>10. Same model, different paths</h3>
+
+<p>
+For a deterministic ODE, the same initial condition and parameters give the same trajectory.
+</p>
+
+<p>
+For an SDE, different Brownian increments produce different trajectories.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{same SDE}
++
+\text{same initial condition}
+\rightarrow
+\text{many possible sample paths}
+}
+\]
+
+</div>
+
+
+<h3>11. But the model is still precise</h3>
+
+<p>
+The fact that trajectories differ does not mean the model is vague.
+</p>
+
+<p>
+The SDE specifies the probability law governing those trajectories.
+</p>
+
+<p>
+It tells us how the systematic and random components behave mathematically.
+</p>
+
+
+<h3>12. Additive noise</h3>
+
+<p>
+In
+</p>
+
+\[
+dX_t
+=
+a(X_t,t)\,dt
++
+\sigma\,dW_t,
+\]
+
+<p>
+the diffusion coefficient is constant.
+</p>
+
+<p>
+The random fluctuation has the same strength regardless of the current state.
+</p>
+
+<p>
+This is often called <strong>additive noise</strong>.
+</p>
+
+
+<h3>13. State-dependent noise</h3>
+
+<p>
+Consider
+</p>
+
+\[
+dX_t
+=
+a(X_t,t)\,dt
++
+\sigma X_t\,dW_t.
+\]
+
+<p>
+Now the random fluctuation depends on the current value \(X_t\).
+</p>
+
+<p>
+When \(X_t\) is large, the diffusion term becomes larger.
+</p>
+
+<p>
+This is an example of <strong>multiplicative noise</strong>.
+</p>
+
+
+<h3>14. Geometric Brownian motion</h3>
+
+<p>
+An important SDE is
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+dX_t
+=
+\mu X_t\,dt
++
+\sigma X_t\,dW_t
+}
+\]
+
+</div>
+
+<p>
+Both the drift and diffusion are proportional to the current state.
+</p>
+
+<p>
+This model is known as geometric Brownian motion.
+</p>
+
+
+<h3>15. Deterministic part of geometric Brownian motion</h3>
+
+<p>
+If
+</p>
+
+\[
+\sigma=0,
+\]
+
+<p>
+then
+</p>
+
+\[
+dX_t
+=
+\mu X_t\,dt.
+\]
+
+<p>
+This is simply exponential growth or decay.
+</p>
+
+<p>
+The stochastic term introduces random variation around that growth mechanism.
+</p>
+
+
+<h3>16. Integral form of an SDE</h3>
+
+<p>
+The differential notation is compact, but an SDE is defined rigorously through an integral equation.
+</p>
+
+<p>
+For
+</p>
+
+\[
+dX_t
+=
+a(X_t,t)\,dt
++
+b(X_t,t)\,dW_t,
+\]
+
+<p>
+the integral form is
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+X_t
+=
+X_0
++
+\int_0^t
+a(X_s,s)\,ds
++
+\int_0^t
+b(X_s,s)\,dW_s
+}
+\]
+
+</div>
+
+<p>
+The first integral is an ordinary time integral.
+</p>
+
+<p>
+The second is a stochastic integral.
+</p>
+
+
+<h3>17. Why the stochastic integral needs a new definition</h3>
+
+<p>
+In ordinary integration,
+</p>
+
+\[
+\int f(t)\,dt
+\]
+
+<p>
+integrates against smooth time increments.
+</p>
+
+<p>
+But
+</p>
+
+\[
+\int b(X_t,t)\,dW_t
+\]
+
+<p>
+integrates against Brownian motion, whose paths are nowhere differentiable.
+</p>
+
+<p>
+So ordinary Riemann integration is not enough.
+</p>
+
+<p>
+This leads to the Itô integral.
+</p>
+
+
+<h3>18. SDEs do not mean \(dW_t/dt\) exists</h3>
+
+<p>
+It may be tempting to write
+</p>
+
+\[
+\frac{dX_t}{dt}
+=
+a(X_t,t)
++
+b(X_t,t)\frac{dW_t}{dt}.
+\]
+
+<p>
+But
+</p>
+
+\[
+\frac{dW_t}{dt}
+\]
+
+<p>
+does not exist as an ordinary derivative.
+</p>
+
+<p>
+So the differential form of an SDE must be understood through stochastic integration, not ordinary differentiation.
+</p>
+
+
+<h3>19. Numerical simulation</h3>
+
+<p>
+A common numerical method for SDEs is Euler–Maruyama.
+</p>
+
+<p>
+For
+</p>
+
+\[
+dX_t
+=
+a(X_t,t)\,dt
++
+b(X_t,t)\,dW_t,
+\]
+
+<p>
+the update is
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+X_{n+1}
+=
+X_n
++
+a(X_n,t_n)\Delta t
++
+b(X_n,t_n)\Delta W_n
+}
+\]
+
+</div>
+
+<p>
+with
+</p>
+
+\[
+\boxed{
+\Delta W_n
+=
+\sqrt{\Delta t}\,Z_n,
+\qquad
+Z_n\sim N(0,1)
+}
+\]
+
+
+<h3>20. Compare with Euler's method</h3>
+
+<p>
+For an ODE,
+</p>
+
+\[
+dX_t=a(X_t,t)\,dt,
+\]
+
+<p>
+Euler's method gives
+</p>
+
+\[
+X_{n+1}
+=
+X_n+a(X_n,t_n)\Delta t.
+\]
+
+<p>
+Euler–Maruyama adds the stochastic contribution:
+</p>
+
+\[
+b(X_n,t_n)\Delta W_n.
+\]
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{Euler--Maruyama}
+=
+\text{Euler drift step}
++
+\text{Brownian step}
+}
+\]
+
+</div>
+
+
+<h3>21. Diagram of possible trajectories</h3>
+
+<div style="max-width:760px; margin:30px auto;">
+
+<svg viewBox="0 0 760 430"
+     width="100%"
+     role="img"
+     aria-labelledby="sde-title sde-desc"
+     xmlns="http://www.w3.org/2000/svg">
+
+<title id="sde-title">
+Several stochastic trajectories from the same initial value
+</title>
+
+<desc id="sde-desc">
+Several irregular trajectories begin from the same point and then separate as different random fluctuations occur.
+</desc>
+
+<line x1="70" y1="355" x2="700" y2="355"
+      stroke="currentColor"
+      stroke-width="2"/>
+
+<line x1="70" y1="355" x2="70" y2="55"
+      stroke="currentColor"
+      stroke-width="2"/>
+
+<text x="708" y="360"
+      font-size="18"
+      fill="currentColor">t</text>
+
+<text x="43" y="52"
+      font-size="18"
+      fill="currentColor">X</text>
+
+<circle cx="70" cy="285" r="6"
+        fill="currentColor"/>
+
+<!-- path 1 -->
+
+<polyline points="
+70,285
+105,272
+140,278
+175,250
+210,260
+245,225
+280,238
+315,205
+350,215
+385,180
+420,192
+455,155
+490,168
+525,135
+560,145
+595,110
+630,125
+670,90
+"
+fill="none"
+stroke="currentColor"
+stroke-width="2.5"/>
+
+<!-- path 2 -->
+
+<polyline points="
+70,285
+105,295
+140,275
+175,288
+210,260
+245,270
+280,245
+315,258
+350,230
+385,245
+420,210
+455,222
+490,195
+525,205
+560,175
+595,188
+630,155
+670,168
+"
+fill="none"
+stroke="currentColor"
+stroke-width="2"
+opacity="0.55"/>
+
+<!-- path 3 -->
+
+<polyline points="
+70,285
+105,275
+140,290
+175,265
+210,275
+245,250
+280,265
+315,238
+350,250
+385,220
+420,235
+455,205
+490,220
+525,185
+560,200
+595,170
+630,180
+670,150
+"
+fill="none"
+stroke="currentColor"
+stroke-width="2"
+opacity="0.4"/>
+
+<text x="470" y="315"
+      font-size="16"
+      fill="currentColor">
+different sample paths
+</text>
+
+</svg>
+
+</div>
+
+
+<h3>22. One path versus a distribution</h3>
+
+<p>
+A single simulated trajectory answers:
+</p>
+
+\[
+\boxed{
+\text{What could happen in one realisation?}
+}
+\]
+
+<p>
+Many trajectories allow us to study:
+</p>
+
+\[
+E[X_t],
+\]
+
+\[
+\operatorname{Var}(X_t),
+\]
+
+<p>
+and probabilities such as
+</p>
+
+\[
+P(X_t>L).
+\]
+
+<p>
+These quantities describe uncertainty across possible realisations.
+</p>
+
+
+<h3>23. Expected value</h3>
+
+<p>
+The expected value
+</p>
+
+\[
+E[X_t]
+\]
+
+<p>
+describes the average state across many hypothetical repetitions of the stochastic system.
+</p>
+
+<p>
+It is not the same thing as one particular sample path.
+</p>
+
+
+<h3>24. Variance</h3>
+
+<p>
+The variance
+</p>
+
+\[
+\operatorname{Var}(X_t)
+\]
+
+<p>
+describes how widely possible values of \(X_t\) are spread around their mean.
+</p>
+
+<p>
+A deterministic model contains only one trajectory for fixed inputs, while an SDE can describe both central behaviour and variability.
+</p>
+
+
+<h3>25. Epidemic example</h3>
+
+<p>
+Suppose the deterministic infectious population satisfies approximately
+</p>
+
+\[
+dI_t
+=
+\left(
+\beta\frac{S_tI_t}{N}
+-
+\gamma I_t
+\right)dt.
+\]
+
+<p>
+A stochastic version may include a diffusion term:
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+dI_t
+=
+\left(
+\beta\frac{S_tI_t}{N}
+-
+\gamma I_t
+\right)dt
++
+\sigma(S_t,I_t)\,dW_t
+}
+\]
+
+</div>
+
+<p>
+The drift retains the epidemic mechanism, while the diffusion represents random fluctuations.
+</p>
+
+
+<h3>26. The diffusion term should have meaning</h3>
+
+<p>
+In a well-constructed stochastic model, the function
+</p>
+
+\[
+\sigma(S,I)
+\]
+
+<p>
+should not be chosen arbitrarily.
+</p>
+
+<p>
+Its form should reflect the source and scale of the uncertainty being represented.
+</p>
+
+<p>
+For epidemic models derived from random infection and recovery events, the diffusion structure can be obtained from those event rates.
+</p>
+
+
+<h3>27. Why SDEs are useful</h3>
+
+<p>
+An SDE allows us to study more than a single average trajectory.
+</p>
+
+<p>
+It can represent:
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{mean behaviour}
+}
+\]
+
+\[
+\boxed{
+\text{variability}
+}
+\]
+
+\[
+\boxed{
+\text{probabilities of events}
+}
+\]
+
+\[
+\boxed{
+\text{uncertainty in peaks and thresholds}
+}
+\]
+
+</div>
+
+
+<h3>28. What an SDE does not automatically provide</h3>
+
+<p>
+Writing down an SDE does not immediately give its probability distribution.
+</p>
+
+<p>
+We may need simulation, moment equations, the Fokker–Planck equation, or other analytical methods to study the distribution of \(X_t\).
+</p>
+
+
+<h3>29. The structure to remember</h3>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+dX_t
+=
+a(X_t,t)\,dt
++
+b(X_t,t)\,dW_t
+}
+\]
+
+\[
+\boxed{
+a\,dt
+=
+\text{drift}
+}
+\]
+
+\[
+\boxed{
+b\,dW_t
+=
+\text{diffusion}
+}
+\]
+
+\[
+\boxed{
+\Delta W
+=
+\sqrt{\Delta t}\,Z
+}
+\]
+
+</div>
+
+
+<h3>30. The central idea</h3>
+
+<p>
+An SDE is not simply an ODE with an arbitrary random number added.
+</p>
+
+<p>
+It is a continuous-time stochastic model with a precise Brownian-motion structure.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{systematic mechanism}
++
+\text{continuous random fluctuation}
+=
+\text{stochastic differential equation}
+}
+\]
+
+</div>
+
+
+<div class="lesson-navigation">
+
+<a href="brownian-motion.html">
+← Brownian Motion
+</a>
+
+<a href="ito-integral.html">
+Next: The Itô Integral →
+</a>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<div>
+<strong>dy/dx</strong>
+<p>Calculus Learning</p>
+</div>
+
+</footer>
+
+
+</body>
+
+</html>
