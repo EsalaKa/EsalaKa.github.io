@@ -1,201 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Number Systems | dy/dx</title>
-<link rel="stylesheet" href="../style.css">
-<script>
-window.MathJax = {
-  tex: {
-    inlineMath: [['\\(', '\\)']],
-    displayMath: [['\\[', '\\]']]
-  }
-};
-</script>
+<link rel="stylesheet" href="../style.css?v=4">
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]}};</script>
 <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.number-line{max-width:820px;margin:30px auto 34px}.number-line svg{width:100%;height:auto;display:block}.nl-axis,.nl-tick{stroke:#171717}.nl-axis{stroke-width:2}.nl-tick{stroke-width:1.5}.nl-guide{stroke:#777;stroke-width:1;stroke-dasharray:4 4}.nl-point{fill:#171717}.nl-rational{fill:#496f8a}.nl-irrational{fill:#9a6754}.nl-label{fill:#171717;font-size:15px}.nl-small{fill:#555;font-size:13px}
+</style>
 </head>
-
 <body>
-<header class="site-header">
-<div class="brand"><a href="../index.html">dy/dx</a></div>
-<nav class="top-nav">
-<a href="../index.html">Home</a>
-<a href="index.html">Foundations</a>
-</nav>
-</header>
-
+<header class="site-header"><div class="brand"><a href="../index.html">dy/dx</a></div><nav class="top-nav"><a href="../index.html">Home</a><a href="index.html">Foundations</a></nav></header>
 <main>
-<section class="lesson-header">
-<p class="eyebrow">FOUNDATIONS 01</p>
-<h1>Number Systems</h1>
-<p class="lesson-intro">
-Different mathematical problems require different kinds of numbers. Number systems tell us which values are allowed and which calculations can be carried out.
-</p>
-</section>
-
+<section class="lesson-header"><p class="eyebrow">FOUNDATIONS 01</p><h1>Number Systems</h1><p class="lesson-intro">Different mathematical problems require different kinds of numbers. Number systems extend as soon as an earlier system can no longer represent what we need.</p></section>
 <section class="lesson-content">
+<h2>The main idea</h2>
+<p>We begin with numbers for counting. We then need negative numbers, fractions and finally numbers such as \(\sqrt2\) and \(\pi\). Each extension keeps the numbers we already had and adds new ones.</p>
+<div class="lesson-math">\[\boxed{\mathbb N\subset\mathbb Z\subset\mathbb Q\subset\mathbb R}\]</div>
+<p>This tells us <strong>which systems contain which</strong>. The number line gives a different view: it shows <strong>where the numbers actually lie</strong>.</p>
 
-<h2>Why number systems matter</h2>
-<p>
-Counting, debt, sharing, measurement and continuous change do not all use the same kind of number. Mathematics therefore extends the number system whenever the previous one is too limited.
-</p>
-
-<div class="lesson-math">
-\[
-\mathbb N
-\subset
-\mathbb Z
-\subset
-\mathbb Q
-\subset
-\mathbb R
-\]
+<h3>1. Numbers on the real number line</h3>
+<p>Every point on the ordinary number line represents exactly one real number. Integers are only some of these points; fractions and irrational numbers lie between them.</p>
+<div class="number-line">
+<svg viewBox="0 0 900 300" role="img" aria-labelledby="nl-title nl-desc" xmlns="http://www.w3.org/2000/svg">
+<title id="nl-title">Real number line with rational, irrational and integer examples</title>
+<desc id="nl-desc">An accurate number line from minus three to four showing minus square root two, minus one half, zero, three quarters, square root two and pi at their numerical positions.</desc>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L6,3 z" fill="#171717"/></marker></defs>
+<line x1="55" y1="155" x2="845" y2="155" class="nl-axis" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+<!-- scale: x = 100 + (value+3)*100 -->
+<g class="nl-tick">
+<line x1="100" y1="145" x2="100" y2="165"/><line x1="200" y1="145" x2="200" y2="165"/><line x1="300" y1="145" x2="300" y2="165"/><line x1="400" y1="142" x2="400" y2="168"/><line x1="500" y1="145" x2="500" y2="165"/><line x1="600" y1="145" x2="600" y2="165"/><line x1="700" y1="145" x2="700" y2="165"/><line x1="800" y1="145" x2="800" y2="165"/>
+</g>
+<g class="nl-label" text-anchor="middle"><text x="100" y="190">−3</text><text x="200" y="190">−2</text><text x="300" y="190">−1</text><text x="400" y="190">0</text><text x="500" y="190">1</text><text x="600" y="190">2</text><text x="700" y="190">3</text><text x="800" y="190">4</text></g>
+<!-- -sqrt2 = -1.4142 -> 258.58 -->
+<line x1="258.58" y1="95" x2="258.58" y2="145" class="nl-guide"/><circle cx="258.58" cy="155" r="6" class="nl-irrational"/><text x="258.58" y="78" text-anchor="middle" class="nl-label">−√2</text><text x="258.58" y="96" text-anchor="middle" class="nl-small">≈ −1.414</text>
+<!-- -1/2 -->
+<line x1="350" y1="165" x2="350" y2="220" class="nl-guide"/><circle cx="350" cy="155" r="6" class="nl-rational"/><text x="350" y="242" text-anchor="middle" class="nl-label">−1/2</text>
+<!-- 3/4 -->
+<line x1="475" y1="165" x2="475" y2="220" class="nl-guide"/><circle cx="475" cy="155" r="6" class="nl-rational"/><text x="475" y="242" text-anchor="middle" class="nl-label">3/4</text>
+<!-- sqrt2 = 1.4142 -> 541.42 -->
+<line x1="541.42" y1="95" x2="541.42" y2="145" class="nl-guide"/><circle cx="541.42" cy="155" r="6" class="nl-irrational"/><text x="541.42" y="78" text-anchor="middle" class="nl-label">√2</text><text x="541.42" y="96" text-anchor="middle" class="nl-small">≈ 1.414</text>
+<!-- pi = 3.14159 -> 714.159 -->
+<line x1="714.16" y1="95" x2="714.16" y2="145" class="nl-guide"/><circle cx="714.16" cy="155" r="6" class="nl-irrational"/><text x="714.16" y="78" text-anchor="middle" class="nl-label">π</text><text x="714.16" y="96" text-anchor="middle" class="nl-small">≈ 3.142</text>
+<circle cx="400" cy="155" r="5" class="nl-point"/>
+<text x="450" y="282" text-anchor="middle" class="nl-small">muted blue: rational examples &nbsp;&nbsp; muted rust: irrational examples</text>
+</svg>
 </div>
+<p>The positions are numerical, not decorative. For example, \(\sqrt2\approx1.414\), so it lies between \(1\) and \(2\), while \(\pi\approx3.142\) lies just to the right of \(3\).</p>
 
-<p>
-Each larger system keeps the earlier numbers but allows new kinds of problems to be solved.
-</p>
+<h3>2. Natural numbers \(\mathbb N\)</h3>
+<p>Natural numbers are used for counting whole objects:</p>
+\[\mathbb N=\{1,2,3,4,\ldots\}.\]
+<p>Some definitions also include \(0\). They are appropriate for quantities such as 25 students or 8 books, but they cannot represent debt, half an object, or a continuous measurement.</p>
 
-<h3>1. Natural numbers</h3>
-<p>
-Natural numbers are the counting numbers:
-</p>
-<div class="lesson-math">
-\[
-\mathbb N=\{1,2,3,4,\ldots\}.
-\]
-</div>
-<p>
-Some definitions also include \(0\) in \(\mathbb N\).
-</p>
-<p>
-<strong>Why they are needed:</strong> they describe quantities that are counted as whole objects. Examples include 25 students, 8 books, 3 infections or 120 customers. Fractions and negative values are usually not meaningful when counting individual objects.
-</p>
+<h3>3. Integers \(\mathbb Z\)</h3>
+<p>To represent zero and values below zero, we extend to the integers:</p>
+\[\mathbb Z=\{\ldots,-3,-2,-1,0,1,2,3,\ldots\}.\]
+<p>Integers are useful for temperatures below zero, gains and losses, floors below ground level and signed changes. On the number line they occur at whole-number positions.</p>
 
-<h3>2. Integers</h3>
-<p>
-Integers include positive whole numbers, negative whole numbers and zero:
-</p>
-<div class="lesson-math">
-\[
-\mathbb Z=\{\ldots,-3,-2,-1,0,1,2,3,\ldots\}.
-\]
-</div>
-<p>
-<strong>Why they are needed:</strong> natural numbers cannot represent quantities below zero. Integers are used for temperatures below zero, financial gains and losses, floors below ground level, direction and changes such as \(-5\) or \(+3\).
-</p>
+<h3>4. Rational numbers \(\mathbb Q\)</h3>
+<p>Integers are still not enough when quantities must be divided. A rational number can be written as</p>
+\[\frac pq,\qquad p,q\in\mathbb Z,\qquad q\ne0.\]
+<p>Examples include \(1/2\), \(-3/4\), \(2.5=5/2\), and every integer because, for example, \(5=5/1\).</p>
+<p>Rational numbers are needed for proportions, probabilities, rates, money and measurements. They fill many points between the integers; there are infinitely many rational numbers between any two distinct real numbers.</p>
 
-<h3>3. Rational numbers</h3>
-<p>
-A rational number is any number that can be written as
-</p>
-<div class="lesson-math">
-\[
-\frac{p}{q},
-\qquad p,q\in\mathbb Z,
-\qquad q\neq0.
-\]
-</div>
-<p>
-Examples include
-</p>
-<div class="lesson-math">
-\[
-\frac12,
-\qquad -\frac34,
-\qquad 5=\frac51.
-\]
-</div>
-<p>
-<strong>Why they are needed:</strong> integers cannot describe parts of a whole. Rational numbers allow proportions, percentages, rates and exact divisions, such as half a litre, \(2.5\) hours, a probability of \(3/4\), or a price of £1.25.
-</p>
+<h3>5. Rational decimals</h3>
+<p>A rational number may appear as a fraction, a terminating decimal or a repeating decimal:</p>
+\[0.5=\frac12,\qquad 0.75=\frac34,\qquad0.333\ldots=\frac13.\]
+<p>The notation changes, but the position on the number line does not. For example, \(3/4\) and \(0.75\) are the same point.</p>
 
-<h3>4. Rational decimals</h3>
-<p>
-Terminating and repeating decimals are rational:
-</p>
-<div class="lesson-math">
-\[
-0.5=\frac12,
-\qquad
-0.333\ldots=\frac13.
-\]
-</div>
-<p>
-Decimals are often more convenient than fractions for measurement, money, data and numerical computation, but mathematically they may represent exactly the same rational number.
-</p>
+<h3>6. Irrational numbers</h3>
+<p>Some exact quantities cannot be written as a fraction of two integers. These are irrational numbers. Examples include</p>
+\[\sqrt2,\qquad\pi,\qquad e.\]
+<p>Their decimal expansions neither terminate nor eventually repeat. They are not “outside” the number line: they occupy ordinary points on it, mixed among the rational numbers.</p>
+<p>They arise naturally in mathematics: \(\sqrt2\) is the diagonal length of a unit square, \(\pi\) appears in circles, and \(e\) appears in continuous growth and calculus.</p>
 
-<h3>5. Irrational numbers</h3>
-<p>
-An irrational number cannot be written as a fraction of two integers. Examples include
-</p>
-<div class="lesson-math">
-\[
-\sqrt2,
-\qquad
-\pi,
-\qquad
-e.
-\]
-</div>
-<p>
-Their decimal expansions do not terminate or eventually repeat.
-</p>
-<p>
-<strong>Why they are needed:</strong> some exact quantities cannot be represented by rational numbers. For example, the diagonal of a unit square is \(\sqrt2\), the circumference of a circle involves \(\pi\), and continuous exponential growth naturally involves \(e\).
-</p>
+<h3>7. Real numbers \(\mathbb R\)</h3>
+<p>Real numbers consist of all rational and irrational numbers:</p>
+\[\mathbb R=\mathbb Q\cup(\mathbb R\setminus\mathbb Q).\]
+<p>So the complete ordinary number line is the real-number system. Every point corresponds to a real number, and every real number has a position on the line.</p>
 
-<h3>6. Real numbers</h3>
-<p>
-Real numbers include both rational and irrational numbers:
-</p>
-<div class="lesson-math">
-\[
-\mathbb R
-=
-\{\text{rational numbers}\}
-\cup
-\{\text{irrational numbers}\}.
-\]
-</div>
-<p>
-Every point on the ordinary number line represents a real number.
-</p>
-<p>
-<strong>Why they are needed:</strong> real numbers describe quantities that vary continuously, such as time, distance, temperature, velocity and population proportions. Calculus is mainly developed on the real numbers because limits, derivatives and integrals require values to vary continuously rather than only in whole or fractional steps.
-</p>
+<h3>8. Two ways to understand the systems</h3>
+<p>The containment relation</p>
+\[\mathbb N\subset\mathbb Z\subset\mathbb Q\subset\mathbb R\]
+<p>tells us that every natural number is an integer, every integer is rational, and every rational number is real.</p>
+<p>The number line tells us something different: integers, fractions and irrational numbers are all <strong>locations on the same continuous real line</strong>.</p>
+<div class="lesson-math">\[\boxed{\text{counting}\rightarrow\text{signed values}\rightarrow\text{fractions}\rightarrow\text{continuous real quantities}}\]</div>
 
-<h3>7. How the systems grow</h3>
-<p>
-Each extension solves a limitation of the previous system:
-</p>
-<div class="lesson-math">
-\[
-\begin{aligned}
-\mathbb N &: \text{counting},\\
-\mathbb Z &: \text{counting plus negative values},\\
-\mathbb Q &: \text{integers plus exact fractions},\\
-\mathbb R &: \text{rational and irrational continuous values}.
-\end{aligned}
-\]
-</div>
-<p>
-The important question is therefore not simply “what kind of number is this?” but also “what kind of quantity am I trying to represent?”
-</p>
+<h3>9. Why this matters for calculus</h3>
+<p>Calculus studies quantities that can vary continuously. A variable such as time or distance may move through values such as \(1\), \(1.1\), \(1.01\), \(\sqrt2\), and every real value between them.</p>
+<p>This is why the real number line becomes the natural setting for functions, limits, derivatives and integrals.</p>
 
-<div class="lesson-navigation">
-<a href="index.html">← Foundations</a>
-<a href="expressions.html">Next: Algebraic Expressions →</a>
-</div>
-
-</section>
-</main>
-
-<footer>
-<div><strong>dy/dx</strong><p>Calculus Learning</p></div>
-</footer>
-
-</body>
-</html>
+<div class="lesson-navigation"><a href="index.html">← Foundations</a><a href="expressions.html">Next: Algebraic Expressions →</a></div>
+</section></main>
+<footer><div><strong>dy/dx</strong><p>Calculus Learning</p></div></footer>
+</body></html>
