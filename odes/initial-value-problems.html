@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Initial Value Problems | dy/dx</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']]
+  }
+};
+</script>
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+</head>
+
+
+<body>
+
+
+<header class="site-header">
+
+<div class="brand">
+<a href="../index.html">dy/dx</a>
+</div>
+
+<nav class="top-nav">
+<a href="../index.html">Home</a>
+<a href="index.html">Differential Equations</a>
+</nav>
+
+</header>
+
+
+<main>
+
+
+<section class="lesson-header">
+
+<p class="eyebrow">DIFFERENTIAL EQUATIONS 03</p>
+
+<h1>Initial Value Problems</h1>
+
+<p class="lesson-intro">
+An initial value problem combines a differential equation with information about the state of the system at a particular starting point.
+</p>
+
+</section>
+
+
+<section class="lesson-content">
+
+
+<h2>The main idea</h2>
+
+<p>
+A differential equation often has a family of solutions.
+An initial condition selects the particular solution that passes through a specified starting point.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{differential equation}
++
+\text{initial condition}
+=
+\text{initial value problem}
+}
+\]
+
+</div>
+
+
+<h3>1. A family of solutions</h3>
+
+<p>
+Consider
+</p>
+
+\[
+\frac{dy}{dx}=2x.
+\]
+
+<p>
+Integrating gives
+</p>
+
+\[
+y=x^2+C.
+\]
+
+<p>
+Because \(C\) can take any constant value, this describes infinitely many curves.
+</p>
+
+
+<h3>2. Add an initial condition</h3>
+
+<p>
+Suppose we also know that
+</p>
+
+\[
+y(1)=4.
+\]
+
+<p>
+This means that when
+</p>
+
+\[
+x=1,
+\]
+
+<p>
+the value of \(y\) is
+</p>
+
+\[
+4.
+\]
+
+<p>
+Substitute into the general solution:
+</p>
+
+\[
+4=1^2+C.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+C=3.
+\]
+
+<p>
+So the particular solution is
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+y=x^2+3
+}
+\]
+
+</div>
+
+
+<h3>3. What the notation means</h3>
+
+<p>
+The notation
+</p>
+
+\[
+y(x_0)=y_0
+\]
+
+<p>
+means that the solution passes through the point
+</p>
+
+\[
+(x_0,y_0).
+\]
+
+<p>
+For example,
+</p>
+
+\[
+y(1)=4
+\]
+
+<p>
+means that the solution passes through
+</p>
+
+\[
+(1,4).
+\]
+
+
+<h3>4. General form of a first-order initial value problem</h3>
+
+<p>
+A first-order initial value problem may be written as
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\frac{dy}{dx}=F(x,y),
+\qquad
+y(x_0)=y_0.
+}
+\]
+
+</div>
+
+<p>
+The differential equation gives the rule of change.
+The initial condition gives the starting state.
+</p>
+
+
+<h3>5. Why the initial condition matters</h3>
+
+<p>
+The differential equation
+</p>
+
+\[
+\frac{dy}{dx}=2x
+\]
+
+<p>
+alone does not determine a unique curve.
+</p>
+
+<p>
+For example,
+</p>
+
+\[
+y=x^2,
+\]
+
+\[
+y=x^2+2,
+\]
+
+<p>
+and
+</p>
+
+\[
+y=x^2-5
+\]
+
+<p>
+all satisfy the same differential equation.
+</p>
+
+<p>
+The initial condition selects one of them.
+</p>
+
+
+<h3>6. Visual interpretation</h3>
+
+<div style="max-width:680px; margin:30px auto;">
+
+<svg viewBox="0 0 680 420"
+     width="100%"
+     role="img"
+     aria-labelledby="ivp-title ivp-desc"
+     xmlns="http://www.w3.org/2000/svg">
+
+<title id="ivp-title">
+Family of solution curves with one initial point
+</title>
+
+<desc id="ivp-desc">
+Several similar solution curves are shown. A single marked initial point lies on one curve, selecting that curve from the family.
+</desc>
+
+<line x1="70" y1="340" x2="620" y2="340"
+      stroke="currentColor" stroke-width="2"/>
+
+<line x1="110" y1="380" x2="110" y2="45"
+      stroke="currentColor" stroke-width="2"/>
+
+<path d="
+M 130 295
+C 220 260, 300 180, 390 125
+C 470 80, 530 65, 590 60
+"
+fill="none"
+stroke="currentColor"
+stroke-width="2"
+opacity="0.35"/>
+
+<path d="
+M 130 320
+C 220 285, 300 205, 390 150
+C 470 105, 530 90, 590 85
+"
+fill="none"
+stroke="currentColor"
+stroke-width="3"/>
+
+<path d="
+M 130 345
+C 220 310, 300 230, 390 175
+C 470 130, 530 115, 590 110
+"
+fill="none"
+stroke="currentColor"
+stroke-width="2"
+opacity="0.35"/>
+
+<circle cx="390" cy="150"
+        r="7"
+        fill="currentColor"/>
+
+<text x="405" y="143"
+      font-size="16"
+      fill="currentColor">
+initial point
+</text>
+
+</svg>
+
+</div>
+
+<p>
+The differential equation gives the whole family.
+The initial condition identifies the required member of that family.
+</p>
+
+
+<h3>7. Example: exponential growth</h3>
+
+<p>
+Consider
+</p>
+
+\[
+\frac{dP}{dt}=kP.
+\]
+
+<p>
+Its general nonzero solution is
+</p>
+
+\[
+P(t)=Ae^{kt}.
+\]
+
+<p>
+Suppose
+</p>
+
+\[
+P(0)=P_0.
+\]
+
+<p>
+Then
+</p>
+
+\[
+P_0=Ae^0=A.
+\]
+
+<p>
+Therefore,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+P(t)=P_0e^{kt}
+}
+\]
+
+</div>
+
+
+<h3>8. Why \(P_0\) has a clear meaning</h3>
+
+<p>
+The notation
+</p>
+
+\[
+P_0
+\]
+
+<p>
+usually represents the initial value of the population.
+</p>
+
+<p>
+Indeed,
+</p>
+
+\[
+P(0)=P_0.
+\]
+
+<p>
+So the constant in the solution is determined directly by the starting population.
+</p>
+
+
+<h3>9. Example with separation of variables</h3>
+
+<p>
+Solve
+</p>
+
+\[
+\frac{dy}{dx}=xy,
+\qquad
+y(0)=2.
+\]
+
+<p>
+For \(y\neq0\), separate:
+</p>
+
+\[
+\frac1y\,dy=x\,dx.
+\]
+
+<p>
+Integrate:
+</p>
+
+\[
+\ln|y|=\frac{x^2}{2}+C.
+\]
+
+<p>
+Exponentiate:
+</p>
+
+\[
+y=Ae^{x^2/2}.
+\]
+
+<p>
+Use the initial condition:
+</p>
+
+\[
+2=Ae^0.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+A=2.
+\]
+
+<p>
+So
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+y=2e^{x^2/2}
+}
+\]
+
+</div>
+
+
+<h3>10. Check the solution</h3>
+
+<p>
+A good habit is to verify both parts of the initial value problem.
+</p>
+
+<p>
+First, differentiate:
+</p>
+
+\[
+y=2e^{x^2/2}.
+\]
+
+<p>
+Then
+</p>
+
+\[
+\frac{dy}{dx}
+=
+2e^{x^2/2}x.
+\]
+
+<p>
+Since
+</p>
+
+\[
+y=2e^{x^2/2},
+\]
+
+<p>
+we have
+</p>
+
+\[
+\frac{dy}{dx}=xy.
+\]
+
+<p>
+The differential equation is satisfied.
+</p>
+
+<p>
+Also,
+</p>
+
+\[
+y(0)=2.
+\]
+
+<p>
+So the initial condition is satisfied.
+</p>
+
+
+<h3>11. Initial conditions need not occur at zero</h3>
+
+<p>
+The starting point can be any specified value.
+</p>
+
+<p>
+For example,
+</p>
+
+\[
+y(3)=7
+\]
+
+<p>
+is also an initial condition.
+</p>
+
+<p>
+The word “initial” refers to the specified starting point for the problem, not necessarily to \(x=0\).
+</p>
+
+
+<h3>12. Second-order initial value problems</h3>
+
+<p>
+A second-order differential equation generally requires two initial conditions.
+</p>
+
+<p>
+For example,
+</p>
+
+\[
+\frac{d^2y}{dt^2}=-y
+\]
+
+<p>
+might be accompanied by
+</p>
+
+\[
+y(0)=1
+\]
+
+<p>
+and
+</p>
+
+\[
+y'(0)=0.
+\]
+
+<p>
+The first condition specifies the initial position.
+The second specifies the initial rate of change.
+</p>
+
+
+<h3>13. Why more conditions are needed for higher-order equations</h3>
+
+<p>
+Integrating a first-order equation usually introduces one arbitrary constant.
+</p>
+
+<p>
+Integrating a second-order equation typically introduces two.
+</p>
+
+<p>
+So, in general, an \(n\)-th order differential equation requires enough independent conditions to determine the \(n\) constants in its general solution.
+</p>
+
+
+<h3>14. Existence is not automatically uniqueness</h3>
+
+<p>
+An initial value problem asks for a solution passing through a specified initial state.
+</p>
+
+<p>
+In many well-behaved equations, this solution is unique.
+But this is not true for every differential equation.
+</p>
+
+<p>
+So there are two separate mathematical questions:
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{Does a solution exist?}
+}
+\]
+
+\[
+\boxed{
+\text{If it exists, is it unique?}
+}
+\]
+
+</div>
+
+<p>
+Later theory gives conditions under which both answers are yes.
+</p>
+
+
+<h3>15. Why initial value problems matter in modelling</h3>
+
+<p>
+A model needs both a law of change and a starting state.
+</p>
+
+<p>
+For example, in a population model,
+</p>
+
+\[
+\frac{dP}{dt}=F(P,t)
+\]
+
+<p>
+describes how the population changes.
+</p>
+
+<p>
+But to predict a particular trajectory, we also need something like
+</p>
+
+\[
+P(0)=P_0.
+\]
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{model dynamics}
++
+\text{starting state}
+=
+\text{specific trajectory}
+}
+\]
+
+</div>
+
+
+<h3>16. The practical method</h3>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+1.\; \text{Solve the differential equation generally}
+}
+\]
+
+\[
+\boxed{
+2.\; \text{Keep the arbitrary constant}
+}
+\]
+
+\[
+\boxed{
+3.\; \text{Substitute the initial condition}
+}
+\]
+
+\[
+\boxed{
+4.\; \text{Determine the constant}
+}
+\]
+
+\[
+\boxed{
+5.\; \text{Write the particular solution}
+}
+\]
+
+\[
+\boxed{
+6.\; \text{Verify the equation and initial condition}
+}
+\]
+
+</div>
+
+
+<h3>17. The central idea</h3>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{differential equation}
+\rightarrow
+\text{family of solutions}
+}
+\]
+
+\[
+\boxed{
+\text{initial condition}
+\rightarrow
+\text{one particular solution}
+}
+\]
+
+</div>
+
+<p>
+This is the basic structure of an initial value problem.
+</p>
+
+
+<div class="lesson-navigation">
+
+<a href="separation-of-variables.html">
+← Separation of Variables
+</a>
+
+<a href="first-order-linear.html">
+Next: First-Order Linear Equations →
+</a>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<div>
+<strong>dy/dx</strong>
+<p>Calculus Learning</p>
+</div>
+
+</footer>
+
+
+</body>
+
+</html>
