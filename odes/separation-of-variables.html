@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Separation of Variables | dy/dx</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']]
+  }
+};
+</script>
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+</head>
+
+
+<body>
+
+
+<header class="site-header">
+
+<div class="brand">
+<a href="../index.html">dy/dx</a>
+</div>
+
+<nav class="top-nav">
+<a href="../index.html">Home</a>
+<a href="index.html">Differential Equations</a>
+</nav>
+
+</header>
+
+
+<main>
+
+
+<section class="lesson-header">
+
+<p class="eyebrow">DIFFERENTIAL EQUATIONS 02</p>
+
+<h1>Separation of Variables</h1>
+
+<p class="lesson-intro">
+Separation of variables solves certain first-order differential equations by separating the variables and then integrating.
+</p>
+
+</section>
+
+
+<section class="lesson-content">
+
+
+<h2>The main idea</h2>
+
+<p>
+Consider a differential equation of the form
+</p>
+
+\[
+\frac{dy}{dx}=g(x)h(y).
+\]
+
+<p>
+The \(x\)-dependence and \(y\)-dependence can be separated.
+</p>
+
+<p>
+If \(h(y)\neq0\), write
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\frac{1}{h(y)}\,dy
+=
+g(x)\,dx
+}
+\]
+
+</div>
+
+<p>
+We can then integrate both sides.
+</p>
+
+
+<h3>1. Why separate the variables?</h3>
+
+<p>
+The original equation contains \(x\), \(y\), and the derivative \(dy/dx\) together.
+</p>
+
+<p>
+Separation rearranges the equation so that all expressions involving \(y\) are associated with \(dy\), while all expressions involving \(x\) are associated with \(dx\).
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{\(y\)-terms}\,dy
+=
+\text{\(x\)-terms}\,dx
+}
+\]
+
+</div>
+
+<p>
+Each side can then be integrated in its own variable.
+</p>
+
+
+<h3>2. A simple example</h3>
+
+<p>
+Consider
+</p>
+
+\[
+\frac{dy}{dx}=2x.
+\]
+
+<p>
+Write
+</p>
+
+\[
+dy=2x\,dx.
+\]
+
+<p>
+Integrate both sides:
+</p>
+
+\[
+\int dy
+=
+\int2x\,dx.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+y=x^2+C.
+\]
+
+<p>
+So
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+y=x^2+C
+}
+\]
+
+</div>
+
+
+<h3>3. Example with both variables</h3>
+
+<p>
+Consider
+</p>
+
+\[
+\frac{dy}{dx}=xy.
+\]
+
+<p>
+Now \(x\) and \(y\) both appear.
+</p>
+
+<p>
+For \(y\neq0\), divide by \(y\):
+</p>
+
+\[
+\frac{1}{y}\frac{dy}{dx}=x.
+\]
+
+<p>
+Using differential notation, write
+</p>
+
+\[
+\frac{1}{y}\,dy=x\,dx.
+\]
+
+
+<h3>4. Integrate both sides</h3>
+
+<p>
+Now integrate:
+</p>
+
+\[
+\int\frac{1}{y}\,dy
+=
+\int x\,dx.
+\]
+
+<p>
+This gives
+</p>
+
+\[
+\ln|y|
+=
+\frac{x^2}{2}+C.
+\]
+
+<p>
+This is already an implicit form of the solution.
+</p>
+
+
+<h3>5. Solve explicitly for \(y\)</h3>
+
+<p>
+Exponentiate both sides:
+</p>
+
+\[
+|y|
+=
+e^{x^2/2+C}.
+\]
+
+<p>
+Using
+</p>
+
+\[
+e^{a+b}=e^ae^b,
+\]
+
+<p>
+we obtain
+</p>
+
+\[
+|y|
+=
+e^C e^{x^2/2}.
+\]
+
+<p>
+The arbitrary constant and possible sign can be absorbed into a new constant \(A\).
+</p>
+
+<p>
+Therefore,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+y=Ae^{x^2/2}
+}
+\]
+
+</div>
+
+
+<h3>6. A solution can be lost during division</h3>
+
+<p>
+In the previous example we divided by \(y\).
+</p>
+
+<p>
+But division by \(y\) assumes
+</p>
+
+\[
+y\neq0.
+\]
+
+<p>
+The original differential equation
+</p>
+
+\[
+\frac{dy}{dx}=xy
+\]
+
+<p>
+also has the solution
+</p>
+
+\[
+\boxed{y=0}.
+\]
+
+<p>
+Therefore, whenever we divide by an expression involving the unknown function, we should check whether setting that expression equal to zero gives an additional solution.
+</p>
+
+
+<h3>7. General separable form</h3>
+
+<p>
+A first-order equation is separable if it can be written as
+</p>
+
+\[
+\frac{dy}{dx}=g(x)h(y).
+\]
+
+<p>
+For \(h(y)\neq0\),
+</p>
+
+\[
+\frac{1}{h(y)}\frac{dy}{dx}=g(x).
+\]
+
+<p>
+Then
+</p>
+
+\[
+\frac{1}{h(y)}\,dy=g(x)\,dx.
+\]
+
+<p>
+Integrating,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\int\frac{1}{h(y)}\,dy
+=
+\int g(x)\,dx
+}
+\]
+
+</div>
+
+
+<h3>8. Where does the constant go?</h3>
+
+<p>
+We could write
+</p>
+
+\[
+\int\frac{1}{h(y)}\,dy
+=
+H(y)+C_1
+\]
+
+<p>
+and
+</p>
+
+\[
+\int g(x)\,dx
+=
+G(x)+C_2.
+\]
+
+<p>
+Then
+</p>
+
+\[
+H(y)+C_1
+=
+G(x)+C_2.
+\]
+
+<p>
+Rearranging,
+</p>
+
+\[
+H(y)
+=
+G(x)+(C_2-C_1).
+\]
+
+<p>
+Since the difference of two arbitrary constants is another arbitrary constant, we simply write
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+H(y)=G(x)+C
+}
+\]
+
+</div>
+
+<p>
+So only one arbitrary constant is needed.
+</p>
+
+
+<h3>9. Example: exponential growth</h3>
+
+<p>
+Consider
+</p>
+
+\[
+\frac{dP}{dt}=kP,
+\]
+
+<p>
+where \(k\) is constant.
+</p>
+
+<p>
+For \(P\neq0\), separate:
+</p>
+
+\[
+\frac{1}{P}\,dP=k\,dt.
+\]
+
+<p>
+Integrate:
+</p>
+
+\[
+\int\frac1P\,dP
+=
+\int k\,dt.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+\ln|P|=kt+C.
+\]
+
+<p>
+Exponentiating,
+</p>
+
+\[
+P=Ae^{kt}.
+\]
+
+<p>
+Hence,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+P(t)=Ae^{kt}
+}
+\]
+
+</div>
+
+
+<h3>10. Apply an initial condition</h3>
+
+<p>
+Suppose
+</p>
+
+\[
+P(0)=P_0.
+\]
+
+<p>
+Using
+</p>
+
+\[
+P(t)=Ae^{kt},
+\]
+
+<p>
+set \(t=0\):
+</p>
+
+\[
+P_0=Ae^0.
+\]
+
+<p>
+Since
+</p>
+
+\[
+e^0=1,
+\]
+
+<p>
+we obtain
+</p>
+
+\[
+A=P_0.
+\]
+
+<p>
+Therefore,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+P(t)=P_0e^{kt}
+}
+\]
+
+</div>
+
+
+<h3>11. Growth and decay</h3>
+
+<p>
+For
+</p>
+
+\[
+\frac{dP}{dt}=kP,
+\]
+
+<p>
+if
+</p>
+
+\[
+k>0,
+\]
+
+<p>
+then \(P(t)\) grows exponentially.
+</p>
+
+<p>
+If
+</p>
+
+\[
+k<0,
+\]
+
+<p>
+then \(P(t)\) decays exponentially.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+k>0
+\Rightarrow
+\text{growth}
+}
+\]
+
+\[
+\boxed{
+k<0
+\Rightarrow
+\text{decay}
+}
+\]
+
+</div>
+
+
+<h3>12. Another example</h3>
+
+<p>
+Solve
+</p>
+
+\[
+\frac{dy}{dx}=x(1+y^2).
+\]
+
+<p>
+Separate:
+</p>
+
+\[
+\frac{1}{1+y^2}\,dy
+=
+x\,dx.
+\]
+
+<p>
+Integrate:
+</p>
+
+\[
+\int\frac{1}{1+y^2}\,dy
+=
+\int x\,dx.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+\arctan y
+=
+\frac{x^2}{2}+C.
+\]
+
+<p>
+Apply the tangent function:
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+y=
+\tan\left(
+\frac{x^2}{2}+C
+\right)
+}
+\]
+
+</div>
+
+<p>
+The solution is valid on intervals where the tangent expression is defined.
+</p>
+
+
+<h3>13. Implicit solutions</h3>
+
+<p>
+It is not always necessary or possible to isolate \(y\).
+</p>
+
+<p>
+For example, separation may produce
+</p>
+
+\[
+H(y)=G(x)+C.
+\]
+
+<p>
+This equation can itself describe the solution.
+</p>
+
+<p>
+Such a form is called an <strong>implicit solution</strong>.
+</p>
+
+
+<h3>14. Is \(dy/dx\) really a fraction?</h3>
+
+<p>
+The notation
+</p>
+
+\[
+\frac{dy}{dx}
+\]
+
+<p>
+looks like an ordinary fraction, but a derivative is defined through a limit and should not generally be treated as an ordinary algebraic fraction.
+</p>
+
+<p>
+However, for a separable differential equation, the familiar manipulation
+</p>
+
+\[
+\frac{dy}{dx}=g(x)h(y)
+\]
+
+<p>
+to
+</p>
+
+\[
+\frac{1}{h(y)}\,dy=g(x)\,dx
+\]
+
+<p>
+is mathematically justified through the chain rule and substitution in integration.
+</p>
+
+<p>
+So the notation is useful, but the validity comes from calculus rather than ordinary fraction cancellation.
+</p>
+
+
+<h3>15. Why the manipulation works</h3>
+
+<p>
+Suppose
+</p>
+
+\[
+H'(y)=\frac{1}{h(y)}.
+\]
+
+<p>
+By the chain rule,
+</p>
+
+\[
+\frac{d}{dx}H(y(x))
+=
+H'(y)\frac{dy}{dx}.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+\frac{d}{dx}H(y(x))
+=
+\frac{1}{h(y)}
+\frac{dy}{dx}.
+\]
+
+<p>
+Using the differential equation
+</p>
+
+\[
+\frac{dy}{dx}=g(x)h(y),
+\]
+
+<p>
+we obtain
+</p>
+
+\[
+\frac{d}{dx}H(y(x))
+=
+g(x).
+\]
+
+<p>
+Integrating with respect to \(x\),
+</p>
+
+\[
+H(y)=\int g(x)\,dx+C.
+\]
+
+<p>
+This is exactly the result obtained by separation of variables.
+</p>
+
+
+<h3>16. Not every ODE is separable</h3>
+
+<p>
+Separation works only when the equation can be rearranged into the appropriate form.
+</p>
+
+<p>
+For example,
+</p>
+
+\[
+\frac{dy}{dx}=x+y
+\]
+
+<p>
+cannot generally be written as
+</p>
+
+\[
+g(x)h(y).
+\]
+
+<p>
+So a different solution method is required.
+</p>
+
+
+<h3>17. The practical method</h3>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+1.\; \text{Check whether the equation is separable}
+}
+\]
+
+\[
+\boxed{
+2.\; \text{Separate the \(x\)- and \(y\)-dependence}
+}
+\]
+
+\[
+\boxed{
+3.\; \text{Check whether division could lose a solution}
+}
+\]
+
+\[
+\boxed{
+4.\; \text{Integrate both sides}
+}
+\]
+
+\[
+\boxed{
+5.\; \text{Simplify or solve for the unknown function}
+}
+\]
+
+\[
+\boxed{
+6.\; \text{Use any initial condition}
+}
+\]
+
+\[
+\boxed{
+7.\; \text{Check the solution in the original equation}
+}
+\]
+
+</div>
+
+
+<h3>18. The central idea</h3>
+
+<p>
+Separation of variables converts a differential equation into two ordinary integrals.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\frac{dy}{dx}=g(x)h(y)
+}
+\]
+
+\[
+\downarrow
+\]
+
+\[
+\boxed{
+\frac{1}{h(y)}\,dy=g(x)\,dx
+}
+\]
+
+\[
+\downarrow
+\]
+
+\[
+\boxed{
+\int\frac{1}{h(y)}\,dy
+=
+\int g(x)\,dx
+}
+\]
+
+</div>
+
+<p>
+It is one of the simplest and most important methods for solving first-order differential equations.
+</p>
+
+
+<div class="lesson-navigation">
+
+<a href="what-is-an-ode.html">
+← What Is a Differential Equation?
+</a>
+
+<a href="initial-value-problems.html">
+Next: Initial Value Problems →
+</a>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<div>
+<strong>dy/dx</strong>
+<p>Calculus Learning</p>
+</div>
+
+</footer>
+
+
+</body>
+
+</html>
