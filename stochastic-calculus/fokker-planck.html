@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>The Fokker–Planck Equation | dy/dx</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']]
+  }
+};
+</script>
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+</head>
+
+
+<body>
+
+
+<header class="site-header">
+
+<div class="brand">
+<a href="../index.html">dy/dx</a>
+</div>
+
+<nav class="top-nav">
+<a href="../index.html">Home</a>
+<a href="index.html">Stochastic Calculus</a>
+</nav>
+
+</header>
+
+
+<main>
+
+
+<section class="lesson-header">
+
+<p class="eyebrow">STOCHASTIC CALCULUS 08</p>
+
+<h1>The Fokker–Planck Equation</h1>
+
+<p class="lesson-intro">
+The Fokker–Planck equation describes how the probability density of a stochastic process changes through time.
+</p>
+
+</section>
+
+
+<section class="lesson-content">
+
+
+<h2>The main idea</h2>
+
+<p>
+A stochastic differential equation describes individual random trajectories.
+</p>
+
+<p>
+For example,
+</p>
+
+\[
+dX_t
+=
+a(X_t,t)\,dt
++
+b(X_t,t)\,dW_t.
+\]
+
+<p>
+But instead of following one trajectory, we may ask:
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{How is probability distributed across possible values of }X_t?
+}
+\]
+
+</div>
+
+<p>
+The Fokker–Planck equation describes the evolution of that probability density.
+</p>
+
+
+<h3>1. Probability density</h3>
+
+<p>
+Let
+</p>
+
+\[
+p(x,t)
+\]
+
+<p>
+be the probability density of \(X_t\).
+</p>
+
+<p>
+Then approximately,
+</p>
+
+\[
+p(x,t)\,dx
+\]
+
+<p>
+represents the probability that \(X_t\) lies in a small interval near \(x\).
+</p>
+
+<p>
+More precisely,
+</p>
+
+\[
+P(a\le X_t\le b)
+=
+\int_a^b p(x,t)\,dx.
+\]
+
+
+<h3>2. Total probability</h3>
+
+<p>
+The density must satisfy
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\int_{-\infty}^{\infty}
+p(x,t)\,dx
+=
+1
+}
+\]
+
+</div>
+
+<p>
+for every time \(t\), provided the process is defined over the whole real line.
+</p>
+
+
+<h3>3. Density changes through time</h3>
+
+<p>
+Because \(X_t\) is stochastic, its distribution may change with time.
+</p>
+
+<p>
+So the density depends on both state and time:
+</p>
+
+\[
+p=p(x,t).
+\]
+
+<p>
+The quantity
+</p>
+
+\[
+\frac{\partial p}{\partial t}
+\]
+
+<p>
+describes how the probability density changes locally through time.
+</p>
+
+
+<h3>4. The one-dimensional Fokker–Planck equation</h3>
+
+<p>
+For the SDE
+</p>
+
+\[
+dX_t
+=
+a(X_t,t)\,dt
++
+b(X_t,t)\,dW_t,
+\]
+
+<p>
+the corresponding Fokker–Planck equation is
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\frac{\partial p}{\partial t}
+=
+-
+\frac{\partial}{\partial x}
+\left[
+a(x,t)p(x,t)
+\right]
++
+\frac12
+\frac{\partial^2}{\partial x^2}
+\left[
+b(x,t)^2p(x,t)
+\right]
+}
+\]
+
+</div>
+
+
+<h3>5. Two parts of the equation</h3>
+
+<p>
+The first term,
+</p>
+
+\[
+-
+\frac{\partial}{\partial x}
+(ap),
+\]
+
+<p>
+comes from the drift.
+</p>
+
+<p>
+The second term,
+</p>
+
+\[
+\frac12
+\frac{\partial^2}{\partial x^2}
+(b^2p),
+\]
+
+<p>
+comes from diffusion.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{drift}
+\rightarrow
+\text{probability transport}
+}
+\]
+
+\[
+\boxed{
+\text{diffusion}
+\rightarrow
+\text{probability spreading}
+}
+\]
+
+</div>
+
+
+<h3>6. Drift moves probability</h3>
+
+<p>
+Suppose
+</p>
+
+\[
+dX_t=\mu\,dt.
+\]
+
+<p>
+There is no stochastic term.
+</p>
+
+<p>
+The process moves systematically at speed \(\mu\).
+</p>
+
+<p>
+Its probability distribution therefore shifts through state space without being spread by Brownian motion.
+</p>
+
+
+<h3>7. Diffusion spreads probability</h3>
+
+<p>
+Now consider pure Brownian motion:
+</p>
+
+\[
+dX_t=\sigma\,dW_t.
+\]
+
+<p>
+There is no deterministic drift.
+</p>
+
+<p>
+The Fokker–Planck equation becomes
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\frac{\partial p}{\partial t}
+=
+\frac{\sigma^2}{2}
+\frac{\partial^2p}{\partial x^2}
+}
+\]
+
+</div>
+
+<p>
+This is the diffusion equation.
+</p>
+
+
+<h3>8. Brownian motion example</h3>
+
+<p>
+For standard Brownian motion,
+</p>
+
+\[
+dW_t=dW_t,
+\]
+
+<p>
+so
+</p>
+
+\[
+a=0,
+\qquad
+b=1.
+\]
+
+<p>
+The density satisfies
+</p>
+
+\[
+\boxed{
+\frac{\partial p}{\partial t}
+=
+\frac12
+\frac{\partial^2p}{\partial x^2}
+}
+\]
+
+<p>
+with initial condition concentrated at
+</p>
+
+\[
+x=0.
+\]
+
+
+<h3>9. Brownian probability density</h3>
+
+<p>
+For \(t>0\), the Brownian density is
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+p(x,t)
+=
+\frac{1}{\sqrt{2\pi t}}
+\exp
+\left(
+-\frac{x^2}{2t}
+\right)
+}
+\]
+
+</div>
+
+<p>
+This is the density of
+</p>
+
+\[
+N(0,t).
+\]
+
+
+<h3>10. What happens as time increases?</h3>
+
+<p>
+At early times, the density is concentrated near the initial value.
+</p>
+
+<p>
+As time increases, it becomes wider.
+</p>
+
+<p>
+This reflects
+</p>
+
+\[
+\operatorname{Var}(W_t)=t.
+\]
+
+<p>
+Probability is spreading through state space.
+</p>
+
+
+<h3>11. Density-spreading diagram</h3>
+
+<div style="max-width:760px; margin:30px auto;">
+
+<svg viewBox="0 0 760 430"
+     width="100%"
+     role="img"
+     aria-labelledby="fp-title fp-desc"
+     xmlns="http://www.w3.org/2000/svg">
+
+<title id="fp-title">
+Probability density spreading through time
+</title>
+
+<desc id="fp-desc">
+Three bell-shaped probability densities are shown. The earliest is narrow and tall, while later densities are wider and lower.
+</desc>
+
+<line x1="70" y1="350" x2="700" y2="350"
+      stroke="currentColor"
+      stroke-width="2"/>
+
+<line x1="385" y1="350" x2="385" y2="55"
+      stroke="currentColor"
+      stroke-width="1.5"
+      opacity="0.45"/>
+
+<text x="707" y="355"
+      font-size="18"
+      fill="currentColor">x</text>
+
+<!-- narrow curve -->
+<path d="
+M 260 345
+C 310 340, 340 300, 360 190
+C 370 120, 380 80, 385 75
+C 390 80, 400 120, 410 190
+C 430 300, 460 340, 510 345
+"
+fill="none"
+stroke="currentColor"
+stroke-width="3"/>
+
+<!-- middle curve -->
+<path d="
+M 180 345
+C 250 338, 300 305, 335 230
+C 355 185, 375 160, 385 158
+C 395 160, 415 185, 435 230
+C 470 305, 520 338, 590 345
+"
+fill="none"
+stroke="currentColor"
+stroke-width="2"
+opacity="0.65"/>
+
+<!-- wide curve -->
+<path d="
+M 100 345
+C 190 335, 270 310, 325 265
+C 355 240, 375 228, 385 227
+C 395 228, 415 240, 445 265
+C 500 310, 580 335, 670 345
+"
+fill="none"
+stroke="currentColor"
+stroke-width="2"
+opacity="0.4"/>
+
+<text x="445" y="105"
+      font-size="16"
+      fill="currentColor">
+early time
+</text>
+
+<text x="520" y="255"
+      font-size="16"
+      fill="currentColor">
+later time
+</text>
+
+</svg>
+
+</div>
+
+
+<h3>12. Constant drift and diffusion</h3>
+
+<p>
+Consider
+</p>
+
+\[
+dX_t
+=
+\mu\,dt
++
+\sigma\,dW_t,
+\qquad
+X_0=x_0.
+\]
+
+<p>
+Its density satisfies
+</p>
+
+\[
+\frac{\partial p}{\partial t}
+=
+-\mu\frac{\partial p}{\partial x}
++
+\frac{\sigma^2}{2}
+\frac{\partial^2p}{\partial x^2}.
+\]
+
+<p>
+The solution is normally distributed:
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+X_t
+\sim
+N(
+x_0+\mu t,\,
+\sigma^2t
+)
+}
+\]
+
+</div>
+
+
+<h3>13. Interpretation</h3>
+
+<p>
+The centre of the density moves according to
+</p>
+
+\[
+x_0+\mu t.
+\]
+
+<p>
+The spread increases according to
+</p>
+
+\[
+\sigma^2t.
+\]
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\mu
+\rightarrow
+\text{movement of the centre}
+}
+\]
+
+\[
+\boxed{
+\sigma
+\rightarrow
+\text{rate of spreading}
+}
+\]
+
+</div>
+
+
+<h3>14. Probability flow</h3>
+
+<p>
+The Fokker–Planck equation can be written as a conservation law:
+</p>
+
+\[
+\frac{\partial p}{\partial t}
+=
+-\frac{\partial J}{\partial x},
+\]
+
+<p>
+where the probability flux is
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+J
+=
+ap
+-
+\frac12
+\frac{\partial}{\partial x}
+\left(
+b^2p
+\right)
+}
+\]
+
+</div>
+
+<p>
+Probability is not created arbitrarily. It flows through state space.
+</p>
+
+
+<h3>15. Conservation interpretation</h3>
+
+<p>
+Consider an interval
+</p>
+
+\[
+[a,b].
+\]
+
+<p>
+The probability inside is
+</p>
+
+\[
+\int_a^b p(x,t)\,dx.
+\]
+
+<p>
+Its rate of change depends on probability flowing across the boundaries.
+</p>
+
+<p>
+This is analogous to conservation laws in fluid mechanics.
+</p>
+
+
+<h3>16. From trajectories to density</h3>
+
+<p>
+The SDE viewpoint follows individual possible trajectories:
+</p>
+
+\[
+X_t^{(1)},
+\quad
+X_t^{(2)},
+\quad
+\ldots
+\]
+
+<p>
+The Fokker–Planck viewpoint describes the density of all possible states directly:
+</p>
+
+\[
+p(x,t).
+\]
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{SDE}
+\rightarrow
+\text{sample-path description}
+}
+\]
+
+\[
+\boxed{
+\text{Fokker--Planck equation}
+\rightarrow
+\text{probability-density description}
+}
+\]
+
+</div>
+
+
+<h3>17. These describe the same stochastic model</h3>
+
+<p>
+The SDE and its Fokker–Planck equation are two mathematical descriptions of the same diffusion process.
+</p>
+
+<p>
+One describes random motion path by path.
+</p>
+
+<p>
+The other describes how probability is distributed across states.
+</p>
+
+
+<h3>18. Obtaining probabilities</h3>
+
+<p>
+Once \(p(x,t)\) is known, probabilities can be calculated directly.
+</p>
+
+<p>
+For example,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+P(X_t>L)
+=
+\int_L^\infty
+p(x,t)\,dx
+}
+\]
+
+</div>
+
+<p>
+This gives the probability that the process exceeds a threshold at time \(t\).
+</p>
+
+
+<h3>19. Obtaining expectation</h3>
+
+<p>
+The expected value is
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+E[X_t]
+=
+\int_{-\infty}^{\infty}
+x\,p(x,t)\,dx
+}
+\]
+
+</div>
+
+
+<h3>20. Obtaining the second moment</h3>
+
+<p>
+Similarly,
+</p>
+
+\[
+\boxed{
+E[X_t^2]
+=
+\int_{-\infty}^{\infty}
+x^2p(x,t)\,dx
+}
+\]
+
+<p>
+and therefore
+</p>
+
+\[
+\operatorname{Var}(X_t)
+=
+E[X_t^2]
+-
+(E[X_t])^2.
+\]
+
+
+<h3>21. Connection with moment equations</h3>
+
+<p>
+Moment equations can be derived from the Fokker–Planck equation by multiplying by powers of \(x\) and integrating.
+</p>
+
+<p>
+For example, multiplying by \(x\) and integrating can produce an equation for
+</p>
+
+\[
+E[X_t].
+\]
+
+<p>
+Multiplying by \(x^2\) can produce an equation for
+</p>
+
+\[
+E[X_t^2].
+\]
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{Fokker--Planck equation}
+\rightarrow
+\text{moment equations}
+}
+\]
+
+</div>
+
+
+<h3>22. Multidimensional processes</h3>
+
+<p>
+Suppose
+</p>
+
+\[
+\mathbf{X}_t
+\]
+
+<p>
+is an \(n\)-dimensional diffusion:
+</p>
+
+\[
+d\mathbf{X}_t
+=
+\mathbf{a}(\mathbf{X}_t,t)\,dt
++
+B(\mathbf{X}_t,t)\,d\mathbf{W}_t.
+\]
+
+<p>
+Define the diffusion covariance matrix
+</p>
+
+\[
+D=BB^T.
+\]
+
+<p>
+Then the density satisfies the multidimensional Fokker–Planck equation
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\frac{\partial p}{\partial t}
+=
+-
+\sum_i
+\frac{\partial}{\partial x_i}
+(a_i p)
++
+\frac12
+\sum_{i,j}
+\frac{\partial^2}{\partial x_i\partial x_j}
+(D_{ij}p)
+}
+\]
+
+</div>
+
+
+<h3>23. Why covariance appears</h3>
+
+<p>
+When several stochastic variables are driven by Brownian motion, their random changes may be related.
+</p>
+
+<p>
+The matrix
+</p>
+
+\[
+D=BB^T
+\]
+
+<p>
+describes the local covariance structure of those changes.
+</p>
+
+<p>
+This determines how probability spreads in different directions.
+</p>
+
+
+<h3>24. Epidemic interpretation</h3>
+
+<p>
+Suppose a stochastic epidemic model has random susceptible and infectious states.
+</p>
+
+<p>
+Instead of only studying individual trajectories
+</p>
+
+\[
+(S_t,I_t),
+\]
+
+<p>
+we may consider a joint density
+</p>
+
+\[
+p(s,i,t).
+\]
+
+<p>
+This density describes how probability is distributed over possible epidemic states.
+</p>
+
+
+<h3>25. Threshold probabilities</h3>
+
+<p>
+If \(I_t\) represents infectious prevalence and \(I_c\) is a critical threshold, then a density-based model can be used to study
+</p>
+
+\[
+P(I_t>I_c).
+\]
+
+<p>
+This is directly relevant when decisions depend on the probability of exceeding a capacity or safety threshold.
+</p>
+
+
+<h3>26. Fokker–Planck versus Monte Carlo</h3>
+
+<p>
+Monte Carlo simulation approximates the distribution by generating many sample paths.
+</p>
+
+<p>
+The Fokker–Planck equation attempts to evolve the probability density directly.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{Monte Carlo}
+:
+\text{simulate many trajectories}
+}
+\]
+
+\[
+\boxed{
+\text{Fokker--Planck}
+:
+\text{solve directly for }p
+}
+\]
+
+</div>
+
+
+<h3>27. Advantages and difficulties</h3>
+
+<p>
+The Fokker–Planck equation can provide the full probability density without requiring a large number of independent simulations.
+</p>
+
+<p>
+However, solving it numerically becomes much harder as the number of state variables increases.
+</p>
+
+<p>
+This is one reason moment methods and Monte Carlo simulation remain important.
+</p>
+
+
+<h3>28. Stationary densities</h3>
+
+<p>
+Sometimes the density approaches a time-independent form
+</p>
+
+\[
+p_s(x).
+\]
+
+<p>
+Then
+</p>
+
+\[
+\frac{\partial p}{\partial t}=0.
+\]
+
+<p>
+The stationary density satisfies
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+0
+=
+-
+\frac{d}{dx}(ap_s)
++
+\frac12
+\frac{d^2}{dx^2}(b^2p_s)
+}
+\]
+
+</div>
+
+<p>
+when such a stationary distribution exists.
+</p>
+
+
+<h3>29. A crucial distinction</h3>
+
+<p>
+The Fokker–Planck equation is deterministic.
+</p>
+
+<p>
+The quantity being solved for,
+</p>
+
+\[
+p(x,t),
+\]
+
+<p>
+is a deterministic probability density.
+</p>
+
+<p>
+It describes the distribution of the random process \(X_t\).
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+X_t
+=
+\text{random}
+}
+\]
+
+\[
+\boxed{
+p(x,t)
+=
+\text{deterministic description of its probability distribution}
+}
+\]
+
+</div>
+
+
+<h3>30. The structure to remember</h3>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+dX_t
+=
+a\,dt+b\,dW_t
+}
+\]
+
+\[
+\downarrow
+\]
+
+\[
+\boxed{
+\frac{\partial p}{\partial t}
+=
+-\frac{\partial}{\partial x}(ap)
++
+\frac12
+\frac{\partial^2}{\partial x^2}(b^2p)
+}
+\]
+
+</div>
+
+<p>
+The drift transports probability, while the diffusion term spreads it.
+</p>
+
+
+<h3>31. The central idea</h3>
+
+<p>
+An SDE tells us how one possible random state evolves.
+</p>
+
+<p>
+The Fokker–Planck equation tells us how the entire probability distribution evolves.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{random trajectories}
+\longleftrightarrow
+\text{probability density}
+}
+\]
+
+</div>
+
+<p>
+This provides a direct bridge between stochastic differential equations and probability distributions.
+</p>
+
+
+<div class="lesson-navigation">
+
+<a href="moments.html">
+← Moments of Stochastic Processes
+</a>
+
+<a href="stochastic-modelling.html">
+Next: Stochastic Modelling →
+</a>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<div>
+<strong>dy/dx</strong>
+<p>Calculus Learning</p>
+</div>
+
+</footer>
+
+
+</body>
+
+</html>
