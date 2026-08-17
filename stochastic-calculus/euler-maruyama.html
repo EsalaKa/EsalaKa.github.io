@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Euler–Maruyama Method | dy/dx</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']]
+  }
+};
+</script>
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+</head>
+
+
+<body>
+
+
+<header class="site-header">
+
+<div class="brand">
+<a href="../index.html">dy/dx</a>
+</div>
+
+<nav class="top-nav">
+<a href="../index.html">Home</a>
+<a href="index.html">Stochastic Calculus</a>
+</nav>
+
+</header>
+
+
+<main>
+
+
+<section class="lesson-header">
+
+<p class="eyebrow">STOCHASTIC CALCULUS 06</p>
+
+<h1>Euler–Maruyama Method</h1>
+
+<p class="lesson-intro">
+Euler–Maruyama is a numerical method for approximating sample paths of stochastic differential equations.
+</p>
+
+</section>
+
+
+<section class="lesson-content">
+
+
+<h2>The main idea</h2>
+
+<p>
+Consider the stochastic differential equation
+</p>
+
+\[
+dX_t
+=
+a(X_t,t)\,dt
++
+b(X_t,t)\,dW_t.
+\]
+
+<p>
+Euler–Maruyama approximates its solution on a discrete time grid.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+X_{n+1}
+=
+X_n
++
+a(X_n,t_n)\Delta t
++
+b(X_n,t_n)\Delta W_n
+}
+\]
+
+</div>
+
+<p>
+where
+</p>
+
+\[
+\boxed{
+\Delta W_n
+=
+\sqrt{\Delta t}\,Z_n,
+\qquad
+Z_n\sim N(0,1).
+}
+\]
+
+
+<h3>1. Connection with Euler's method</h3>
+
+<p>
+For an ordinary differential equation
+</p>
+
+\[
+\frac{dX}{dt}=a(X,t),
+\]
+
+<p>
+Euler's method uses
+</p>
+
+\[
+X_{n+1}
+=
+X_n
++
+a(X_n,t_n)\Delta t.
+\]
+
+<p>
+Euler–Maruyama adds the stochastic contribution
+</p>
+
+\[
+b(X_n,t_n)\Delta W_n.
+\]
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{Euler–Maruyama}
+=
+\text{Euler drift step}
++
+\text{Brownian step}
+}
+\]
+
+</div>
+
+
+<h3>2. Choose a time grid</h3>
+
+<p>
+Let
+</p>
+
+\[
+t_n=t_0+n\Delta t.
+\]
+
+<p>
+The time step is
+</p>
+
+\[
+\Delta t>0.
+\]
+
+<p>
+We approximate
+</p>
+
+\[
+X(t_n)
+\]
+
+<p>
+by</p>
+
+\[
+X_n.
+\]
+
+
+<h3>3. Brownian increment at each step</h3>
+
+<p>
+For every interval
+</p>
+
+\[
+[t_n,t_{n+1}],
+\]
+
+<p>
+generate an independent standard normal random variable
+</p>
+
+\[
+Z_n\sim N(0,1).
+\]
+
+<p>
+Then define
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\Delta W_n
+=
+\sqrt{\Delta t}\,Z_n
+}
+\]
+
+</div>
+
+<p>
+so that
+</p>
+
+\[
+\Delta W_n
+\sim
+N(0,\Delta t).
+\]
+
+
+<h3>4. The update step</h3>
+
+<p>
+At time \(t_n\), calculate the drift
+</p>
+
+\[
+a(X_n,t_n)
+\]
+
+<p>
+and diffusion coefficient
+</p>
+
+\[
+b(X_n,t_n).
+\]
+
+<p>
+Then calculate
+</p>
+
+\[
+X_{n+1}
+=
+X_n
++
+a(X_n,t_n)\Delta t
++
+b(X_n,t_n)\sqrt{\Delta t}\,Z_n.
+\]
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{new state}
+=
+\text{old state}
++
+\text{drift change}
++
+\text{random change}
+}
+\]
+
+</div>
+
+
+<h3>5. A simple example</h3>
+
+<p>
+Consider
+</p>
+
+\[
+dX_t
+=
+2\,dt
++
+0.5\,dW_t,
+\]
+
+<p>
+with</p>
+
+\[
+X_0=1.
+\]
+
+<p>
+Take</p>
+
+\[
+\Delta t=0.04.
+\]
+
+<p>
+Then</p>
+
+\[
+\sqrt{\Delta t}=0.2.
+\]
+
+<p>
+The Euler–Maruyama update is</p>
+
+\[
+X_{n+1}
+=
+X_n
++
+2(0.04)
++
+0.5(0.2)Z_n.
+\]
+
+<p>
+Therefore,</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+X_{n+1}
+=
+X_n+0.08+0.1Z_n
+}
+\]
+
+</div>
+
+
+<h3>6. First numerical step</h3>
+
+<p>
+Suppose the first random number is
+</p>
+
+\[
+Z_0=1.2.
+\]
+
+<p>
+Then</p>
+
+\[
+X_1
+=
+1+0.08+0.1(1.2).
+\]
+
+<p>
+So</p>
+
+\[
+X_1=1.20.
+\]
+
+<p>
+Thus,</p>
+
+\[
+\boxed{
+X(0.04)\approx1.20
+}
+\]
+
+
+<h3>7. A different random number gives a different path</h3>
+
+<p>
+Suppose instead</p>
+
+\[
+Z_0=-0.8.
+\]
+
+<p>
+Then</p>
+
+\[
+X_1
+=
+1+0.08-0.08
+=
+1.
+\]
+
+<p>
+So even with the same initial condition and parameters, the next value can be different because the Brownian increment is random.
+</p>
+
+
+<h3>8. Repeat the procedure</h3>
+
+<p>
+At each time step:</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+1.\;
+\text{generate }Z_n\sim N(0,1)
+}
+\]
+
+\[
+\boxed{
+2.\;
+\Delta W_n=\sqrt{\Delta t}\,Z_n
+}
+\]
+
+\[
+\boxed{
+3.\;
+X_{n+1}
+=
+X_n
++
+a_n\Delta t
++
+b_n\Delta W_n
+}
+\]
+
+</div>
+
+<p>
+Repeating these steps produces one approximate sample path.
+</p>
+
+
+<h3>9. One simulation gives one realisation</h3>
+
+<p>
+A single sequence</p>
+
+\[
+Z_0,Z_1,Z_2,\ldots
+\]
+
+<p>
+produces one stochastic trajectory.</p>
+
+<p>
+A different sequence produces another.</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{one sequence of random numbers}
+\rightarrow
+\text{one sample path}
+}
+\]
+
+</div>
+
+
+<h3>10. Many trajectories</h3>
+
+<p>
+To study the distribution of possible outcomes, repeat the simulation many times.</p>
+
+<p>
+For example, simulate</p>
+
+\[
+X_t^{(1)},
+\;
+X_t^{(2)},
+\;
+\ldots,
+\;
+X_t^{(M)}.
+\]
+
+<p>
+These are independent approximate realisations of the same stochastic model.</p>
+
+
+<h3>11. Estimating the expected value</h3>
+
+<p>
+At a chosen time \(t\), the expectation can be estimated by the sample mean:</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+E[X_t]
+\approx
+\frac{1}{M}
+\sum_{m=1}^{M}
+X_t^{(m)}
+}
+\]
+
+</div>
+
+<p>
+As the number of independent simulations increases, this Monte Carlo estimate generally becomes more stable.</p>
+
+
+<h3>12. Estimating variance</h3>
+
+<p>
+If</p>
+
+\[
+\bar X_t
+=
+\frac1M
+\sum_{m=1}^M
+X_t^{(m)},
+\]
+
+<p>
+then the variance can be estimated by</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\operatorname{Var}(X_t)
+\approx
+\frac{1}{M-1}
+\sum_{m=1}^M
+\left(
+X_t^{(m)}-\bar X_t
+\right)^2
+}
+\]
+
+</div>
+
+
+<h3>13. Estimating a probability</h3>
+
+<p>
+Suppose we want</p>
+
+\[
+P(X_T>L).
+\]
+
+<p>
+Count how many simulated trajectories exceed \(L\) at time \(T\).</p>
+
+<p>
+If \(K\) out of \(M\) simulations exceed the threshold, then</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+P(X_T>L)
+\approx
+\frac{K}{M}
+}
+\]
+
+</div>
+
+
+<h3>14. Example: threshold exceedance</h3>
+
+<p>
+Suppose</p>
+
+\[
+M=10000
+\]
+
+<p>
+trajectories are simulated and</p>
+
+\[
+1830
+\]
+
+<p>
+finish above a chosen threshold.</p>
+
+<p>
+Then</p>
+
+\[
+P(X_T>L)
+\approx
+\frac{1830}{10000}
+=
+0.183.
+\]
+
+<p>
+So the estimated probability is approximately</p>
+
+\[
+\boxed{
+18.3\%
+}
+\]
+
+
+<h3>15. Visual interpretation</h3>
+
+<div style="max-width:760px; margin:30px auto;">
+
+<svg viewBox="0 0 760 430"
+     width="100%"
+     role="img"
+     aria-labelledby="em-title em-desc"
+     xmlns="http://www.w3.org/2000/svg">
+
+<title id="em-title">
+Euler–Maruyama sample paths
+</title>
+
+<desc id="em-desc">
+Several irregular numerical trajectories begin from the same initial state and then separate because different Brownian increments are generated.
+</desc>
+
+<line x1="70" y1="355" x2="700" y2="355"
+      stroke="currentColor"
+      stroke-width="2"/>
+
+<line x1="70" y1="355" x2="70" y2="55"
+      stroke="currentColor"
+      stroke-width="2"/>
+
+<text x="708" y="360"
+      font-size="18"
+      fill="currentColor">t</text>
+
+<text x="42" y="52"
+      font-size="18"
+      fill="currentColor">X</text>
+
+<circle cx="70" cy="290" r="6"
+        fill="currentColor"/>
+
+<!-- path 1 -->
+<polyline points="
+70,290
+110,278
+150,285
+190,260
+230,269
+270,238
+310,247
+350,218
+390,226
+430,195
+470,207
+510,176
+550,188
+590,154
+630,168
+670,136
+"
+fill="none"
+stroke="currentColor"
+stroke-width="2.5"/>
+
+<!-- path 2 -->
+<polyline points="
+70,290
+110,300
+150,280
+190,292
+230,267
+270,277
+310,252
+350,265
+390,238
+430,251
+470,223
+510,237
+550,208
+590,220
+630,190
+670,202
+"
+fill="none"
+stroke="currentColor"
+stroke-width="2"
+opacity="0.55"/>
+
+<!-- path 3 -->
+<polyline points="
+70,290
+110,284
+150,298
+190,275
+230,286
+270,262
+310,276
+350,249
+390,261
+430,234
+470,247
+510,217
+550,230
+590,200
+630,214
+670,181
+"
+fill="none"
+stroke="currentColor"
+stroke-width="2"
+opacity="0.4"/>
+
+<text x="470" y="320"
+      font-size="16"
+      fill="currentColor">
+different numerical sample paths
+</text>
+
+</svg>
+
+</div>
+
+
+<h3>16. The time grid is discrete</h3>
+
+<p>
+Euler–Maruyama calculates values only at</p>
+
+\[
+t_0,t_1,t_2,\ldots
+\]
+
+<p>
+so the numerical output is discrete in time.</p>
+
+<p>
+But the SDE being approximated is still a continuous-time model.</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{continuous-time SDE}
+\neq
+\text{discrete numerical approximation}
+}
+\]
+
+</div>
+
+
+<h3>17. Why the plot appears continuous</h3>
+
+<p>
+A computer usually draws straight lines between the computed values.</p>
+
+<p>
+These connecting lines are for visualisation only.</p>
+
+<p>
+They do not mean the numerical method calculated every intermediate time point.</p>
+
+
+<h3>18. Smaller time steps</h3>
+
+<p>
+Using a smaller \(\Delta t\) usually improves the numerical approximation.</p>
+
+<p>
+But it also requires more calculations and more random increments.</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{smaller }\Delta t
+\Rightarrow
+\text{finer approximation}
+}
+\]
+
+</div>
+
+
+<h3>19. Two kinds of numerical accuracy</h3>
+
+<p>
+For stochastic differential equations, it is useful to distinguish two ideas.</p>
+
+<p>
+<strong>Strong convergence</strong> concerns how closely a numerical path follows the corresponding true stochastic path.</p>
+
+<p>
+<strong>Weak convergence</strong> concerns how accurately the numerical method reproduces quantities such as expectations or probability distributions.</p>
+
+
+<h3>20. Strong order of Euler–Maruyama</h3>
+
+<p>
+Under standard regularity conditions, Euler–Maruyama has strong convergence order</p>
+
+\[
+\boxed{
+\frac12
+}
+\]
+
+<p>
+for many SDEs.</p>
+
+<p>
+Very roughly, reducing the step size improves pathwise accuracy at a rate proportional to \((\Delta t)^{1/2}\).</p>
+
+
+<h3>21. Weak order</h3>
+
+<p>
+For sufficiently smooth problems, Euler–Maruyama commonly has weak order</p>
+
+\[
+\boxed{
+1
+}
+\]
+
+<p>
+for suitable expectation-type quantities.</p>
+
+<p>
+So the numerical purpose matters when choosing a method.</p>
+
+
+<h3>22. State-dependent diffusion</h3>
+
+<p>
+Consider</p>
+
+\[
+dX_t
+=
+\mu X_t\,dt
++
+\sigma X_t\,dW_t.
+\]
+
+<p>
+Euler–Maruyama gives</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+X_{n+1}
+=
+X_n
++
+\mu X_n\Delta t
++
+\sigma X_n\sqrt{\Delta t}\,Z_n
+}
+\]
+
+</div>
+
+<p>
+or</p>
+
+\[
+X_{n+1}
+=
+X_n
+\left(
+1+\mu\Delta t
++
+\sigma\sqrt{\Delta t}\,Z_n
+\right).
+\]
+
+
+<h3>23. Systems of SDEs</h3>
+
+<p>
+Euler–Maruyama also applies to several stochastic state variables.</p>
+
+<p>
+For example, if</p>
+
+\[
+d\mathbf{X}_t
+=
+\mathbf{a}(\mathbf{X}_t,t)\,dt
++
+B(\mathbf{X}_t,t)\,d\mathbf{W}_t,
+\]
+
+<p>
+then</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\mathbf{X}_{n+1}
+=
+\mathbf{X}_n
++
+\mathbf{a}_n\Delta t
++
+B_n\Delta\mathbf{W}_n
+}
+\]
+
+</div>
+
+<p>
+where the components of \(\Delta\mathbf{W}_n\) represent Brownian increments.</p>
+
+
+<h3>24. Epidemic example</h3>
+
+<p>
+Suppose a stochastic epidemic model contains</p>
+
+\[
+dI_t
+=
+a(S_t,I_t)\,dt
++
+b(S_t,I_t)\,dW_t.
+\]
+
+<p>
+Then one Euler–Maruyama step is</p>
+
+\[
+I_{n+1}
+=
+I_n
++
+a(S_n,I_n)\Delta t
++
+b(S_n,I_n)\sqrt{\Delta t}\,Z_n.
+\]
+
+<p>
+The first contribution gives the deterministic epidemic tendency.</p>
+
+<p>
+The second introduces stochastic variation around that tendency.</p>
+
+
+<h3>25. Numerical values must remain meaningful</h3>
+
+<p>
+In population models, the state may need to satisfy restrictions such as</p>
+
+\[
+I_t\ge0.
+\]
+
+<p>
+A simple Euler–Maruyama discretisation can sometimes generate negative numerical values even when the intended continuous model is nonnegative.</p>
+
+<p>
+This is a numerical issue that must be checked rather than ignored.</p>
+
+
+<h3>26. Simulation is not the same as the exact SDE</h3>
+
+<p>
+A simulated Euler–Maruyama path contains two approximations:</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{the continuous SDE is sampled on a finite time grid}
+}
+\]
+
+<p>
+and</p>
+
+\[
+\boxed{
+\text{the numerical update approximates the exact SDE solution}
+}
+\]
+
+</div>
+
+<p>
+Therefore numerical results should be checked for sensitivity to the chosen step size.</p>
+
+
+<h3>27. A useful convergence check</h3>
+
+<p>
+Run the simulation with</p>
+
+\[
+\Delta t,
+\]
+
+<p>
+then repeat with a smaller step such as</p>
+
+\[
+\frac{\Delta t}{2}.
+\]
+
+<p>
+If important estimated quantities change substantially, the original time step may have been too large.</p>
+
+
+<h3>28. Monte Carlo error is different from time-step error</h3>
+
+<p>
+There are two separate sources of numerical uncertainty:</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{discretisation error}
+}
+\]
+
+<p>
+from the finite time step, and</p>
+
+\[
+\boxed{
+\text{Monte Carlo sampling error}
+}
+\]
+
+<p>
+from using only finitely many simulated trajectories.</p>
+
+<p>
+Using a smaller time step addresses the first. Using more simulations addresses the second.</p>
+
+
+<h3>29. The practical algorithm</h3>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+1.\;
+\text{Choose }X_0,\ T,\ \Delta t
+}
+\]
+
+\[
+\boxed{
+2.\;
+\text{Set }t_n=n\Delta t
+}
+\]
+
+\[
+\boxed{
+3.\;
+\text{Generate }Z_n\sim N(0,1)
+}
+\]
+
+\[
+\boxed{
+4.\;
+\Delta W_n=\sqrt{\Delta t}\,Z_n
+}
+\]
+
+\[
+\boxed{
+5.\;
+X_{n+1}
+=
+X_n
++
+a_n\Delta t
++
+b_n\Delta W_n
+}
+\]
+
+\[
+\boxed{
+6.\;
+\text{Repeat until }T
+}
+\]
+
+\[
+\boxed{
+7.\;
+\text{Repeat the full path if many realisations are required}
+}
+\]
+
+</div>
+
+
+<h3>30. The central idea</h3>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+dX_t
+=
+a\,dt+b\,dW_t
+}
+\]
+
+\[
+\downarrow
+\]
+
+\[
+\boxed{
+X_{n+1}
+=
+X_n
++
+a_n\Delta t
++
+b_n\sqrt{\Delta t}\,Z_n
+}
+\]
+
+</div>
+
+<p>
+Euler–Maruyama turns a continuous stochastic differential equation into a step-by-step numerical simulation while preserving the essential Brownian scaling.</p>
+
+
+<div class="lesson-navigation">
+
+<a href="ito-lemma.html">
+← Itô's Lemma
+</a>
+
+<a href="moments.html">
+Next: Moments of Stochastic Processes →
+</a>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<div>
+<strong>dy/dx</strong>
+<p>Calculus Learning</p>
+</div>
+
+</footer>
+
+
+</body>
+
+</html>
