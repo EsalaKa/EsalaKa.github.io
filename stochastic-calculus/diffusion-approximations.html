@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>From Jump Processes to Diffusion Approximations | dy/dx</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']]
+  }
+};
+</script>
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+</head>
+
+
+<body>
+
+
+<header class="site-header">
+
+<div class="brand">
+<a href="../index.html">dy/dx</a>
+</div>
+
+<nav class="top-nav">
+<a href="../index.html">Home</a>
+<a href="index.html">Stochastic Calculus</a>
+</nav>
+
+</header>
+
+
+<main>
+
+
+<section class="lesson-header">
+
+<p class="eyebrow">STOCHASTIC CALCULUS 11</p>
+
+<h1>From Jump Processes to Diffusion Approximations</h1>
+
+<p class="lesson-intro">
+A diffusion approximation replaces many small random jumps by a continuous stochastic process with the same local mean and variance.
+</p>
+
+</section>
+
+
+<section class="lesson-content">
+
+
+<h2>The main idea</h2>
+
+<p>
+Some stochastic systems change through discrete events.
+</p>
+
+<p>
+For example, in an epidemic,
+</p>
+
+\[
+I\rightarrow I+1
+\]
+
+<p>
+may represent one new infection, while
+</p>
+
+\[
+I\rightarrow I-1
+\]
+
+<p>
+may represent one recovery.
+</p>
+
+<p>
+A continuous-time Markov chain represents these individual jumps directly.
+</p>
+
+<p>
+When many such events occur, the jump process can sometimes be approximated by an SDE.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{discrete random jumps}
+\longrightarrow
+\text{continuous random diffusion}
+}
+\]
+
+</div>
+
+
+<h3>1. A simple birth-death process</h3>
+
+<p>
+Suppose a population \(X(t)\) can increase by one at rate
+</p>
+
+\[
+b(X)
+\]
+
+<p>
+and decrease by one at rate
+</p>
+
+\[
+d(X).
+\]
+
+<p>
+The possible transitions are
+</p>
+
+\[
+X\rightarrow X+1
+\]
+
+<p>
+and
+</p>
+
+\[
+X\rightarrow X-1.
+\]
+
+
+<h3>2. Probabilities over a short interval</h3>
+
+<p>
+For a sufficiently small time interval \(\Delta t\),
+</p>
+
+\[
+P(X\rightarrow X+1)
+\approx
+b(X)\Delta t,
+\]
+
+\[
+P(X\rightarrow X-1)
+\approx
+d(X)\Delta t.
+\]
+
+<p>
+The probability of no event is approximately
+</p>
+
+\[
+1-[b(X)+d(X)]\Delta t.
+\]
+
+
+<h3>3. Mean change over a short interval</h3>
+
+<p>
+The change \(\Delta X\) can approximately be
+</p>
+
+\[
++1,
+\qquad
+-1,
+\qquad
+0.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+E[\Delta X]
+\approx
+(+1)b(X)\Delta t
++
+(-1)d(X)\Delta t.
+\]
+
+<p>
+So
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+E[\Delta X]
+\approx
+[b(X)-d(X)]\Delta t
+}
+\]
+
+</div>
+
+
+<h3>4. The drift appears naturally</h3>
+
+<p>
+The quantity
+</p>
+
+\[
+b(X)-d(X)
+\]
+
+<p>
+is the net expected rate of change.
+</p>
+
+<p>
+Therefore the deterministic drift is
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+a(X)
+=
+b(X)-d(X)
+}
+\]
+
+</div>
+
+
+<h3>5. Variance of the short-time change</h3>
+
+<p>
+Now consider
+</p>
+
+\[
+E[(\Delta X)^2].
+\]
+
+<p>
+Since
+</p>
+
+\[
+(+1)^2=1
+\]
+
+<p>
+and
+</p>
+
+\[
+(-1)^2=1,
+\]
+
+<p>
+we have
+</p>
+
+\[
+E[(\Delta X)^2]
+\approx
+b(X)\Delta t
++
+d(X)\Delta t.
+\]
+
+<p>
+To first order in \(\Delta t\),
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\operatorname{Var}(\Delta X)
+\approx
+[b(X)+d(X)]\Delta t
+}
+\]
+
+</div>
+
+
+<h3>6. The diffusion coefficient</h3>
+
+<p>
+For an SDE,
+</p>
+
+\[
+dX_t
+=
+a(X_t)\,dt
++
+\sigma(X_t)\,dW_t,
+\]
+
+<p>
+the variance of the random part over a small interval is approximately
+</p>
+
+\[
+\sigma(X)^2\Delta t.
+\]
+
+<p>
+Matching this with the jump-process variance gives
+</p>
+
+\[
+\sigma(X)^2
+=
+b(X)+d(X).
+\]
+
+<p>
+Therefore,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\sigma(X)
+=
+\sqrt{b(X)+d(X)}
+}
+\]
+
+</div>
+
+
+<h3>7. Diffusion approximation</h3>
+
+<p>
+The birth-death process can therefore be approximated by
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+dX_t
+=
+[b(X_t)-d(X_t)]\,dt
++
+\sqrt{b(X_t)+d(X_t)}\,dW_t
+}
+\]
+
+</div>
+
+<p>
+The drift comes from the difference of the event rates.
+</p>
+
+<p>
+The diffusion comes from their combined random variation.
+</p>
+
+
+<h3>8. Why the rates are added inside the variance</h3>
+
+<p>
+Births and deaths affect the mean in opposite directions:
+</p>
+
+\[
++1
+\quad\text{and}\quad
+-1.
+\]
+
+<p>
+But both contribute positively to variability because
+</p>
+
+\[
+(+1)^2=(-1)^2=1.
+\]
+
+<p>
+Therefore,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{drift}
+=
+\text{difference of rates}
+}
+\]
+
+\[
+\boxed{
+\text{variance rate}
+=
+\text{sum of rates}
+}
+\]
+
+</div>
+
+
+<h3>9. Epidemic SIS example</h3>
+
+<p>
+Suppose \(I(t)\) is the number of infectious individuals in an SIS epidemic.
+</p>
+
+<p>
+An infection increases \(I\) by one:
+</p>
+
+\[
+I\rightarrow I+1.
+\]
+
+<p>
+A recovery decreases \(I\) by one:
+</p>
+
+\[
+I\rightarrow I-1.
+\]
+
+<p>
+Let the infection rate be
+</p>
+
+\[
+b(I)
+=
+\beta\frac{I(N-I)}{N},
+\]
+
+<p>
+and recovery rate be
+</p>
+
+\[
+d(I)=\gamma I.
+\]
+
+
+<h3>10. Deterministic SIS drift</h3>
+
+<p>
+The net rate is
+</p>
+
+\[
+b(I)-d(I).
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+\boxed{
+a(I)
+=
+\beta\frac{I(N-I)}{N}
+-
+\gamma I
+}
+\]
+
+<p>
+which is exactly the usual deterministic SIS rate equation.
+</p>
+
+
+<h3>11. Stochastic SIS diffusion</h3>
+
+<p>
+The local variance rate is
+</p>
+
+\[
+b(I)+d(I).
+\]
+
+<p>
+Therefore the diffusion approximation becomes
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+dI_t
+=
+\left[
+\beta\frac{I_t(N-I_t)}{N}
+-
+\gamma I_t
+\right]dt
++
+\sqrt{
+\beta\frac{I_t(N-I_t)}{N}
++
+\gamma I_t
+}\,dW_t
+}
+\]
+
+</div>
+
+
+<h3>12. Why this is better than choosing arbitrary noise</h3>
+
+<p>
+The diffusion coefficient has been derived from the actual random event structure.
+</p>
+
+<p>
+So the noise strength changes automatically with the infection and recovery rates.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{event mechanism}
+\rightarrow
+\text{drift and diffusion}
+}
+\]
+
+</div>
+
+
+<h3>13. Mean and variance matching</h3>
+
+<p>
+The diffusion approximation is constructed so that over a short interval,
+</p>
+
+\[
+E[\Delta X]
+\]
+
+<p>
+and</p>
+
+\[
+\operatorname{Var}(\Delta X)
+\]
+
+<p>
+match those of the underlying jump process to leading order.
+</p>
+
+<p>
+This is the key idea behind the approximation.
+</p>
+
+
+<h3>14. A more general event-based system</h3>
+
+<p>
+Suppose a system has events indexed by \(j\).
+</p>
+
+<p>
+Each event changes the state by a vector
+</p>
+
+\[
+\boldsymbol{\nu}_j
+\]
+
+<p>
+and occurs at rate
+</p>
+
+\[
+\lambda_j(\mathbf{X}).
+\]
+
+<p>
+The mean rate of change is
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\mathbf{a}(\mathbf{X})
+=
+\sum_j
+\boldsymbol{\nu}_j
+\lambda_j(\mathbf{X})
+}
+\]
+
+</div>
+
+
+<h3>15. Covariance structure</h3>
+
+<p>
+The local covariance matrix is
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+D(\mathbf{X})
+=
+\sum_j
+\boldsymbol{\nu}_j
+\boldsymbol{\nu}_j^{T}
+\lambda_j(\mathbf{X})
+}
+\]
+
+</div>
+
+<p>
+This describes how the random event structure generates variability and covariance between state variables.
+</p>
+
+
+<h3>16. Multidimensional diffusion approximation</h3>
+
+<p>
+Choose a matrix \(B(\mathbf{X})\) satisfying
+</p>
+
+\[
+BB^T=D.
+\]
+
+<p>
+Then the diffusion approximation has the form
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+d\mathbf{X}_t
+=
+\mathbf{a}(\mathbf{X}_t)\,dt
++
+B(\mathbf{X}_t)\,d\mathbf{W}_t
+}
+\]
+
+</div>
+
+
+<h3>17. SIR event structure</h3>
+
+<p>
+In an SIR epidemic, infection changes the state by
+</p>
+
+\[
+\begin{pmatrix}
+-1\\
++1\\
+0
+\end{pmatrix},
+\]
+
+<p>
+while recovery changes it by
+</p>
+
+\[
+\begin{pmatrix}
+0\\
+-1\\
++1
+\end{pmatrix}.
+\]
+
+<p>
+The corresponding event rates may be
+</p>
+
+\[
+\lambda_1
+=
+\beta\frac{SI}{N}
+\]
+
+<p>
+and</p>
+
+\[
+\lambda_2
+=
+\gamma I.
+\]
+
+
+<h3>18. SIR drift from event vectors</h3>
+
+<p>
+The drift is
+</p>
+
+\[
+\boldsymbol{\nu}_1\lambda_1
++
+\boldsymbol{\nu}_2\lambda_2.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+\boxed{
+\frac{dS}{dt}
+=
+-\beta\frac{SI}{N}
+}
+\]
+
+\[
+\boxed{
+\frac{dI}{dt}
+=
+\beta\frac{SI}{N}
+-
+\gamma I
+}
+\]
+
+\[
+\boxed{
+\frac{dR}{dt}
+=
+\gamma I
+}
+\]
+
+<p>
+So the deterministic compartment equations arise directly from expected event changes.
+</p>
+
+
+<h3>19. Random changes are correlated</h3>
+
+<p>
+In an infection event, \(S\) decreases at exactly the same time that \(I\) increases.
+</p>
+
+<p>
+Therefore stochastic changes in compartments are not generally independent.
+</p>
+
+<p>
+This dependence appears in the covariance matrix of the diffusion approximation.
+</p>
+
+
+<h3>20. Why one Brownian motion may be insufficient</h3>
+
+<p>
+A model with several independent event mechanisms may require several Brownian drivers.
+</p>
+
+<p>
+For example, infection and recovery can be represented by separate Brownian components:
+</p>
+
+\[
+dW_1,
+\qquad
+dW_2.
+\]
+
+<p>
+This preserves the structure of the different random event channels.
+</p>
+
+
+<h3>21. Diffusion approximation diagram</h3>
+
+<div style="max-width:760px; margin:30px auto;">
+
+<svg viewBox="0 0 760 430"
+     width="100%"
+     role="img"
+     aria-labelledby="diff-title diff-desc"
+     xmlns="http://www.w3.org/2000/svg">
+
+<title id="diff-title">
+Jump process and diffusion approximation
+</title>
+
+<desc id="diff-desc">
+A staircase-like jump trajectory is compared with a continuous irregular diffusion path following a similar overall direction.
+</desc>
+
+<line x1="70" y1="350" x2="700" y2="350"
+      stroke="currentColor"
+      stroke-width="2"/>
+
+<line x1="70" y1="350" x2="70" y2="55"
+      stroke="currentColor"
+      stroke-width="2"/>
+
+<text x="708" y="355"
+      font-size="18"
+      fill="currentColor">t</text>
+
+<text x="45" y="52"
+      font-size="18"
+      fill="currentColor">X</text>
+
+<!-- jump path -->
+<polyline points="
+70,310
+120,310
+120,285
+175,285
+175,300
+220,300
+220,265
+275,265
+275,240
+330,240
+330,255
+385,255
+385,220
+440,220
+440,195
+500,195
+500,170
+560,170
+560,185
+620,185
+620,150
+680,150
+"
+fill="none"
+stroke="currentColor"
+stroke-width="3"/>
+
+<!-- diffusion approximation -->
+<polyline points="
+70,310
+100,302
+130,294
+160,287
+190,292
+220,270
+250,262
+280,248
+310,252
+340,239
+370,246
+400,225
+430,216
+460,202
+490,206
+520,185
+550,177
+580,183
+610,165
+640,156
+680,148
+"
+fill="none"
+stroke="currentColor"
+stroke-width="2"
+stroke-dasharray="7 5"/>
+
+<text x="470" y="285"
+      font-size="16"
+      fill="currentColor">
+jump process
+</text>
+
+<text x="470" y="315"
+      font-size="16"
+      fill="currentColor">
+diffusion approximation
+</text>
+
+</svg>
+
+</div>
+
+
+<h3>22. When is the approximation reasonable?</h3>
+
+<p>
+Diffusion approximations are most natural when event counts are sufficiently large and individual jumps are small relative to the scale of the system.
+</p>
+
+<p>
+Then many discrete events combine into approximately continuous random fluctuations.
+</p>
+
+
+<h3>23. When can it be poor?</h3>
+
+<p>
+The approximation may be less reliable when population numbers are very small.
+</p>
+
+<p>
+For example, near
+</p>
+
+\[
+I=0,
+\]
+
+<p>
+the difference between zero infections and one infection is important.
+</p>
+
+<p>
+A continuous diffusion can also produce non-integer or even negative numerical states unless handled carefully.
+</p>
+
+
+<h3>24. Extinction is especially sensitive</h3>
+
+<p>
+In a jump process,
+</p>
+
+\[
+I=0
+\]
+
+<p>
+can be an exact absorbing state.
+</p>
+
+<p>
+A simple diffusion approximation may not preserve this boundary correctly without additional treatment.
+</p>
+
+<p>
+Therefore jump-process models can be preferable when extinction probabilities are central.
+</p>
+
+
+<h3>25. CTMC and SDE answer related questions</h3>
+
+<p>
+A CTMC represents discrete events exactly at the model level.
+</p>
+
+<p>
+An SDE provides a continuous approximation that may be easier to analyse or simulate for large systems.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{CTMC}
+=
+\text{event-level stochastic model}
+}
+\]
+
+\[
+\boxed{
+\text{SDE}
+=
+\text{continuous diffusion approximation}
+}
+\]
+
+</div>
+
+
+<h3>26. Connection with the deterministic model</h3>
+
+<p>
+The three descriptions can be viewed as related:
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{jump process}
+}
+\]
+
+\[
+\downarrow
+\]
+
+\[
+\boxed{
+\text{mean event rates}
+\rightarrow
+\text{deterministic ODE}
+}
+\]
+
+\[
+\boxed{
+\text{mean + event variance}
+\rightarrow
+\text{SDE}
+}
+\]
+
+</div>
+
+
+<h3>27. Why this connection matters</h3>
+
+<p>
+It explains where the deterministic drift comes from and why the stochastic diffusion coefficient should reflect the underlying event rates.
+</p>
+
+<p>
+The deterministic and stochastic models are therefore connected through the same event mechanism.
+</p>
+
+
+<h3>28. General modelling workflow</h3>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+1.\;
+\text{identify all event types}
+}
+\]
+
+\[
+\boxed{
+2.\;
+\text{write each state-change vector}
+}
+\]
+
+\[
+\boxed{
+3.\;
+\text{write each event rate}
+}
+\]
+
+\[
+\boxed{
+4.\;
+\text{sum expected event changes to obtain drift}
+}
+\]
+
+\[
+\boxed{
+5.\;
+\text{sum event covariance contributions}
+}
+\]
+
+\[
+\boxed{
+6.\;
+\text{construct the diffusion matrix}
+}
+\]
+
+</div>
+
+
+<h3>29. The central idea</h3>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{mean event effect}
+\rightarrow
+\text{drift}
+}
+\]
+
+\[
+\boxed{
+\text{event variability}
+\rightarrow
+\text{diffusion}
+}
+\]
+
+</div>
+
+<p>
+A diffusion approximation is therefore not just a deterministic equation with arbitrary noise added.
+</p>
+
+<p>
+It can be derived systematically from the local mean and variance of an underlying random event process.
+</p>
+
+
+<div class="lesson-navigation">
+
+<a href="deterministic-vs-stochastic.html">
+← Deterministic and Stochastic Models
+</a>
+
+<a href="summary.html">
+Next: Stochastic Calculus Summary →
+</a>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<div>
+<strong>dy/dx</strong>
+<p>Calculus Learning</p>
+</div>
+
+</footer>
+
+
+</body>
+
+</html>
