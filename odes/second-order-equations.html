@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Second-Order Differential Equations | dy/dx</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']]
+  }
+};
+</script>
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+</head>
+
+
+<body>
+
+
+<header class="site-header">
+
+<div class="brand">
+<a href="../index.html">dy/dx</a>
+</div>
+
+<nav class="top-nav">
+<a href="../index.html">Home</a>
+<a href="index.html">Differential Equations</a>
+</nav>
+
+</header>
+
+
+<main>
+
+
+<section class="lesson-header">
+
+<p class="eyebrow">DIFFERENTIAL EQUATIONS 07</p>
+
+<h1>Second-Order Differential Equations</h1>
+
+<p class="lesson-intro">
+A second-order differential equation contains a second derivative and often describes acceleration, curvature or oscillation.
+</p>
+
+</section>
+
+
+<section class="lesson-content">
+
+
+<h2>The main idea</h2>
+
+<p>
+A second-order ordinary differential equation contains
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\frac{d^2y}{dx^2}
+}
+\]
+
+</div>
+
+<p>
+as its highest derivative.
+</p>
+
+<p>
+A general second-order ODE may be written as
+</p>
+
+\[
+F\left(
+x,
+y,
+\frac{dy}{dx},
+\frac{d^2y}{dx^2}
+\right)=0.
+\]
+
+
+<h3>1. What does the second derivative mean?</h3>
+
+<p>
+The first derivative
+</p>
+
+\[
+\frac{dy}{dx}
+\]
+
+<p>
+describes how \(y\) changes.
+</p>
+
+<p>
+The second derivative
+</p>
+
+\[
+\frac{d^2y}{dx^2}
+\]
+
+<p>
+describes how that first derivative changes.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+y
+\longrightarrow
+\frac{dy}{dx}
+\longrightarrow
+\frac{d^2y}{dx^2}
+}
+\]
+
+</div>
+
+
+<h3>2. Physical interpretation</h3>
+
+<p>
+If
+</p>
+
+\[
+s(t)
+\]
+
+<p>
+is position, then
+</p>
+
+\[
+\frac{ds}{dt}
+\]
+
+<p>
+is velocity and
+</p>
+
+\[
+\frac{d^2s}{dt^2}
+\]
+
+<p>
+is acceleration.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{position}
+\rightarrow
+\text{velocity}
+\rightarrow
+\text{acceleration}
+}
+\]
+
+</div>
+
+
+<h3>3. A simple second-order equation</h3>
+
+<p>
+Consider
+</p>
+
+\[
+\frac{d^2y}{dx^2}=6x.
+\]
+
+<p>
+Integrate once:
+</p>
+
+\[
+\frac{dy}{dx}
+=
+3x^2+C_1.
+\]
+
+<p>
+Integrate again:
+</p>
+
+\[
+y
+=
+x^3+C_1x+C_2.
+\]
+
+<p>
+Therefore,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+y=x^3+C_1x+C_2
+}
+\]
+
+</div>
+
+
+<h3>4. Why two constants appear</h3>
+
+<p>
+Each integration introduces an arbitrary constant.
+</p>
+
+<p>
+A second-order equation therefore usually produces two constants:
+</p>
+
+\[
+C_1
+\qquad\text{and}\qquad
+C_2.
+\]
+
+<p>
+This is why two independent conditions are generally needed to determine a particular solution.
+</p>
+
+
+<h3>5. Initial conditions</h3>
+
+<p>
+For a second-order equation, we may be given
+</p>
+
+\[
+y(0)=a
+\]
+
+<p>
+and
+</p>
+
+\[
+y'(0)=b.
+\]
+
+<p>
+The first condition gives the initial value of the function.
+The second gives its initial rate of change.
+</p>
+
+
+<h3>6. Example with initial conditions</h3>
+
+<p>
+Solve
+</p>
+
+\[
+y''=6x,
+\]
+
+<p>
+with
+</p>
+
+\[
+y(0)=2,
+\qquad
+y'(0)=1.
+\]
+
+<p>
+From the general solution,
+</p>
+
+\[
+y'=3x^2+C_1.
+\]
+
+<p>
+Using
+</p>
+
+\[
+y'(0)=1,
+\]
+
+<p>
+we obtain
+</p>
+
+\[
+C_1=1.
+\]
+
+<p>
+So
+</p>
+
+\[
+y=x^3+x+C_2.
+\]
+
+<p>
+Using
+</p>
+
+\[
+y(0)=2,
+\]
+
+<p>
+we get
+</p>
+
+\[
+C_2=2.
+\]
+
+<p>
+Therefore,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+y=x^3+x+2
+}
+\]
+
+</div>
+
+
+<h3>7. Linear second-order equations</h3>
+
+<p>
+A common form is
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+ay''+by'+cy=g(x)
+}
+\]
+
+</div>
+
+<p>
+where \(a\), \(b\), and \(c\) may be constants.
+</p>
+
+<p>
+If
+</p>
+
+\[
+g(x)=0,
+\]
+
+<p>
+the equation is called homogeneous.
+</p>
+
+
+<h3>8. Homogeneous constant-coefficient equation</h3>
+
+<p>
+Consider
+</p>
+
+\[
+y''-3y'+2y=0.
+\]
+
+<p>
+We try a solution of the form
+</p>
+
+\[
+y=e^{rx}.
+\]
+
+<p>
+Then
+</p>
+
+\[
+y'=re^{rx}
+\]
+
+<p>
+and
+</p>
+
+\[
+y''=r^2e^{rx}.
+\]
+
+<p>
+Substitute:
+</p>
+
+\[
+r^2e^{rx}
+-
+3re^{rx}
++
+2e^{rx}
+=
+0.
+\]
+
+<p>
+Since
+</p>
+
+\[
+e^{rx}\neq0,
+\]
+
+<p>
+we obtain
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+r^2-3r+2=0
+}
+\]
+
+</div>
+
+
+<h3>9. The characteristic equation</h3>
+
+<p>
+The polynomial equation
+</p>
+
+\[
+r^2-3r+2=0
+\]
+
+<p>
+is called the <strong>characteristic equation</strong>.
+</p>
+
+<p>
+Factorising,
+</p>
+
+\[
+(r-1)(r-2)=0.
+\]
+
+<p>
+So the roots are
+</p>
+
+\[
+r=1,
+\qquad
+r=2.
+\]
+
+
+<h3>10. Distinct real roots</h3>
+
+<p>
+When the characteristic equation has two distinct real roots
+</p>
+
+\[
+r_1,
+\qquad
+r_2,
+\]
+
+<p>
+the general solution is
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+y
+=
+C_1e^{r_1x}
++
+C_2e^{r_2x}
+}
+\]
+
+</div>
+
+<p>
+For the previous example,
+</p>
+
+\[
+\boxed{
+y=C_1e^x+C_2e^{2x}
+}
+\]
+
+
+<h3>11. Why the two solutions can be combined</h3>
+
+<p>
+The equation is linear and homogeneous.
+</p>
+
+<p>
+If \(y_1\) and \(y_2\) are solutions, then
+</p>
+
+\[
+C_1y_1+C_2y_2
+\]
+
+<p>
+is also a solution.
+</p>
+
+<p>
+This is called the principle of superposition.
+</p>
+
+
+<h3>12. Repeated root</h3>
+
+<p>
+Suppose the characteristic equation has a repeated root \(r\).
+</p>
+
+<p>
+For example,
+</p>
+
+\[
+y''-2y'+y=0.
+\]
+
+<p>
+The characteristic equation is
+</p>
+
+\[
+r^2-2r+1=0.
+\]
+
+<p>
+So
+</p>
+
+\[
+(r-1)^2=0.
+\]
+
+<p>
+There is one repeated root:
+</p>
+
+\[
+r=1.
+\]
+
+<p>
+The general solution is
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+y=(C_1+C_2x)e^x
+}
+\]
+
+</div>
+
+
+<h3>13. Complex roots</h3>
+
+<p>
+Consider
+</p>
+
+\[
+y''+y=0.
+\]
+
+<p>
+The characteristic equation is
+</p>
+
+\[
+r^2+1=0.
+\]
+
+<p>
+So
+</p>
+
+\[
+r=\pm i.
+\]
+
+<p>
+The real-valued general solution is
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+y=C_1\cos x+C_2\sin x
+}
+\]
+
+</div>
+
+
+<h3>14. Why sine and cosine appear</h3>
+
+<p>
+For
+</p>
+
+\[
+y''+y=0,
+\]
+
+<p>
+we can write
+</p>
+
+\[
+y''=-y.
+\]
+
+<p>
+So the second derivative is always the negative of the function itself.
+</p>
+
+<p>
+Sine and cosine have exactly this property:
+</p>
+
+\[
+\frac{d^2}{dx^2}\sin x=-\sin x,
+\]
+
+\[
+\frac{d^2}{dx^2}\cos x=-\cos x.
+\]
+
+<p>
+That is why oscillations naturally involve trigonometric functions.
+</p>
+
+
+<h3>15. Simple harmonic motion</h3>
+
+<p>
+A common model is
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\frac{d^2x}{dt^2}
++
+\omega^2x
+=
+0
+}
+\]
+
+</div>
+
+<p>
+where \(\omega>0\).
+</p>
+
+<p>
+The solution is
+</p>
+
+\[
+x(t)
+=
+A\cos(\omega t)
++
+B\sin(\omega t).
+\]
+
+<p>
+This describes repeated oscillation.
+</p>
+
+
+<h3>16. Visual idea</h3>
+
+<div style="max-width:680px; margin:30px auto;">
+
+<svg viewBox="0 0 680 360"
+     width="100%"
+     role="img"
+     aria-labelledby="osc-title osc-desc"
+     xmlns="http://www.w3.org/2000/svg">
+
+<title id="osc-title">
+Oscillatory solution of a second-order differential equation
+</title>
+
+<desc id="osc-desc">
+A smooth sine-like curve oscillates above and below the horizontal axis as time increases.
+</desc>
+
+<line x1="60" y1="180" x2="620" y2="180"
+      stroke="currentColor"
+      stroke-width="2"/>
+
+<line x1="90" y1="315" x2="90" y2="45"
+      stroke="currentColor"
+      stroke-width="2"/>
+
+<text x="628" y="185"
+      font-size="18"
+      fill="currentColor">t</text>
+
+<text x="77" y="35"
+      font-size="18"
+      fill="currentColor">x</text>
+
+<path d="
+M 90 180
+C 130 85, 175 85, 215 180
+C 255 275, 300 275, 340 180
+C 380 85, 425 85, 465 180
+C 505 275, 550 275, 590 180
+"
+fill="none"
+stroke="currentColor"
+stroke-width="3"/>
+
+</svg>
+
+</div>
+
+
+<h3>17. Non-homogeneous equations</h3>
+
+<p>
+If
+</p>
+
+\[
+ay''+by'+cy=g(x)
+\]
+
+<p>
+with
+</p>
+
+\[
+g(x)\neq0,
+\]
+
+<p>
+the equation is non-homogeneous.
+</p>
+
+<p>
+Its solution is usually written as
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+y
+=
+y_h+y_p
+}
+\]
+
+</div>
+
+<p>
+where \(y_h\) solves the associated homogeneous equation and \(y_p\) is one particular solution of the full equation.
+</p>
+
+
+<h3>18. Example of forcing</h3>
+
+<p>
+An equation such as
+</p>
+
+\[
+y''+y=\cos t
+\]
+
+<p>
+contains an external forcing term
+</p>
+
+\[
+\cos t.
+\]
+
+<p>
+The system has its own natural behaviour from
+</p>
+
+\[
+y''+y=0,
+\]
+
+<p>
+but it is also driven by the external input.
+</p>
+
+
+<h3>19. Why second-order equations matter</h3>
+
+<p>
+Second-order equations appear whenever acceleration or curvature is important.
+</p>
+
+<p>
+Examples include:
+</p>
+
+\[
+\text{mechanical motion},
+\]
+
+\[
+\text{springs},
+\]
+
+\[
+\text{oscillations},
+\]
+
+\[
+\text{electrical circuits},
+\]
+
+<p>
+and many other dynamical systems.
+</p>
+
+
+<h3>20. The practical structure</h3>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{second-order equation}
+}
+\]
+
+\[
+\downarrow
+\]
+
+\[
+\boxed{
+\text{two integration constants}
+}
+\]
+
+\[
+\downarrow
+\]
+
+\[
+\boxed{
+\text{two independent conditions}
+}
+\]
+
+</div>
+
+<p>
+For linear constant-coefficient equations, the characteristic equation provides a systematic way to find the general solution.
+</p>
+
+
+<div class="lesson-navigation">
+
+<a href="phase-lines.html">
+← Phase Lines and Stability
+</a>
+
+<a href="systems-of-odes.html">
+Next: Systems of Differential Equations →
+</a>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<div>
+<strong>dy/dx</strong>
+<p>Calculus Learning</p>
+</div>
+
+</footer>
+
+
+</body>
+
+</html>
