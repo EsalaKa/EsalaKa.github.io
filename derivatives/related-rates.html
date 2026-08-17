@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Related Rates | dy/dx</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']]
+  }
+};
+</script>
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+</head>
+
+<body>
+
+<header class="site-header">
+
+<div class="brand">
+<a href="../index.html">dy/dx</a>
+</div>
+
+<nav class="top-nav">
+<a href="../index.html">Home</a>
+<a href="index.html">Differentiation</a>
+</nav>
+
+</header>
+
+
+<main>
+
+<section class="lesson-header">
+
+<p class="eyebrow">DIFFERENTIATION 15</p>
+
+<h1>Related Rates</h1>
+
+<p class="lesson-intro">
+Related rates problems connect two or more changing quantities through an equation and then differentiate that relationship with respect to time.
+</p>
+
+</section>
+
+
+<section class="lesson-content">
+
+
+<h2>The main idea</h2>
+
+<p>
+Suppose two quantities \(x\) and \(y\) both change with time \(t\).
+If they are related by an equation, their rates of change are also related.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{relationship between quantities}
+\quad\longrightarrow\quad
+\text{relationship between their rates}
+}
+\]
+
+</div>
+
+
+<h3>1. Quantities depend on time</h3>
+
+<p>
+Even if time is not written explicitly, we may have
+</p>
+
+\[
+x=x(t),
+\qquad
+y=y(t).
+\]
+
+<p>
+So both \(x\) and \(y\) can change as time passes.
+</p>
+
+
+<h3>2. A simple relationship</h3>
+
+<p>
+Suppose
+</p>
+
+\[
+y=x^2.
+\]
+
+<p>
+If \(x\) changes with time, then \(y\) also changes with time.
+</p>
+
+<p>
+Differentiate both sides with respect to \(t\):
+</p>
+
+\[
+\frac{dy}{dt}
+=
+2x\frac{dx}{dt}.
+\]
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\frac{dy}{dt}
+=
+2x\frac{dx}{dt}
+}
+\]
+
+</div>
+
+<p>
+This equation connects the rate of change of \(y\) to the rate of change of \(x\).
+</p>
+
+
+<h3>3. Why the chain rule appears</h3>
+
+<p>
+Since \(y\) depends on \(x\), and \(x\) depends on \(t\),
+</p>
+
+\[
+y=y(x(t)).
+\]
+
+<p>
+So
+</p>
+
+\[
+\frac{dy}{dt}
+=
+\frac{dy}{dx}
+\frac{dx}{dt}.
+\]
+
+<p>
+This is exactly the chain rule.
+</p>
+
+
+<h3>4. Example</h3>
+
+<p>
+Suppose
+</p>
+
+\[
+y=x^2
+\]
+
+<p>
+and
+</p>
+
+\[
+\frac{dx}{dt}=3.
+\]
+
+<p>
+Find \(dy/dt\) when
+</p>
+
+\[
+x=4.
+\]
+
+<p>
+From
+</p>
+
+\[
+\frac{dy}{dt}
+=
+2x\frac{dx}{dt},
+\]
+
+<p>
+we obtain
+</p>
+
+\[
+\frac{dy}{dt}
+=
+2(4)(3)
+=
+24.
+\]
+
+<p>
+Therefore,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\frac{dy}{dt}=24
+}
+\]
+
+</div>
+
+
+<h3>5. Circle example</h3>
+
+<p>
+The area of a circle is
+</p>
+
+\[
+A=\pi r^2.
+\]
+
+<p>
+If the radius changes with time, then the area changes too.
+</p>
+
+<p>
+Differentiate with respect to \(t\):
+</p>
+
+\[
+\frac{dA}{dt}
+=
+2\pi r\frac{dr}{dt}.
+\]
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\frac{dA}{dt}
+=
+2\pi r\frac{dr}{dt}
+}
+\]
+
+</div>
+
+
+<h3>6. Numerical example</h3>
+
+<p>
+Suppose
+</p>
+
+\[
+\frac{dr}{dt}=2
+\]
+
+<p>
+and
+</p>
+
+\[
+r=5.
+\]
+
+<p>
+Then
+</p>
+
+\[
+\frac{dA}{dt}
+=
+2\pi(5)(2)
+=
+20\pi.
+\]
+
+<p>
+So the area is increasing at a rate of
+</p>
+
+\[
+20\pi
+\]
+
+<p>
+square units per unit time.
+</p>
+
+
+<h3>7. Volume of a sphere</h3>
+
+<p>
+For a sphere,
+</p>
+
+\[
+V=\frac43\pi r^3.
+\]
+
+<p>
+Differentiate with respect to time:
+</p>
+
+\[
+\frac{dV}{dt}
+=
+4\pi r^2\frac{dr}{dt}.
+\]
+
+<p>
+So the rate at which volume changes depends on both the current radius and the rate at which the radius changes.
+</p>
+
+
+<h3>8. Geometry example</h3>
+
+<p>
+Suppose a right triangle has horizontal side \(x\) and vertical side \(y\), with fixed hypotenuse \(L\).
+</p>
+
+<p>
+Then
+</p>
+
+\[
+x^2+y^2=L^2.
+\]
+
+<p>
+Differentiate with respect to \(t\):
+</p>
+
+\[
+2x\frac{dx}{dt}
++
+2y\frac{dy}{dt}
+=
+0.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+x\frac{dx}{dt}
++
+y\frac{dy}{dt}
+=
+0.
+\]
+
+<p>
+Solving for \(dy/dt\),
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\frac{dy}{dt}
+=
+-\frac{x}{y}\frac{dx}{dt}
+}
+\]
+
+</div>
+
+
+<h3>9. Interpreting the negative sign</h3>
+
+<p>
+In the previous result,
+</p>
+
+\[
+\frac{dy}{dt}
+=
+-\frac{x}{y}\frac{dx}{dt},
+\]
+
+<p>
+if \(dx/dt>0\), then \(dy/dt<0\).
+</p>
+
+<p>
+So as one side increases, the other decreases.
+</p>
+
+<p>
+The sign tells us the direction of change.
+</p>
+
+
+<h3>10. Diagram</h3>
+
+<div style="max-width:650px; margin:30px auto;">
+
+<svg viewBox="0 0 650 380"
+     width="100%"
+     role="img"
+     aria-labelledby="related-title related-desc"
+     xmlns="http://www.w3.org/2000/svg">
+
+<title id="related-title">
+Right triangle related rates diagram
+</title>
+
+<desc id="related-desc">
+A right triangle with horizontal side x, vertical side y, and fixed hypotenuse L.
+</desc>
+
+<line x1="140" y1="300" x2="500" y2="300"
+      stroke="currentColor" stroke-width="3"/>
+
+<line x1="500" y1="300" x2="500" y2="90"
+      stroke="currentColor" stroke-width="3"/>
+
+<line x1="140" y1="300" x2="500" y2="90"
+      stroke="currentColor" stroke-width="3"/>
+
+<text x="315" y="330"
+      font-size="18"
+      fill="currentColor">x</text>
+
+<text x="520" y="200"
+      font-size="18"
+      fill="currentColor">y</text>
+
+<text x="300" y="170"
+      font-size="18"
+      fill="currentColor">L</text>
+
+<polyline points="480,300 480,280 500,280"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"/>
+
+</svg>
+
+</div>
+
+
+<h3>11. The practical method</h3>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+1.\; \text{Identify the changing quantities}
+}
+\]
+
+\[
+\boxed{
+2.\; \text{Write an equation relating them}
+}
+\]
+
+\[
+\boxed{
+3.\; \text{Differentiate with respect to time}
+}
+\]
+
+\[
+\boxed{
+4.\; \text{Substitute the known values}
+}
+\]
+
+\[
+\boxed{
+5.\; \text{Solve for the required rate}
+}
+\]
+
+</div>
+
+
+<h3>12. Do not substitute too early</h3>
+
+<p>
+A common mistake is to substitute numerical values before differentiating.
+</p>
+
+<p>
+Keep the variables in the relationship first.
+Differentiate the general equation, then substitute the values relevant to the instant being considered.
+</p>
+
+
+<h3>13. Units matter</h3>
+
+<p>
+Rates carry units.
+</p>
+
+<p>
+For example,
+</p>
+
+\[
+\frac{dr}{dt}
+\]
+
+<p>
+might be measured in centimetres per second.
+</p>
+
+<p>
+But
+</p>
+
+\[
+\frac{dA}{dt}
+\]
+
+<p>
+would then be measured in square centimetres per second.
+</p>
+
+<p>
+Units help check whether the final result makes sense.
+</p>
+
+
+<h3>14. The deeper idea</h3>
+
+<p>
+Related rates are an application of the chain rule.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\frac{dy}{dt}
+=
+\frac{dy}{dx}
+\frac{dx}{dt}
+}
+\]
+
+</div>
+
+<p>
+A change in one quantity passes through a mathematical relationship and produces a change in another quantity.
+</p>
+
+
+<div class="lesson-navigation">
+
+<a href="optimisation.html">
+← Optimisation
+</a>
+
+<a href="../integration/index.html">
+Next: Integration →
+</a>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<div>
+<strong>dy/dx</strong>
+<p>Calculus Learning</p>
+</div>
+
+</footer>
+
+</body>
+
+</html>
