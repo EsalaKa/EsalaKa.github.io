@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Itô's Lemma | dy/dx</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']]
+  }
+};
+</script>
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+</head>
+
+
+<body>
+
+
+<header class="site-header">
+
+<div class="brand">
+<a href="../index.html">dy/dx</a>
+</div>
+
+<nav class="top-nav">
+<a href="../index.html">Home</a>
+<a href="index.html">Stochastic Calculus</a>
+</nav>
+
+</header>
+
+
+<main>
+
+
+<section class="lesson-header">
+
+<p class="eyebrow">STOCHASTIC CALCULUS 05</p>
+
+<h1>Itô's Lemma</h1>
+
+<p class="lesson-intro">
+Itô's lemma is the stochastic version of the chain rule. It shows how a function of a stochastic process changes when the process contains Brownian motion.
+</p>
+
+</section>
+
+
+<section class="lesson-content">
+
+
+<h2>The main idea</h2>
+
+<p>
+In ordinary calculus, suppose
+</p>
+
+\[
+Y=f(X).
+\]
+
+<p>
+Then the chain rule gives
+</p>
+
+\[
+dY=f'(X)\,dX.
+\]
+
+<p>
+For a stochastic process, this rule must be modified because Brownian motion has nonzero quadratic variation.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+(dW_t)^2=dt
+}
+\]
+
+</div>
+
+<p>
+This produces an additional second-derivative term in Itô's lemma.
+</p>
+
+
+<h3>1. Start with an SDE</h3>
+
+<p>
+Suppose
+</p>
+
+\[
+dX_t
+=
+a(X_t,t)\,dt
++
+b(X_t,t)\,dW_t.
+\]
+
+<p>
+Now define another process
+</p>
+
+\[
+Y_t=f(X_t,t).
+\]
+
+<p>
+We want to determine
+</p>
+
+\[
+dY_t.
+\]
+
+
+<h3>2. Ordinary multivariable calculus first</h3>
+
+<p>
+For a smooth deterministic function
+</p>
+
+\[
+f(x,t),
+\]
+
+<p>
+the total differential is
+</p>
+
+\[
+df
+=
+\frac{\partial f}{\partial t}\,dt
++
+\frac{\partial f}{\partial x}\,dx.
+\]
+
+<p>
+In ordinary calculus, higher-order terms become negligible as the increments shrink.
+</p>
+
+
+<h3>3. Taylor expansion</h3>
+
+<p>
+For small changes \(dt\) and \(dX\), expand \(f\):
+</p>
+
+\[
+df
+\approx
+f_t\,dt
++
+f_x\,dX
++
+\frac12 f_{xx}(dX)^2.
+\]
+
+<p>
+Terms involving higher powers are omitted at the relevant stochastic order.
+</p>
+
+<p>
+The key difference from ordinary calculus is that
+</p>
+
+\[
+(dX)^2
+\]
+
+<p>
+may contain a term of order \(dt\).
+</p>
+
+
+<h3>4. Substitute the SDE</h3>
+
+<p>
+Since
+</p>
+
+\[
+dX=a\,dt+b\,dW,
+\]
+
+<p>
+we have
+</p>
+
+\[
+(dX)^2
+=
+(a\,dt+b\,dW)^2.
+\]
+
+<p>
+Expand:
+</p>
+
+\[
+(dX)^2
+=
+a^2(dt)^2
++
+2ab\,dt\,dW
++
+b^2(dW)^2.
+\]
+
+
+<h3>5. Use the stochastic differential rules</h3>
+
+<p>
+In Itô calculus,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+(dt)^2=0
+}
+\]
+
+\[
+\boxed{
+dt\,dW=0
+}
+\]
+
+\[
+\boxed{
+(dW)^2=dt
+}
+\]
+
+</div>
+
+<p>
+Therefore,
+</p>
+
+\[
+(dX)^2=b^2dt.
+\]
+
+
+<h3>6. The extra term</h3>
+
+<p>
+Substitute this into the Taylor expansion:
+</p>
+
+\[
+df
+=
+f_t\,dt
++
+f_x\,dX
++
+\frac12f_{xx}b^2dt.
+\]
+
+<p>
+Now substitute
+</p>
+
+\[
+dX=a\,dt+b\,dW.
+\]
+
+<p>
+Then
+</p>
+
+\[
+df
+=
+f_t\,dt
++
+f_x(a\,dt+b\,dW)
++
+\frac12b^2f_{xx}dt.
+\]
+
+
+<h3>7. Itô's lemma</h3>
+
+<p>
+Collect the \(dt\) and \(dW\) terms:
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+df(X_t,t)
+=
+\left(
+f_t
++
+af_x
++
+\frac12b^2f_{xx}
+\right)dt
++
+bf_x\,dW_t
+}
+\]
+
+</div>
+
+<p>
+This is Itô's lemma for a one-dimensional stochastic differential equation.
+</p>
+
+
+<h3>8. Why ordinary chain rule is incomplete</h3>
+
+<p>
+The ordinary chain rule would suggest only
+</p>
+
+\[
+df
+=
+f_tdt+f_xdX.
+\]
+
+<p>
+But stochastic calculus contains the additional term
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\frac12b^2f_{xx}\,dt
+}
+\]
+
+</div>
+
+<p>
+because
+</p>
+
+\[
+(dW)^2
+\]
+
+<p>
+contributes at order \(dt\).
+</p>
+
+
+<h3>9. Simple example</h3>
+
+<p>
+Suppose
+</p>
+
+\[
+dX_t=\mu\,dt+\sigma\,dW_t
+\]
+
+<p>
+and define
+</p>
+
+\[
+Y_t=X_t^2.
+\]
+
+<p>
+Here
+</p>
+
+\[
+f(x)=x^2.
+\]
+
+<p>
+Then
+</p>
+
+\[
+f_x=2x
+\]
+
+<p>
+and
+</p>
+
+\[
+f_{xx}=2.
+\]
+
+
+<h3>10. Apply Itô's lemma</h3>
+
+<p>
+Since \(f\) does not depend explicitly on time,
+</p>
+
+\[
+f_t=0.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+d(X_t^2)
+=
+\left(
+2X_t\mu
++
+\frac12\sigma^2(2)
+\right)dt
++
+2\sigma X_t\,dW_t.
+\]
+
+<p>
+So
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+d(X_t^2)
+=
+(2\mu X_t+\sigma^2)dt
++
+2\sigma X_t\,dW_t
+}
+\]
+
+</div>
+
+
+<h3>11. Compare with ordinary calculus</h3>
+
+<p>
+Ordinary calculus would give
+</p>
+
+\[
+d(X^2)=2X\,dX.
+\]
+
+<p>
+Substituting the SDE would produce
+</p>
+
+\[
+2X\mu\,dt+2X\sigma\,dW.
+\]
+
+<p>
+But this misses the additional term
+</p>
+
+\[
+\boxed{
+\sigma^2dt
+}
+\]
+
+<p>
+that comes from Brownian quadratic variation.
+</p>
+
+
+<h3>12. Direct differential calculation</h3>
+
+<p>
+The same result can be seen informally from
+</p>
+
+\[
+d(X^2)
+=
+2X\,dX+(dX)^2.
+\]
+
+<p>
+Since
+</p>
+
+\[
+(dX)^2=\sigma^2dt,
+\]
+
+<p>
+we obtain
+</p>
+
+\[
+d(X^2)
+=
+2X(\mu\,dt+\sigma\,dW)
++
+\sigma^2dt.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+d(X^2)
+=
+(2\mu X+\sigma^2)dt
++
+2\sigma X\,dW.
+\]
+
+
+<h3>13. Example: \(f(X)=\ln X\)</h3>
+
+<p>
+Suppose
+</p>
+
+\[
+dX_t
+=
+\mu X_t\,dt
++
+\sigma X_t\,dW_t,
+\]
+
+<p>
+with \(X_t>0\).
+</p>
+
+<p>
+Let
+</p>
+
+\[
+f(X)=\ln X.
+\]
+
+<p>
+Then
+</p>
+
+\[
+f_x=\frac1X
+\]
+
+<p>
+and
+</p>
+
+\[
+f_{xx}
+=
+-\frac1{X^2}.
+\]
+
+
+<h3>14. Apply Itô's lemma to \(\ln X_t\)</h3>
+
+<p>
+Here,
+</p>
+
+\[
+a=\mu X,
+\qquad
+b=\sigma X.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+d(\ln X_t)
+=
+\left[
+\mu X\left(\frac1X\right)
++
+\frac12\sigma^2X^2
+\left(
+-\frac1{X^2}
+\right)
+\right]dt
++
+\sigma X\left(\frac1X\right)dW_t.
+\]
+
+<p>
+Simplifying,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+d(\ln X_t)
+=
+\left(
+\mu-\frac{\sigma^2}{2}
+\right)dt
++
+\sigma\,dW_t
+}
+\]
+
+</div>
+
+
+<h3>15. Why this result is important</h3>
+
+<p>
+The logarithm transforms geometric Brownian motion into an SDE with constant coefficients.
+</p>
+
+<p>
+Integrating gives
+</p>
+
+\[
+\ln X_t
+=
+\ln X_0
++
+\left(
+\mu-\frac{\sigma^2}{2}
+\right)t
++
+\sigma W_t.
+\]
+
+<p>
+Exponentiating,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+X_t
+=
+X_0
+\exp
+\left[
+\left(
+\mu-\frac{\sigma^2}{2}
+\right)t
++
+\sigma W_t
+\right]
+}
+\]
+
+</div>
+
+
+<h3>16. The \(-\sigma^2/2\) correction</h3>
+
+<p>
+The term
+</p>
+
+\[
+-\frac{\sigma^2}{2}
+\]
+
+<p>
+is not present in ordinary chain-rule calculations.
+</p>
+
+<p>
+It appears because of the Itô correction term
+</p>
+
+\[
+\frac12b^2f_{xx}.
+\]
+
+<p>
+This is a clear example of why stochastic calculus differs from ordinary calculus.
+</p>
+
+
+<h3>17. Time-dependent function</h3>
+
+<p>
+If
+</p>
+
+\[
+Y_t=f(X_t,t),
+\]
+
+<p>
+then the explicit time derivative must also be included:
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+df
+=
+\left(
+f_t
++
+af_x
++
+\frac12b^2f_{xx}
+\right)dt
++
+bf_xdW_t
+}
+\]
+
+</div>
+
+
+<h3>18. Example with explicit time dependence</h3>
+
+<p>
+Suppose
+</p>
+
+\[
+f(X,t)=e^tX.
+\]
+
+<p>
+Then
+</p>
+
+\[
+f_t=e^tX,
+\]
+
+\[
+f_x=e^t,
+\]
+
+<p>
+and</p>
+
+\[
+f_{xx}=0.
+\]
+
+<p>
+If
+</p>
+
+\[
+dX=a\,dt+b\,dW,
+\]
+
+<p>
+then
+</p>
+
+\[
+df
+=
+(e^tX+ae^t)dt
++
+be^t\,dW.
+\]
+
+<p>
+There is no Itô correction here because
+</p>
+
+\[
+f_{xx}=0.
+\]
+
+
+<h3>19. When does the correction vanish?</h3>
+
+<p>
+The Itô correction is
+</p>
+
+\[
+\frac12b^2f_{xx}dt.
+\]
+
+<p>
+It vanishes when
+</p>
+
+\[
+b=0,
+\]
+
+<p>
+which removes the stochastic component, or when
+</p>
+
+\[
+f_{xx}=0,
+\]
+
+<p>
+meaning \(f\) is linear in \(x\).
+</p>
+
+
+<h3>20. Diagram: why second-order change survives</h3>
+
+<div style="max-width:760px; margin:30px auto;">
+
+<svg viewBox="0 0 760 420"
+     width="100%"
+     role="img"
+     aria-labelledby="ito-lemma-title ito-lemma-desc"
+     xmlns="http://www.w3.org/2000/svg">
+
+<title id="ito-lemma-title">
+Brownian scaling and the Itô correction
+</title>
+
+<desc id="ito-lemma-desc">
+The diagram compares drift increments of order dt with Brownian increments of order square root dt and shows that squaring a Brownian increment produces a contribution of order dt.
+</desc>
+
+<text x="110" y="90"
+      font-size="20"
+      fill="currentColor">
+drift increment
+</text>
+
+<text x="440" y="90"
+      font-size="20"
+      fill="currentColor">
+Brownian increment
+</text>
+
+<text x="150" y="145"
+      font-size="25"
+      fill="currentColor">
+dt
+</text>
+
+<text x="470" y="145"
+      font-size="25"
+      fill="currentColor">
+√dt
+</text>
+
+<line x1="155" y1="165" x2="155" y2="250"
+      stroke="currentColor"
+      stroke-width="2"/>
+
+<line x1="485" y1="165" x2="485" y2="250"
+      stroke="currentColor"
+      stroke-width="2"/>
+
+<polygon points="155,260 146,244 164,244"
+         fill="currentColor"/>
+
+<polygon points="485,260 476,244 494,244"
+         fill="currentColor"/>
+
+<text x="105" y="305"
+      font-size="20"
+      fill="currentColor">
+(dt)² is smaller
+</text>
+
+<text x="430" y="305"
+      font-size="20"
+      fill="currentColor">
+(√dt)² = dt
+</text>
+
+<text x="420" y="355"
+      font-size="18"
+      fill="currentColor">
+second-order term survives
+</text>
+
+</svg>
+
+</div>
+
+
+<h3>21. Itô's lemma in several dimensions</h3>
+
+<p>
+Suppose
+</p>
+
+\[
+\mathbf{X}_t
+=
+(X_t^{(1)},\ldots,X_t^{(n)})
+\]
+
+<p>
+is a multidimensional stochastic process.
+</p>
+
+<p>
+Then Itô's formula contains first derivatives and second partial derivatives.
+</p>
+
+<p>
+In compact form,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+df
+=
+f_tdt
++
+\nabla f^{\,T}d\mathbf{X}
++
+\frac12
+\sum_{i,j}
+\frac{\partial^2f}{\partial x_i\partial x_j}
+\,dX_i\,dX_j
+}
+\]
+
+</div>
+
+<p>
+The covariance structure of the Brownian components determines the \(dX_i\,dX_j\) terms.
+</p>
+
+
+<h3>22. Why the Hessian appears</h3>
+
+<p>
+The matrix of second partial derivatives,
+</p>
+
+\[
+H_f,
+\]
+
+<p>
+is called the Hessian.
+</p>
+
+<p>
+In multidimensional Itô calculus, the second-order correction depends on this Hessian and the diffusion covariance matrix.
+</p>
+
+<p>
+So stochastic calculus naturally connects with multivariable calculus and linear algebra.
+</p>
+
+
+<h3>23. Itô's lemma and expected values</h3>
+
+<p>
+After applying Itô's lemma, the stochastic integral term often has expectation zero.
+</p>
+
+<p>
+This can allow us to derive differential equations for expectations.
+</p>
+
+<p>
+For example, from
+</p>
+
+\[
+d(X_t^2)
+=
+(2\mu X_t+\sigma^2)dt
++
+2\sigma X_t\,dW_t,
+\]
+
+<p>
+taking expectations gives
+</p>
+
+\[
+\frac{d}{dt}E[X_t^2]
+=
+2\mu E[X_t]+\sigma^2,
+\]
+
+<p>
+under suitable conditions.
+</p>
+
+
+<h3>24. This leads to moment equations</h3>
+
+<p>
+Quantities such as
+</p>
+
+\[
+E[X_t],
+\qquad
+E[X_t^2],
+\qquad
+\operatorname{Var}(X_t)
+\]
+
+<p>
+are called moments or are built from moments.
+</p>
+
+<p>
+Itô's lemma provides one of the main tools for deriving equations governing these quantities.
+</p>
+
+
+<h3>25. The practical procedure</h3>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+1.\;
+\text{Identify }a\text{ and }b
+}
+\]
+
+\[
+\boxed{
+2.\;
+\text{Calculate }f_t,\ f_x,\ f_{xx}
+}
+\]
+
+\[
+\boxed{
+3.\;
+\text{Use }
+df=
+\left(
+f_t+af_x+\frac12b^2f_{xx}
+\right)dt
++
+bf_xdW
+}
+\]
+
+\[
+\boxed{
+4.\;
+\text{Simplify the }dt\text{ and }dW\text{ terms}
+}
+\]
+
+</div>
+
+
+<h3>26. The central idea</h3>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{ordinary chain rule}
++
+\text{Brownian quadratic variation}
+=
+\text{Itô's lemma}
+}
+\]
+
+</div>
+
+<p>
+The defining difference is the extra second-order contribution:
+</p>
+
+\[
+\boxed{
+\frac12b^2f_{xx}\,dt
+}
+\]
+
+<p>
+It appears because Brownian increments are of order \(\sqrt{dt}\), so their squares remain of order \(dt\).
+</p>
+
+
+<div class="lesson-navigation">
+
+<a href="ito-integral.html">
+← The Itô Integral
+</a>
+
+<a href="euler-maruyama.html">
+Next: Euler–Maruyama Method →
+</a>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<div>
+<strong>dy/dx</strong>
+<p>Calculus Learning</p>
+</div>
+
+</footer>
+
+
+</body>
+
+</html>
