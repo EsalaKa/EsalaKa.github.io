@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Integration as Accumulation | dy/dx</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']]
+  }
+};
+</script>
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+</head>
+
+<body>
+
+<header class="site-header">
+
+<div class="brand">
+<a href="../index.html">dy/dx</a>
+</div>
+
+<nav class="top-nav">
+<a href="../index.html">Home</a>
+<a href="index.html">Integration</a>
+</nav>
+
+</header>
+
+
+<main>
+
+<section class="lesson-header">
+
+<p class="eyebrow">INTEGRATION 01</p>
+
+<h1>Integration as Accumulation</h1>
+
+<p class="lesson-intro">
+Integration measures how small contributions build up to produce a total quantity.
+</p>
+
+</section>
+
+
+<section class="lesson-content">
+
+<h2>The main idea</h2>
+
+<p>
+Many quantities are formed by accumulating small pieces.
+</p>
+
+<p>
+Integration provides a mathematical way to combine these contributions.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{small contributions}
+\longrightarrow
+\text{total accumulation}
+}
+\]
+
+</div>
+
+
+<h3>1. A simple discrete example</h3>
+
+<p>
+Suppose four contributions are
+</p>
+
+\[
+3,\qquad 5,\qquad 2,\qquad 4.
+\]
+
+<p>
+The total is
+</p>
+
+\[
+3+5+2+4=14.
+\]
+
+<p>
+This is ordinary finite addition.
+</p>
+
+
+<h3>2. When contributions vary continuously</h3>
+
+<p>
+Now imagine that contributions occur continuously rather than at only a few separate points.
+</p>
+
+<p>
+For example, a velocity may change continuously with time.
+</p>
+
+<p>
+During a short time interval \(\Delta t\), the distance travelled is approximately
+</p>
+
+\[
+\text{velocity}\times\text{time interval}.
+\]
+
+<p>
+So
+</p>
+
+\[
+\Delta s\approx v(t)\Delta t.
+\]
+
+
+<h3>3. Add the small distances</h3>
+
+<p>
+Divide a time interval into many small pieces.
+</p>
+
+<p>
+The total distance is approximately
+</p>
+
+\[
+v(t_1)\Delta t
++
+v(t_2)\Delta t
++
+v(t_3)\Delta t
++\cdots.
+\]
+
+<p>
+Using summation notation,
+</p>
+
+<div class="lesson-math">
+
+\[
+\sum_i v(t_i)\Delta t.
+\]
+
+</div>
+
+
+<h3>4. Make the intervals smaller</h3>
+
+<p>
+The approximation becomes more accurate as the time intervals become smaller.
+</p>
+
+<p>
+Integration studies the limiting value as
+</p>
+
+\[
+\Delta t\to0.
+\]
+
+<p>
+This leads to
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\int_a^b v(t)\,dt
+}
+\]
+
+</div>
+
+<p>
+which gives the accumulated effect of the rate \(v(t)\) from \(t=a\) to \(t=b\).
+</p>
+
+
+<h3>5. What the integral symbol means</h3>
+
+<p>
+The symbol
+</p>
+
+\[
+\int
+\]
+
+<p>
+is an elongated form of the letter \(S\), historically connected with the idea of a sum.
+</p>
+
+<p>
+So an integral may be understood as a continuous form of summation.
+</p>
+
+
+<h3>6. Reading the notation</h3>
+
+<p>
+The expression
+</p>
+
+\[
+\int_a^b f(x)\,dx
+\]
+
+<p>
+is read as
+</p>
+
+<p>
+<strong>“the integral of \(f(x)\) with respect to \(x\), from \(a\) to \(b\)”</strong>.
+</p>
+
+<p>
+Here:
+</p>
+
+\[
+a
+\]
+
+<p>
+is the lower limit,
+</p>
+
+\[
+b
+\]
+
+<p>
+is the upper limit,
+</p>
+
+\[
+f(x)
+\]
+
+<p>
+is the quantity being accumulated,
+</p>
+
+<p>
+and
+</p>
+
+\[
+dx
+\]
+
+<p>
+indicates the variable of integration.
+</p>
+
+
+<h3>7. Area interpretation</h3>
+
+<p>
+If
+</p>
+
+\[
+f(x)\ge0,
+\]
+
+<p>
+then
+</p>
+
+\[
+\int_a^b f(x)\,dx
+\]
+
+<p>
+can be interpreted as the area under the graph of \(y=f(x)\) between \(x=a\) and \(x=b\).
+</p>
+
+
+<div style="max-width:680px; margin:30px auto;">
+
+<svg viewBox="0 0 680 420"
+     width="100%"
+     role="img"
+     aria-labelledby="integral-title integral-desc"
+     xmlns="http://www.w3.org/2000/svg">
+
+<title id="integral-title">
+Area under a curve
+</title>
+
+<desc id="integral-desc">
+A smooth positive curve lies above the x-axis between a and b. The region under the curve is shaded conceptually as the accumulated area.
+</desc>
+
+<line x1="70" y1="340" x2="620" y2="340"
+      stroke="currentColor" stroke-width="2"/>
+
+<line x1="100" y1="380" x2="100" y2="50"
+      stroke="currentColor" stroke-width="2"/>
+
+<text x="627" y="345"
+      font-size="18"
+      fill="currentColor">x</text>
+
+<text x="87" y="38"
+      font-size="18"
+      fill="currentColor">y</text>
+
+<path d="
+M 150 300
+C 220 260, 260 170, 340 140
+C 420 110, 500 165, 560 240
+"
+fill="none"
+stroke="currentColor"
+stroke-width="3"/>
+
+<path d="
+M 170 340
+L 170 289
+C 230 250, 270 165, 340 140
+C 410 115, 475 150, 530 215
+L 530 340
+Z
+"
+fill="currentColor"
+opacity="0.08"/>
+
+<line x1="170" y1="340" x2="170" y2="290"
+      stroke="currentColor"
+      stroke-width="1.5"
+      stroke-dasharray="5 5"/>
+
+<line x1="530" y1="340" x2="530" y2="215"
+      stroke="currentColor"
+      stroke-width="1.5"
+      stroke-dasharray="5 5"/>
+
+<text x="162" y="365"
+      font-size="17"
+      fill="currentColor">a</text>
+
+<text x="522" y="365"
+      font-size="17"
+      fill="currentColor">b</text>
+
+<text x="315" y="250"
+      font-size="17"
+      fill="currentColor">
+accumulated area
+</text>
+
+</svg>
+
+</div>
+
+
+<h3>8. Integration is broader than area</h3>
+
+<p>
+Area is one important interpretation, but integration is more general.
+</p>
+
+<p>
+If \(v(t)\) is velocity, then
+</p>
+
+\[
+\int_a^b v(t)\,dt
+\]
+
+<p>
+gives accumulated displacement.
+</p>
+
+<p>
+If \(r(t)\) is a rate of population growth, then
+</p>
+
+\[
+\int_a^b r(t)\,dt
+\]
+
+<p>
+gives the total population change over that interval.
+</p>
+
+
+<h3>9. Rate and accumulated quantity</h3>
+
+<p>
+Differentiation and integration connect rates with totals.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{rate}
+\quad\longleftrightarrow\quad
+\text{accumulated quantity}
+}
+\]
+
+</div>
+
+<p>
+For example,
+</p>
+
+\[
+v(t)=\frac{ds}{dt}
+\]
+
+<p>
+describes the rate at which position changes.
+</p>
+
+<p>
+Integrating velocity accumulates those changes:
+</p>
+
+\[
+s(b)-s(a)
+=
+\int_a^b v(t)\,dt.
+\]
+
+
+<h3>10. Why small intervals matter</h3>
+
+<p>
+For a varying function, a rectangle of width \(\Delta x\) and height \(f(x_i)\) has approximate area
+</p>
+
+\[
+f(x_i)\Delta x.
+\]
+
+<p>
+Adding many rectangles gives
+</p>
+
+\[
+\sum_i f(x_i)\Delta x.
+\]
+
+<p>
+As the largest interval width approaches zero,
+</p>
+
+\[
+\Delta x\to0,
+\]
+
+<p>
+the approximation approaches the exact integral.
+</p>
+
+
+<h3>11. The conceptual transition</h3>
+
+<div class="lesson-math">
+
+\[
+\text{finite sum}
+\]
+
+\[
+\downarrow
+\]
+
+\[
+\sum_i f(x_i)\Delta x
+\]
+
+\[
+\downarrow\quad \Delta x\to0
+\]
+
+\[
+\boxed{
+\int_a^b f(x)\,dx
+}
+\]
+
+</div>
+
+<p>
+Integration is therefore built from the same limiting idea that underlies differentiation.
+</p>
+
+
+<h3>12. Where this leads</h3>
+
+<p>
+The next question is how we calculate an integral without constructing infinitely many rectangles every time.
+</p>
+
+<p>
+The answer comes from the connection between integration and differentiation.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{differentiation}
+\longleftrightarrow
+\text{integration}
+}
+\]
+
+</div>
+
+<p>
+This leads to antiderivatives and the Fundamental Theorem of Calculus.
+</p>
+
+
+<div class="lesson-navigation">
+
+<a href="../derivatives/related-rates.html">
+← Related Rates
+</a>
+
+<a href="antiderivatives.html">
+Next: Antiderivatives →
+</a>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<div>
+<strong>dy/dx</strong>
+<p>Calculus Learning</p>
+</div>
+
+</footer>
+
+</body>
+
+</html>
