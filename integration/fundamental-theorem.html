@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Fundamental Theorem of Calculus | dy/dx</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']]
+  }
+};
+</script>
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+</head>
+
+<body>
+
+<header class="site-header">
+
+<div class="brand">
+<a href="../index.html">dy/dx</a>
+</div>
+
+<nav class="top-nav">
+<a href="../index.html">Home</a>
+<a href="index.html">Integration</a>
+</nav>
+
+</header>
+
+
+<main>
+
+<section class="lesson-header">
+
+<p class="eyebrow">INTEGRATION 04</p>
+
+<h1>Fundamental Theorem of Calculus</h1>
+
+<p class="lesson-intro">
+The Fundamental Theorem of Calculus connects differentiation with accumulation.
+</p>
+
+</section>
+
+
+<section class="lesson-content">
+
+
+<h2>The main idea</h2>
+
+<p>
+Differentiation and integration appear to do different things.
+</p>
+
+<p>
+Differentiation finds a rate of change.
+Integration accumulates a quantity over an interval.
+</p>
+
+<p>
+The Fundamental Theorem of Calculus shows that these two processes are deeply connected.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{differentiation}
+\longleftrightarrow
+\text{integration}
+}
+\]
+
+</div>
+
+
+<h3>1. Start with accumulation</h3>
+
+<p>
+Suppose \(f\) is continuous and define
+</p>
+
+<div class="lesson-math">
+
+\[
+A(x)
+=
+\int_a^x f(t)\,dt.
+\]
+
+</div>
+
+<p>
+The function \(A(x)\) gives the accumulated value of \(f\) from the fixed point \(a\) up to the changing point \(x\).
+</p>
+
+
+<h3>2. What happens when \(x\) changes?</h3>
+
+<p>
+Increase \(x\) by a small amount \(h\).
+</p>
+
+<p>
+Then
+</p>
+
+\[
+A(x+h)
+=
+\int_a^{x+h}f(t)\,dt.
+\]
+
+<p>
+The change in accumulated area is
+</p>
+
+\[
+A(x+h)-A(x).
+\]
+
+<p>
+This is exactly the accumulation over the short interval from \(x\) to \(x+h\):
+</p>
+
+\[
+A(x+h)-A(x)
+=
+\int_x^{x+h}f(t)\,dt.
+\]
+
+
+<h3>3. Approximate the small accumulated area</h3>
+
+<p>
+When \(h\) is small, \(f(t)\) is close to \(f(x)\) throughout the short interval.
+</p>
+
+<p>
+So the added area is approximately
+</p>
+
+\[
+f(x)h.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+A(x+h)-A(x)
+\approx
+f(x)h.
+\]
+
+<p>
+Divide by \(h\):
+</p>
+
+\[
+\frac{A(x+h)-A(x)}{h}
+\approx
+f(x).
+\]
+
+
+<h3>4. Let the interval shrink</h3>
+
+<p>
+As
+</p>
+
+\[
+h\to0,
+\]
+
+<p>
+the approximation becomes exact.
+</p>
+
+<p>
+Therefore,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+A'(x)=f(x)
+}
+\]
+
+</div>
+
+<p>
+where
+</p>
+
+\[
+A(x)=\int_a^x f(t)\,dt.
+\]
+
+<p>
+So differentiating an accumulation function returns the original function.
+</p>
+
+
+<h3>5. First form of the theorem</h3>
+
+<p>
+If
+</p>
+
+\[
+A(x)=\int_a^x f(t)\,dt,
+\]
+
+<p>
+then
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\frac{d}{dx}
+\left(
+\int_a^x f(t)\,dt
+\right)
+=
+f(x)
+}
+\]
+
+</div>
+
+<p>
+provided \(f\) is continuous.
+</p>
+
+
+<h3>6. Why the variable \(t\) appears</h3>
+
+<p>
+In
+</p>
+
+\[
+\int_a^x f(t)\,dt,
+\]
+
+<p>
+\(t\) is a temporary variable used inside the integral.
+</p>
+
+<p>
+The final result depends on the upper limit \(x\).
+</p>
+
+<p>
+We could equally write
+</p>
+
+\[
+\int_a^x f(u)\,du.
+\]
+
+<p>
+The symbols \(t\) and \(u\) play the same role here.
+</p>
+
+
+<h3>7. Example</h3>
+
+<p>
+Let
+</p>
+
+\[
+A(x)=\int_0^x t^2\,dt.
+\]
+
+<p>
+The theorem immediately gives
+</p>
+
+\[
+A'(x)=x^2.
+\]
+
+<p>
+We can also calculate \(A(x)\):
+</p>
+
+\[
+A(x)
+=
+\left[
+\frac{t^3}{3}
+\right]_0^x
+=
+\frac{x^3}{3}.
+\]
+
+<p>
+Differentiating,
+</p>
+
+\[
+A'(x)=x^2.
+\]
+
+<p>
+The two approaches agree.
+</p>
+
+
+<h3>8. From accumulation to antiderivatives</h3>
+
+<p>
+Suppose
+</p>
+
+\[
+F'(x)=f(x).
+\]
+
+<p>
+Then \(F\) is an antiderivative of \(f\).
+</p>
+
+<p>
+The Fundamental Theorem tells us that accumulated change between \(a\) and \(b\) is
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\int_a^b f(x)\,dx
+=
+F(b)-F(a)
+}
+\]
+
+</div>
+
+<p>
+This is the second major form of the theorem.
+</p>
+
+
+<h3>9. Why this is so powerful</h3>
+
+<p>
+The definite integral was originally defined through accumulation and limits of sums.
+</p>
+
+<p>
+But the theorem allows us to calculate it using an antiderivative.
+</p>
+
+<div class="lesson-math">
+
+\[
+\text{many tiny contributions}
+\]
+
+\[
+\downarrow
+\]
+
+\[
+\int_a^b f(x)\,dx
+\]
+
+\[
+\downarrow
+\]
+
+\[
+\boxed{
+F(b)-F(a)
+}
+\]
+
+</div>
+
+<p>
+So we do not need to calculate infinitely many rectangles directly.
+</p>
+
+
+<h3>10. Example</h3>
+
+<p>
+Evaluate
+</p>
+
+\[
+\int_1^3 2x\,dx.
+\]
+
+<p>
+An antiderivative is
+</p>
+
+\[
+F(x)=x^2.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+\int_1^3 2x\,dx
+=
+F(3)-F(1).
+\]
+
+<p>
+So
+</p>
+
+\[
+=9-1
+\]
+
+\[
+=8.
+\]
+
+<p>
+Hence,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\int_1^3 2x\,dx=8
+}
+\]
+
+</div>
+
+
+<h3>11. Rate and total change</h3>
+
+<p>
+Suppose
+</p>
+
+\[
+\frac{dy}{dx}=f(x).
+\]
+
+<p>
+Integrating from \(a\) to \(b\),
+</p>
+
+\[
+\int_a^b \frac{dy}{dx}\,dx
+=
+\int_a^b f(x)\,dx.
+\]
+
+<p>
+The left side gives the total change in \(y\):
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+y(b)-y(a)
+=
+\int_a^b f(x)\,dx
+}
+\]
+
+</div>
+
+<p>
+This is one of the most useful interpretations of the theorem.
+</p>
+
+
+<h3>12. Motion example</h3>
+
+<p>
+If velocity is
+</p>
+
+\[
+v(t)=\frac{ds}{dt},
+\]
+
+<p>
+then accumulated displacement from \(t=a\) to \(t=b\) is
+</p>
+
+\[
+\int_a^b v(t)\,dt.
+\]
+
+<p>
+Therefore,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+s(b)-s(a)
+=
+\int_a^b v(t)\,dt
+}
+\]
+
+</div>
+
+<p>
+Differentiation gives velocity from position.
+Integration recovers displacement from velocity.
+</p>
+
+
+<h3>13. Visual meaning</h3>
+
+<div style="max-width:680px; margin:30px auto;">
+
+<svg viewBox="0 0 680 420"
+     width="100%"
+     role="img"
+     aria-labelledby="ftc-title ftc-desc"
+     xmlns="http://www.w3.org/2000/svg">
+
+<title id="ftc-title">
+Accumulated area as a function of the upper limit
+</title>
+
+<desc id="ftc-desc">
+A curve f of t lies above the horizontal axis. The area from a to x is shaded, showing that the accumulated area changes when x moves.
+</desc>
+
+<line x1="70" y1="340" x2="620" y2="340"
+      stroke="currentColor" stroke-width="2"/>
+
+<line x1="100" y1="380" x2="100" y2="45"
+      stroke="currentColor" stroke-width="2"/>
+
+<path d="
+M 140 295
+C 210 250, 265 170, 340 145
+C 410 122, 485 165, 560 245
+"
+fill="none"
+stroke="currentColor"
+stroke-width="3"/>
+
+<path d="
+M 170 340
+L 170 278
+C 225 240, 280 168, 340 145
+C 395 125, 440 142, 485 178
+L 485 340
+Z
+"
+fill="currentColor"
+opacity="0.08"/>
+
+<line x1="170" y1="340" x2="170" y2="278"
+      stroke="currentColor"
+      stroke-width="1.5"
+      stroke-dasharray="5 5"/>
+
+<line x1="485" y1="340" x2="485" y2="178"
+      stroke="currentColor"
+      stroke-width="1.5"
+      stroke-dasharray="5 5"/>
+
+<text x="163" y="365"
+      font-size="17"
+      fill="currentColor">a</text>
+
+<text x="478" y="365"
+      font-size="17"
+      fill="currentColor">x</text>
+
+<text x="300" y="245"
+      font-size="17"
+      fill="currentColor">
+A(x)
+</text>
+
+</svg>
+
+</div>
+
+<p>
+When \(x\) moves slightly to the right, a thin new strip of area is added.
+</p>
+
+<p>
+The rate at which accumulated area grows is exactly the height \(f(x)\).
+</p>
+
+
+<h3>14. The two central statements</h3>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\frac{d}{dx}
+\left(
+\int_a^x f(t)\,dt
+\right)
+=
+f(x)
+}
+\]
+
+\[
+\boxed{
+\int_a^b f(x)\,dx
+=
+F(b)-F(a),
+\qquad
+F'(x)=f(x)
+}
+\]
+
+</div>
+
+<p>
+The first says that differentiation reverses accumulation.
+</p>
+
+<p>
+The second says that accumulated change can be calculated using an antiderivative.
+</p>
+
+
+<h3>15. The full connection</h3>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{function}
+\xrightarrow{\text{differentiate}}
+\text{rate}
+}
+\]
+
+\[
+\boxed{
+\text{rate}
+\xrightarrow{\text{integrate}}
+\text{accumulated change}
+}
+\]
+
+</div>
+
+<p>
+The Fundamental Theorem of Calculus is what makes these two parts of calculus one coherent subject.
+</p>
+
+
+<div class="lesson-navigation">
+
+<a href="definite-integrals.html">
+← Definite Integrals
+</a>
+
+<a href="substitution.html">
+Next: Integration by Substitution →
+</a>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<div>
+<strong>dy/dx</strong>
+<p>Calculus Learning</p>
+</div>
+
+</footer>
+
+</body>
+
+</html>
