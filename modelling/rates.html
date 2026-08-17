@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rates in Mathematical Models | dy/dx</title>
+<link rel="stylesheet" href="../style.css">
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]}};</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+<header class="site-header"><div class="brand"><a href="../index.html">dy/dx</a></div><nav class="top-nav"><a href="../index.html">Home</a><a href="index.html">Calculus for Modelling</a></nav></header>
+<main>
+<section class="lesson-header"><p class="eyebrow">CALCULUS FOR MODELLING 01</p><h1>Rates in Mathematical Models</h1><p class="lesson-intro">A rate describes how quickly one quantity changes relative to another, usually time.</p></section>
+<section class="lesson-content">
+<h2>The main idea</h2>
+<p>If a quantity \(X(t)\) changes with time, its instantaneous rate of change is</p>
+<div class="lesson-math">\[\boxed{\frac{dX}{dt}}\]</div>
+<p>This is the basic language of many dynamical models.</p>
+<h3>1. Finite change and average rate</h3>
+<p>Over a time interval \(\Delta t\), the change is</p>
+\[\Delta X=X(t+\Delta t)-X(t).\]
+<p>The average rate is</p>
+\[\boxed{\frac{\Delta X}{\Delta t}}.\]
+<p>It measures change per unit time over the whole interval.</p>
+<h3>2. Instantaneous rate</h3>
+<p>The derivative is obtained by shrinking the interval:</p>
+\[\boxed{\frac{dX}{dt}=\lim_{\Delta t\to0}\frac{\Delta X}{\Delta t}}.\]
+<p>It describes the local rate at a particular time.</p>
+<h3>3. Units matter</h3>
+<p>If \(X\) is measured in people and \(t\) in days, then \(dX/dt\) has units people per day. A model equation must be dimensionally consistent.</p>
+<h3>4. Positive and negative rates</h3>
+<p>If \(dX/dt>0\), the quantity is increasing. If \(dX/dt<0\), it is decreasing. If \(dX/dt=0\), it is momentarily unchanged.</p>
+<h3>5. Rates built from mechanisms</h3>
+<p>Models usually construct rates from processes. A population may gain individuals through births and lose them through deaths:</p>
+<div class="lesson-math">\[\boxed{\frac{dP}{dt}=\text{birth rate}-\text{death rate}}\]</div>
+<h3>6. Per-capita rates</h3>
+<p>If each individual contributes an average rate \(r\), then the total rate may be proportional to population size:</p>
+\[\frac{dP}{dt}=rP.\]
+<p>Here \(r\) has units of inverse time.</p>
+<h3>7. Interaction rates</h3>
+<p>Some rates depend on interactions between two groups. In an epidemic model, a common infection term is</p>
+\[\beta\frac{SI}{N}.\]
+<p>The rate increases when either the susceptible population \(S\) or infectious population \(I\) increases.</p>
+<h3>8. Flow interpretation</h3>
+<p>A useful modelling principle is</p>
+<div class="lesson-math">\[\boxed{\text{rate of change}=\text{inflow}-\text{outflow}}\]</div>
+<p>This applies to populations, compartments, chemical quantities, finance, fluid systems and many other models.</p>
+<h3>9. Rate versus probability</h3>
+<p>A continuous-time event rate is not itself a probability. For a sufficiently small interval \(\Delta t\), an event occurring at rate \(\lambda\) has probability approximately</p>
+\[P(\text{event in }\Delta t)\approx\lambda\Delta t.\]
+<p>This distinction becomes important later in stochastic modelling.</p>
+<h3>10. The central idea</h3>
+<div class="lesson-math">\[\boxed{\text{mechanism}\rightarrow\text{rate}\rightarrow\text{differential equation}}\]</div>
+<p>Calculus allows a verbal description of change to become a mathematical law of evolution.</p>
+<div class="lesson-navigation"><a href="../multivariable/integral-theorems.html">← Integral Theorems</a><a href="parameters.html">Next: Variables and Parameters →</a></div>
+</section></main>
+<footer><div><strong>dy/dx</strong><p>Calculus Learning</p></div></footer>
+</body></html>
