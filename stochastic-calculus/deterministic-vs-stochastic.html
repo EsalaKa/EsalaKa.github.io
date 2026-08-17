@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Deterministic and Stochastic Models Compared | dy/dx</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']]
+  }
+};
+</script>
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+</head>
+
+
+<body>
+
+
+<header class="site-header">
+
+<div class="brand">
+<a href="../index.html">dy/dx</a>
+</div>
+
+<nav class="top-nav">
+<a href="../index.html">Home</a>
+<a href="index.html">Stochastic Calculus</a>
+</nav>
+
+</header>
+
+
+<main>
+
+
+<section class="lesson-header">
+
+<p class="eyebrow">STOCHASTIC CALCULUS 10</p>
+
+<h1>Deterministic and Stochastic Models Compared</h1>
+
+<p class="lesson-intro">
+Deterministic and stochastic models describe the same kinds of systems from different mathematical viewpoints.
+</p>
+
+</section>
+
+
+<section class="lesson-content">
+
+
+<h2>The main idea</h2>
+
+<p>
+A deterministic model produces one trajectory for fixed parameters and initial conditions.
+</p>
+
+<p>
+A stochastic model produces a distribution of possible trajectories.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{deterministic}
+\rightarrow
+\text{one path}
+}
+\]
+
+\[
+\boxed{
+\text{stochastic}
+\rightarrow
+\text{many possible paths}
+}
+\]
+
+</div>
+
+
+<h3>1. Deterministic model</h3>
+
+<p>
+Consider
+</p>
+
+\[
+\frac{dX}{dt}=f(X,t),
+\qquad
+X(0)=X_0.
+\]
+
+<p>
+Once \(f\) and \(X_0\) are fixed, the model determines a particular trajectory \(X(t)\), assuming the usual conditions for uniqueness.
+</p>
+
+
+<h3>2. Stochastic model</h3>
+
+<p>
+A corresponding stochastic model may be
+</p>
+
+\[
+dX_t
+=
+a(X_t,t)\,dt
++
+b(X_t,t)\,dW_t.
+\]
+
+<p>
+Even with the same initial value and parameters, different Brownian paths generate different realisations.
+</p>
+
+
+<h3>3. Same initial state, different outcomes</h3>
+
+<p>
+For a deterministic model,
+</p>
+
+\[
+X_0
+\]
+
+<p>
+leads to one model trajectory.
+</p>
+
+<p>
+For a stochastic model,
+</p>
+
+\[
+X_0
+\]
+
+<p>
+can lead to
+</p>
+
+\[
+X_t^{(1)},
+\quad
+X_t^{(2)},
+\quad
+X_t^{(3)},
+\quad
+\ldots
+\]
+
+<p>
+depending on the realised random fluctuations.
+</p>
+
+
+<h3>4. What does a deterministic trajectory represent?</h3>
+
+<p>
+A deterministic trajectory describes the evolution implied by the model's rate equations.
+</p>
+
+<p>
+In many applications it may be interpreted as a mean-field or large-population approximation, but this interpretation depends on how the model was derived.
+</p>
+
+<p>
+It should not automatically be assumed to equal the expectation of a related stochastic model.
+</p>
+
+
+<h3>5. Why the expectation need not equal the deterministic solution</h3>
+
+<p>
+Suppose
+</p>
+
+\[
+dX_t
+=
+a(X_t)\,dt
++
+b(X_t)\,dW_t.
+\]
+
+<p>
+Taking expectations gives
+</p>
+
+\[
+\frac{d}{dt}E[X_t]
+=
+E[a(X_t)].
+\]
+
+<p>
+In a nonlinear model,
+</p>
+
+\[
+E[a(X_t)]
+\]
+
+<p>
+is generally not equal to
+</p>
+
+\[
+a(E[X_t]).
+\]
+
+<div class="lesson-math">
+
+\[
+\boxed{
+E[a(X_t)]
+\neq
+a(E[X_t])
+\quad
+\text{in general}
+}
+\]
+
+</div>
+
+
+<h3>6. A simple nonlinear example</h3>
+
+<p>
+Suppose
+</p>
+
+\[
+a(X)=X^2.
+\]
+
+<p>
+Then
+</p>
+
+\[
+\frac{d}{dt}E[X_t]
+=
+E[X_t^2].
+\]
+
+<p>
+But
+</p>
+
+\[
+E[X_t^2]
+=
+\operatorname{Var}(X_t)
++
+(E[X_t])^2.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+\boxed{
+\frac{d}{dt}E[X_t]
+=
+(E[X_t])^2
++
+\operatorname{Var}(X_t)
+}
+\]
+
+<p>
+so the variance affects the evolution of the mean.
+</p>
+
+
+<h3>7. Deterministic approximation</h3>
+
+<p>
+If variability is small, one may approximate
+</p>
+
+\[
+E[X_t^2]
+\approx
+(E[X_t])^2.
+\]
+
+<p>
+This produces a deterministic mean-field equation.
+</p>
+
+<p>
+But it is an approximation, not an identity.
+</p>
+
+
+<h3>8. Linear models are simpler</h3>
+
+<p>
+For a linear SDE such as
+</p>
+
+\[
+dX_t
+=
+aX_t\,dt
++
+\sigma\,dW_t,
+\]
+
+<p>
+taking expectations gives
+</p>
+
+\[
+\frac{d}{dt}E[X_t]
+=
+aE[X_t].
+\]
+
+<p>
+Here the mean obeys the same linear equation as the corresponding deterministic model.
+</p>
+
+<p>
+This agreement does not generally extend to nonlinear systems.
+</p>
+
+
+<h3>9. A useful comparison</h3>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{deterministic model}
+=
+\text{single state at each time}
+}
+\]
+
+\[
+\boxed{
+\text{stochastic model}
+=
+\text{probability distribution at each time}
+}
+\]
+
+</div>
+
+<p>
+The distinction is not simply smooth versus noisy curves.
+</p>
+
+<p>
+It is a difference in the mathematical object being modelled.
+</p>
+
+
+<h3>10. Distribution at a fixed time</h3>
+
+<p>
+In a deterministic model,
+</p>
+
+\[
+X(t)
+\]
+
+<p>
+is one fixed value.
+</p>
+
+<p>
+In a stochastic model,
+</p>
+
+\[
+X_t
+\]
+
+<p>
+is a random variable with a probability distribution.
+</p>
+
+<p>
+That distribution may be summarised by
+</p>
+
+\[
+E[X_t],
+\]
+
+\[
+\operatorname{Var}(X_t),
+\]
+
+<p>
+quantiles and tail probabilities.
+</p>
+
+
+<h3>11. Diagram</h3>
+
+<div style="max-width:760px; margin:30px auto;">
+
+<svg viewBox="0 0 760 430"
+     width="100%"
+     role="img"
+     aria-labelledby="compare-title compare-desc"
+     xmlns="http://www.w3.org/2000/svg">
+
+<title id="compare-title">
+Deterministic and stochastic trajectories
+</title>
+
+<desc id="compare-desc">
+A smooth deterministic curve is shown alongside several irregular stochastic paths that start from the same initial state and spread around the overall trend.
+</desc>
+
+<line x1="70" y1="355" x2="700" y2="355"
+      stroke="currentColor"
+      stroke-width="2"/>
+
+<line x1="70" y1="355" x2="70" y2="55"
+      stroke="currentColor"
+      stroke-width="2"/>
+
+<text x="708" y="360"
+      font-size="18"
+      fill="currentColor">t</text>
+
+<text x="42" y="52"
+      font-size="18"
+      fill="currentColor">X</text>
+
+<!-- deterministic -->
+<path d="
+M 70 295
+C 200 275, 320 230, 430 175
+C 535 125, 615 95, 680 80
+"
+fill="none"
+stroke="currentColor"
+stroke-width="4"/>
+
+<!-- stochastic -->
+<polyline points="
+70,295
+110,283
+150,291
+190,265
+230,277
+270,245
+310,258
+350,220
+390,234
+430,196
+470,210
+510,168
+550,183
+590,142
+630,155
+680,118
+"
+fill="none"
+stroke="currentColor"
+stroke-width="2"
+opacity="0.55"/>
+
+<polyline points="
+70,295
+110,305
+150,285
+190,297
+230,271
+270,282
+310,255
+350,267
+390,239
+430,251
+470,222
+510,235
+550,205
+590,218
+630,188
+680,201
+"
+fill="none"
+stroke="currentColor"
+stroke-width="2"
+opacity="0.4"/>
+
+<polyline points="
+70,295
+110,289
+150,302
+190,278
+230,290
+270,263
+310,276
+350,247
+390,260
+430,229
+470,244
+510,212
+550,226
+590,194
+630,207
+680,171
+"
+fill="none"
+stroke="currentColor"
+stroke-width="2"
+opacity="0.3"/>
+
+<text x="515" y="72"
+      font-size="16"
+      fill="currentColor">
+deterministic trajectory
+</text>
+
+<text x="485" y="300"
+      font-size="16"
+      fill="currentColor">
+possible stochastic paths
+</text>
+
+</svg>
+
+</div>
+
+
+<h3>12. Questions a deterministic model can answer</h3>
+
+<p>
+A deterministic model can be useful for questions such as
+</p>
+
+\[
+\text{What is the predicted trajectory?}
+\]
+
+\[
+\text{When does the peak occur?}
+\]
+
+\[
+\text{How does changing a parameter alter the trajectory?}
+\]
+
+<p>
+These are often valuable modelling questions.
+</p>
+
+
+<h3>13. Questions a stochastic model adds</h3>
+
+<p>
+A stochastic model can additionally address
+</p>
+
+\[
+\text{How variable is the peak?}
+\]
+
+\[
+\text{What is the probability of exceeding a threshold?}
+\]
+
+\[
+\text{What is the probability of early extinction?}
+\]
+
+\[
+\text{How uncertain is the event timing?}
+\]
+
+
+<h3>14. Why the average alone can be misleading</h3>
+
+<p>
+Suppose hospital capacity is \(C\).
+</p>
+
+<p>
+A stochastic epidemic model may satisfy
+</p>
+
+\[
+E[I_t]<C
+\]
+
+<p>
+while still having
+</p>
+
+\[
+P(I_t>C)>0.
+\]
+
+<p>
+If the decision concerns risk of overload, the probability may be more relevant than the mean alone.
+</p>
+
+
+<h3>15. Example of two models with the same mean</h3>
+
+<p>
+Imagine two stochastic models whose infectious populations have the same expected value:
+</p>
+
+\[
+E[I_t]=1000.
+\]
+
+<p>
+One might have
+</p>
+
+\[
+\operatorname{SD}(I_t)=20,
+\]
+
+<p>
+while another has
+</p>
+
+\[
+\operatorname{SD}(I_t)=500.
+\]
+
+<p>
+Their average behaviour is identical, but their uncertainty and risk profiles are very different.
+</p>
+
+
+<h3>16. Deterministic models remain useful</h3>
+
+<p>
+The existence of stochastic models does not make deterministic models obsolete.
+</p>
+
+<p>
+Deterministic models are often:
+</p>
+
+\[
+\text{simpler to analyse},
+\]
+
+\[
+\text{faster to simulate},
+\]
+
+\[
+\text{easier to interpret},
+\]
+
+<p>
+and useful for understanding the underlying mechanism.
+</p>
+
+
+<h3>17. Stochastic models require more information</h3>
+
+<p>
+A stochastic model needs assumptions about the random structure as well as the deterministic mechanism.
+</p>
+
+<p>
+For an SDE, we must specify both
+</p>
+
+\[
+a(X,t)
+\]
+
+<p>
+and
+</p>
+
+\[
+b(X,t).
+\]
+
+<p>
+The diffusion term must be scientifically and mathematically justified.
+</p>
+
+
+<h3>18. Computational cost</h3>
+
+<p>
+A deterministic ODE normally requires one numerical solution for a fixed parameter set.
+</p>
+
+<p>
+A stochastic simulation may require thousands of trajectories to estimate a probability accurately.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{more uncertainty information}
+\quad\Longleftrightarrow\quad
+\text{greater computational cost}
+}
+\]
+
+</div>
+
+
+<h3>19. Population size matters</h3>
+
+<p>
+In large populations, individual random events may partly average out, making deterministic approximations useful.
+</p>
+
+<p>
+In small populations or near extinction, stochastic effects can be much more important.
+</p>
+
+<p>
+Therefore model choice can depend strongly on scale.
+</p>
+
+
+<h3>20. Early outbreak behaviour</h3>
+
+<p>
+Suppose only a few infectious individuals are present.
+</p>
+
+<p>
+A deterministic epidemic model may predict growth whenever the average reproduction mechanism favours infection.
+</p>
+
+<p>
+But in a stochastic model, the first few infectious individuals may recover before transmitting.
+</p>
+
+<p>
+The outbreak can therefore disappear by chance.
+</p>
+
+
+<h3>21. Deterministic growth does not guarantee a major outbreak</h3>
+
+<p>
+A positive deterministic growth rate means the expected mechanism favours increase.
+</p>
+
+<p>
+It does not imply
+</p>
+
+\[
+P(\text{major outbreak})=1.
+\]
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{positive average growth}
+\neq
+\text{certain growth in every realisation}
+}
+\]
+
+</div>
+
+
+<h3>22. Long-run behaviour</h3>
+
+<p>
+Deterministic models often describe equilibria and their stability.
+</p>
+
+<p>
+Stochastic models may instead have stationary distributions, extinction probabilities or random fluctuations around deterministic equilibria.
+</p>
+
+<p>
+So the idea of long-run behaviour also changes when randomness is introduced.
+</p>
+
+
+<h3>23. Different forms of stochastic modelling</h3>
+
+<p>
+Stochastic modelling is broader than SDEs.
+</p>
+
+<p>
+Other stochastic models include
+</p>
+
+\[
+\text{discrete-time Markov chains},
+\]
+
+\[
+\text{continuous-time Markov chains},
+\]
+
+\[
+\text{jump processes},
+\]
+
+<p>
+and</p>
+
+\[
+\text{stochastic differential equations}.
+\]
+
+<p>
+The appropriate choice depends on the nature and scale of the random events.
+</p>
+
+
+<h3>24. Jump process versus diffusion model</h3>
+
+<p>
+A continuous-time Markov chain can represent individual discrete events such as one infection or one recovery.
+</p>
+
+<p>
+An SDE represents continuous-valued random fluctuation.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{CTMC}
+\rightarrow
+\text{discrete jumps}
+}
+\]
+
+\[
+\boxed{
+\text{SDE}
+\rightarrow
+\text{continuous random paths}
+}
+\]
+
+</div>
+
+
+<h3>25. Diffusion approximation</h3>
+
+<p>
+In suitable large-population settings, a jump process can sometimes be approximated by an SDE.
+</p>
+
+<p>
+The drift reflects the average event rates, while the diffusion reflects variation generated by those random events.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{random event model}
+\rightarrow
+\text{diffusion approximation}
+}
+\]
+
+</div>
+
+
+<h3>26. Deterministic limit</h3>
+
+<p>
+Under suitable scaling, stochastic fluctuations may become relatively small as system size increases.
+</p>
+
+<p>
+The stochastic model may then approach a deterministic mean-field model.
+</p>
+
+<p>
+This gives a mathematical connection between deterministic and stochastic descriptions rather than treating them as unrelated alternatives.
+</p>
+
+
+<h3>27. Model comparison should depend on the objective</h3>
+
+<p>
+If the goal is to understand the basic mechanism, a deterministic model may be enough.
+</p>
+
+<p>
+If the goal is to quantify the chance of an extreme outcome, a stochastic model is often more appropriate.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{choose the model according to the question}
+}
+\]
+
+</div>
+
+
+<h3>28. A useful modelling hierarchy</h3>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{deterministic ODE}
+}
+\]
+
+\[
+\downarrow
+\]
+
+\[
+\boxed{
+\text{stochastic jump process}
+}
+\]
+
+\[
+\downarrow
+\]
+
+\[
+\boxed{
+\text{SDE diffusion approximation}
+}
+\]
+
+\[
+\downarrow
+\]
+
+\[
+\boxed{
+\text{moments or probability density}
+}
+\]
+
+</div>
+
+<p>
+These are different mathematical views of dynamical systems, each useful for different purposes.
+</p>
+
+
+<h3>29. Main comparison</h3>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\begin{array}{c|c}
+\text{Deterministic} & \text{Stochastic}\\
+\hline
+\text{one trajectory} & \text{distribution of trajectories}\\
+\text{fixed outcome for fixed inputs} & \text{random outcome for fixed inputs}\\
+\text{ODEs} & \text{SDEs or jump processes}\\
+\text{trajectory and equilibrium} & \text{mean, variance, probability}\\
+\text{usually cheaper computationally} & \text{often more computationally demanding}
+\end{array}
+}
+\]
+
+</div>
+
+
+<h3>30. The central idea</h3>
+
+<p>
+Deterministic and stochastic models are not competitors in every situation.
+</p>
+
+<p>
+They answer different levels of the same modelling problem.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{deterministic model}
+\rightarrow
+\text{systematic behaviour}
+}
+\]
+
+\[
+\boxed{
+\text{stochastic model}
+\rightarrow
+\text{systematic behaviour plus uncertainty}
+}
+\]
+
+</div>
+
+<p>
+The important question is not which model is universally better, but which mathematical description is appropriate for the scientific question being asked.
+</p>
+
+
+<div class="lesson-navigation">
+
+<a href="stochastic-modelling.html">
+← Stochastic Modelling and Interpretation
+</a>
+
+<a href="../index.html">
+Return to Full Learning Path →
+</a>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<div>
+<strong>dy/dx</strong>
+<p>Calculus Learning</p>
+</div>
+
+</footer>
+
+
+</body>
+
+</html>
