@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>The Quotient Rule | dy/dx</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']]
+  }
+};
+</script>
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+</head>
+
+<body>
+
+<header class="site-header">
+
+<div class="brand">
+<a href="../index.html">dy/dx</a>
+</div>
+
+<nav class="top-nav">
+<a href="../index.html">Home</a>
+<a href="index.html">Differentiation</a>
+</nav>
+
+</header>
+
+
+<main>
+
+<section class="lesson-header">
+
+<p class="eyebrow">DIFFERENTIATION 07</p>
+
+<h1>The Quotient Rule</h1>
+
+<p class="lesson-intro">
+The quotient rule differentiates one changing function divided by another.
+</p>
+
+</section>
+
+
+<section class="lesson-content">
+
+
+<h2>The main idea</h2>
+
+<p>
+Suppose
+</p>
+
+\[
+y=\frac{f(x)}{g(x)},
+\qquad g(x)\neq0.
+\]
+
+<p>
+Then
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\frac{d}{dx}
+\left(
+\frac{f}{g}
+\right)
+=
+\frac{f'g-fg'}{g^2}
+}
+\]
+
+</div>
+
+<p>
+This is the <strong>quotient rule</strong>.
+</p>
+
+
+<h3>1. Why a special rule is needed</h3>
+
+<p>
+We cannot generally differentiate the numerator and denominator separately:
+</p>
+
+\[
+\frac{d}{dx}
+\left(
+\frac{f}{g}
+\right)
+\neq
+\frac{f'}{g'}.
+\]
+
+<p>
+A quotient depends on how both the numerator and denominator change.
+</p>
+
+
+<h3>2. Deriving it from the product rule</h3>
+
+<p>
+Start with
+</p>
+
+\[
+y=\frac{f}{g}.
+\]
+
+<p>
+Multiply both sides by \(g\):
+</p>
+
+\[
+yg=f.
+\]
+
+<p>
+Differentiate using the product rule:
+</p>
+
+\[
+y'g+yg'=f'.
+\]
+
+<p>
+Solve for \(y'\):
+</p>
+
+\[
+y'g=f'-yg'.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+y'
+=
+\frac{f'-yg'}{g}.
+\]
+
+<p>
+Since
+</p>
+
+\[
+y=\frac{f}{g},
+\]
+
+<p>
+substitute this into the expression:
+</p>
+
+\[
+y'
+=
+\frac{
+f'-\frac{f}{g}g'
+}{g}.
+\]
+
+<p>
+Simplifying gives
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+y'
+=
+\frac{f'g-fg'}{g^2}
+}
+\]
+
+</div>
+
+
+<h3>3. A simple way to remember it</h3>
+
+<p>
+For
+</p>
+
+\[
+\frac{f}{g},
+\]
+
+<p>
+the numerator of the derivative is
+</p>
+
+\[
+f'g-fg'.
+\]
+
+<p>
+So:
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{derivative of top}\times\text{bottom}
+-
+\text{top}\times\text{derivative of bottom}
+}
+\]
+
+</div>
+
+<p>
+and then divide by
+</p>
+
+\[
+g^2.
+\]
+
+
+<h3>4. Example</h3>
+
+<p>
+Consider
+</p>
+
+\[
+y=\frac{x^2}{x+1}.
+\]
+
+<p>
+Let
+</p>
+
+\[
+f(x)=x^2,
+\qquad
+g(x)=x+1.
+\]
+
+<p>
+Then
+</p>
+
+\[
+f'(x)=2x,
+\qquad
+g'(x)=1.
+\]
+
+<p>
+Using the quotient rule,
+</p>
+
+\[
+\frac{dy}{dx}
+=
+\frac{
+(2x)(x+1)-x^2(1)
+}{
+(x+1)^2
+}.
+\]
+
+<p>
+Simplifying,
+</p>
+
+\[
+\frac{dy}{dx}
+=
+\frac{
+2x^2+2x-x^2
+}{
+(x+1)^2
+}.
+\]
+
+<p>
+Therefore,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\frac{dy}{dx}
+=
+\frac{x^2+2x}{(x+1)^2}
+}
+\]
+
+</div>
+
+
+<h3>5. Example with trigonometric functions</h3>
+
+<p>
+Consider
+</p>
+
+\[
+y=\frac{\sin x}{x}.
+\]
+
+<p>
+Let
+</p>
+
+\[
+f(x)=\sin x,
+\qquad
+g(x)=x.
+\]
+
+<p>
+Then
+</p>
+
+\[
+f'(x)=\cos x,
+\qquad
+g'(x)=1.
+\]
+
+<p>
+So
+</p>
+
+\[
+\frac{dy}{dx}
+=
+\frac{x\cos x-\sin x}{x^2}.
+\]
+
+
+<h3>6. Example with an exponential function</h3>
+
+<p>
+Suppose
+</p>
+
+\[
+y=\frac{e^x}{x}.
+\]
+
+<p>
+Then
+</p>
+
+\[
+f(x)=e^x,
+\qquad
+g(x)=x,
+\]
+
+<p>
+so
+</p>
+
+\[
+f'(x)=e^x,
+\qquad
+g'(x)=1.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+\frac{dy}{dx}
+=
+\frac{xe^x-e^x}{x^2}.
+\]
+
+<p>
+Factorising,
+</p>
+
+\[
+\boxed{
+\frac{dy}{dx}
+=
+\frac{e^x(x-1)}{x^2}
+}
+\]
+
+
+<h3>7. Sometimes rewriting is easier</h3>
+
+<p>
+Consider
+</p>
+
+\[
+y=\frac{1}{x^2}.
+\]
+
+<p>
+We could use the quotient rule, but it is simpler to write
+</p>
+
+\[
+y=x^{-2}.
+\]
+
+<p>
+Then the power rule gives
+</p>
+
+\[
+\frac{dy}{dx}
+=
+-2x^{-3}
+=
+-\frac{2}{x^3}.
+\]
+
+<p>
+So the quotient rule is not always the shortest method.
+</p>
+
+
+<h3>8. Domain restrictions remain important</h3>
+
+<p>
+If
+</p>
+
+\[
+y=\frac{f(x)}{g(x)},
+\]
+
+<p>
+the original function is defined only where
+</p>
+
+\[
+g(x)\neq0.
+\]
+
+<p>
+Differentiating does not remove this restriction.
+</p>
+
+<p>
+For example,
+</p>
+
+\[
+y=\frac{x^2}{x-3}
+\]
+
+<p>
+is not defined at
+</p>
+
+\[
+x=3.
+\]
+
+
+<h3>9. Quotient rule in Leibniz notation</h3>
+
+<p>
+If
+</p>
+
+\[
+y=\frac{u}{v},
+\]
+
+<p>
+where \(u\) and \(v\) depend on \(x\), then
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\frac{dy}{dx}
+=
+\frac{
+v\frac{du}{dx}
+-
+u\frac{dv}{dx}
+}{
+v^2
+}
+}
+\]
+
+</div>
+
+<p>
+This is the same rule written using differential notation.
+</p>
+
+
+<h3>10. A common mistake</h3>
+
+<p>
+Do not write
+</p>
+
+\[
+\left(\frac{f}{g}\right)'
+=
+\frac{f'}{g'}.
+\]
+
+<p>
+For example,
+</p>
+
+\[
+\frac{x^2}{x}=x
+\]
+
+<p>
+for \(x\neq0\).
+</p>
+
+<p>
+The derivative is therefore
+</p>
+
+\[
+1.
+\]
+
+<p>
+But differentiating numerator and denominator separately would give
+</p>
+
+\[
+\frac{2x}{1}=2x,
+\]
+
+<p>
+which is wrong.
+</p>
+
+
+<h3>11. The structure to remember</h3>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\left(
+\frac{f}{g}
+\right)'
+=
+\frac{f'g-fg'}{g^2}
+}
+\]
+
+</div>
+
+<p>
+The order in the numerator matters because subtraction is involved.
+</p>
+
+
+<div class="lesson-navigation">
+
+<a href="product-rule.html">
+← The Product Rule
+</a>
+
+<a href="chain-rule.html">
+Next: The Chain Rule →
+</a>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<div>
+<strong>dy/dx</strong>
+<p>Calculus Learning</p>
+</div>
+
+</footer>
+
+</body>
+
+</html>
