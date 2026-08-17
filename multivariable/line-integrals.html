@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Line Integrals | dy/dx</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']]
+  }
+};
+</script>
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+</head>
+
+
+<body>
+
+
+<header class="site-header">
+
+<div class="brand">
+<a href="../index.html">dy/dx</a>
+</div>
+
+<nav class="top-nav">
+<a href="../index.html">Home</a>
+<a href="index.html">Multivariable Calculus</a>
+</nav>
+
+</header>
+
+
+<main>
+
+
+<section class="lesson-header">
+
+<p class="eyebrow">MULTIVARIABLE CALCULUS 10</p>
+
+<h1>Line Integrals</h1>
+
+<p class="lesson-intro">
+A line integral accumulates a quantity along a curve rather than across an interval, area or volume.
+</p>
+
+</section>
+
+
+<section class="lesson-content">
+
+
+<h2>The main idea</h2>
+
+<p>
+An ordinary integral accumulates along a straight interval:
+</p>
+
+\[
+\int_a^b f(x)\,dx.
+\]
+
+<p>
+A line integral allows the path itself to be curved.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\int_C f\,ds
+}
+\]
+
+</div>
+
+<p>
+Here \(C\) represents the curve and \(ds\) represents a small distance along that curve.
+</p>
+
+
+<h3>1. From an interval to a curve</h3>
+
+<p>
+In one-variable integration, a small contribution has the form
+</p>
+
+\[
+f(x)\,dx.
+\]
+
+<p>
+Along a curve, the corresponding contribution is
+</p>
+
+\[
+f\,ds.
+\]
+
+<p>
+So the total accumulation is obtained by adding contributions along the entire path.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{small contribution}
+=
+f\times\text{small arc length}
+}
+\]
+
+</div>
+
+
+<h3>2. Parameterising a curve</h3>
+
+<p>
+A curve can be described using a parameter \(t\):
+</p>
+
+\[
+\mathbf{r}(t)
+=
+\begin{pmatrix}
+x(t)\\
+y(t)
+\end{pmatrix},
+\qquad
+a\le t\le b.
+\]
+
+<p>
+As \(t\) changes, the point
+</p>
+
+\[
+(x(t),y(t))
+\]
+
+<p>
+moves along the curve.
+</p>
+
+
+<h3>3. Arc-length element</h3>
+
+<p>
+A small displacement along the curve is
+</p>
+
+\[
+d\mathbf{r}
+=
+\begin{pmatrix}
+dx\\
+dy
+\end{pmatrix}.
+\]
+
+<p>
+Its length is
+</p>
+
+\[
+ds
+=
+\sqrt{dx^2+dy^2}.
+\]
+
+<p>
+If the curve is parameterised by \(t\), then
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+ds
+=
+\sqrt{
+\left(\frac{dx}{dt}\right)^2
++
+\left(\frac{dy}{dt}\right)^2
+}\,dt
+}
+\]
+
+</div>
+
+
+<h3>4. Scalar line integral</h3>
+
+<p>
+For a scalar field
+</p>
+
+\[
+f(x,y),
+\]
+
+<p>
+the line integral along \(C\) is
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\int_C f\,ds
+=
+\int_a^b
+f(x(t),y(t))
+\|\mathbf{r}'(t)\|
+\,dt
+}
+\]
+
+</div>
+
+
+<h3>5. Simple example</h3>
+
+<p>
+Let \(C\) be the straight line
+</p>
+
+\[
+\mathbf{r}(t)
+=
+\begin{pmatrix}
+t\\
+t
+\end{pmatrix},
+\qquad
+0\le t\le1.
+\]
+
+<p>
+Suppose
+</p>
+
+\[
+f(x,y)=x+y.
+\]
+
+<p>
+Along the curve,
+</p>
+
+\[
+f(t,t)=2t.
+\]
+
+
+<h3>6. Find \(ds\)</h3>
+
+<p>
+We have
+</p>
+
+\[
+\mathbf{r}'(t)
+=
+\begin{pmatrix}
+1\\
+1
+\end{pmatrix}.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+\|\mathbf{r}'(t)\|
+=
+\sqrt{1^2+1^2}
+=
+\sqrt2.
+\]
+
+<p>
+So
+</p>
+
+\[
+ds=\sqrt2\,dt.
+\]
+
+
+<h3>7. Evaluate the integral</h3>
+
+<p>
+Therefore,
+</p>
+
+\[
+\int_C f\,ds
+=
+\int_0^1 2t\sqrt2\,dt.
+\]
+
+<p>
+So
+</p>
+
+\[
+=
+\sqrt2[t^2]_0^1.
+\]
+
+<p>
+Hence,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\int_C f\,ds
+=
+\sqrt2
+}
+\]
+
+</div>
+
+
+<h3>8. Physical interpretation: mass of a wire</h3>
+
+<p>
+Suppose a thin wire follows a curve \(C\) and has linear density
+</p>
+
+\[
+\rho(x,y).
+\]
+
+<p>
+A small piece of length \(ds\) has approximate mass
+</p>
+
+\[
+dm=\rho\,ds.
+\]
+
+<p>
+Therefore, the total mass is
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+M
+=
+\int_C \rho\,ds
+}
+\]
+
+</div>
+
+
+<h3>9. Vector line integrals</h3>
+
+<p>
+Line integrals can also involve vector fields.
+</p>
+
+<p>
+Let
+</p>
+
+\[
+\mathbf{F}(x,y)
+=
+\begin{pmatrix}
+P(x,y)\\
+Q(x,y)
+\end{pmatrix}.
+\]
+
+<p>
+Then the line integral
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\int_C
+\mathbf{F}\cdot d\mathbf{r}
+}
+\]
+
+</div>
+
+<p>
+measures how strongly the vector field acts along the direction of the path.
+</p>
+
+
+<h3>10. Parameter form</h3>
+
+<p>
+Since
+</p>
+
+\[
+d\mathbf{r}
+=
+\mathbf{r}'(t)\,dt,
+\]
+
+<p>
+we have
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\int_C
+\mathbf{F}\cdot d\mathbf{r}
+=
+\int_a^b
+\mathbf{F}(\mathbf{r}(t))
+\cdot
+\mathbf{r}'(t)
+\,dt
+}
+\]
+
+</div>
+
+
+<h3>11. Why the dot product appears</h3>
+
+<p>
+The vector field may not point in exactly the same direction as the path.
+</p>
+
+<p>
+The dot product extracts the component of the field acting along the direction of movement.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\mathbf{F}\cdot d\mathbf{r}
+=
+\text{field component along path}
+\times
+\text{small displacement}
+}
+\]
+
+</div>
+
+
+<h3>12. Work done by a force field</h3>
+
+<p>
+Suppose \(\mathbf{F}\) represents a force and an object moves along a path \(C\).
+</p>
+
+<p>
+Then the work done is
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+W
+=
+\int_C
+\mathbf{F}\cdot d\mathbf{r}
+}
+\]
+
+</div>
+
+<p>
+Only the component of the force in the direction of movement contributes to work.
+</p>
+
+
+<h3>13. Simple vector-field example</h3>
+
+<p>
+Let
+</p>
+
+\[
+\mathbf{F}(x,y)
+=
+\begin{pmatrix}
+x\\
+y
+\end{pmatrix}
+\]
+
+<p>
+and let
+</p>
+
+\[
+\mathbf{r}(t)
+=
+\begin{pmatrix}
+t\\
+t
+\end{pmatrix},
+\qquad
+0\le t\le1.
+\]
+
+<p>
+Along the path,
+</p>
+
+\[
+\mathbf{F}(\mathbf{r}(t))
+=
+\begin{pmatrix}
+t\\
+t
+\end{pmatrix}.
+\]
+
+<p>
+Also,
+</p>
+
+\[
+\mathbf{r}'(t)
+=
+\begin{pmatrix}
+1\\
+1
+\end{pmatrix}.
+\]
+
+
+<h3>14. Calculate the dot product</h3>
+
+<p>
+Then
+</p>
+
+\[
+\mathbf{F}\cdot\mathbf{r}'
+=
+t+t
+=
+2t.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+\int_C
+\mathbf{F}\cdot d\mathbf{r}
+=
+\int_0^1 2t\,dt.
+\]
+
+<p>
+So
+</p>
+
+\[
+\boxed{
+\int_C
+\mathbf{F}\cdot d\mathbf{r}
+=
+1
+}
+\]
+
+
+<h3>15. Diagram</h3>
+
+<div style="max-width:680px; margin:30px auto;">
+
+<svg viewBox="0 0 680 420"
+     width="100%"
+     role="img"
+     aria-labelledby="line-title line-desc"
+     xmlns="http://www.w3.org/2000/svg">
+
+<title id="line-title">
+Line integral along a curved path
+</title>
+
+<desc id="line-desc">
+A curved path runs through a vector field. A tangent arrow shows the direction of motion, while a nearby field vector has a component along the path.
+</desc>
+
+<line x1="65" y1="340" x2="620" y2="340"
+      stroke="currentColor"
+      stroke-width="2"/>
+
+<line x1="100" y1="375" x2="100" y2="45"
+      stroke="currentColor"
+      stroke-width="2"/>
+
+<path d="
+M 140 305
+C 235 260, 280 145, 390 130
+C 475 118, 535 170, 570 245
+"
+fill="none"
+stroke="currentColor"
+stroke-width="3"/>
+
+<circle cx="390" cy="130"
+        r="6"
+        fill="currentColor"/>
+
+<!-- tangent direction -->
+<line x1="390" y1="130" x2="470" y2="138"
+      stroke="currentColor"
+      stroke-width="3"/>
+
+<polygon points="480,139 463,130 463,147"
+         fill="currentColor"/>
+
+<text x="430" y="118"
+      font-size="16"
+      fill="currentColor">
+d r
+</text>
+
+<!-- field vector -->
+<line x1="390" y1="130" x2="430" y2="75"
+      stroke="currentColor"
+      stroke-width="3"/>
+
+<polygon points="435,68 431,84 419,75"
+         fill="currentColor"/>
+
+<text x="438" y="78"
+      font-size="16"
+      fill="currentColor">
+F
+</text>
+
+<text x="255" y="285"
+      font-size="16"
+      fill="currentColor">
+curve C
+</text>
+
+</svg>
+
+</div>
+
+
+<h3>16. Direction matters for vector line integrals</h3>
+
+<p>
+For
+</p>
+
+\[
+\int_C \mathbf{F}\cdot d\mathbf{r},
+\]
+
+<p>
+reversing the direction of the path changes the sign:
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\int_{-C}
+\mathbf{F}\cdot d\mathbf{r}
+=
+-
+\int_C
+\mathbf{F}\cdot d\mathbf{r}
+}
+\]
+
+</div>
+
+<p>
+This is because the displacement vector \(d\mathbf{r}\) reverses direction.
+</p>
+
+
+<h3>17. Scalar line integrals behave differently</h3>
+
+<p>
+For a scalar line integral
+</p>
+
+\[
+\int_C f\,ds,
+\]
+
+<p>
+the element \(ds\) represents distance and is nonnegative.
+</p>
+
+<p>
+So reversing the path does not change the value:
+</p>
+
+\[
+\boxed{
+\int_{-C}f\,ds
+=
+\int_Cf\,ds
+}
+\]
+
+
+<h3>18. Conservative vector fields</h3>
+
+<p>
+Suppose
+</p>
+
+\[
+\mathbf{F}=\nabla\phi.
+\]
+
+<p>
+Then \(\mathbf{F}\) is a conservative vector field.
+</p>
+
+<p>
+For such a field,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\int_C
+\mathbf{F}\cdot d\mathbf{r}
+=
+\phi(B)-\phi(A)
+}
+\]
+
+</div>
+
+<p>
+where \(A\) and \(B\) are the starting and ending points of the path.
+</p>
+
+
+<h3>19. Why this is important</h3>
+
+<p>
+For a conservative field, the line integral depends only on the endpoints, not on the particular path taken between them.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{conservative field}
+\Rightarrow
+\text{path independence}
+}
+\]
+
+</div>
+
+
+<h3>20. Closed curves</h3>
+
+<p>
+If the path begins and ends at the same point, it is called a closed curve.
+</p>
+
+<p>
+The notation
+</p>
+
+\[
+\oint_C
+\]
+
+<p>
+is often used for an integral around a closed curve.
+</p>
+
+<p>
+For a conservative field,
+</p>
+
+\[
+\boxed{
+\oint_C
+\mathbf{F}\cdot d\mathbf{r}
+=
+0
+}
+\]
+
+
+<h3>21. The fundamental theorem for line integrals</h3>
+
+<p>
+If
+</p>
+
+\[
+\mathbf{F}=\nabla\phi,
+\]
+
+<p>
+then
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\int_C
+\nabla\phi\cdot d\mathbf{r}
+=
+\phi(B)-\phi(A)
+}
+\]
+
+</div>
+
+<p>
+This is the multivariable analogue of
+</p>
+
+\[
+\int_a^b
+F'(x)\,dx
+=
+F(b)-F(a).
+\]
+
+<p>
+So the Fundamental Theorem of Calculus extends naturally to curves and gradient fields.
+</p>
+
+
+<h3>22. Scalar and vector line integrals</h3>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\int_C f\,ds
+=
+\text{accumulation of a scalar quantity along a curve}
+}
+\]
+
+\[
+\boxed{
+\int_C
+\mathbf{F}\cdot d\mathbf{r}
+=
+\text{accumulation of a vector field along the direction of a curve}
+}
+\]
+
+</div>
+
+
+<h3>23. The central idea</h3>
+
+<p>
+Line integrals extend integration from straight intervals to curved paths.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{interval}
+\rightarrow
+\text{curve}
+}
+\]
+
+\[
+\boxed{
+dx
+\rightarrow
+ds
+\text{ or }d\mathbf{r}
+}
+\]
+
+</div>
+
+<p>
+They connect geometry, vector fields, motion and accumulation in a single calculus framework.
+</p>
+
+
+<div class="lesson-navigation">
+
+<a href="divergence-curl.html">
+← Divergence and Curl
+</a>
+
+<a href="surface-integrals.html">
+Next: Surface Integrals →
+</a>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<div>
+<strong>dy/dx</strong>
+<p>Calculus Learning</p>
+</div>
+
+</footer>
+
+
+</body>
+
+</html>
