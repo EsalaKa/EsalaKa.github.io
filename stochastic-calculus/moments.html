@@ -1,0 +1,1312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Moments of Stochastic Processes | dy/dx</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']]
+  }
+};
+</script>
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+</head>
+
+
+<body>
+
+
+<header class="site-header">
+
+<div class="brand">
+<a href="../index.html">dy/dx</a>
+</div>
+
+<nav class="top-nav">
+<a href="../index.html">Home</a>
+<a href="index.html">Stochastic Calculus</a>
+</nav>
+
+</header>
+
+
+<main>
+
+
+<section class="lesson-header">
+
+<p class="eyebrow">STOCHASTIC CALCULUS 07</p>
+
+<h1>Moments of Stochastic Processes</h1>
+
+<p class="lesson-intro">
+Moments summarise the distribution of a stochastic process through quantities such as its mean, second moment and variance.
+</p>
+
+</section>
+
+
+<section class="lesson-content">
+
+
+<h2>The main idea</h2>
+
+<p>
+For a stochastic process \(X_t\), the value at a fixed time \(t\) is a random variable.
+</p>
+
+<p>
+Different realisations may therefore give different values:
+</p>
+
+\[
+X_t^{(1)},\quad
+X_t^{(2)},\quad
+X_t^{(3)},\quad
+\ldots
+\]
+
+<p>
+Moments describe important features of the distribution of these possible values.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{distribution of }X_t
+\longrightarrow
+\text{moments}
+}
+\]
+
+</div>
+
+
+<h3>1. The first moment</h3>
+
+<p>
+The first moment is the expected value:
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+m_1(t)=E[X_t]
+}
+\]
+
+</div>
+
+<p>
+It gives the average value of \(X_t\) across many hypothetical realisations.
+</p>
+
+
+<h3>2. Expectation is not one trajectory</h3>
+
+<p>
+A single stochastic trajectory gives one possible value of \(X_t\).
+</p>
+
+<p>
+The expectation instead averages over all possible outcomes according to their probabilities.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+X_t
+=
+\text{random outcome}
+}
+\]
+
+\[
+\boxed{
+E[X_t]
+=
+\text{average over possible outcomes}
+}
+\]
+
+</div>
+
+
+<h3>3. Monte Carlo estimate of the mean</h3>
+
+<p>
+Suppose \(M\) independent trajectories are simulated.
+</p>
+
+<p>
+At time \(t\), we obtain
+</p>
+
+\[
+X_t^{(1)},
+\ldots,
+X_t^{(M)}.
+\]
+
+<p>
+Then
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+E[X_t]
+\approx
+\frac{1}{M}
+\sum_{j=1}^{M}
+X_t^{(j)}
+}
+\]
+
+</div>
+
+<p>
+This is the sample mean.
+</p>
+
+
+<h3>4. The second moment</h3>
+
+<p>
+The second moment is
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+m_2(t)=E[X_t^2]
+}
+\]
+
+</div>
+
+<p>
+It is not the same as
+</p>
+
+\[
+(E[X_t])^2.
+\]
+
+<p>
+The distinction is fundamental.
+</p>
+
+
+<h3>5. Why the second moment matters</h3>
+
+<p>
+The second moment contains information about both the location and spread of the distribution.
+</p>
+
+<p>
+It is used to calculate the variance:
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\operatorname{Var}(X_t)
+=
+E[X_t^2]
+-
+(E[X_t])^2
+}
+\]
+
+</div>
+
+
+<h3>6. Variance</h3>
+
+<p>
+Variance measures the spread of possible values around the mean.
+</p>
+
+<p>
+Equivalent notation is
+</p>
+
+\[
+\operatorname{Var}(X_t)
+=
+E\left[
+\left(
+X_t-E[X_t]
+\right)^2
+\right].
+\]
+
+<p>
+A small variance means trajectories tend to remain close to the mean.
+</p>
+
+<p>
+A large variance means outcomes are more widely spread.
+</p>
+
+
+<h3>7. Standard deviation</h3>
+
+<p>
+The standard deviation is
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\operatorname{SD}(X_t)
+=
+\sqrt{\operatorname{Var}(X_t)}
+}
+\]
+
+</div>
+
+<p>
+It has the same units as \(X_t\), which often makes it easier to interpret than variance.
+</p>
+
+
+<h3>8. A simple discrete example</h3>
+
+<p>
+Suppose \(X\) takes the values
+</p>
+
+\[
+1,\quad 2,\quad 3
+\]
+
+<p>
+with equal probabilities.
+</p>
+
+<p>
+Then
+</p>
+
+\[
+E[X]
+=
+\frac{1+2+3}{3}
+=
+2.
+\]
+
+<p>
+The second moment is
+</p>
+
+\[
+E[X^2]
+=
+\frac{1^2+2^2+3^2}{3}
+=
+\frac{14}{3}.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+\operatorname{Var}(X)
+=
+\frac{14}{3}-4
+=
+\frac{2}{3}.
+\]
+
+
+<h3>9. Why \(E[X^2]\neq(E[X])^2\)</h3>
+
+<p>
+In the previous example,
+</p>
+
+\[
+E[X^2]
+=
+\frac{14}{3},
+\]
+
+<p>
+while
+</p>
+
+\[
+(E[X])^2=4.
+\]
+
+<p>
+They differ because expectation is taken after squaring in the first expression.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+E[X^2]
+\neq
+(E[X])^2
+\text{ in general}
+}
+\]
+
+</div>
+
+
+<h3>10. Higher moments</h3>
+
+<p>
+More generally, the \(n\)-th raw moment is
+</p>
+
+\[
+\boxed{
+m_n(t)=E[X_t^n]
+}
+\]
+
+<p>
+Higher moments can describe additional features of a distribution.
+</p>
+
+<p>
+For example, third and fourth moments are related to skewness and kurtosis.
+</p>
+
+
+<h3>11. Moments change with time</h3>
+
+<p>
+For a stochastic process, moments usually depend on time.
+</p>
+
+<p>
+Therefore we may study
+</p>
+
+\[
+E[X_t],
+\]
+
+\[
+E[X_t^2],
+\]
+
+<p>
+and
+</p>
+
+\[
+\operatorname{Var}(X_t)
+\]
+
+<p>
+as functions of \(t\).
+</p>
+
+
+<h3>12. Example: Brownian motion</h3>
+
+<p>
+For Brownian motion,
+</p>
+
+\[
+W_t\sim N(0,t).
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+\boxed{
+E[W_t]=0
+}
+\]
+
+<p>
+and
+</p>
+
+\[
+\boxed{
+E[W_t^2]=t
+}
+\]
+
+<p>
+so
+</p>
+
+\[
+\boxed{
+\operatorname{Var}(W_t)=t.
+}
+\]
+
+
+<h3>13. Example: drifted Brownian motion</h3>
+
+<p>
+Consider
+</p>
+
+\[
+dX_t
+=
+\mu\,dt
++
+\sigma\,dW_t,
+\qquad
+X_0=x_0.
+\]
+
+<p>
+Its solution is
+</p>
+
+\[
+X_t
+=
+x_0+\mu t+\sigma W_t.
+\]
+
+<p>
+Taking expectation,
+</p>
+
+\[
+E[X_t]
+=
+x_0+\mu t.
+\]
+
+<p>
+Therefore,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+E[X_t]
+=
+x_0+\mu t
+}
+\]
+
+</div>
+
+
+<h3>14. Variance of drifted Brownian motion</h3>
+
+<p>
+The deterministic terms
+</p>
+
+\[
+x_0+\mu t
+\]
+
+<p>
+do not contribute to variance.
+</p>
+
+<p>
+Therefore,
+</p>
+
+\[
+\operatorname{Var}(X_t)
+=
+\sigma^2\operatorname{Var}(W_t).
+\]
+
+<p>
+Since
+</p>
+
+\[
+\operatorname{Var}(W_t)=t,
+\]
+
+<p>
+we obtain
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\operatorname{Var}(X_t)
+=
+\sigma^2t
+}
+\]
+
+</div>
+
+
+<h3>15. Mean and spread can behave differently</h3>
+
+<p>
+For the previous model,
+</p>
+
+\[
+E[X_t]=x_0+\mu t
+\]
+
+<p>
+describes systematic movement.
+</p>
+
+<p>
+Meanwhile,
+</p>
+
+\[
+\operatorname{SD}(X_t)=\sigma\sqrt{t}
+\]
+
+<p>
+describes increasing uncertainty.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{mean}
+\rightarrow
+\text{central behaviour}
+}
+\]
+
+\[
+\boxed{
+\text{variance}
+\rightarrow
+\text{uncertainty around it}
+}
+\]
+
+</div>
+
+
+<h3>16. Diagram: mean and variability</h3>
+
+<div style="max-width:760px; margin:30px auto;">
+
+<svg viewBox="0 0 760 430"
+     width="100%"
+     role="img"
+     aria-labelledby="moments-title moments-desc"
+     xmlns="http://www.w3.org/2000/svg">
+
+<title id="moments-title">
+Mean trajectory and growing stochastic spread
+</title>
+
+<desc id="moments-desc">
+A central mean trajectory rises through time while an upper and lower envelope widens, illustrating increasing variance.
+</desc>
+
+<line x1="70" y1="355" x2="700" y2="355"
+      stroke="currentColor"
+      stroke-width="2"/>
+
+<line x1="70" y1="355" x2="70" y2="55"
+      stroke="currentColor"
+      stroke-width="2"/>
+
+<text x="708" y="360"
+      font-size="18"
+      fill="currentColor">t</text>
+
+<text x="45" y="52"
+      font-size="18"
+      fill="currentColor">X</text>
+
+<!-- mean -->
+<path d="
+M 70 300
+L 680 120
+"
+fill="none"
+stroke="currentColor"
+stroke-width="3"/>
+
+<!-- upper spread -->
+<path d="
+M 70 300
+C 230 245, 420 165, 680 70
+"
+fill="none"
+stroke="currentColor"
+stroke-width="2"
+stroke-dasharray="7 6"/>
+
+<!-- lower spread -->
+<path d="
+M 70 300
+C 230 280, 420 250, 680 215
+"
+fill="none"
+stroke="currentColor"
+stroke-width="2"
+stroke-dasharray="7 6"/>
+
+<text x="530" y="130"
+      font-size="16"
+      fill="currentColor">
+mean
+</text>
+
+<text x="520" y="245"
+      font-size="16"
+      fill="currentColor">
+spread increases
+</text>
+
+</svg>
+
+</div>
+
+
+<h3>17. Deriving moment equations from an SDE</h3>
+
+<p>
+Suppose
+</p>
+
+\[
+dX_t
+=
+a(X_t)\,dt
++
+b(X_t)\,dW_t.
+\]
+
+<p>
+Taking expectation formally gives
+</p>
+
+\[
+E[dX_t]
+=
+E[a(X_t)]dt
++
+E[b(X_t)dW_t].
+\]
+
+<p>
+Under suitable conditions,
+</p>
+
+\[
+E[b(X_t)dW_t]=0.
+\]
+
+<p>
+Therefore,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\frac{d}{dt}E[X_t]
+=
+E[a(X_t)]
+}
+\]
+
+</div>
+
+
+<h3>18. Why expectation may not close</h3>
+
+<p>
+Suppose the drift is nonlinear:
+</p>
+
+\[
+a(X)=X^2.
+\]
+
+<p>
+Then
+</p>
+
+\[
+\frac{d}{dt}E[X_t]
+=
+E[X_t^2].
+\]
+
+<p>
+The equation for the first moment depends on the second moment.
+</p>
+
+<p>
+So knowing only
+</p>
+
+\[
+E[X_t]
+\]
+
+<p>
+is not enough.
+</p>
+
+
+<h3>19. Deriving the second-moment equation</h3>
+
+<p>
+To find an equation for
+</p>
+
+\[
+E[X_t^2],
+\]
+
+<p>
+apply Itô's lemma to
+</p>
+
+\[
+f(X)=X^2.
+\]
+
+<p>
+Since
+</p>
+
+\[
+f'(X)=2X
+\]
+
+<p>
+and
+</p>
+
+\[
+f''(X)=2,
+\]
+
+<p>
+we obtain
+</p>
+
+\[
+d(X_t^2)
+=
+\left[
+2X_ta(X_t)
++
+b(X_t)^2
+\right]dt
++
+2X_tb(X_t)\,dW_t.
+\]
+
+<p>
+Taking expectations gives
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\frac{d}{dt}E[X_t^2]
+=
+E\left[
+2X_ta(X_t)+b(X_t)^2
+\right]
+}
+\]
+
+</div>
+
+
+<h3>20. Moment hierarchy</h3>
+
+<p>
+For nonlinear models, the second-moment equation may depend on the third moment.
+</p>
+
+<p>
+The third-moment equation may depend on the fourth moment, and so on.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+m_1
+\rightarrow
+m_2
+\rightarrow
+m_3
+\rightarrow
+\cdots
+}
+\]
+
+</div>
+
+<p>
+This is called a <strong>moment hierarchy</strong>.
+</p>
+
+
+<h3>21. Example of a hierarchy</h3>
+
+<p>
+Suppose
+</p>
+
+\[
+dX_t
+=
+X_t^2dt
++
+\sigma dW_t.
+\]
+
+<p>
+Then
+</p>
+
+\[
+\frac{d}{dt}E[X_t]
+=
+E[X_t^2].
+\]
+
+<p>
+For the second moment,
+</p>
+
+\[
+\frac{d}{dt}E[X_t^2]
+=
+2E[X_t^3]+\sigma^2.
+\]
+
+<p>
+So the first two equations are not closed.
+</p>
+
+
+<h3>22. Moment closure</h3>
+
+<p>
+To obtain a finite system, higher moments may sometimes be approximated using lower moments.
+</p>
+
+<p>
+This is called <strong>moment closure</strong>.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{higher moment}
+\approx
+\text{function of lower moments}
+}
+\]
+
+</div>
+
+<p>
+Different closure assumptions lead to different approximations.
+</p>
+
+
+<h3>23. A simple closure idea</h3>
+
+<p>
+One crude approximation is
+</p>
+
+\[
+E[X^2]
+\approx
+(E[X])^2.
+\]
+
+<p>
+But this ignores variance because
+</p>
+
+\[
+E[X^2]
+=
+\operatorname{Var}(X)
++
+(E[X])^2.
+\]
+
+<p>
+So such an approximation is reasonable only when variability is sufficiently small.
+</p>
+
+
+<h3>24. Covariance</h3>
+
+<p>
+For two random variables \(X_t\) and \(Y_t\), covariance is
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\operatorname{Cov}(X_t,Y_t)
+=
+E[X_tY_t]
+-
+E[X_t]E[Y_t]
+}
+\]
+
+</div>
+
+<p>
+It measures how the two quantities vary together.
+</p>
+
+
+<h3>25. Why covariance appears in multivariable models</h3>
+
+<p>
+Suppose a model contains a term
+</p>
+
+\[
+X_tY_t.
+\]
+
+<p>
+Then expectation gives
+</p>
+
+\[
+E[X_tY_t].
+\]
+
+<p>
+This can be written as
+</p>
+
+\[
+E[X_tY_t]
+=
+\operatorname{Cov}(X_t,Y_t)
++
+E[X_t]E[Y_t].
+\]
+
+<p>
+So interactions naturally introduce covariance into moment equations.
+</p>
+
+
+<h3>26. Epidemic example</h3>
+
+<p>
+Suppose a stochastic epidemic model contains the infection term
+</p>
+
+\[
+\beta\frac{S_tI_t}{N}.
+\]
+
+<p>
+Taking expectations gives
+</p>
+
+\[
+\frac{\beta}{N}
+E[S_tI_t].
+\]
+
+<p>
+In general,
+</p>
+
+\[
+E[S_tI_t]
+\neq
+E[S_t]E[I_t].
+\]
+
+<p>
+Instead,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+E[S_tI_t]
+=
+\operatorname{Cov}(S_t,I_t)
++
+E[S_t]E[I_t]
+}
+\]
+
+</div>
+
+
+<h3>27. Why this matters</h3>
+
+<p>
+A deterministic epidemic model uses
+</p>
+
+\[
+SI.
+\]
+
+<p>
+A mean equation for a stochastic model naturally involves
+</p>
+
+\[
+E[SI].
+\]
+
+<p>
+These are not generally the same as multiplying the means:
+</p>
+
+\[
+\boxed{
+E[SI]
+\neq
+E[S]E[I]
+}
+\]
+
+<p>
+unless covariance is zero.
+</p>
+
+
+<h3>28. Moments versus full distributions</h3>
+
+<p>
+Moments do not usually describe the complete distribution.
+</p>
+
+<p>
+Two different distributions can sometimes have the same mean and variance.
+</p>
+
+<p>
+But moments can still provide compact and useful summaries when solving for the full probability distribution is difficult.
+</p>
+
+
+<h3>29. Moments and simulation</h3>
+
+<p>
+There are two main ways to obtain moment information.
+</p>
+
+<p>
+One is to simulate many trajectories and estimate the moments numerically.
+</p>
+
+<p>
+The other is to derive differential equations for the moments directly.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{Monte Carlo trajectories}
+\rightarrow
+\text{estimated moments}
+}
+\]
+
+\[
+\boxed{
+\text{SDE + Itô calculus}
+\rightarrow
+\text{moment equations}
+}
+\]
+
+</div>
+
+
+<h3>30. Why moment equations can be useful</h3>
+
+<p>
+If the moment equations close or can be approximated accurately, they may be much cheaper to solve than simulating thousands of stochastic trajectories.
+</p>
+
+<p>
+They can directly provide quantities such as
+</p>
+
+\[
+E[X_t]
+\]
+
+<p>
+and</p>
+
+\[
+\operatorname{Var}(X_t).
+\]
+
+
+<h3>31. The structure to remember</h3>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+m_1(t)=E[X_t]
+}
+\]
+
+\[
+\boxed{
+m_2(t)=E[X_t^2]
+}
+\]
+
+\[
+\boxed{
+\operatorname{Var}(X_t)
+=
+m_2(t)-m_1(t)^2
+}
+\]
+
+\[
+\boxed{
+\operatorname{Cov}(X_t,Y_t)
+=
+E[X_tY_t]-E[X_t]E[Y_t]
+}
+\]
+
+</div>
+
+
+<h3>32. The central idea</h3>
+
+<p>
+A stochastic model produces a distribution of possible outcomes rather than one deterministic trajectory.
+</p>
+
+<p>
+Moments summarise that distribution.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{mean}
+=
+\text{central behaviour}
+}
+\]
+
+\[
+\boxed{
+\text{variance}
+=
+\text{spread}
+}
+\]
+
+\[
+\boxed{
+\text{covariance}
+=
+\text{joint variation}
+}
+\]
+
+</div>
+
+<p>
+Moment equations provide a bridge between stochastic differential equations and practical quantities used to describe uncertainty.
+</p>
+
+
+<div class="lesson-navigation">
+
+<a href="euler-maruyama.html">
+← Euler–Maruyama Method
+</a>
+
+<a href="fokker-planck.html">
+Next: The Fokker–Planck Equation →
+</a>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<div>
+<strong>dy/dx</strong>
+<p>Calculus Learning</p>
+</div>
+
+</footer>
+
+
+</body>
+
+</html>
