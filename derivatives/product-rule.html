@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>The Product Rule | dy/dx</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']]
+  }
+};
+</script>
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+</head>
+
+<body>
+
+<header class="site-header">
+
+<div class="brand">
+<a href="../index.html">dy/dx</a>
+</div>
+
+<nav class="top-nav">
+<a href="../index.html">Home</a>
+<a href="index.html">Differentiation</a>
+</nav>
+
+</header>
+
+
+<main>
+
+<section class="lesson-header">
+
+<p class="eyebrow">DIFFERENTIATION 06</p>
+
+<h1>The Product Rule</h1>
+
+<p class="lesson-intro">
+When two changing functions are multiplied, the change in their product depends on the change in both functions.
+</p>
+
+</section>
+
+
+<section class="lesson-content">
+
+
+<h2>The main idea</h2>
+
+<p>
+Suppose
+</p>
+
+\[
+y=f(x)g(x).
+\]
+
+<p>
+The derivative is not simply \(f'(x)g'(x)\).
+</p>
+
+<p>
+Instead,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\frac{d}{dx}[f(x)g(x)]
+=
+f'(x)g(x)+f(x)g'(x)
+}
+\]
+
+</div>
+
+<p>
+This is the <strong>product rule</strong>.
+</p>
+
+
+<h3>1. Why do we need a special rule?</h3>
+
+<p>
+If both \(f(x)\) and \(g(x)\) change when \(x\) changes, then their product changes because of both changes.
+</p>
+
+<p>
+For a small change in \(x\),
+</p>
+
+\[
+f \rightarrow f+\Delta f
+\]
+
+<p>
+and
+</p>
+
+\[
+g \rightarrow g+\Delta g.
+\]
+
+<p>
+The new product is
+</p>
+
+\[
+(f+\Delta f)(g+\Delta g).
+\]
+
+
+<h3>2. Expand the new product</h3>
+
+<p>
+Expanding gives
+</p>
+
+\[
+fg+g\Delta f+f\Delta g+\Delta f\Delta g.
+\]
+
+<p>
+The original product was
+</p>
+
+\[
+fg.
+\]
+
+<p>
+Therefore the change in the product is
+</p>
+
+<div class="lesson-math">
+
+\[
+\Delta(fg)
+=
+g\Delta f
++
+f\Delta g
++
+\Delta f\Delta g.
+\]
+
+</div>
+
+<p>
+This shows why both changing factors contribute to the total change.
+</p>
+
+
+<h3>3. Divide by the change in \(x\)</h3>
+
+<p>
+Divide by \(\Delta x\):
+</p>
+
+\[
+\frac{\Delta(fg)}{\Delta x}
+=
+g\frac{\Delta f}{\Delta x}
++
+f\frac{\Delta g}{\Delta x}
++
+\frac{\Delta f\Delta g}{\Delta x}.
+\]
+
+<p>
+Rewrite the last term as
+</p>
+
+\[
+\frac{\Delta f\Delta g}{\Delta x}
+=
+\Delta f
+\frac{\Delta g}{\Delta x}.
+\]
+
+
+<h3>4. Take the limit</h3>
+
+<p>
+As
+</p>
+
+\[
+\Delta x\to0,
+\]
+
+<p>
+for differentiable functions,
+</p>
+
+\[
+\Delta f\to0.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+\Delta f
+\frac{\Delta g}{\Delta x}
+\to0.
+\]
+
+<p>
+The remaining terms give
+</p>
+
+\[
+\boxed{
+(fg)'
+=
+f'g+fg'
+}
+\]
+
+<p>
+which is the product rule.
+</p>
+
+
+<h3>5. A simple way to remember it</h3>
+
+<p>
+For
+</p>
+
+\[
+y=fg,
+\]
+
+<p>
+differentiate one factor at a time:
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+(fg)'
+=
+f'g
++
+fg'
+}
+\]
+
+</div>
+
+<p>
+First differentiate \(f\) and leave \(g\) unchanged.
+Then leave \(f\) unchanged and differentiate \(g\).
+Finally add the two results.
+</p>
+
+
+<h3>6. Example</h3>
+
+<p>
+Let
+</p>
+
+\[
+y=x^2(x+3).
+\]
+
+<p>
+Take
+</p>
+
+\[
+f(x)=x^2
+\]
+
+<p>
+and
+</p>
+
+\[
+g(x)=x+3.
+\]
+
+<p>
+Then
+</p>
+
+\[
+f'(x)=2x
+\]
+
+<p>
+and
+</p>
+
+\[
+g'(x)=1.
+\]
+
+<p>
+Using the product rule,
+</p>
+
+\[
+\frac{dy}{dx}
+=
+(2x)(x+3)
++
+x^2(1).
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+\frac{dy}{dx}
+=
+2x^2+6x+x^2.
+\]
+
+<p>
+So
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\frac{dy}{dx}
+=
+3x^2+6x
+}
+\]
+
+</div>
+
+
+<h3>7. Check by expanding first</h3>
+
+<p>
+The original function is
+</p>
+
+\[
+y=x^2(x+3).
+\]
+
+<p>
+Expanding,
+</p>
+
+\[
+y=x^3+3x^2.
+\]
+
+<p>
+Differentiate:
+</p>
+
+\[
+\frac{dy}{dx}
+=
+3x^2+6x.
+\]
+
+<p>
+This agrees with the product rule.
+</p>
+
+
+<h3>8. Example where expanding is not convenient</h3>
+
+<p>
+Consider
+</p>
+
+\[
+y=x^2\sin x.
+\]
+
+<p>
+Let
+</p>
+
+\[
+f(x)=x^2,
+\qquad
+g(x)=\sin x.
+\]
+
+<p>
+Then
+</p>
+
+\[
+f'(x)=2x,
+\qquad
+g'(x)=\cos x.
+\]
+
+<p>
+Therefore,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\frac{dy}{dx}
+=
+2x\sin x+x^2\cos x
+}
+\]
+
+</div>
+
+<p>
+The product rule is useful here because the product cannot be simplified by ordinary algebra before differentiating.
+</p>
+
+
+<h3>9. Example with an exponential function</h3>
+
+<p>
+Suppose
+</p>
+
+\[
+y=xe^x.
+\]
+
+<p>
+Then
+</p>
+
+\[
+f(x)=x,
+\qquad
+g(x)=e^x.
+\]
+
+<p>
+Their derivatives are
+</p>
+
+\[
+f'(x)=1,
+\qquad
+g'(x)=e^x.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+\frac{dy}{dx}
+=
+(1)e^x+x(e^x).
+\]
+
+<p>
+Hence,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\frac{dy}{dx}
+=
+e^x(1+x)
+}
+\]
+
+</div>
+
+
+<h3>10. Three factors</h3>
+
+<p>
+The same idea extends to three functions.
+</p>
+
+<p>
+If
+</p>
+
+\[
+y=fgh,
+\]
+
+<p>
+differentiate one factor at a time:
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\frac{d}{dx}(fgh)
+=
+f'gh
++
+fg'h
++
+fgh'
+}
+\]
+
+</div>
+
+<p>
+Each term contains exactly one differentiated factor.
+</p>
+
+
+<h3>11. A common mistake</h3>
+
+<p>
+Do not write
+</p>
+
+\[
+(fg)'=f'g'.
+\]
+
+<p>
+For example,
+</p>
+
+\[
+x^2x^3=x^5.
+\]
+
+<p>
+The correct derivative is
+</p>
+
+\[
+5x^4.
+\]
+
+<p>
+But multiplying the separate derivatives would give
+</p>
+
+\[
+(2x)(3x^2)=6x^3,
+\]
+
+<p>
+which is different.
+</p>
+
+
+<h3>12. The structure to remember</h3>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{first changes}\times\text{second}
++
+\text{first}\times\text{second changes}
+}
+\]
+
+</div>
+
+<p>
+In symbols,
+</p>
+
+\[
+\boxed{
+f'g+fg'
+}
+\]
+
+<p>
+The product changes because either factor can contribute to the change.
+</p>
+
+
+<div class="lesson-navigation">
+
+<a href="sum-constant-rules.html">
+← Sum, Difference and Constant Multiple Rules
+</a>
+
+<a href="quotient-rule.html">
+Next: The Quotient Rule →
+</a>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<div>
+<strong>dy/dx</strong>
+<p>Calculus Learning</p>
+</div>
+
+</footer>
+
+</body>
+
+</html>
