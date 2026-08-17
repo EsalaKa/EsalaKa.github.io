@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Modelling with ODEs | dy/dx</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']]
+  }
+};
+</script>
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+</head>
+
+
+<body>
+
+
+<header class="site-header">
+
+<div class="brand">
+<a href="../index.html">dy/dx</a>
+</div>
+
+<nav class="top-nav">
+<a href="../index.html">Home</a>
+<a href="index.html">Differential Equations</a>
+</nav>
+
+</header>
+
+
+<main>
+
+
+<section class="lesson-header">
+
+<p class="eyebrow">DIFFERENTIAL EQUATIONS 10</p>
+
+<h1>Modelling with ODEs</h1>
+
+<p class="lesson-intro">
+An ODE model turns assumptions about how a system changes into mathematical equations.
+</p>
+
+</section>
+
+
+<section class="lesson-content">
+
+
+<h2>The main idea</h2>
+
+<p>
+A mathematical model begins with quantities that change.
+</p>
+
+<p>
+We identify those quantities, describe the processes that increase or decrease them, and translate those processes into rates of change.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{assumptions}
+\rightarrow
+\text{rates of change}
+\rightarrow
+\text{ODEs}
+\rightarrow
+\text{solutions}
+}
+\]
+
+</div>
+
+
+<h3>1. Choose the state variables</h3>
+
+<p>
+A state variable describes part of the system at time \(t\).
+</p>
+
+<p>
+For example,
+</p>
+
+\[
+P(t)
+\]
+
+<p>
+might represent a population.
+</p>
+
+<p>
+In an epidemic model,
+</p>
+
+\[
+S(t),\qquad I(t),\qquad R(t)
+\]
+
+<p>
+might represent susceptible, infectious and recovered populations.
+</p>
+
+
+<h3>2. Identify what changes each variable</h3>
+
+<p>
+For every state variable, ask:
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{What increases it?}
+}
+\]
+
+\[
+\boxed{
+\text{What decreases it?}
+}
+\]
+
+</div>
+
+<p>
+The differential equation is built from these gains and losses.
+</p>
+
+
+<h3>3. Basic balance principle</h3>
+
+<p>
+A useful modelling structure is
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{rate of change}
+=
+\text{rate in}
+-
+\text{rate out}
+}
+\]
+
+</div>
+
+<p>
+This principle appears in population models, epidemic models, chemical systems and many other applications.
+</p>
+
+
+<h3>4. Example: simple population growth</h3>
+
+<p>
+Suppose the population is \(P(t)\).
+</p>
+
+<p>
+Assume its growth rate is proportional to its current size:
+</p>
+
+\[
+\frac{dP}{dt}\propto P.
+\]
+
+<p>
+Introduce a proportionality constant \(r\):
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\frac{dP}{dt}=rP
+}
+\]
+
+</div>
+
+<p>
+If \(r>0\), this produces exponential growth.
+</p>
+
+
+<h3>5. Add the initial population</h3>
+
+<p>
+Suppose
+</p>
+
+\[
+P(0)=P_0.
+\]
+
+<p>
+Then the model is the initial value problem
+</p>
+
+\[
+\frac{dP}{dt}=rP,
+\qquad
+P(0)=P_0.
+\]
+
+<p>
+Its solution is
+</p>
+
+\[
+\boxed{
+P(t)=P_0e^{rt}
+}
+\]
+
+
+<h3>6. Assumptions matter</h3>
+
+<p>
+The equation
+</p>
+
+\[
+P'=rP
+\]
+
+<p>
+contains an important modelling assumption:
+the per-capita growth rate remains constant.
+</p>
+
+<p>
+This may be reasonable for a short period, but not when resources become limited.
+</p>
+
+<p>
+The mathematics follows from the assumptions, so unrealistic assumptions can produce unrealistic predictions.
+</p>
+
+
+<h3>7. Logistic growth</h3>
+
+<p>
+To include limited resources, we can use
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\frac{dP}{dt}
+=
+rP\left(1-\frac{P}{K}\right)
+}
+\]
+
+</div>
+
+<p>
+where \(K\) is the carrying capacity.
+</p>
+
+<p>
+When \(P\) is small compared with \(K\),
+</p>
+
+\[
+1-\frac{P}{K}\approx1,
+\]
+
+<p>
+so growth is approximately exponential.
+</p>
+
+
+<h3>8. What happens near the carrying capacity?</h3>
+
+<p>
+As
+</p>
+
+\[
+P\to K,
+\]
+
+<p>
+we have
+</p>
+
+\[
+1-\frac{P}{K}\to0.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+\frac{dP}{dt}\to0.
+\]
+
+<p>
+So growth slows as the population approaches \(K\).
+</p>
+
+
+<h3>9. Compartment models</h3>
+
+<p>
+Sometimes a population is divided into groups called compartments.
+</p>
+
+<p>
+For an epidemic,
+</p>
+
+\[
+S(t)
+=
+\text{susceptible},
+\]
+
+\[
+I(t)
+=
+\text{infectious},
+\]
+
+\[
+R(t)
+=
+\text{recovered}.
+\]
+
+<p>
+Individuals move between these compartments.
+</p>
+
+
+<h3>10. Flow diagram</h3>
+
+<div style="max-width:720px; margin:30px auto;">
+
+<svg viewBox="0 0 720 260"
+     width="100%"
+     role="img"
+     aria-labelledby="sir-title sir-desc"
+     xmlns="http://www.w3.org/2000/svg">
+
+<title id="sir-title">
+SIR compartment flow diagram
+</title>
+
+<desc id="sir-desc">
+Individuals move from susceptible to infectious through infection, then from infectious to recovered through recovery.
+</desc>
+
+<rect x="90" y="85" width="130" height="70"
+      rx="8"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"/>
+
+<rect x="295" y="85" width="130" height="70"
+      rx="8"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"/>
+
+<rect x="500" y="85" width="130" height="70"
+      rx="8"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"/>
+
+<text x="150" y="128"
+      text-anchor="middle"
+      font-size="24"
+      fill="currentColor">
+S
+</text>
+
+<text x="360" y="128"
+      text-anchor="middle"
+      font-size="24"
+      fill="currentColor">
+I
+</text>
+
+<text x="565" y="128"
+      text-anchor="middle"
+      font-size="24"
+      fill="currentColor">
+R
+</text>
+
+<line x1="220" y1="120" x2="292" y2="120"
+      stroke="currentColor"
+      stroke-width="2"/>
+
+<polygon points="292,120 279,113 279,127"
+         fill="currentColor"/>
+
+<line x1="425" y1="120" x2="497" y2="120"
+      stroke="currentColor"
+      stroke-width="2"/>
+
+<polygon points="497,120 484,113 484,127"
+         fill="currentColor"/>
+
+<text x="255" y="100"
+      text-anchor="middle"
+      font-size="15"
+      fill="currentColor">
+infection
+</text>
+
+<text x="460" y="100"
+      text-anchor="middle"
+      font-size="15"
+      fill="currentColor">
+recovery
+</text>
+
+</svg>
+
+</div>
+
+
+<h3>11. Build the infection rate</h3>
+
+<p>
+Suppose infection occurs through contact between susceptible and infectious individuals.
+</p>
+
+<p>
+A common modelling rate is
+</p>
+
+\[
+\beta\frac{SI}{N}.
+\]
+
+<p>
+Here
+</p>
+
+\[
+\frac{I}{N}
+\]
+
+<p>
+represents the infectious proportion of the population, and \(\beta\) controls the effective contact and transmission rate.
+</p>
+
+
+<h3>12. Susceptible equation</h3>
+
+<p>
+Susceptible individuals leave \(S\) when they become infected.
+</p>
+
+<p>
+Therefore,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\frac{dS}{dt}
+=
+-\beta\frac{SI}{N}
+}
+\]
+
+</div>
+
+<p>
+The negative sign indicates a loss from the susceptible compartment.
+</p>
+
+
+<h3>13. Infectious equation</h3>
+
+<p>
+The infectious compartment gains individuals through infection.
+</p>
+
+<p>
+Suppose infectious individuals recover at rate
+</p>
+
+\[
+\gamma I.
+\]
+
+<p>
+Then
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\frac{dI}{dt}
+=
+\beta\frac{SI}{N}
+-
+\gamma I
+}
+\]
+
+</div>
+
+<p>
+So
+</p>
+
+\[
+\text{change in infectious}
+=
+\text{new infections}
+-
+\text{recoveries}.
+\]
+
+
+<h3>14. Recovered equation</h3>
+
+<p>
+Recovered individuals are produced by the recovery process.
+</p>
+
+<p>
+Therefore,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\frac{dR}{dt}
+=
+\gamma I
+}
+\]
+
+</div>
+
+
+<h3>15. The full SIR model</h3>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\frac{dS}{dt}
+=
+-\beta\frac{SI}{N}
+}
+\]
+
+\[
+\boxed{
+\frac{dI}{dt}
+=
+\beta\frac{SI}{N}
+-
+\gamma I
+}
+\]
+
+\[
+\boxed{
+\frac{dR}{dt}
+=
+\gamma I
+}
+\]
+
+</div>
+
+<p>
+This system follows directly from the movement of individuals between compartments.
+</p>
+
+
+<h3>16. Conservation of population</h3>
+
+<p>
+Add the three equations:
+</p>
+
+\[
+\frac{dS}{dt}
++
+\frac{dI}{dt}
++
+\frac{dR}{dt}
+=
+0.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+\frac{d}{dt}(S+I+R)=0.
+\]
+
+<p>
+So
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+S(t)+I(t)+R(t)=N
+}
+\]
+
+</div>
+
+<p>
+for a closed population of constant size.
+</p>
+
+
+<h3>17. Parameters</h3>
+
+<p>
+Parameters are fixed quantities that control the behaviour of the model.
+</p>
+
+<p>
+For example,
+</p>
+
+\[
+\beta
+\]
+
+<p>
+controls transmission, while
+</p>
+
+\[
+\gamma
+\]
+
+<p>
+controls recovery.
+</p>
+
+<p>
+Changing parameter values can change the entire trajectory of the system.
+</p>
+
+
+<h3>18. State variables and parameters are different</h3>
+
+<p>
+A state variable changes with time:
+</p>
+
+\[
+S(t),\quad I(t),\quad R(t).
+\]
+
+<p>
+A parameter is normally treated as fixed within a model run:
+</p>
+
+\[
+\beta,\quad\gamma.
+\]
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{state variable}
+=
+\text{quantity that evolves}
+}
+\]
+
+\[
+\boxed{
+\text{parameter}
+=
+\text{value controlling that evolution}
+}
+\]
+
+</div>
+
+
+<h3>19. Initial conditions</h3>
+
+<p>
+The model also needs a starting state:
+</p>
+
+\[
+S(0)=S_0,
+\]
+
+\[
+I(0)=I_0,
+\]
+
+\[
+R(0)=R_0.
+\]
+
+<p>
+The same ODEs can produce different trajectories from different initial conditions.
+</p>
+
+
+<h3>20. Solving the model</h3>
+
+<p>
+Some ODE models can be solved analytically.
+</p>
+
+<p>
+Others, such as many nonlinear compartment systems, are usually solved numerically.
+</p>
+
+<p>
+For example, Euler's method or more accurate ODE solvers can approximate
+</p>
+
+\[
+S(t),\qquad I(t),\qquad R(t)
+\]
+
+<p>
+through time.
+</p>
+
+
+<h3>21. Model output is not the same as reality</h3>
+
+<p>
+An ODE solution gives the behaviour implied by the model assumptions and parameter values.
+</p>
+
+<p>
+It does not guarantee that the real system will behave exactly the same way.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{model prediction}
+=
+\text{consequence of assumptions}
+}
+\]
+
+</div>
+
+<p>
+This is why model assumptions, parameter estimation and validation are important.
+</p>
+
+
+<h3>22. Deterministic interpretation</h3>
+
+<p>
+An ordinary deterministic ODE model assigns one trajectory to a specified initial state and parameter set.
+</p>
+
+<p>
+For example,
+</p>
+
+\[
+S_0,\ I_0,\ R_0,\ \beta,\ \gamma
+\]
+
+<p>
+determine one SIR trajectory.
+</p>
+
+<p>
+The model does not represent random variation between different possible epidemic realisations.
+</p>
+
+
+<h3>23. Why this matters later</h3>
+
+<p>
+Real systems may contain random events and uncertainty.
+</p>
+
+<p>
+This motivates stochastic models, where the state itself can become random.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{deterministic ODEs}
+\longrightarrow
+\text{stochastic processes}
+}
+\]
+
+</div>
+
+<p>
+But stochastic models are easier to understand once the deterministic rate structure is clear.
+</p>
+
+
+<h3>24. A general modelling workflow</h3>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+1.\; \text{Define the problem}
+}
+\]
+
+\[
+\boxed{
+2.\; \text{Choose the state variables}
+}
+\]
+
+\[
+\boxed{
+3.\; \text{State the assumptions}
+}
+\]
+
+\[
+\boxed{
+4.\; \text{Identify gains and losses}
+}
+\]
+
+\[
+\boxed{
+5.\; \text{Write the ODEs}
+}
+\]
+
+\[
+\boxed{
+6.\; \text{Choose parameters and initial conditions}
+}
+\]
+
+\[
+\boxed{
+7.\; \text{Solve analytically or numerically}
+}
+\]
+
+\[
+\boxed{
+8.\; \text{Interpret and validate the results}
+}
+\]
+
+</div>
+
+
+<h3>25. The central idea</h3>
+
+<p>
+ODE modelling translates verbal assumptions into rates of change.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{process}
+\rightarrow
+\text{rate}
+\rightarrow
+\text{differential equation}
+\rightarrow
+\text{trajectory}
+}
+\]
+
+</div>
+
+<p>
+This connection between mechanism and mathematical change is what makes differential equations powerful modelling tools.
+</p>
+
+
+<div class="lesson-navigation">
+
+<a href="numerical-methods.html">
+← Numerical Methods for ODEs
+</a>
+
+<a href="../multivariable/index.html">
+Next: Multivariable Calculus →
+</a>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<div>
+<strong>dy/dx</strong>
+<p>Calculus Learning</p>
+</div>
+
+</footer>
+
+
+</body>
+
+</html>
