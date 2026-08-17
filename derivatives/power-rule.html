@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>The Power Rule | dy/dx</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']]
+  }
+};
+</script>
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+</head>
+
+<body>
+
+<header class="site-header">
+
+<div class="brand">
+<a href="../index.html">dy/dx</a>
+</div>
+
+<nav class="top-nav">
+<a href="../index.html">Home</a>
+<a href="index.html">Differentiation</a>
+</nav>
+
+</header>
+
+
+<main>
+
+<section class="lesson-header">
+
+<p class="eyebrow">DIFFERENTIATION 04</p>
+
+<h1>The Power Rule</h1>
+
+<p class="lesson-intro">
+The power rule gives a direct way to differentiate powers of \(x\).
+</p>
+
+</section>
+
+
+<section class="lesson-content">
+
+
+<h2>The main idea</h2>
+
+<p>
+For
+</p>
+
+\[
+f(x)=x^n,
+\]
+
+<p>
+the power rule is
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\frac{d}{dx}x^n
+=
+nx^{\,n-1}
+}
+\]
+
+</div>
+
+<p>
+The exponent comes down as a multiplier, and the exponent is reduced by \(1\).
+</p>
+
+
+<h3>1. A simple example</h3>
+
+<p>
+Consider
+</p>
+
+\[
+y=x^3.
+\]
+
+<p>
+The exponent is \(3\).
+</p>
+
+<p>
+Bring the \(3\) down:
+</p>
+
+\[
+3x^3.
+\]
+
+<p>
+Then reduce the exponent by \(1\):
+</p>
+
+\[
+3x^{3-1}.
+\]
+
+<p>
+Therefore,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\frac{dy}{dx}=3x^2
+}
+\]
+
+</div>
+
+
+<h3>2. Why the rule works</h3>
+
+<p>
+The power rule comes from the definition of the derivative.
+</p>
+
+<p>
+For example, let
+</p>
+
+\[
+f(x)=x^3.
+\]
+
+<p>
+From first principles,
+</p>
+
+\[
+f'(x)
+=
+\lim_{h\to0}
+\frac{(x+h)^3-x^3}{h}.
+\]
+
+<p>
+Expand:
+</p>
+
+\[
+(x+h)^3
+=
+x^3+3x^2h+3xh^2+h^3.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+f'(x)
+=
+\lim_{h\to0}
+\frac{
+3x^2h+3xh^2+h^3
+}{h}.
+\]
+
+<p>
+For \(h\neq0\),
+</p>
+
+\[
+f'(x)
+=
+\lim_{h\to0}
+\left(
+3x^2+3xh+h^2
+\right).
+\]
+
+<p>
+As \(h\to0\),
+</p>
+
+\[
+3xh\to0
+\]
+
+<p>
+and
+</p>
+
+\[
+h^2\to0.
+\]
+
+<p>
+So
+</p>
+
+\[
+f'(x)=3x^2.
+\]
+
+<p>
+The power rule allows us to obtain this result directly without repeating the limit calculation every time.
+</p>
+
+
+<h3>3. More examples</h3>
+
+<p>
+If
+</p>
+
+\[
+y=x^5,
+\]
+
+<p>
+then
+</p>
+
+\[
+\frac{dy}{dx}=5x^4.
+\]
+
+<p>
+If
+</p>
+
+\[
+y=x^8,
+\]
+
+<p>
+then
+</p>
+
+\[
+\frac{dy}{dx}=8x^7.
+\]
+
+
+<h3>4. The derivative of \(x\)</h3>
+
+<p>
+Remember that
+</p>
+
+\[
+x=x^1.
+\]
+
+<p>
+Using the power rule,
+</p>
+
+\[
+\frac{d}{dx}x
+=
+1x^{1-1}.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+\boxed{
+\frac{d}{dx}x=1
+}
+\]
+
+<p>
+because
+</p>
+
+\[
+x^0=1.
+\]
+
+
+<h3>5. The derivative of a constant</h3>
+
+<p>
+A constant does not change as \(x\) changes.
+</p>
+
+<p>
+Therefore,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\frac{d}{dx}c=0
+}
+\]
+
+</div>
+
+<p>
+for any constant \(c\).
+</p>
+
+<p>
+For example,
+</p>
+
+\[
+\frac{d}{dx}(7)=0.
+\]
+
+
+<h3>6. Constant multiples</h3>
+
+<p>
+If a power is multiplied by a constant, keep the constant and differentiate the power.
+</p>
+
+<p>
+For example,
+</p>
+
+\[
+y=4x^3.
+\]
+
+<p>
+Then
+</p>
+
+\[
+\frac{dy}{dx}
+=
+4(3x^2)
+=
+12x^2.
+\]
+
+<p>
+In general,
+</p>
+
+\[
+\boxed{
+\frac{d}{dx}(cx^n)
+=
+cnx^{n-1}
+}
+\]
+
+
+<h3>7. Differentiating a polynomial</h3>
+
+<p>
+Differentiate each term separately.
+</p>
+
+<p>
+For example,
+</p>
+
+\[
+y=3x^4-2x^2+5x-7.
+\]
+
+<p>
+Differentiate term by term:
+</p>
+
+\[
+\frac{dy}{dx}
+=
+12x^3-4x+5.
+\]
+
+<p>
+The constant \(-7\) disappears because its derivative is zero.
+</p>
+
+
+<h3>8. Negative powers</h3>
+
+<p>
+The power rule also works with negative powers.
+</p>
+
+<p>
+Consider
+</p>
+
+\[
+y=x^{-2}.
+\]
+
+<p>
+Then
+</p>
+
+\[
+\frac{dy}{dx}
+=
+-2x^{-3}.
+\]
+
+<p>
+Equivalently,
+</p>
+
+\[
+\boxed{
+\frac{d}{dx}
+\left(\frac{1}{x^2}\right)
+=
+-\frac{2}{x^3}
+}
+\]
+
+
+<h3>9. Fractional powers</h3>
+
+<p>
+Roots can be written as fractional powers.
+</p>
+
+<p>
+For example,
+</p>
+
+\[
+\sqrt{x}=x^{1/2}.
+\]
+
+<p>
+Using the power rule,
+</p>
+
+\[
+\frac{d}{dx}x^{1/2}
+=
+\frac12x^{-1/2}.
+\]
+
+<p>
+Therefore,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\frac{d}{dx}\sqrt{x}
+=
+\frac{1}{2\sqrt{x}}
+}
+\]
+
+</div>
+
+<p>
+for \(x>0\).
+</p>
+
+
+<h3>10. Example with a fractional power</h3>
+
+<p>
+Consider
+</p>
+
+\[
+y=x^{3/2}.
+\]
+
+<p>
+Then
+</p>
+
+\[
+\frac{dy}{dx}
+=
+\frac32x^{1/2}.
+\]
+
+<p>
+So
+</p>
+
+\[
+\boxed{
+\frac{dy}{dx}
+=
+\frac32\sqrt{x}
+}
+\]
+
+
+<h3>11. What the derivative tells us</h3>
+
+<p>
+Suppose
+</p>
+
+\[
+y=x^3.
+\]
+
+<p>
+Then
+</p>
+
+\[
+\frac{dy}{dx}=3x^2.
+\]
+
+<p>
+At \(x=2\),
+</p>
+
+\[
+\left.
+\frac{dy}{dx}
+\right|_{x=2}
+=
+3(2)^2
+=
+12.
+\]
+
+<p>
+This means that the graph of \(y=x^3\) has tangent gradient \(12\) at \(x=2\).
+</p>
+
+
+<h3>12. The pattern</h3>
+
+<div class="lesson-math">
+
+\[
+x^n
+\]
+
+\[
+\downarrow
+\]
+
+\[
+nx^{n-1}
+\]
+
+</div>
+
+<p>
+For example,
+</p>
+
+\[
+x^6
+\longrightarrow
+6x^5,
+\]
+
+\[
+x^{-3}
+\longrightarrow
+-3x^{-4},
+\]
+
+\[
+x^{1/2}
+\longrightarrow
+\frac12x^{-1/2}.
+\]
+
+
+<h3>13. The important point</h3>
+
+<p>
+The power rule is not a separate definition of differentiation.
+</p>
+
+<p>
+The derivative is still defined by the limit
+</p>
+
+\[
+f'(x)
+=
+\lim_{h\to0}
+\frac{f(x+h)-f(x)}{h}.
+\]
+
+<p>
+The power rule is a result derived from that definition which makes differentiation much faster.
+</p>
+
+
+<div class="lesson-navigation">
+
+<a href="differentials.html">
+← Differentials \(dx\) and \(dy\)
+</a>
+
+<a href="sum-constant-rules.html">
+Next: Sum and Constant Rules →
+</a>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<div>
+<strong>dy/dx</strong>
+<p>Calculus Learning</p>
+</div>
+
+</footer>
+
+</body>
+
+</html>
