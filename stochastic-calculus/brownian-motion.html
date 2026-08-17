@@ -1,0 +1,1286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Brownian Motion | dy/dx</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']]
+  }
+};
+</script>
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+</head>
+
+
+<body>
+
+
+<header class="site-header">
+
+<div class="brand">
+<a href="../index.html">dy/dx</a>
+</div>
+
+<nav class="top-nav">
+<a href="../index.html">Home</a>
+<a href="index.html">Stochastic Calculus</a>
+</nav>
+
+</header>
+
+
+<main>
+
+
+<section class="lesson-header">
+
+<p class="eyebrow">STOCHASTIC CALCULUS 02</p>
+
+<h1>Brownian Motion and Brownian Increments</h1>
+
+<p class="lesson-intro">
+Brownian motion is a continuous random process whose changes over time are normally distributed.
+</p>
+
+</section>
+
+
+<section class="lesson-content">
+
+
+<h2>The main idea</h2>
+
+<p>
+Brownian motion is usually written as
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+W(t)
+}
+\]
+
+</div>
+
+<p>
+or equivalently
+</p>
+
+\[
+W_t.
+\]
+
+<p>
+It starts at
+</p>
+
+\[
+\boxed{
+W(0)=0
+}
+\]
+
+<p>
+and then changes randomly through time.
+</p>
+
+
+<h3>1. Brownian motion is a random process</h3>
+
+<p>
+A single random variable gives one random value.
+</p>
+
+<p>
+Brownian motion gives a random value at every time:
+</p>
+
+\[
+W(0),\;
+W(t_1),\;
+W(t_2),\;
+\ldots
+\]
+
+<p>
+So \(W(t)\) is a <strong>stochastic process</strong>.
+</p>
+
+
+<h3>2. A single path</h3>
+
+<p>
+If we generate Brownian motion once, we obtain one possible trajectory.
+</p>
+
+<p>
+Another simulation gives a different trajectory.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{same Brownian-motion rules}
+\rightarrow
+\text{different possible paths}
+}
+\]
+
+</div>
+
+<p>
+Each individual path is called a <strong>realisation</strong> or <strong>sample path</strong>.
+</p>
+
+
+<h3>3. The Brownian increment</h3>
+
+<p>
+Suppose we look at two times:
+</p>
+
+\[
+t
+\]
+
+<p>
+and</p>
+
+\[
+t+\Delta t.
+\]
+
+<p>
+The change in Brownian motion is
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\Delta W
+=
+W(t+\Delta t)-W(t)
+}
+\]
+
+</div>
+
+<p>
+This is called a <strong>Brownian increment</strong>.
+</p>
+
+
+<h3>4. Distribution of the increment</h3>
+
+<p>
+A Brownian increment over an interval of length \(\Delta t\) satisfies
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\Delta W
+\sim
+N(0,\Delta t)
+}
+\]
+
+</div>
+
+<p>
+This means:
+</p>
+
+\[
+E[\Delta W]=0
+\]
+
+<p>
+and</p>
+
+\[
+\operatorname{Var}(\Delta W)=\Delta t.
+\]
+
+
+<h3>5. Standard deviation</h3>
+
+<p>
+Since standard deviation is the square root of variance,
+</p>
+
+\[
+\operatorname{SD}(\Delta W)
+=
+\sqrt{\Delta t}.
+\]
+
+<p>
+Therefore,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\Delta W
+\text{ typically has size of order }
+\sqrt{\Delta t}
+}
+\]
+
+</div>
+
+
+<h3>6. Generating an increment</h3>
+
+<p>
+Suppose
+</p>
+
+\[
+Z\sim N(0,1).
+\]
+
+<p>
+Then
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\Delta W
+=
+\sqrt{\Delta t}\,Z
+}
+\]
+
+</div>
+
+<p>
+has the required distribution
+</p>
+
+\[
+N(0,\Delta t).
+\]
+
+
+<h3>7. Why the square root appears</h3>
+
+<p>
+If
+</p>
+
+\[
+Z\sim N(0,1),
+\]
+
+<p>
+then
+</p>
+
+\[
+\operatorname{Var}(Z)=1.
+\]
+
+<p>
+For a constant \(a\),
+</p>
+
+\[
+\operatorname{Var}(aZ)
+=
+a^2\operatorname{Var}(Z).
+\]
+
+<p>
+Take
+</p>
+
+\[
+a=\sqrt{\Delta t}.
+\]
+
+<p>
+Then
+</p>
+
+\[
+\operatorname{Var}
+\left(
+\sqrt{\Delta t}\,Z
+\right)
+=
+\Delta t.
+\]
+
+<p>
+So the square-root scaling is required by the Brownian variance rule.
+</p>
+
+
+<h3>8. Example</h3>
+
+<p>
+Suppose
+</p>
+
+\[
+\Delta t=0.04.
+\]
+
+<p>
+Then
+</p>
+
+\[
+\sqrt{\Delta t}=0.2.
+\]
+
+<p>
+So
+</p>
+
+\[
+\Delta W=0.2Z.
+\]
+
+<p>
+If a generated standard normal value is
+</p>
+
+\[
+Z=1.5,
+\]
+
+<p>
+then
+</p>
+
+\[
+\Delta W
+=
+0.2(1.5)
+=
+0.3.
+\]
+
+<p>
+If instead
+</p>
+
+\[
+Z=-0.8,
+\]
+
+<p>
+then
+</p>
+
+\[
+\Delta W=-0.16.
+\]
+
+<p>
+The increment can be positive or negative.
+</p>
+
+
+<h3>9. Mean zero does not mean every increment is zero</h3>
+
+<p>
+The statement
+</p>
+
+\[
+E[\Delta W]=0
+\]
+
+<p>
+means that the average increment over many independent realisations is zero.
+</p>
+
+<p>
+An individual increment will usually not equal zero.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{mean zero}
+\neq
+\text{every change is zero}
+}
+\]
+
+</div>
+
+
+<h3>10. Independent increments</h3>
+
+<p>
+Brownian motion has independent increments over non-overlapping time intervals.
+</p>
+
+<p>
+For example,
+</p>
+
+\[
+W(t_2)-W(t_1)
+\]
+
+<p>
+and</p>
+
+\[
+W(t_4)-W(t_3)
+\]
+
+<p>
+are independent when the intervals
+</p>
+
+\[
+[t_1,t_2]
+\]
+
+<p>
+and</p>
+
+\[
+[t_3,t_4]
+\]
+
+<p>
+do not overlap.
+</p>
+
+
+<h3>11. Why independence matters</h3>
+
+<p>
+Knowing the random change over one non-overlapping interval gives no information about the random change over another.
+</p>
+
+<p>
+A positive Brownian increment does not make the next increment more likely to be positive.
+</p>
+
+
+<h3>12. Stationary increments</h3>
+
+<p>
+The distribution of a Brownian increment depends only on the length of the interval.
+</p>
+
+<p>
+For example,
+</p>
+
+\[
+W(5.1)-W(5)
+\]
+
+<p>
+and</p>
+
+\[
+W(100.1)-W(100)
+\]
+
+<p>
+both correspond to an interval of length
+</p>
+
+\[
+0.1.
+\]
+
+<p>
+Therefore both have distribution
+</p>
+
+\[
+N(0,0.1).
+\]
+
+<p>
+This property is called <strong>stationary increments</strong>.
+</p>
+
+
+<h3>13. Brownian motion at a fixed time</h3>
+
+<p>
+Since
+</p>
+
+\[
+W(0)=0,
+\]
+
+<p>
+we may regard
+</p>
+
+\[
+W(t)=W(t)-W(0).
+\]
+
+<p>
+Therefore,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+W(t)\sim N(0,t)
+}
+\]
+
+</div>
+
+<p>
+for \(t>0\).
+</p>
+
+
+<h3>14. Example at time \(t=4\)</h3>
+
+<p>
+At
+</p>
+
+\[
+t=4,
+\]
+
+<p>
+we have
+</p>
+
+\[
+W(4)\sim N(0,4).
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+E[W(4)]=0
+\]
+
+<p>
+and</p>
+
+\[
+\operatorname{SD}(W(4))=2.
+\]
+
+<p>
+The spread of possible Brownian positions becomes larger as time increases.
+</p>
+
+
+<h3>15. Variance grows linearly with time</h3>
+
+<p>
+A fundamental Brownian-motion property is
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\operatorname{Var}(W(t))=t
+}
+\]
+
+</div>
+
+<p>
+So uncertainty increases as time passes.
+</p>
+
+<p>
+But standard deviation grows like
+</p>
+
+\[
+\sqrt{t}.
+\]
+
+
+<h3>16. Building a Brownian path numerically</h3>
+
+<p>
+Choose time points
+</p>
+
+\[
+t_0,\;
+t_1,\;
+t_2,\;
+\ldots
+\]
+
+<p>
+separated by
+</p>
+
+\[
+\Delta t.
+\]
+
+<p>
+Begin with
+</p>
+
+\[
+W_0=0.
+\]
+
+<p>
+At each step, generate
+</p>
+
+\[
+Z_n\sim N(0,1)
+\]
+
+<p>
+and calculate
+</p>
+
+\[
+\Delta W_n
+=
+\sqrt{\Delta t}\,Z_n.
+\]
+
+<p>
+Then update
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+W_{n+1}
+=
+W_n+\Delta W_n
+}
+\]
+
+</div>
+
+
+<h3>17. Why a computer plot looks discrete</h3>
+
+<p>
+Mathematical Brownian motion is defined in continuous time.
+</p>
+
+<p>
+But a computer can store only finitely many values.
+</p>
+
+<p>
+So a simulation uses a time grid:
+</p>
+
+\[
+t_0,\;
+t_1,\;
+t_2,\;
+\ldots,\;
+t_n.
+\]
+
+<p>
+The plotted line connects these simulated values.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{discrete simulation}
+\neq
+\text{discrete mathematical process}
+}
+\]
+
+</div>
+
+<p>
+The grid is only a numerical approximation to an underlying continuous-time process.
+</p>
+
+
+<h3>18. Brownian path diagram</h3>
+
+<div style="max-width:760px; margin:30px auto;">
+
+<svg viewBox="0 0 760 430"
+     width="100%"
+     role="img"
+     aria-labelledby="brownian-title brownian-desc"
+     xmlns="http://www.w3.org/2000/svg">
+
+<title id="brownian-title">
+Illustrative Brownian-motion sample path
+</title>
+
+<desc id="brownian-desc">
+An irregular continuous-looking path moves randomly upward and downward through time, with no smooth trend.
+</desc>
+
+<line x1="70" y1="215" x2="700" y2="215"
+      stroke="currentColor"
+      stroke-width="1.5"
+      opacity="0.5"/>
+
+<line x1="70" y1="365" x2="70" y2="50"
+      stroke="currentColor"
+      stroke-width="2"/>
+
+<line x1="70" y1="365" x2="700" y2="365"
+      stroke="currentColor"
+      stroke-width="2"/>
+
+<text x="710" y="370"
+      font-size="18"
+      fill="currentColor">t</text>
+
+<text x="42" y="50"
+      font-size="18"
+      fill="currentColor">W(t)</text>
+
+<polyline points="
+70,215
+85,206
+100,222
+115,196
+130,207
+145,188
+160,216
+175,198
+190,225
+205,238
+220,211
+235,228
+250,202
+265,184
+280,195
+295,170
+310,190
+325,161
+340,174
+355,149
+370,169
+385,157
+400,181
+415,164
+430,190
+445,204
+460,186
+475,211
+490,194
+505,220
+520,205
+535,231
+550,214
+565,243
+580,225
+595,252
+610,238
+625,261
+640,244
+655,268
+670,250
+685,259
+"
+fill="none"
+stroke="currentColor"
+stroke-width="3"
+stroke-linejoin="round"
+stroke-linecap="round"/>
+
+</svg>
+
+</div>
+
+
+<h3>19. Brownian motion is continuous</h3>
+
+<p>
+Brownian motion has continuous sample paths.
+</p>
+
+<p>
+This means that it does not jump instantaneously from one value to another.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+W(t)
+\text{ is continuous in }t
+}
+\]
+
+</div>
+
+<p>
+However, continuity does not mean smoothness.
+</p>
+
+
+<h3>20. Brownian motion is highly irregular</h3>
+
+<p>
+Although Brownian paths are continuous, with probability one they are nowhere differentiable.
+</p>
+
+<p>
+There is no ordinary finite slope
+</p>
+
+\[
+\frac{dW}{dt}
+\]
+
+<p>
+at any time.
+</p>
+
+<p>
+This irregularity is central to stochastic calculus.
+</p>
+
+
+<h3>21. Why the ordinary derivative fails</h3>
+
+<p>
+For Brownian motion,
+</p>
+
+\[
+\Delta W
+\]
+
+<p>
+typically has size</p>
+
+\[
+\sqrt{\Delta t}.
+\]
+
+<p>
+So the difference quotient has typical size
+</p>
+
+\[
+\frac{\Delta W}{\Delta t}
+\sim
+\frac{1}{\sqrt{\Delta t}}.
+\]
+
+<p>
+As</p>
+
+\[
+\Delta t\to0,
+\]
+
+<p>
+this does not settle to a finite value.
+</p>
+
+
+<h3>22. Brownian motion has quadratic variation</h3>
+
+<p>
+Suppose the interval \([0,T]\) is divided into many small subintervals.
+</p>
+
+<p>
+Consider the sum of squared increments:
+</p>
+
+\[
+\sum_i
+(\Delta W_i)^2.
+\]
+
+<p>
+As the partition becomes finer, this sum approaches
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+T
+}
+\]
+
+</div>
+
+<p>
+in the appropriate stochastic sense.
+</p>
+
+<p>
+This property is called <strong>quadratic variation</strong>.
+</p>
+
+
+<h3>23. Why \((dW)^2=dt\)</h3>
+
+<p>
+A Brownian increment has size
+</p>
+
+\[
+dW\sim\sqrt{dt}.
+\]
+
+<p>
+Squaring gives a quantity of order
+</p>
+
+\[
+(dW)^2\sim dt.
+\]
+
+<p>
+This motivates the symbolic stochastic-calculus rule
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+(dW_t)^2=dt
+}
+\]
+
+</div>
+
+<p>
+The rule represents quadratic variation. It is not ordinary algebraic squaring of differentials.
+</p>
+
+
+<h3>24. Compare with ordinary differentials</h3>
+
+<p>
+For ordinary calculus,
+</p>
+
+\[
+dx\sim dt
+\]
+
+<p>
+for a smooth time-dependent function.
+</p>
+
+<p>
+Therefore,
+</p>
+
+\[
+(dx)^2
+\]
+
+<p>
+is of order</p>
+
+\[
+(dt)^2,
+\]
+
+<p>
+which becomes negligible compared with \(dt\).
+</p>
+
+<p>
+For Brownian motion,
+</p>
+
+\[
+dW\sim\sqrt{dt},
+\]
+
+<p>
+so</p>
+
+\[
+(dW)^2
+\]
+
+<p>
+remains of order \(dt\).
+</p>
+
+
+<h3>25. The important stochastic scaling rules</h3>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+dt\,dt=0
+}
+\]
+
+\[
+\boxed{
+dt\,dW_t=0
+}
+\]
+
+\[
+\boxed{
+(dW_t)^2=dt
+}
+\]
+
+</div>
+
+<p>
+These are understood at the level of stochastic differential calculus, where terms smaller than order \(dt\) are discarded.
+</p>
+
+
+<h3>26. Brownian motion versus white noise</h3>
+
+<p>
+Brownian motion itself is continuous.
+</p>
+
+<p>
+The formal expression
+</p>
+
+\[
+\frac{dW_t}{dt}
+\]
+
+<p>
+is sometimes called <strong>white noise</strong>.
+</p>
+
+<p>
+But this is not an ordinary function or ordinary derivative.
+</p>
+
+<p>
+For this reason, SDEs are normally written using
+</p>
+
+\[
+dW_t
+\]
+
+<p>
+rather than trying to treat white noise as an ordinary time-dependent function.
+</p>
+
+
+<h3>27. Why Brownian motion is useful</h3>
+
+<p>
+Brownian motion provides a mathematical model for many small random influences acting continuously through time.
+</p>
+
+<p>
+Instead of modelling every microscopic random event separately, their aggregate effect can sometimes be represented by a Brownian diffusion term.
+</p>
+
+
+<h3>28. Brownian motion inside an SDE</h3>
+
+<p>
+A stochastic differential equation may be written as
+</p>
+
+\[
+dX_t
+=
+a(X_t,t)\,dt
++
+b(X_t,t)\,dW_t.
+\]
+
+<p>
+Over a small interval \(\Delta t\), this becomes approximately
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\Delta X
+\approx
+a(X_t,t)\Delta t
++
+b(X_t,t)\Delta W
+}
+\]
+
+</div>
+
+<p>
+with</p>
+
+\[
+\boxed{
+\Delta W
+=
+\sqrt{\Delta t}\,Z,
+\qquad
+Z\sim N(0,1).
+}
+\]
+
+
+<h3>29. Deterministic and random contributions</h3>
+
+<p>
+The first contribution,
+</p>
+
+\[
+a\Delta t,
+\]
+
+<p>
+is systematic.
+</p>
+
+<p>
+The second,
+</p>
+
+\[
+b\Delta W,
+\]
+
+<p>
+is random.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\Delta X
+=
+\text{drift contribution}
++
+\text{diffusion contribution}
+}
+\]
+
+</div>
+
+
+<h3>30. The central idea</h3>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+W(0)=0
+}
+\]
+
+\[
+\boxed{
+W(t+\Delta t)-W(t)
+\sim
+N(0,\Delta t)
+}
+\]
+
+\[
+\boxed{
+\Delta W
+=
+\sqrt{\Delta t}\,Z
+}
+\]
+
+\[
+\boxed{
+(dW_t)^2=dt
+}
+\]
+
+</div>
+
+<p>
+These properties distinguish Brownian motion from ordinary smooth functions and provide the random building block used in stochastic differential equations.
+</p>
+
+
+<div class="lesson-navigation">
+
+<a href="why-stochastic-calculus.html">
+← Why Ordinary Calculus Is Not Enough
+</a>
+
+<a href="stochastic-differential-equations.html">
+Next: Stochastic Differential Equations →
+</a>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<div>
+<strong>dy/dx</strong>
+<p>Calculus Learning</p>
+</div>
+
+</footer>
+
+
+</body>
+
+</html>
