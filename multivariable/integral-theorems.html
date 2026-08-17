@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Integral Theorems | dy/dx</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']]
+  }
+};
+</script>
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+</head>
+
+
+<body>
+
+
+<header class="site-header">
+
+<div class="brand">
+<a href="../index.html">dy/dx</a>
+</div>
+
+<nav class="top-nav">
+<a href="../index.html">Home</a>
+<a href="index.html">Multivariable Calculus</a>
+</nav>
+
+</header>
+
+
+<main>
+
+
+<section class="lesson-header">
+
+<p class="eyebrow">MULTIVARIABLE CALCULUS 12</p>
+
+<h1>Integral Theorems</h1>
+
+<p class="lesson-intro">
+The major integral theorems connect local derivative information inside a region with accumulated behaviour on its boundary.
+</p>
+
+</section>
+
+
+<section class="lesson-content">
+
+
+<h2>The main idea</h2>
+
+<p>
+Earlier calculus connected derivatives and integrals through the Fundamental Theorem of Calculus.
+</p>
+
+<p>
+In multivariable calculus, similar ideas connect:
+</p>
+
+\[
+\text{gradient},
+\qquad
+\text{curl},
+\qquad
+\text{divergence}
+\]
+
+<p>
+with integrals over curves and surfaces.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{local derivative information}
+\longleftrightarrow
+\text{boundary accumulation}
+}
+\]
+
+</div>
+
+
+<h3>1. The Fundamental Theorem of Calculus</h3>
+
+<p>
+In one variable,
+</p>
+
+\[
+\boxed{
+\int_a^b F'(x)\,dx
+=
+F(b)-F(a)
+}
+\]
+
+<p>
+The integral of a derivative over an interval depends only on the boundary points.
+</p>
+
+<p>
+This is the pattern that the higher-dimensional theorems extend.
+</p>
+
+
+<h3>2. Fundamental theorem for line integrals</h3>
+
+<p>
+Suppose
+</p>
+
+\[
+\mathbf{F}=\nabla\phi.
+\]
+
+<p>
+Then
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\int_C
+\mathbf{F}\cdot d\mathbf{r}
+=
+\phi(B)-\phi(A)
+}
+\]
+
+</div>
+
+<p>
+where \(A\) and \(B\) are the endpoints of the curve.
+</p>
+
+<p>
+So integrating a gradient along a path depends only on the endpoints.
+</p>
+
+
+<h3>3. Why this resembles ordinary calculus</h3>
+
+<p>
+In one variable,
+</p>
+
+\[
+F'(x)
+\]
+
+<p>
+is the derivative of a scalar function.
+</p>
+
+<p>
+In several variables,
+</p>
+
+\[
+\nabla\phi
+\]
+
+<p>
+plays the corresponding role.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+F'
+\longleftrightarrow
+\nabla\phi
+}
+\]
+
+</div>
+
+
+<h3>4. Path independence</h3>
+
+<p>
+If
+</p>
+
+\[
+\mathbf{F}=\nabla\phi,
+\]
+
+<p>
+then the line integral between two points does not depend on the path.
+</p>
+
+<p>
+Therefore,
+</p>
+
+\[
+\boxed{
+\text{gradient field}
+\Rightarrow
+\text{path independence}
+}
+\]
+
+<p>
+For a closed curve,
+</p>
+
+\[
+\boxed{
+\oint_C
+\mathbf{F}\cdot d\mathbf{r}
+=
+0
+}
+\]
+
+
+<h3>5. Green's theorem</h3>
+
+<p>
+Let
+</p>
+
+\[
+\mathbf{F}
+=
+\begin{pmatrix}
+P(x,y)\\
+Q(x,y)
+\end{pmatrix}.
+\]
+
+<p>
+For a suitably smooth field and a positively oriented simple closed curve \(C\) enclosing a region \(R\),
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\oint_C
+P\,dx+Q\,dy
+=
+\iint_R
+\left(
+\frac{\partial Q}{\partial x}
+-
+\frac{\partial P}{\partial y}
+\right)
+\,dA
+}
+\]
+
+</div>
+
+<p>
+This is Green's theorem.
+</p>
+
+
+<h3>6. What Green's theorem means</h3>
+
+<p>
+The left side measures circulation around the boundary.
+</p>
+
+<p>
+The right side accumulates local rotational tendency over the interior.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{circulation around boundary}
+=
+\text{total curl inside}
+}
+\]
+
+</div>
+
+
+<h3>7. Boundary and interior</h3>
+
+<p>
+Green's theorem connects two different kinds of objects:
+</p>
+
+\[
+\text{one-dimensional boundary }C
+\]
+
+<p>
+and</p>
+
+\[
+\text{two-dimensional region }R.
+\]
+
+<p>
+It converts a line integral around the boundary into a double integral over the interior.
+</p>
+
+
+<h3>8. Diagram</h3>
+
+<div style="max-width:680px; margin:30px auto;">
+
+<svg viewBox="0 0 680 420"
+     width="100%"
+     role="img"
+     aria-labelledby="green-title green-desc"
+     xmlns="http://www.w3.org/2000/svg">
+
+<title id="green-title">
+Region and positively oriented boundary
+</title>
+
+<desc id="green-desc">
+A closed curved region is shown with arrows travelling counterclockwise around its boundary, illustrating positive orientation in Green's theorem.
+</desc>
+
+<path d="
+M 185 255
+C 160 175, 230 100, 340 100
+C 455 100, 535 165, 505 260
+C 475 345, 355 355, 250 325
+C 205 312, 190 285, 185 255
+Z
+"
+fill="currentColor"
+opacity="0.06"
+stroke="currentColor"
+stroke-width="3"/>
+
+<!-- orientation arrows -->
+<line x1="260" y1="112" x2="335" y2="100"
+      stroke="currentColor"
+      stroke-width="2"/>
+
+<polygon points="345,99 329,92 332,108"
+         fill="currentColor"/>
+
+<line x1="500" y1="190" x2="505" y2="245"
+      stroke="currentColor"
+      stroke-width="2"/>
+
+<polygon points="506,255 497,239 513,239"
+         fill="currentColor"/>
+
+<line x1="410" y1="338" x2="335" y2="350"
+      stroke="currentColor"
+      stroke-width="2"/>
+
+<polygon points="325,351 341,358 338,342"
+         fill="currentColor"/>
+
+<text x="330" y="220"
+      text-anchor="middle"
+      font-size="22"
+      fill="currentColor">
+R
+</text>
+
+<text x="510" y="130"
+      font-size="18"
+      fill="currentColor">
+C
+</text>
+
+</svg>
+
+</div>
+
+
+<h3>9. Stokes' theorem</h3>
+
+<p>
+Green's theorem extends to surfaces in three dimensions through Stokes' theorem.
+</p>
+
+<p>
+Let \(S\) be an oriented surface with boundary curve \(C=\partial S\).
+</p>
+
+<p>
+Then
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\oint_{\partial S}
+\mathbf{F}\cdot d\mathbf{r}
+=
+\iint_S
+(\nabla\times\mathbf{F})
+\cdot\mathbf{n}\,dS
+}
+\]
+
+</div>
+
+
+<h3>10. Meaning of Stokes' theorem</h3>
+
+<p>
+The line integral around the boundary measures circulation.
+</p>
+
+<p>
+The surface integral measures accumulated curl through the surface.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{circulation around boundary}
+=
+\text{total rotational tendency through surface}
+}
+\]
+
+</div>
+
+
+<h3>11. Why Green's theorem is a special case</h3>
+
+<p>
+If the surface \(S\) lies flat in the \(xy\)-plane, then Stokes' theorem reduces to Green's theorem.
+</p>
+
+<p>
+So Green's theorem can be viewed as the planar version of Stokes' theorem.
+</p>
+
+
+<h3>12. The divergence theorem</h3>
+
+<p>
+Let \(V\) be a three-dimensional region with closed boundary surface \(\partial V\).
+</p>
+
+<p>
+Then
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\oiint_{\partial V}
+\mathbf{F}\cdot\mathbf{n}\,dS
+=
+\iiint_V
+\nabla\cdot\mathbf{F}\,dV
+}
+\]
+
+</div>
+
+<p>
+This is the divergence theorem.
+</p>
+
+
+<h3>13. Meaning of the divergence theorem</h3>
+
+<p>
+The left side measures total outward flux through the boundary.
+</p>
+
+<p>
+The right side accumulates divergence throughout the interior.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{outward flux through boundary}
+=
+\text{total source strength inside}
+}
+\]
+
+</div>
+
+
+<h3>14. Why this makes sense</h3>
+
+<p>
+Imagine dividing a region into many tiny cells.
+</p>
+
+<p>
+Flow leaving one cell may enter a neighbouring cell.
+</p>
+
+<p>
+These internal contributions cancel when all cells are combined.
+</p>
+
+<p>
+Only flow through the external boundary remains.
+</p>
+
+
+<h3>15. Diagram for the divergence theorem</h3>
+
+<div style="max-width:680px; margin:30px auto;">
+
+<svg viewBox="0 0 680 420"
+     width="100%"
+     role="img"
+     aria-labelledby="divthm-title divthm-desc"
+     xmlns="http://www.w3.org/2000/svg">
+
+<title id="divthm-title">
+Outward flux through a closed surface
+</title>
+
+<desc id="divthm-desc">
+A closed three-dimensional region is shown with arrows pointing outward through its boundary.
+</desc>
+
+<ellipse cx="340" cy="215" rx="150" ry="110"
+         fill="currentColor"
+         opacity="0.05"
+         stroke="currentColor"
+         stroke-width="3"/>
+
+<!-- arrows -->
+<line x1="340" y1="105" x2="340" y2="55"
+      stroke="currentColor"
+      stroke-width="3"/>
+
+<polygon points="340,45 331,61 349,61"
+         fill="currentColor"/>
+
+<line x1="490" y1="215" x2="550" y2="215"
+      stroke="currentColor"
+      stroke-width="3"/>
+
+<polygon points="560,215 544,206 544,224"
+         fill="currentColor"/>
+
+<line x1="190" y1="215" x2="130" y2="215"
+      stroke="currentColor"
+      stroke-width="3"/>
+
+<polygon points="120,215 136,206 136,224"
+         fill="currentColor"/>
+
+<line x1="340" y1="325" x2="340" y2="375"
+      stroke="currentColor"
+      stroke-width="3"/>
+
+<polygon points="340,385 331,369 349,369"
+         fill="currentColor"/>
+
+<line x1="445" y1="140" x2="490" y2="100"
+      stroke="currentColor"
+      stroke-width="2"/>
+
+<polygon points="497,94 480,99 491,111"
+         fill="currentColor"/>
+
+<line x1="235" y1="290" x2="190" y2="330"
+      stroke="currentColor"
+      stroke-width="2"/>
+
+<polygon points="183,336 200,331 189,319"
+         fill="currentColor"/>
+
+<text x="305" y="220"
+      font-size="22"
+      fill="currentColor">
+V
+</text>
+
+</svg>
+
+</div>
+
+
+<h3>16. The pattern behind all these theorems</h3>
+
+<p>
+The theorems may look different, but they share one structure:
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{integral of a derivative over a region}
+=
+\text{integral over its boundary}
+}
+\]
+
+</div>
+
+
+<h3>17. Dimension increases by one</h3>
+
+<p>
+The Fundamental Theorem of Calculus connects a one-dimensional interval with its zero-dimensional endpoints.
+</p>
+
+<p>
+Green's theorem connects a two-dimensional region with its one-dimensional boundary.
+</p>
+
+<p>
+The divergence theorem connects a three-dimensional volume with its two-dimensional boundary.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{interior dimension}
+\rightarrow
+\text{boundary dimension one lower}
+}
+\]
+
+</div>
+
+
+<h3>18. Comparison of the main theorems</h3>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\int_a^b F'(x)\,dx
+=
+F(b)-F(a)
+}
+\]
+
+<p>
+Fundamental Theorem of Calculus
+</p>
+
+\[
+\boxed{
+\int_C\nabla\phi\cdot d\mathbf{r}
+=
+\phi(B)-\phi(A)
+}
+\]
+
+<p>
+Fundamental Theorem for Line Integrals
+</p>
+
+\[
+\boxed{
+\oint_C
+\mathbf{F}\cdot d\mathbf{r}
+=
+\iint_S
+(\nabla\times\mathbf{F})
+\cdot\mathbf{n}\,dS
+}
+\]
+
+<p>
+Stokes' Theorem
+</p>
+
+\[
+\boxed{
+\oiint_{\partial V}
+\mathbf{F}\cdot\mathbf{n}\,dS
+=
+\iiint_V
+\nabla\cdot\mathbf{F}\,dV
+}
+\]
+
+<p>
+Divergence Theorem
+</p>
+
+</div>
+
+
+<h3>19. Local versus global information</h3>
+
+<p>
+Gradient, curl and divergence are local derivative quantities.
+</p>
+
+<p>
+Line, surface and volume integrals collect information over larger regions.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{derivatives}
+=
+\text{local behaviour}
+}
+\]
+
+\[
+\boxed{
+\text{integrals}
+=
+\text{accumulated behaviour}
+}
+\]
+
+</div>
+
+<p>
+The integral theorems explain how the two are connected.
+</p>
+
+
+<h3>20. Connection with conservation laws</h3>
+
+<p>
+Suppose a density \(\rho\) and flux \(\mathbf{J}\) satisfy
+</p>
+
+\[
+\frac{\partial\rho}{\partial t}
++
+\nabla\cdot\mathbf{J}
+=
+0.
+\]
+
+<p>
+Integrating over a region \(V\) gives
+</p>
+
+\[
+\iiint_V
+\frac{\partial\rho}{\partial t}
+\,dV
++
+\iiint_V
+\nabla\cdot\mathbf{J}
+\,dV
+=
+0.
+\]
+
+<p>
+Using the divergence theorem,
+</p>
+
+\[
+\iiint_V
+\frac{\partial\rho}{\partial t}
+\,dV
++
+\oiint_{\partial V}
+\mathbf{J}\cdot\mathbf{n}\,dS
+=
+0.
+\]
+
+<p>
+This says that change inside the region is balanced by flow through the boundary.
+</p>
+
+
+<h3>21. Why these theorems matter</h3>
+
+<p>
+The integral theorems are central in fluid mechanics, electromagnetism, continuum models, conservation laws and partial differential equations.
+</p>
+
+<p>
+They allow us to move between local equations and global statements about entire regions.
+</p>
+
+
+<h3>22. The central idea</h3>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{Fundamental Theorem}
+}
+\]
+
+\[
+\downarrow
+\]
+
+\[
+\boxed{
+\text{Green}
+\rightarrow
+\text{Stokes}
+\rightarrow
+\text{Divergence}
+}
+\]
+
+</div>
+
+<p>
+These are not isolated formulas. They are higher-dimensional versions of the same fundamental principle connecting differentiation and integration.
+</p>
+
+
+<div class="lesson-navigation">
+
+<a href="surface-integrals.html">
+← Surface Integrals
+</a>
+
+<a href="../stochastic/index.html">
+Next: From Deterministic to Stochastic Calculus →
+</a>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<div>
+<strong>dy/dx</strong>
+<p>Calculus Learning</p>
+</div>
+
+</footer>
+
+
+</body>
+
+</html>
