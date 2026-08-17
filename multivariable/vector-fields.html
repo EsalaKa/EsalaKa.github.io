@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Vector Fields | dy/dx</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']]
+  }
+};
+</script>
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+</head>
+
+
+<body>
+
+
+<header class="site-header">
+
+<div class="brand">
+<a href="../index.html">dy/dx</a>
+</div>
+
+<nav class="top-nav">
+<a href="../index.html">Home</a>
+<a href="index.html">Multivariable Calculus</a>
+</nav>
+
+</header>
+
+
+<main>
+
+
+<section class="lesson-header">
+
+<p class="eyebrow">MULTIVARIABLE CALCULUS 08</p>
+
+<h1>Vector Fields</h1>
+
+<p class="lesson-intro">
+A vector field assigns a vector to every point in a region of space.
+</p>
+
+</section>
+
+
+<section class="lesson-content">
+
+
+<h2>The main idea</h2>
+
+<p>
+A scalar function assigns one number to each point.
+</p>
+
+<p>
+For example,
+</p>
+
+\[
+T(x,y)
+\]
+
+<p>
+might give the temperature at the point \((x,y)\).
+</p>
+
+<p>
+A vector field instead assigns a vector:
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\mathbf{F}(x,y)
+=
+\begin{pmatrix}
+P(x,y)\\
+Q(x,y)
+\end{pmatrix}
+}
+\]
+
+</div>
+
+<p>
+So every point has both a magnitude and a direction associated with it.
+</p>
+
+
+<h3>1. A simple example</h3>
+
+<p>
+Consider
+</p>
+
+\[
+\mathbf{F}(x,y)
+=
+\begin{pmatrix}
+x\\
+y
+\end{pmatrix}.
+\]
+
+<p>
+At
+</p>
+
+\[
+(1,2),
+\]
+
+<p>
+the vector is
+</p>
+
+\[
+\mathbf{F}(1,2)
+=
+\begin{pmatrix}
+1\\
+2
+\end{pmatrix}.
+\]
+
+<p>
+At
+</p>
+
+\[
+(-2,1),
+\]
+
+<p>
+the vector is
+</p>
+
+\[
+\mathbf{F}(-2,1)
+=
+\begin{pmatrix}
+-2\\
+1
+\end{pmatrix}.
+\]
+
+
+<h3>2. How to visualise a vector field</h3>
+
+<p>
+At many points in the plane, draw a small arrow representing the vector assigned to that point.
+</p>
+
+<p>
+The direction of the arrow shows the direction of the vector.
+</p>
+
+<p>
+Its length can represent the magnitude.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{point}
+\longrightarrow
+\text{vector}
+}
+\]
+
+</div>
+
+
+<h3>3. Radial vector field</h3>
+
+<p>
+For
+</p>
+
+\[
+\mathbf{F}(x,y)
+=
+\begin{pmatrix}
+x\\
+y
+\end{pmatrix},
+\]
+
+<p>
+the vectors point away from the origin.
+</p>
+
+<p>
+The farther the point is from the origin, the larger the vector magnitude becomes.
+</p>
+
+<p>
+Since
+</p>
+
+\[
+\|\mathbf{F}\|
+=
+\sqrt{x^2+y^2},
+\]
+
+<p>
+the magnitude equals the distance from the origin.
+</p>
+
+
+<h3>4. Diagram</h3>
+
+<div style="max-width:680px; margin:30px auto;">
+
+<svg viewBox="0 0 680 420"
+     width="100%"
+     role="img"
+     aria-labelledby="vf-title vf-desc"
+     xmlns="http://www.w3.org/2000/svg">
+
+<title id="vf-title">
+Radial vector field
+</title>
+
+<desc id="vf-desc">
+Arrows at points in the plane point outward from the origin, representing the field F of x y equals x y.
+</desc>
+
+<line x1="70" y1="210" x2="610" y2="210"
+      stroke="currentColor"
+      stroke-width="2"/>
+
+<line x1="340" y1="370" x2="340" y2="45"
+      stroke="currentColor"
+      stroke-width="2"/>
+
+<!-- upper right -->
+<line x1="430" y1="140" x2="468" y2="110"
+      stroke="currentColor" stroke-width="2"/>
+<polygon points="474,105 461,108 468,118"
+         fill="currentColor"/>
+
+<line x1="520" y1="140" x2="565" y2="118"
+      stroke="currentColor" stroke-width="2"/>
+<polygon points="572,114 559,114 565,125"
+         fill="currentColor"/>
+
+<!-- lower right -->
+<line x1="430" y1="280" x2="468" y2="310"
+      stroke="currentColor" stroke-width="2"/>
+<polygon points="474,315 468,302 460,312"
+         fill="currentColor"/>
+
+<line x1="520" y1="280" x2="565" y2="302"
+      stroke="currentColor" stroke-width="2"/>
+<polygon points="572,306 564,295 559,307"
+         fill="currentColor"/>
+
+<!-- upper left -->
+<line x1="250" y1="140" x2="212" y2="110"
+      stroke="currentColor" stroke-width="2"/>
+<polygon points="206,105 212,118 220,108"
+         fill="currentColor"/>
+
+<line x1="160" y1="140" x2="115" y2="118"
+      stroke="currentColor" stroke-width="2"/>
+<polygon points="108,114 115,125 121,114"
+         fill="currentColor"/>
+
+<!-- lower left -->
+<line x1="250" y1="280" x2="212" y2="310"
+      stroke="currentColor" stroke-width="2"/>
+<polygon points="206,315 220,312 212,302"
+         fill="currentColor"/>
+
+<line x1="160" y1="280" x2="115" y2="302"
+      stroke="currentColor" stroke-width="2"/>
+<polygon points="108,306 121,307 115,295"
+         fill="currentColor"/>
+
+<circle cx="340" cy="210" r="5"
+        fill="currentColor"/>
+
+<text x="350" y="230"
+      font-size="16"
+      fill="currentColor">
+origin
+</text>
+
+</svg>
+
+</div>
+
+
+<h3>5. Rotational vector field</h3>
+
+<p>
+Consider
+</p>
+
+\[
+\mathbf{F}(x,y)
+=
+\begin{pmatrix}
+-y\\
+x
+\end{pmatrix}.
+\]
+
+<p>
+At
+</p>
+
+\[
+(1,0),
+\]
+
+<p>
+the vector is
+</p>
+
+\[
+\begin{pmatrix}
+0\\
+1
+\end{pmatrix}.
+\]
+
+<p>
+At
+</p>
+
+\[
+(0,1),
+\]
+
+<p>
+the vector is
+</p>
+
+\[
+\begin{pmatrix}
+-1\\
+0
+\end{pmatrix}.
+\]
+
+<p>
+The vectors are tangent to circles centred at the origin.
+</p>
+
+<p>
+So this field represents rotational motion.
+</p>
+
+
+<h3>6. Vector fields in physics</h3>
+
+<p>
+A velocity field may describe the velocity of fluid at each point:
+</p>
+
+\[
+\mathbf{v}(x,y,z).
+\]
+
+<p>
+A gravitational field assigns a force direction and magnitude to each position.
+</p>
+
+<p>
+Electric and magnetic fields are also vector fields.
+</p>
+
+
+<h3>7. Vector fields in differential equations</h3>
+
+<p>
+A system
+</p>
+
+\[
+\frac{dx}{dt}=f(x,y),
+\]
+
+\[
+\frac{dy}{dt}=g(x,y)
+\]
+
+<p>
+can be written as
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\frac{d\mathbf{x}}{dt}
+=
+\mathbf{F}(\mathbf{x})
+}
+\]
+
+</div>
+
+<p>
+where
+</p>
+
+\[
+\mathbf{F}(x,y)
+=
+\begin{pmatrix}
+f(x,y)\\
+g(x,y)
+\end{pmatrix}.
+\]
+
+<p>
+So the right-hand side of a system of ODEs is a vector field.
+</p>
+
+
+<h3>8. What the field means in an ODE system</h3>
+
+<p>
+At each state \((x,y)\), the vector
+</p>
+
+\[
+\mathbf{F}(x,y)
+\]
+
+<p>
+gives the instantaneous direction and speed of movement through the phase plane.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{state}
+\longrightarrow
+\text{velocity vector}
+}
+\]
+
+</div>
+
+
+<h3>9. Trajectories follow the vector field</h3>
+
+<p>
+A solution trajectory
+</p>
+
+\[
+\mathbf{x}(t)
+\]
+
+<p>
+must satisfy
+</p>
+
+\[
+\mathbf{x}'(t)
+=
+\mathbf{F}(\mathbf{x}(t)).
+\]
+
+<p>
+So the tangent vector to the trajectory always agrees with the vector field.
+</p>
+
+
+<h3>10. Scalar field versus vector field</h3>
+
+<p>
+A scalar field assigns one number:
+</p>
+
+\[
+f(x,y).
+\]
+
+<p>
+A vector field assigns several components:
+</p>
+
+\[
+\mathbf{F}(x,y)
+=
+\begin{pmatrix}
+P(x,y)\\
+Q(x,y)
+\end{pmatrix}.
+\]
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{scalar field}
+:
+\text{point}\rightarrow\text{number}
+}
+\]
+
+\[
+\boxed{
+\text{vector field}
+:
+\text{point}\rightarrow\text{vector}
+}
+\]
+
+</div>
+
+
+<h3>11. Gradient fields</h3>
+
+<p>
+If a scalar function
+</p>
+
+\[
+\phi(x,y)
+\]
+
+<p>
+is given, its gradient
+</p>
+
+\[
+\nabla\phi
+\]
+
+<p>
+is itself a vector field.
+</p>
+
+<p>
+For example, if
+</p>
+
+\[
+\phi(x,y)=x^2+y^2,
+\]
+
+<p>
+then
+</p>
+
+\[
+\nabla\phi
+=
+\begin{pmatrix}
+2x\\
+2y
+\end{pmatrix}.
+\]
+
+<p>
+This is a radial vector field.
+</p>
+
+
+<h3>12. Conservative vector fields</h3>
+
+<p>
+A vector field of the form
+</p>
+
+\[
+\mathbf{F}=\nabla\phi
+\]
+
+<p>
+is called a conservative vector field.
+</p>
+
+<p>
+The scalar function \(\phi\) is called a potential function.
+</p>
+
+<p>
+Such fields have important properties when we study line integrals.
+</p>
+
+
+<h3>13. Divergence: the idea</h3>
+
+<p>
+A vector field may appear to spread outward from a point or converge inward.
+</p>
+
+<p>
+The divergence measures this local source-or-sink behaviour.
+</p>
+
+<p>
+For
+</p>
+
+\[
+\mathbf{F}
+=
+\begin{pmatrix}
+P\\
+Q
+\end{pmatrix},
+\]
+
+<p>
+the divergence is
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\nabla\cdot\mathbf{F}
+=
+\frac{\partial P}{\partial x}
++
+\frac{\partial Q}{\partial y}
+}
+\]
+
+</div>
+
+
+<h3>14. Example of divergence</h3>
+
+<p>
+For
+</p>
+
+\[
+\mathbf{F}(x,y)
+=
+\begin{pmatrix}
+x\\
+y
+\end{pmatrix},
+\]
+
+<p>
+we have
+</p>
+
+\[
+\frac{\partial P}{\partial x}=1
+\]
+
+<p>
+and
+</p>
+
+\[
+\frac{\partial Q}{\partial y}=1.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+\boxed{
+\nabla\cdot\mathbf{F}=2
+}
+\]
+
+<p>
+The positive divergence agrees with the outward-spreading pattern of the field.
+</p>
+
+
+<h3>15. Curl: the idea</h3>
+
+<p>
+Another question is whether a vector field tends to rotate locally.
+</p>
+
+<p>
+In two dimensions, a useful scalar form of curl is
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\frac{\partial Q}{\partial x}
+-
+\frac{\partial P}{\partial y}
+}
+\]
+
+</div>
+
+<p>
+A nonzero value indicates local rotational tendency.
+</p>
+
+
+<h3>16. Example of rotational behaviour</h3>
+
+<p>
+For
+</p>
+
+\[
+\mathbf{F}(x,y)
+=
+\begin{pmatrix}
+-y\\
+x
+\end{pmatrix},
+\]
+
+<p>
+we have
+</p>
+
+\[
+P=-y,
+\qquad
+Q=x.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+\frac{\partial Q}{\partial x}=1
+\]
+
+<p>
+and
+</p>
+
+\[
+\frac{\partial P}{\partial y}=-1.
+\]
+
+<p>
+So
+</p>
+
+\[
+\boxed{
+\frac{\partial Q}{\partial x}
+-
+\frac{\partial P}{\partial y}
+=
+2
+}
+\]
+
+<p>
+which agrees with the rotational pattern.
+</p>
+
+
+<h3>17. Three-dimensional vector fields</h3>
+
+<p>
+In three dimensions,
+</p>
+
+\[
+\mathbf{F}(x,y,z)
+=
+\begin{pmatrix}
+P(x,y,z)\\
+Q(x,y,z)\\
+R(x,y,z)
+\end{pmatrix}.
+\]
+
+<p>
+The divergence is
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\nabla\cdot\mathbf{F}
+=
+P_x+Q_y+R_z
+}
+\]
+
+</div>
+
+<p>
+and the curl is a vector:
+</p>
+
+\[
+\nabla\times\mathbf{F}.
+\]
+
+
+<h3>18. Why vector fields matter in modelling</h3>
+
+<p>
+Whenever a system has several state variables, the model determines a vector of rates.
+</p>
+
+<p>
+For example,
+</p>
+
+\[
+\begin{pmatrix}
+dS/dt\\
+dI/dt\\
+dR/dt
+\end{pmatrix}
+\]
+
+<p>
+forms a vector field in the state space of an epidemic model.
+</p>
+
+<p>
+Every possible state
+</p>
+
+\[
+(S,I,R)
+\]
+
+<p>
+has an associated direction of motion.
+</p>
+
+
+<h3>19. The central idea</h3>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\mathbf{F}(x,y)
+=
+\begin{pmatrix}
+P(x,y)\\
+Q(x,y)
+\end{pmatrix}
+}
+\]
+
+\[
+\downarrow
+\]
+
+\[
+\boxed{
+\text{every point receives a direction and magnitude}
+}
+\]
+
+</div>
+
+<p>
+Vector fields turn multivariable functions into geometric descriptions of flow, force and dynamical change.
+</p>
+
+
+<div class="lesson-navigation">
+
+<a href="jacobian.html">
+← The Jacobian
+</a>
+
+<a href="divergence-curl.html">
+Next: Divergence and Curl →
+</a>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<div>
+<strong>dy/dx</strong>
+<p>Calculus Learning</p>
+</div>
+
+</footer>
+
+
+</body>
+
+</html>
