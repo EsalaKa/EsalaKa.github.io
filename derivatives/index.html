@@ -1,297 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Differentiation | dy/dx</title>
-
 <link rel="stylesheet" href="../style.css">
-
-<!-- MathJax -->
 <script>
-window.MathJax = {
-  tex: {
-    inlineMath: [['\\(', '\\)']],
-    displayMath: [['\\[', '\\]'], ['$$', '$$']]
-  }
-};
+window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]'],['$$','$$']]}};
 </script>
-
-<script defer
-src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-</script>
-
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
-
-
 <body>
-
 <header class="site-header">
-
-<div class="brand">
-<a href="../index.html">dy/dx</a>
-</div>
-
-<nav class="top-nav">
-<a href="../index.html">Home</a>
-<a href="../index.html#path">Learning Path</a>
-<a href="../notes.html">PDF Notes</a>
-<a href="../about.html">About</a>
-</nav>
-
+<div class="brand"><a href="../index.html">dy/dx</a></div>
+<nav class="top-nav"><a href="../index.html">Home</a><a href="../index.html#path">Learning Path</a><a href="../notes.html">PDF Notes</a><a href="../about.html">About</a></nav>
 </header>
-
-
 <main>
-
-
 <section class="hero">
-
-<p class="eyebrow">
-CHAPTER 04
-</p>
-
-<h1>
-Differentiation
-</h1>
-
-<p class="hero-text">
-Develop the derivative from the idea of change and understand what
-differentiation means before learning its rules.
-</p>
-
-<div class="hero-math">
-
-\[
-\frac{\Delta y}{\Delta x}
-\rightarrow
-\lim_{\Delta x\to0}
-\frac{\Delta y}{\Delta x}
-\rightarrow
-\frac{dy}{dx}
-\]
-
-</div>
-
+<p class="eyebrow">CHAPTER 04</p>
+<h1>Differentiation</h1>
+<p class="hero-text">Develop the derivative from the idea of change and understand what differentiation means before learning its rules and applications.</p>
+<div class="hero-math">\[\frac{\Delta y}{\Delta x}\rightarrow\lim_{\Delta x\to0}\frac{\Delta y}{\Delta x}\rightarrow\frac{dy}{dx}\]</div>
 </section>
-
-
-
 <section class="learning-path">
-
-<p class="section-label">
-DIFFERENTIATION
-</p>
-
-<h2>
-From limits to derivatives
-</h2>
-
+<p class="section-label">DIFFERENTIATION</p>
+<h2>From limits to derivatives</h2>
 <div class="chapter-grid">
-
-
-<a class="chapter-card" href="first-principles.html">
-<span class="chapter-number">01</span>
-<h3>Derivative from First Principles</h3>
-<p>
-Build the derivative from the difference quotient and a limiting process.
-</p>
-<span class="chapter-link">Learn →</span>
-</a>
-
-
-<a class="chapter-card" href="derivative-notation.html">
-<span class="chapter-number">02</span>
-<h3>Derivative Notation</h3>
-<p>
-Understand \(f'(x)\), \(dy/dx\), \(D_xf\) and the meaning of the notation.
-</p>
-<span class="chapter-link">Learn →</span>
-</a>
-
-
-<a class="chapter-card" href="slope.html">
-<span class="chapter-number">03</span>
-<h3>Derivative as Slope</h3>
-<p>
-Interpret the derivative geometrically as the slope of a tangent line.
-</p>
-<span class="chapter-link">Learn →</span>
-</a>
-
-
-<a class="chapter-card" href="rate-of-change.html">
-<span class="chapter-number">04</span>
-<h3>Derivative as a Rate of Change</h3>
-<p>
-Interpret derivatives as instantaneous rates of change between quantities.
-</p>
-<span class="chapter-link">Learn →</span>
-</a>
-
-
-<a class="chapter-card" href="differentials.html">
-<span class="chapter-number">05</span>
-<h3>Differentials: \(dx\) and \(dy\)</h3>
-<p>
-Understand the symbols \(dx\) and \(dy\), and their relationship to the derivative.
-</p>
-<span class="chapter-link">Learn →</span>
-</a>
-
-
-<a class="chapter-card" href="power-rule.html">
-<span class="chapter-number">06</span>
-<h3>The Power Rule</h3>
-<p>
-Differentiate powers and understand how the rule follows from the derivative.
-</p>
-<span class="chapter-link">Learn →</span>
-</a>
-
-
-<a class="chapter-card" href="product-rule.html">
-<span class="chapter-number">07</span>
-<h3>The Product Rule</h3>
-<p>
-Differentiate expressions formed by multiplying two functions.
-</p>
-<span class="chapter-link">Learn →</span>
-</a>
-
-
-<a class="chapter-card" href="quotient-rule.html">
-<span class="chapter-number">08</span>
-<h3>The Quotient Rule</h3>
-<p>
-Differentiate expressions formed by dividing one function by another.
-</p>
-<span class="chapter-link">Learn →</span>
-</a>
-
-
-<a class="chapter-card" href="chain-rule.html">
-<span class="chapter-number">09</span>
-<h3>The Chain Rule</h3>
-<p>
-Understand differentiation when one function is contained inside another.
-</p>
-<span class="chapter-link">Learn →</span>
-</a>
-
-
-<a class="chapter-card" href="standard-functions.html">
-<span class="chapter-number">10</span>
-<h3>Derivatives of Standard Functions</h3>
-<p>
-Differentiate exponential, logarithmic and trigonometric functions.
-</p>
-<span class="chapter-link">Learn →</span>
-</a>
-
-
-<a class="chapter-card" href="implicit-differentiation.html">
-<span class="chapter-number">11</span>
-<h3>Implicit Differentiation</h3>
-<p>
-Differentiate relationships where \(y\) is not written explicitly as a function of \(x\).
-</p>
-<span class="chapter-link">Learn →</span>
-</a>
-
-
-<a class="chapter-card" href="higher-derivatives.html">
-<span class="chapter-number">12</span>
-<h3>Higher-Order Derivatives</h3>
-<p>
-Understand second and higher derivatives and what they describe.
-</p>
-<span class="chapter-link">Learn →</span>
-</a>
-
-
-<a class="chapter-card" href="stationary-points.html">
-<span class="chapter-number">13</span>
-<h3>Stationary Points</h3>
-<p>
-Use derivatives to identify maxima, minima and other stationary behaviour.
-</p>
-<span class="chapter-link">Learn →</span>
-</a>
-
-
-<a class="chapter-card" href="optimisation.html">
-<span class="chapter-number">14</span>
-<h3>Optimisation</h3>
-<p>
-Use derivatives to find values that maximise or minimise quantities.
-</p>
-<span class="chapter-link">Learn →</span>
-</a>
-
-
-<a class="chapter-card" href="related-rates.html">
-<span class="chapter-number">15</span>
-<h3>Related Rates</h3>
-<p>
-Use derivatives to connect the rates at which related quantities change.
-</p>
-<span class="chapter-link">Learn →</span>
-</a>
-
-
+<a class="chapter-card" href="first-principles.html"><span class="chapter-number">01</span><h3>Derivative from First Principles</h3><p>Build the derivative from the difference quotient and a limiting process, including its meaning as slope and instantaneous rate of change.</p><span class="chapter-link">Learn →</span></a>
+<a class="chapter-card" href="derivative-notation.html"><span class="chapter-number">02</span><h3>Derivative Notation</h3><p>Understand \(f'(x)\), \(dy/dx\), differentiation operators and higher-derivative notation.</p><span class="chapter-link">Learn →</span></a>
+<a class="chapter-card" href="differentials.html"><span class="chapter-number">03</span><h3>Differentials: \(dx\) and \(dy\)</h3><p>Understand differentials, linear change and the relationship \(dy=f'(x)dx\).</p><span class="chapter-link">Learn →</span></a>
+<a class="chapter-card" href="power-rule.html"><span class="chapter-number">04</span><h3>The Power Rule</h3><p>Differentiate powers and understand how the rule follows from the definition of the derivative.</p><span class="chapter-link">Learn →</span></a>
+<a class="chapter-card" href="sum-constant-rules.html"><span class="chapter-number">05</span><h3>Sum, Difference and Constant Rules</h3><p>Differentiate sums, differences, constants and constant multiples.</p><span class="chapter-link">Learn →</span></a>
+<a class="chapter-card" href="product-rule.html"><span class="chapter-number">06</span><h3>The Product Rule</h3><p>Differentiate expressions formed by multiplying functions.</p><span class="chapter-link">Learn →</span></a>
+<a class="chapter-card" href="quotient-rule.html"><span class="chapter-number">07</span><h3>The Quotient Rule</h3><p>Differentiate expressions formed by dividing one function by another.</p><span class="chapter-link">Learn →</span></a>
+<a class="chapter-card" href="chain-rule.html"><span class="chapter-number">08</span><h3>The Chain Rule</h3><p>Differentiate composite functions and understand how rates of change combine.</p><span class="chapter-link">Learn →</span></a>
+<a class="chapter-card" href="exponential-log-derivatives.html"><span class="chapter-number">09</span><h3>Exponential and Logarithmic Derivatives</h3><p>Differentiate exponential and logarithmic functions and combine their rules with the chain rule.</p><span class="chapter-link">Learn →</span></a>
+<a class="chapter-card" href="trigonometric-derivatives.html"><span class="chapter-number">10</span><h3>Trigonometric Derivatives</h3><p>Differentiate sine, cosine and tangent functions, including composite forms.</p><span class="chapter-link">Learn →</span></a>
+<a class="chapter-card" href="implicit-differentiation.html"><span class="chapter-number">11</span><h3>Implicit Differentiation</h3><p>Differentiate relationships where \(y\) is not written explicitly as a function of \(x\).</p><span class="chapter-link">Learn →</span></a>
+<a class="chapter-card" href="higher-derivatives.html"><span class="chapter-number">12</span><h3>Higher-Order Derivatives</h3><p>Understand second and higher derivatives, concavity and successive rates of change.</p><span class="chapter-link">Learn →</span></a>
+<a class="chapter-card" href="stationary-points.html"><span class="chapter-number">13</span><h3>Stationary Points</h3><p>Use derivatives to identify maxima, minima and stationary points of inflection.</p><span class="chapter-link">Learn →</span></a>
+<a class="chapter-card" href="optimisation.html"><span class="chapter-number">14</span><h3>Optimisation</h3><p>Use derivatives to find values that maximise or minimise quantities.</p><span class="chapter-link">Learn →</span></a>
+<a class="chapter-card" href="related-rates.html"><span class="chapter-number">15</span><h3>Related Rates</h3><p>Use the chain rule to connect rates at which related quantities change.</p><span class="chapter-link">Learn →</span></a>
 </div>
-
 </section>
-
-
-
 <section class="principle">
-
-<h2>
-The central idea
-</h2>
-
-<div class="principle-math">
-
-\[
-f'(x)
-=
-\lim_{h\to0}
-\frac{f(x+h)-f(x)}{h}
-\]
-
-</div>
-
-<p>
-Differentiation is fundamentally the study of instantaneous change.
-The differentiation rules are efficient ways of calculating this
-underlying limiting quantity.
-</p>
-
+<h2>The central idea</h2>
+<div class="principle-math">\[f'(x)=\lim_{h\to0}\frac{f(x+h)-f(x)}{h}\]</div>
+<p>Differentiation is fundamentally the study of instantaneous change. The differentiation rules are efficient consequences of this underlying limiting definition.</p>
 </section>
-
-
 </main>
-
-
-<footer>
-
-<div>
-<strong>dy/dx</strong>
-<p>Calculus Learning</p>
-</div>
-
-<p class="footer-note">
-Mathematics from foundations to stochastic modelling.
-</p>
-
-</footer>
-
-
+<footer><div><strong>dy/dx</strong><p>Calculus Learning</p></div><p class="footer-note">Mathematics from foundations to stochastic modelling.</p></footer>
 </body>
-
 </html>
