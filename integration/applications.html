@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Applications of Integration | dy/dx</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']]
+  }
+};
+</script>
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+</head>
+
+<body>
+
+<header class="site-header">
+
+<div class="brand">
+<a href="../index.html">dy/dx</a>
+</div>
+
+<nav class="top-nav">
+<a href="../index.html">Home</a>
+<a href="index.html">Integration</a>
+</nav>
+
+</header>
+
+
+<main>
+
+<section class="lesson-header">
+
+<p class="eyebrow">INTEGRATION 09</p>
+
+<h1>Applications of Integration</h1>
+
+<p class="lesson-intro">
+Integration turns rates and local contributions into total quantities.
+</p>
+
+</section>
+
+
+<section class="lesson-content">
+
+<h2>The main idea</h2>
+
+<p>
+If a quantity is built continuously from small contributions, integration can often recover the total.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{local contribution}
+\longrightarrow
+\text{integral}
+\longrightarrow
+\text{total quantity}
+}
+\]
+
+</div>
+
+
+<h3>1. Area under a curve</h3>
+
+<p>
+If
+</p>
+
+\[
+f(x)\ge0
+\]
+
+<p>
+on \([a,b]\), then
+</p>
+
+\[
+\int_a^b f(x)\,dx
+\]
+
+<p>
+gives the area between the graph of \(y=f(x)\), the \(x\)-axis, and the vertical lines \(x=a\) and \(x=b\).
+</p>
+
+
+<h3>2. Area between two curves</h3>
+
+<p>
+Suppose
+</p>
+
+\[
+f(x)\ge g(x)
+\]
+
+<p>
+on \([a,b]\).
+</p>
+
+<p>
+Then the area between the curves is
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+A=
+\int_a^b
+\left[f(x)-g(x)\right]\,dx
+}
+\]
+
+</div>
+
+<p>
+The vertical distance between the curves is
+</p>
+
+\[
+f(x)-g(x).
+\]
+
+<p>
+Integration accumulates these small vertical strips across the interval.
+</p>
+
+
+<h3>3. Example: area between two curves</h3>
+
+<p>
+Consider
+</p>
+
+\[
+f(x)=x
+\]
+
+<p>
+and
+</p>
+
+\[
+g(x)=x^2
+\]
+
+<p>
+between \(x=0\) and \(x=1\).
+</p>
+
+<p>
+Since \(x\ge x^2\) on this interval,
+</p>
+
+\[
+A=
+\int_0^1(x-x^2)\,dx.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+A
+=
+\left[
+\frac{x^2}{2}
+-
+\frac{x^3}{3}
+\right]_0^1.
+\]
+
+<p>
+So
+</p>
+
+\[
+A
+=
+\frac12-\frac13
+=
+\frac16.
+\]
+
+<p>
+Hence,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+A=\frac16
+}
+\]
+
+</div>
+
+
+<h3>4. Displacement from velocity</h3>
+
+<p>
+If
+</p>
+
+\[
+v(t)=\frac{ds}{dt},
+\]
+
+<p>
+then displacement from time \(a\) to time \(b\) is
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+s(b)-s(a)
+=
+\int_a^b v(t)\,dt
+}
+\]
+
+</div>
+
+<p>
+Integration recovers total position change from the rate of change of position.
+</p>
+
+
+<h3>5. Example: constant velocity</h3>
+
+<p>
+If
+</p>
+
+\[
+v(t)=4
+\]
+
+<p>
+for \(0\le t\le3\), then
+</p>
+
+\[
+\int_0^3 4\,dt
+=
+12.
+\]
+
+<p>
+So the displacement is \(12\) units.
+</p>
+
+
+<h3>6. Variable velocity</h3>
+
+<p>
+Suppose
+</p>
+
+\[
+v(t)=2t.
+\]
+
+<p>
+From \(t=0\) to \(t=3\),
+</p>
+
+\[
+s(3)-s(0)
+=
+\int_0^3 2t\,dt.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+=
+[t^2]_0^3
+=
+9.
+\]
+
+<p>
+So the total displacement is
+</p>
+
+\[
+\boxed{9}
+\]
+
+<p>
+units.
+</p>
+
+
+<h3>7. Distance versus displacement</h3>
+
+<p>
+A velocity can be negative.
+</p>
+
+<p>
+Then
+</p>
+
+\[
+\int_a^b v(t)\,dt
+\]
+
+<p>
+gives signed displacement.
+</p>
+
+<p>
+To obtain total distance travelled, integrate the speed:
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{distance}
+=
+\int_a^b |v(t)|\,dt
+}
+\]
+
+</div>
+
+
+<h3>8. Accumulating a rate</h3>
+
+<p>
+The same principle works for any rate.
+</p>
+
+<p>
+If
+</p>
+
+\[
+r(t)=\frac{dQ}{dt},
+\]
+
+<p>
+then
+</p>
+
+\[
+Q(b)-Q(a)
+=
+\int_a^b r(t)\,dt.
+\]
+
+<p>
+This can represent population change, mass accumulation, fluid flow, energy transfer or many other quantities.
+</p>
+
+
+<h3>9. Example: population growth rate</h3>
+
+<p>
+Suppose a population changes at rate
+</p>
+
+\[
+\frac{dP}{dt}=100e^{0.2t}.
+\]
+
+<p>
+The population change between times \(0\) and \(T\) is
+</p>
+
+\[
+P(T)-P(0)
+=
+\int_0^T100e^{0.2t}\,dt.
+\]
+
+<p>
+Since
+</p>
+
+\[
+\int e^{0.2t}\,dt
+=
+5e^{0.2t},
+\]
+
+<p>
+we obtain
+</p>
+
+\[
+P(T)-P(0)
+=
+500[e^{0.2t}]_0^T.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+\boxed{
+P(T)-P(0)
+=
+500(e^{0.2T}-1)
+}
+\]
+
+</div>
+
+
+<h3>10. Average value of a function</h3>
+
+<p>
+The average value of \(f(x)\) over \([a,b]\) is
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+f_{\text{avg}}
+=
+\frac{1}{b-a}
+\int_a^b f(x)\,dx
+}
+\]
+
+</div>
+
+<p>
+The integral gives the total accumulation, and dividing by the interval length gives the average per unit of \(x\).
+</p>
+
+
+<h3>11. Example: average value</h3>
+
+<p>
+Find the average value of
+</p>
+
+\[
+f(x)=x^2
+\]
+
+<p>
+on
+</p>
+
+\[
+[0,2].
+\]
+
+<p>
+Then
+</p>
+
+\[
+f_{\text{avg}}
+=
+\frac{1}{2}
+\int_0^2 x^2\,dx.
+\]
+
+<p>
+So
+</p>
+
+\[
+=
+\frac12
+\left[
+\frac{x^3}{3}
+\right]_0^2
+=
+\frac12\cdot\frac83.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+\boxed{
+f_{\text{avg}}=\frac43
+}
+\]
+
+
+<h3>12. Volume by cross-sectional area</h3>
+
+<p>
+Suppose a solid has cross-sectional area \(A(x)\) at position \(x\).
+</p>
+
+<p>
+A thin slice of thickness \(dx\) has approximate volume
+</p>
+
+\[
+dV=A(x)\,dx.
+\]
+
+<p>
+Accumulating the slices gives
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+V=
+\int_a^b A(x)\,dx
+}
+\]
+
+</div>
+
+
+<h3>13. Volume of revolution</h3>
+
+<p>
+If the graph \(y=f(x)\) is rotated around the \(x\)-axis, each cross-section is a disk of radius \(f(x)\).
+</p>
+
+<p>
+Its area is
+</p>
+
+\[
+\pi[f(x)]^2.
+\]
+
+<p>
+Therefore,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+V=
+\pi\int_a^b [f(x)]^2\,dx
+}
+\]
+
+</div>
+
+
+<h3>14. Probability density</h3>
+
+<p>
+For a continuous random variable with probability density \(p(x)\),
+</p>
+
+\[
+p(x)\ge0
+\]
+
+<p>
+and
+</p>
+
+\[
+\int_{-\infty}^{\infty}p(x)\,dx=1.
+\]
+
+<p>
+The probability that \(X\) lies between \(a\) and \(b\) is
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+P(a\le X\le b)
+=
+\int_a^b p(x)\,dx
+}
+\]
+
+</div>
+
+<p>
+So probability can also be interpreted as accumulated density.
+</p>
+
+
+<h3>15. The common structure</h3>
+
+<p>
+These applications may look different, but mathematically they share the same idea:
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{total}
+=
+\int
+\text{rate or density}
+\times
+\text{small interval}
+}
+\]
+
+</div>
+
+<p>
+Examples include
+</p>
+
+\[
+\text{displacement}
+=
+\int \text{velocity}\,dt,
+\]
+
+\[
+\text{population change}
+=
+\int \text{growth rate}\,dt,
+\]
+
+\[
+\text{volume}
+=
+\int \text{cross-sectional area}\,dx,
+\]
+
+\[
+\text{probability}
+=
+\int \text{probability density}\,dx.
+\]
+
+
+<h3>16. Differentiation and integration together</h3>
+
+<p>
+Differentiation moves from a total quantity to its local rate:
+</p>
+
+\[
+Q(t)
+\longrightarrow
+\frac{dQ}{dt}.
+\]
+
+<p>
+Integration moves from the rate back to accumulated change:
+</p>
+
+\[
+\frac{dQ}{dt}
+\longrightarrow
+\int\frac{dQ}{dt}\,dt.
+\]
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{quantity}
+\overset{\text{differentiate}}{\longrightarrow}
+\text{rate}
+\overset{\text{integrate}}{\longrightarrow}
+\text{change in quantity}
+}
+\]
+
+</div>
+
+
+<h3>17. Why this matters for modelling</h3>
+
+<p>
+Mathematical models often describe how quickly something changes rather than giving the total quantity directly.
+</p>
+
+<p>
+Integration converts that rate information into accumulated effects.
+</p>
+
+<p>
+This idea will become central when we study differential equations.
+</p>
+
+
+<div class="lesson-navigation">
+
+<a href="improper-integrals.html">
+← Improper Integrals
+</a>
+
+<a href="../odes/index.html">
+Next: Differential Equations →
+</a>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<div>
+<strong>dy/dx</strong>
+<p>Calculus Learning</p>
+</div>
+
+</footer>
+
+</body>
+
+</html>
