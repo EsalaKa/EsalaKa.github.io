@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>The Gradient | dy/dx</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']]
+  }
+};
+</script>
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+</head>
+
+
+<body>
+
+
+<header class="site-header">
+
+<div class="brand">
+<a href="../index.html">dy/dx</a>
+</div>
+
+<nav class="top-nav">
+<a href="../index.html">Home</a>
+<a href="index.html">Multivariable Calculus</a>
+</nav>
+
+</header>
+
+
+<main>
+
+
+<section class="lesson-header">
+
+<p class="eyebrow">MULTIVARIABLE CALCULUS 03</p>
+
+<h1>The Gradient</h1>
+
+<p class="lesson-intro">
+The gradient collects the partial derivatives of a scalar function into a vector that points in the direction of steepest increase.
+</p>
+
+</section>
+
+
+<section class="lesson-content">
+
+
+<h2>The main idea</h2>
+
+<p>
+Suppose
+</p>
+
+\[
+f(x,y)
+\]
+
+<p>
+is a scalar-valued function.
+</p>
+
+<p>
+We already know that
+</p>
+
+\[
+\frac{\partial f}{\partial x}
+\]
+
+<p>
+measures change in the \(x\)-direction, while
+</p>
+
+\[
+\frac{\partial f}{\partial y}
+\]
+
+<p>
+measures change in the \(y\)-direction.
+</p>
+
+<p>
+The gradient combines these into one vector:
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\nabla f
+=
+\begin{pmatrix}
+\frac{\partial f}{\partial x}\\[4pt]
+\frac{\partial f}{\partial y}
+\end{pmatrix}
+}
+\]
+
+</div>
+
+
+<h3>1. The symbol \(\nabla\)</h3>
+
+<p>
+The symbol
+</p>
+
+\[
+\nabla
+\]
+
+<p>
+is called <strong>nabla</strong>, and is often read as “del”.
+</p>
+
+<p>
+So
+</p>
+
+\[
+\nabla f
+\]
+
+<p>
+is read as
+</p>
+
+<p>
+<strong>“the gradient of \(f\)”</strong>.
+</p>
+
+
+<h3>2. A simple example</h3>
+
+<p>
+Let
+</p>
+
+\[
+f(x,y)=x^2+y^2.
+\]
+
+<p>
+Then
+</p>
+
+\[
+\frac{\partial f}{\partial x}=2x
+\]
+
+<p>
+and
+</p>
+
+\[
+\frac{\partial f}{\partial y}=2y.
+\]
+
+<p>
+Therefore,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\nabla f
+=
+\begin{pmatrix}
+2x\\
+2y
+\end{pmatrix}
+}
+\]
+
+</div>
+
+
+<h3>3. Evaluate the gradient at a point</h3>
+
+<p>
+At
+</p>
+
+\[
+(x,y)=(1,2),
+\]
+
+<p>
+we have
+</p>
+
+\[
+\nabla f(1,2)
+=
+\begin{pmatrix}
+2\\
+4
+\end{pmatrix}.
+\]
+
+<p>
+So the gradient vector at \((1,2)\) points in the direction
+</p>
+
+\[
+\begin{pmatrix}
+2\\
+4
+\end{pmatrix}.
+\]
+
+
+<h3>4. What direction does the gradient point?</h3>
+
+<p>
+The gradient points in the direction in which the function increases most rapidly.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\nabla f
+=
+\text{direction of steepest increase}
+}
+\]
+
+</div>
+
+<p>
+If we move in the opposite direction,
+</p>
+
+\[
+-\nabla f,
+\]
+
+<p>
+the function decreases most rapidly.
+</p>
+
+
+<h3>5. Why the gradient is a vector</h3>
+
+<p>
+For a one-variable function, there is only one input direction.
+</p>
+
+<p>
+For a function \(f(x,y)\), there are infinitely many possible directions in the plane.
+</p>
+
+<p>
+The gradient captures the local change information in a single vector.
+</p>
+
+
+<h3>6. Level curves</h3>
+
+<p>
+A level curve satisfies
+</p>
+
+\[
+f(x,y)=c,
+\]
+
+<p>
+where \(c\) is constant.
+</p>
+
+<p>
+Along a level curve, the value of \(f\) does not change.
+</p>
+
+<p>
+Therefore, movement along the curve produces zero first-order change in \(f\).
+</p>
+
+
+<h3>7. Gradient and level curves</h3>
+
+<p>
+The gradient is perpendicular to the level curve.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\nabla f
+\perp
+\text{level curve}
+}
+\]
+
+</div>
+
+<p>
+This is one of the most important geometric meanings of the gradient.
+</p>
+
+
+<h3>8. Example with circular level curves</h3>
+
+<p>
+For
+</p>
+
+\[
+f(x,y)=x^2+y^2,
+\]
+
+<p>
+the level curves are
+</p>
+
+\[
+x^2+y^2=c.
+\]
+
+<p>
+These are circles centred at the origin.
+</p>
+
+<p>
+The gradient is
+</p>
+
+\[
+\nabla f=
+\begin{pmatrix}
+2x\\
+2y
+\end{pmatrix}.
+\]
+
+<p>
+This vector points directly away from the origin.
+</p>
+
+<p>
+So it is perpendicular to the circular level curves.
+</p>
+
+
+<h3>9. Diagram</h3>
+
+<div style="max-width:680px; margin:30px auto;">
+
+<svg viewBox="0 0 680 420"
+     width="100%"
+     role="img"
+     aria-labelledby="gradient-title gradient-desc"
+     xmlns="http://www.w3.org/2000/svg">
+
+<title id="gradient-title">
+Gradient perpendicular to level curves
+</title>
+
+<desc id="gradient-desc">
+Concentric circular level curves are shown with a gradient vector pointing outward from the origin and perpendicular to the curve.
+</desc>
+
+<line x1="70" y1="210" x2="610" y2="210"
+      stroke="currentColor"
+      stroke-width="2"/>
+
+<line x1="340" y1="370" x2="340" y2="45"
+      stroke="currentColor"
+      stroke-width="2"/>
+
+<circle cx="340" cy="210" r="55"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        opacity="0.45"/>
+
+<circle cx="340" cy="210" r="105"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        opacity="0.55"/>
+
+<circle cx="340" cy="210" r="150"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        opacity="0.65"/>
+
+<circle cx="445" cy="210" r="6"
+        fill="currentColor"/>
+
+<line x1="445" y1="210" x2="545" y2="210"
+      stroke="currentColor"
+      stroke-width="3"/>
+
+<polygon points="553,210 538,202 538,218"
+         fill="currentColor"/>
+
+<text x="485" y="190"
+      font-size="17"
+      fill="currentColor">
+∇f
+</text>
+
+<text x="420" y="250"
+      font-size="16"
+      fill="currentColor">
+level curve
+</text>
+
+</svg>
+
+</div>
+
+
+<h3>10. Directional change</h3>
+
+<p>
+Suppose we move from a point in a direction given by a unit vector
+</p>
+
+\[
+\mathbf{u}.
+\]
+
+<p>
+The rate of change of \(f\) in that direction is
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+D_{\mathbf{u}}f
+=
+\nabla f\cdot\mathbf{u}
+}
+\]
+
+</div>
+
+<p>
+This is called the <strong>directional derivative</strong>.
+</p>
+
+
+<h3>11. Why the dot product appears</h3>
+
+<p>
+The dot product measures how strongly the direction of movement aligns with the gradient.
+</p>
+
+<p>
+If \(\mathbf{u}\) points in the same direction as \(\nabla f\), the directional derivative is largest.
+</p>
+
+<p>
+If \(\mathbf{u}\) is perpendicular to \(\nabla f\), then
+</p>
+
+\[
+\nabla f\cdot\mathbf{u}=0.
+\]
+
+<p>
+So there is no first-order change in \(f\) in that direction.
+</p>
+
+
+<h3>12. Magnitude of the gradient</h3>
+
+<p>
+For
+</p>
+
+\[
+\nabla f
+=
+\begin{pmatrix}
+f_x\\
+f_y
+\end{pmatrix},
+\]
+
+<p>
+its magnitude is
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\|\nabla f\|
+=
+\sqrt{
+\left(\frac{\partial f}{\partial x}\right)^2
++
+\left(\frac{\partial f}{\partial y}\right)^2
+}
+}
+\]
+
+</div>
+
+<p>
+This gives the maximum directional rate of increase at that point.
+</p>
+
+
+<h3>13. Example</h3>
+
+<p>
+For
+</p>
+
+\[
+f(x,y)=x^2+y^2,
+\]
+
+<p>
+at \((1,2)\),
+</p>
+
+\[
+\nabla f=
+\begin{pmatrix}
+2\\
+4
+\end{pmatrix}.
+\]
+
+<p>
+Its magnitude is
+</p>
+
+\[
+\|\nabla f\|
+=
+\sqrt{2^2+4^2}
+=
+\sqrt{20}
+=
+2\sqrt5.
+\]
+
+<p>
+So the maximum local rate of increase is
+</p>
+
+\[
+\boxed{
+2\sqrt5
+}
+\]
+
+
+<h3>14. Gradient in three variables</h3>
+
+<p>
+If
+</p>
+
+\[
+f(x,y,z)
+\]
+
+<p>
+depends on three variables, then
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\nabla f
+=
+\begin{pmatrix}
+\frac{\partial f}{\partial x}\\[4pt]
+\frac{\partial f}{\partial y}\\[4pt]
+\frac{\partial f}{\partial z}
+\end{pmatrix}
+}
+\]
+
+</div>
+
+
+<h3>15. Example in three dimensions</h3>
+
+<p>
+Let
+</p>
+
+\[
+f(x,y,z)=x^2+y^2+z^2.
+\]
+
+<p>
+Then
+</p>
+
+\[
+\boxed{
+\nabla f
+=
+\begin{pmatrix}
+2x\\
+2y\\
+2z
+\end{pmatrix}
+}
+\]
+
+<p>
+The gradient points radially outward from the origin.
+</p>
+
+
+<h3>16. Gradient and optimisation</h3>
+
+<p>
+For a differentiable function, an interior local maximum or minimum often occurs where
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\nabla f=\mathbf{0}
+}
+\]
+
+</div>
+
+<p>
+That means all first partial derivatives are zero:
+</p>
+
+\[
+\frac{\partial f}{\partial x}=0,
+\qquad
+\frac{\partial f}{\partial y}=0.
+\]
+
+<p>
+This extends the one-variable condition
+</p>
+
+\[
+f'(x)=0.
+\]
+
+
+<h3>17. Gradient descent</h3>
+
+<p>
+Because
+</p>
+
+\[
+\nabla f
+\]
+
+<p>
+points toward steepest increase,
+</p>
+
+\[
+-\nabla f
+\]
+
+<p>
+points toward steepest decrease.
+</p>
+
+<p>
+This leads to the basic optimisation idea
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\mathbf{x}_{n+1}
+=
+\mathbf{x}_n
+-
+\alpha\nabla f(\mathbf{x}_n)
+}
+\]
+
+</div>
+
+<p>
+where \(\alpha>0\) is a step size.
+</p>
+
+<p>
+This is the basic principle behind gradient descent.
+</p>
+
+
+<h3>18. Gradient in modelling</h3>
+
+<p>
+Suppose an outcome
+</p>
+
+\[
+R(\beta,\gamma)
+\]
+
+<p>
+depends on two parameters.
+</p>
+
+<p>
+Then
+</p>
+
+\[
+\nabla R
+=
+\begin{pmatrix}
+\frac{\partial R}{\partial\beta}\\
+\frac{\partial R}{\partial\gamma}
+\end{pmatrix}.
+\]
+
+<p>
+This vector describes how sensitive \(R\) is to small changes in both parameters.
+</p>
+
+
+<h3>19. Partial derivatives versus gradient</h3>
+
+<p>
+A partial derivative gives one directional component of change:
+</p>
+
+\[
+f_x,
+\qquad
+f_y.
+\]
+
+<p>
+The gradient collects these components:
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\nabla f
+=
+\begin{pmatrix}
+f_x\\
+f_y
+\end{pmatrix}
+}
+\]
+
+</div>
+
+<p>
+So the gradient is not a new type of derivative separate from partial derivatives.
+It is a vector built from them.
+</p>
+
+
+<h3>20. The central idea</h3>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{partial derivatives}
+\longrightarrow
+\text{gradient vector}
+}
+\]
+
+\[
+\boxed{
+\nabla f
+=
+\text{direction of steepest increase}
+}
+\]
+
+\[
+\boxed{
+\|\nabla f\|
+=
+\text{maximum local rate of increase}
+}
+\]
+
+</div>
+
+<p>
+The gradient turns local rate-of-change information into a geometric direction.
+</p>
+
+
+<div class="lesson-navigation">
+
+<a href="partial-derivatives.html">
+← Partial Derivatives
+</a>
+
+<a href="directional-derivatives.html">
+Next: Directional Derivatives →
+</a>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<div>
+<strong>dy/dx</strong>
+<p>Calculus Learning</p>
+</div>
+
+</footer>
+
+
+</body>
+
+</html>
