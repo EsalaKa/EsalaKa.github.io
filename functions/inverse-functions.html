@@ -4,13 +4,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Inverse Functions | dy/dx</title>
-<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="../style.css?v=3">
 <script>
 window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]}};
 </script>
 <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <style>
-.math-graph{max-width:720px;margin:30px auto}.math-graph svg{width:100%;height:auto;display:block}.graph-label{font-size:15px;fill:currentColor}.graph-axis{stroke:currentColor;stroke-width:1.5}.graph-grid{stroke:currentColor;stroke-width:.5;opacity:.16}.graph-guide{stroke:currentColor;stroke-width:1.5;stroke-dasharray:7 6;opacity:.65}.graph-curve{fill:none;stroke:currentColor;stroke-width:3}.graph-point{fill:currentColor}
+.math-graph{max-width:720px;margin:30px auto}
+.math-graph svg{width:100%;height:auto;display:block}
+.graph-label{font-size:15px;fill:#171717!important}
+.graph-axis{stroke:#171717!important;stroke-width:1.6}
+.graph-grid{stroke:#d9dde2!important;stroke-width:.7;opacity:.75}
+.graph-guide{stroke:#5f6469!important;stroke-width:1.4;stroke-dasharray:7 6}
+.graph-curve{fill:none;stroke:#496f8a!important;stroke-width:3}
+.graph-curve-secondary{fill:none;stroke:#9a6754!important;stroke-width:3}
+.graph-point{fill:#171717!important}
 </style>
 </head>
 <body>
@@ -57,13 +65,13 @@ function makePlot(id,xmin,xmax,ymin,ymax,curves,extras){
  if(ymin<=0&&0<=ymax)svg.appendChild(el('line',{x1:m,y1:Y(0),x2:W-m,y2:Y(0),class:'graph-axis'}));
  if(xmin<=0&&0<=xmax)svg.appendChild(el('line',{x1:X(0),y1:m,x2:X(0),y2:H-m,class:'graph-axis'}));
  const g=el('g',{'clip-path':`url(#${id}-clip)`});
- curves.forEach(c=>{
+ curves.forEach((c,j)=>{
    let pts=[]; const n=900;
    for(let i=0;i<=n;i++){
      const x=c.a+(c.b-c.a)*i/n; const y=c.f(x);
      if(Number.isFinite(y) && y>=ymin-1 && y<=ymax+1)pts.push(`${X(x).toFixed(2)},${Y(y).toFixed(2)}`);
    }
-   g.appendChild(el('polyline',{points:pts.join(' '),class:'graph-curve'}));
+   g.appendChild(el('polyline',{points:pts.join(' '),class:j===0?'graph-curve':'graph-curve-secondary'}));
  });
  svg.appendChild(g);
  if(extras)extras(svg,X,Y,W,H,m);
