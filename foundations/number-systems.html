@@ -2,14 +2,10 @@
 <html lang="en">
 
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Number Systems | dy/dx</title>
-
 <link rel="stylesheet" href="../style.css">
-
 <script>
 window.MathJax = {
   tex: {
@@ -18,63 +14,35 @@ window.MathJax = {
   }
 };
 </script>
-
-<script defer
-src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-</script>
-
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 
-
 <body>
-
-
 <header class="site-header">
-
-<div class="brand">
-<a href="../index.html">dy/dx</a>
-</div>
-
+<div class="brand"><a href="../index.html">dy/dx</a></div>
 <nav class="top-nav">
 <a href="../index.html">Home</a>
 <a href="index.html">Foundations</a>
 </nav>
-
 </header>
 
-
 <main>
-
-
 <section class="lesson-header">
-
-<p class="eyebrow">
-FOUNDATIONS 01
-</p>
-
-<h1>
-Number Systems
-</h1>
-
+<p class="eyebrow">FOUNDATIONS 01</p>
+<h1>Number Systems</h1>
 <p class="lesson-intro">
-Different mathematical problems require different kinds of numbers.
+Different mathematical problems require different kinds of numbers. Number systems tell us which values are allowed and which calculations can be carried out.
 </p>
-
 </section>
-
-
 
 <section class="lesson-content">
 
-
-<h2>The main idea</h2>
-
+<h2>Why number systems matter</h2>
 <p>
-The main number systems fit inside one another:
+Counting, debt, sharing, measurement and continuous change do not all use the same kind of number. Mathematics therefore extends the number system whenever the previous one is too limited.
 </p>
 
 <div class="lesson-math">
-
 \[
 \mathbb N
 \subset
@@ -84,137 +52,86 @@ The main number systems fit inside one another:
 \subset
 \mathbb R
 \]
-
 </div>
 
 <p>
-Every natural number is an integer, every integer is rational,
-and every rational number is real.
+Each larger system keeps the earlier numbers but allows new kinds of problems to be solved.
 </p>
 
-
-
 <h3>1. Natural numbers</h3>
-
 <p>
 Natural numbers are the counting numbers:
 </p>
-
 <div class="lesson-math">
-
 \[
-1,\;2,\;3,\;4,\ldots
+\mathbb N=\{1,2,3,4,\ldots\}.
 \]
-
 </div>
-
-<p>
-We write
-</p>
-
-<div class="lesson-math">
-
-\[
-\mathbb N=\{1,2,3,\ldots\}.
-\]
-
-</div>
-
 <p>
 Some definitions also include \(0\) in \(\mathbb N\).
 </p>
-
-
+<p>
+<strong>Why they are needed:</strong> they describe quantities that are counted as whole objects. Examples include 25 students, 8 books, 3 infections or 120 customers. Fractions and negative values are usually not meaningful when counting individual objects.
+</p>
 
 <h3>2. Integers</h3>
-
 <p>
 Integers include positive whole numbers, negative whole numbers and zero:
 </p>
-
 <div class="lesson-math">
-
 \[
-\mathbb Z
-=
-\{\ldots,-3,-2,-1,0,1,2,3,\ldots\}.
+\mathbb Z=\{\ldots,-3,-2,-1,0,1,2,3,\ldots\}.
 \]
-
 </div>
-
-
+<p>
+<strong>Why they are needed:</strong> natural numbers cannot represent quantities below zero. Integers are used for temperatures below zero, financial gains and losses, floors below ground level, direction and changes such as \(-5\) or \(+3\).
+</p>
 
 <h3>3. Rational numbers</h3>
-
 <p>
 A rational number is any number that can be written as
 </p>
-
 <div class="lesson-math">
-
 \[
 \frac{p}{q},
-\qquad
-p,q\in\mathbb Z,
-\qquad
-q\neq0.
+\qquad p,q\in\mathbb Z,
+\qquad q\neq0.
 \]
-
 </div>
-
 <p>
-For example,
+Examples include
 </p>
-
 <div class="lesson-math">
-
 \[
 \frac12,
-\qquad
--\frac34,
-\qquad
-5=\frac51.
+\qquad -\frac34,
+\qquad 5=\frac51.
 \]
-
 </div>
-
 <p>
-A rational number does not need to look like a fraction.
-It only needs to be possible to write it as one.
+<strong>Why they are needed:</strong> integers cannot describe parts of a whole. Rational numbers allow proportions, percentages, rates and exact divisions, such as half a litre, \(2.5\) hours, a probability of \(3/4\), or a price of £1.25.
 </p>
-
-
 
 <h3>4. Rational decimals</h3>
-
 <p>
-Terminating and repeating decimals are rational.
+Terminating and repeating decimals are rational:
 </p>
-
 <div class="lesson-math">
-
 \[
 0.5=\frac12,
 \qquad
 0.333\ldots=\frac13.
 \]
-
 </div>
-
-
+<p>
+Decimals are often more convenient than fractions for measurement, money, data and numerical computation, but mathematically they may represent exactly the same rational number.
+</p>
 
 <h3>5. Irrational numbers</h3>
-
 <p>
-An irrational number cannot be written as a fraction of two integers.
+An irrational number cannot be written as a fraction of two integers. Examples include
 </p>
-
-<p>
-Examples include
-</p>
-
 <div class="lesson-math">
-
 \[
 \sqrt2,
 \qquad
@@ -222,23 +139,19 @@ Examples include
 \qquad
 e.
 \]
-
 </div>
-
 <p>
 Their decimal expansions do not terminate or eventually repeat.
 </p>
-
-
-
-<h3>6. Real numbers</h3>
-
 <p>
-Real numbers include both rational and irrational numbers.
+<strong>Why they are needed:</strong> some exact quantities cannot be represented by rational numbers. For example, the diagonal of a unit square is \(\sqrt2\), the circumference of a circle involves \(\pi\), and continuous exponential growth naturally involves \(e\).
 </p>
 
+<h3>6. Real numbers</h3>
+<p>
+Real numbers include both rational and irrational numbers:
+</p>
 <div class="lesson-math">
-
 \[
 \mathbb R
 =
@@ -246,45 +159,43 @@ Real numbers include both rational and irrational numbers.
 \cup
 \{\text{irrational numbers}\}.
 \]
-
 </div>
-
 <p>
 Every point on the ordinary number line represents a real number.
 </p>
+<p>
+<strong>Why they are needed:</strong> real numbers describe quantities that vary continuously, such as time, distance, temperature, velocity and population proportions. Calculus is mainly developed on the real numbers because limits, derivatives and integrals require values to vary continuously rather than only in whole or fractional steps.
+</p>
 
-
+<h3>7. How the systems grow</h3>
+<p>
+Each extension solves a limitation of the previous system:
+</p>
+<div class="lesson-math">
+\[
+\begin{aligned}
+\mathbb N &: \text{counting},\\
+\mathbb Z &: \text{counting plus negative values},\\
+\mathbb Q &: \text{integers plus exact fractions},\\
+\mathbb R &: \text{rational and irrational continuous values}.
+\end{aligned}
+\]
+</div>
+<p>
+The important question is therefore not simply “what kind of number is this?” but also “what kind of quantity am I trying to represent?”
+</p>
 
 <div class="lesson-navigation">
-
-<a href="index.html">
-← Foundations
-</a>
-
-<a href="expressions.html">
-Next: Algebraic Expressions →
-</a>
-
+<a href="index.html">← Foundations</a>
+<a href="expressions.html">Next: Algebraic Expressions →</a>
 </div>
-
 
 </section>
-
-
 </main>
 
-
-
 <footer>
-
-<div>
-<strong>dy/dx</strong>
-<p>Calculus Learning</p>
-</div>
-
+<div><strong>dy/dx</strong><p>Calculus Learning</p></div>
 </footer>
 
-
 </body>
-
 </html>
