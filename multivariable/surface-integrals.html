@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Surface Integrals | dy/dx</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']]
+  }
+};
+</script>
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+</head>
+
+
+<body>
+
+
+<header class="site-header">
+
+<div class="brand">
+<a href="../index.html">dy/dx</a>
+</div>
+
+<nav class="top-nav">
+<a href="../index.html">Home</a>
+<a href="index.html">Multivariable Calculus</a>
+</nav>
+
+</header>
+
+
+<main>
+
+
+<section class="lesson-header">
+
+<p class="eyebrow">MULTIVARIABLE CALCULUS 11</p>
+
+<h1>Surface Integrals</h1>
+
+<p class="lesson-intro">
+A surface integral accumulates a scalar or vector quantity over a curved surface in space.
+</p>
+
+</section>
+
+
+<section class="lesson-content">
+
+
+<h2>The main idea</h2>
+
+<p>
+Ordinary integrals accumulate along intervals.
+</p>
+
+<p>
+Double integrals accumulate over flat regions.
+</p>
+
+<p>
+Surface integrals extend this idea to curved surfaces.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\iint_S f\,dS
+}
+\]
+
+</div>
+
+<p>
+Here \(S\) is a surface and \(dS\) represents a small element of surface area.
+</p>
+
+
+<h3>1. From area to surface area</h3>
+
+<p>
+For a flat region,
+</p>
+
+\[
+dA
+\]
+
+<p>
+represents a small area element.
+</p>
+
+<p>
+For a curved surface,
+</p>
+
+\[
+dS
+\]
+
+<p>
+represents a small surface-area element.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{flat region}
+\rightarrow dA
+}
+\]
+
+\[
+\boxed{
+\text{curved surface}
+\rightarrow dS
+}
+\]
+
+</div>
+
+
+<h3>2. Scalar surface integral</h3>
+
+<p>
+Suppose
+</p>
+
+\[
+f(x,y,z)
+\]
+
+<p>
+is a scalar field defined on a surface \(S\).
+</p>
+
+<p>
+Then
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\iint_S f\,dS
+}
+\]
+
+</div>
+
+<p>
+accumulates the scalar quantity over the whole surface.
+</p>
+
+
+<h3>3. Physical interpretation</h3>
+
+<p>
+Suppose a thin curved sheet has surface density
+</p>
+
+\[
+\rho(x,y,z).
+\]
+
+<p>
+A small surface element has approximate mass
+</p>
+
+\[
+dm=\rho\,dS.
+\]
+
+<p>
+Therefore, the total mass is
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+M
+=
+\iint_S \rho\,dS
+}
+\]
+
+</div>
+
+
+<h3>4. Parameterising a surface</h3>
+
+<p>
+A surface can be described using two parameters:
+</p>
+
+\[
+\mathbf{r}(u,v)
+=
+\begin{pmatrix}
+x(u,v)\\
+y(u,v)\\
+z(u,v)
+\end{pmatrix}.
+\]
+
+<p>
+The pair
+</p>
+
+\[
+(u,v)
+\]
+
+<p>
+selects a point on the surface.
+</p>
+
+
+<h3>5. Two tangent directions</h3>
+
+<p>
+Differentiate the parameterisation:
+</p>
+
+\[
+\mathbf{r}_u
+=
+\frac{\partial\mathbf{r}}{\partial u},
+\]
+
+<p>
+and
+</p>
+
+\[
+\mathbf{r}_v
+=
+\frac{\partial\mathbf{r}}{\partial v}.
+\]
+
+<p>
+These vectors lie tangent to the surface.
+</p>
+
+
+<h3>6. Surface-area element</h3>
+
+<p>
+The cross product
+</p>
+
+\[
+\mathbf{r}_u\times\mathbf{r}_v
+\]
+
+<p>
+is perpendicular to the surface.
+</p>
+
+<p>
+Its magnitude gives the local area-scaling factor.
+</p>
+
+<p>
+Therefore,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+dS
+=
+\left\|
+\mathbf{r}_u\times\mathbf{r}_v
+\right\|
+\,du\,dv
+}
+\]
+
+</div>
+
+
+<h3>7. Scalar surface integral in parameter form</h3>
+
+<p>
+Therefore,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\iint_S f\,dS
+=
+\iint_D
+f(\mathbf{r}(u,v))
+\left\|
+\mathbf{r}_u\times\mathbf{r}_v
+\right\|
+\,du\,dv
+}
+\]
+
+</div>
+
+<p>
+where \(D\) is the parameter region in the \(uv\)-plane.
+</p>
+
+
+<h3>8. Surface given as \(z=g(x,y)\)</h3>
+
+<p>
+A common surface has the form
+</p>
+
+\[
+z=g(x,y).
+\]
+
+<p>
+We can parameterise it by
+</p>
+
+\[
+\mathbf{r}(x,y)
+=
+\begin{pmatrix}
+x\\
+y\\
+g(x,y)
+\end{pmatrix}.
+\]
+
+<p>
+Then
+</p>
+
+\[
+\mathbf{r}_x
+=
+\begin{pmatrix}
+1\\
+0\\
+g_x
+\end{pmatrix},
+\]
+
+<p>
+and
+</p>
+
+\[
+\mathbf{r}_y
+=
+\begin{pmatrix}
+0\\
+1\\
+g_y
+\end{pmatrix}.
+\]
+
+
+<h3>9. Compute the cross product</h3>
+
+<p>
+We obtain
+</p>
+
+\[
+\mathbf{r}_x\times\mathbf{r}_y
+=
+\begin{pmatrix}
+-g_x\\
+-g_y\\
+1
+\end{pmatrix}.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+\left\|
+\mathbf{r}_x\times\mathbf{r}_y
+\right\|
+=
+\sqrt{
+1+g_x^2+g_y^2
+}.
+\]
+
+<p>
+So
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+dS
+=
+\sqrt{
+1+
+\left(\frac{\partial g}{\partial x}\right)^2
++
+\left(\frac{\partial g}{\partial y}\right)^2
+}
+\,dx\,dy
+}
+\]
+
+</div>
+
+
+<h3>10. Surface-area formula</h3>
+
+<p>
+If we set
+</p>
+
+\[
+f=1,
+\]
+
+<p>
+then the surface integral gives surface area:
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{Area}(S)
+=
+\iint_S dS
+}
+\]
+
+</div>
+
+<p>
+For
+</p>
+
+\[
+z=g(x,y),
+\]
+
+<p>
+this becomes
+</p>
+
+\[
+\boxed{
+\text{Area}(S)
+=
+\iint_R
+\sqrt{
+1+g_x^2+g_y^2
+}
+\,dx\,dy
+}
+\]
+
+
+<h3>11. Simple example: horizontal plane</h3>
+
+<p>
+Suppose
+</p>
+
+\[
+z=3.
+\]
+
+<p>
+Then
+</p>
+
+\[
+g_x=0,
+\qquad
+g_y=0.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+dS
+=
+\sqrt{1}\,dx\,dy
+=
+dx\,dy.
+\]
+
+<p>
+So for a horizontal plane, surface area reduces to ordinary planar area.
+</p>
+
+
+<h3>12. Why curved surfaces have a larger area element</h3>
+
+<p>
+If the surface slopes,
+</p>
+
+\[
+g_x
+\]
+
+<p>
+or
+</p>
+
+\[
+g_y
+\]
+
+<p>
+is nonzero.
+</p>
+
+<p>
+Then
+</p>
+
+\[
+\sqrt{1+g_x^2+g_y^2}>1.
+\]
+
+<p>
+So the true surface patch is larger than its flat projection onto the \(xy\)-plane.
+</p>
+
+
+<h3>13. Diagram</h3>
+
+<div style="max-width:700px; margin:30px auto;">
+
+<svg viewBox="0 0 700 430"
+     width="100%"
+     role="img"
+     aria-labelledby="surface-int-title surface-int-desc"
+     xmlns="http://www.w3.org/2000/svg">
+
+<title id="surface-int-title">
+Small surface patch above a flat parameter region
+</title>
+
+<desc id="surface-int-desc">
+A curved surface is shown above the xy-plane. A small flat patch projects upward to a tilted surface patch.
+</desc>
+
+<!-- axes -->
+
+<line x1="330" y1="345" x2="610" y2="345"
+      stroke="currentColor"
+      stroke-width="2"/>
+
+<line x1="330" y1="345" x2="135" y2="250"
+      stroke="currentColor"
+      stroke-width="2"/>
+
+<line x1="330" y1="345" x2="330" y2="55"
+      stroke="currentColor"
+      stroke-width="2"/>
+
+<text x="618" y="350"
+      font-size="18"
+      fill="currentColor">x</text>
+
+<text x="118" y="245"
+      font-size="18"
+      fill="currentColor">y</text>
+
+<text x="320" y="42"
+      font-size="18"
+      fill="currentColor">z</text>
+
+<!-- base region -->
+
+<polygon points="
+300,315
+380,315
+415,295
+335,295
+"
+fill="currentColor"
+opacity="0.08"
+stroke="currentColor"
+stroke-width="1.5"/>
+
+<!-- surface -->
+
+<path d="
+M 190 200
+C 270 235, 360 210, 455 155
+C 500 130, 535 135, 555 160
+"
+fill="none"
+stroke="currentColor"
+stroke-width="3"/>
+
+<path d="
+M 220 225
+C 300 250, 380 220, 470 180
+"
+fill="none"
+stroke="currentColor"
+stroke-width="2"
+opacity="0.5"/>
+
+<!-- surface patch -->
+
+<polygon points="
+320,215
+395,205
+425,185
+350,195
+"
+fill="currentColor"
+opacity="0.12"
+stroke="currentColor"
+stroke-width="2"/>
+
+<!-- projection lines -->
+
+<line x1="320" y1="215" x2="300" y2="315"
+      stroke="currentColor"
+      stroke-width="1.5"
+      stroke-dasharray="5 5"/>
+
+<line x1="395" y1="205" x2="380" y2="315"
+      stroke="currentColor"
+      stroke-width="1.5"
+      stroke-dasharray="5 5"/>
+
+<text x="435" y="195"
+      font-size="16"
+      fill="currentColor">
+dS
+</text>
+
+<text x="365" y="335"
+      font-size="16"
+      fill="currentColor">
+dA
+</text>
+
+</svg>
+
+</div>
+
+
+<h3>14. Vector surface integrals</h3>
+
+<p>
+Surface integrals can also involve vector fields.
+</p>
+
+<p>
+Suppose
+</p>
+
+\[
+\mathbf{F}(x,y,z)
+\]
+
+<p>
+is a vector field and
+</p>
+
+\[
+\mathbf{n}
+\]
+
+<p>
+is a unit normal vector to the surface.
+</p>
+
+<p>
+Then
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\iint_S
+\mathbf{F}\cdot\mathbf{n}\,dS
+}
+\]
+
+</div>
+
+<p>
+measures the flux of the field through the surface.
+</p>
+
+
+<h3>15. What is flux?</h3>
+
+<p>
+Flux measures how much of a vector field passes through a surface.
+</p>
+
+<p>
+If the field points directly through the surface, the contribution is large.
+</p>
+
+<p>
+If the field is tangent to the surface, the contribution is zero.
+</p>
+
+<p>
+This is why the dot product appears:
+</p>
+
+\[
+\mathbf{F}\cdot\mathbf{n}.
+\]
+
+
+<h3>16. Orientation matters</h3>
+
+<p>
+A surface has two possible normal directions.
+</p>
+
+<p>
+For a closed surface, we usually choose the outward normal.
+</p>
+
+<p>
+Reversing the orientation changes the sign of the flux integral:
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\mathbf{n}\rightarrow-\mathbf{n}
+\quad\Rightarrow\quad
+\text{flux changes sign}
+}
+\]
+
+</div>
+
+
+<h3>17. Vector area element</h3>
+
+<p>
+Instead of writing
+</p>
+
+\[
+\mathbf{n}\,dS,
+\]
+
+<p>
+we can write the vector surface element
+</p>
+
+\[
+d\mathbf{S}.
+\]
+
+<p>
+Then the flux integral becomes
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\iint_S
+\mathbf{F}\cdot d\mathbf{S}
+}
+\]
+
+</div>
+
+
+<h3>18. Parameter form of flux</h3>
+
+<p>
+Using a parameterisation
+</p>
+
+\[
+\mathbf{r}(u,v),
+\]
+
+<p>
+we may write
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\iint_S
+\mathbf{F}\cdot d\mathbf{S}
+=
+\iint_D
+\mathbf{F}(\mathbf{r}(u,v))
+\cdot
+\left(
+\mathbf{r}_u\times\mathbf{r}_v
+\right)
+\,du\,dv
+}
+\]
+
+</div>
+
+<p>
+The cross product provides both the local area scale and a normal direction.
+</p>
+
+
+<h3>19. Closed surfaces</h3>
+
+<p>
+For a closed surface, flux is often written
+</p>
+
+\[
+\oiint_S
+\mathbf{F}\cdot\mathbf{n}\,dS.
+\]
+
+<p>
+It measures the net outward flow through the boundary.
+</p>
+
+
+<h3>20. Connection with divergence</h3>
+
+<p>
+Divergence measures local expansion inside a region.
+</p>
+
+<p>
+Flux measures the total flow through its boundary.
+</p>
+
+<p>
+These ideas are connected by the divergence theorem:
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\oiint_{\partial V}
+\mathbf{F}\cdot\mathbf{n}\,dS
+=
+\iiint_V
+\nabla\cdot\mathbf{F}\,dV
+}
+\]
+
+</div>
+
+<p>
+The total outward flux through the boundary equals the total divergence inside the volume.
+</p>
+
+
+<h3>21. Why this is a natural conservation statement</h3>
+
+<p>
+If a vector field represents the flow of material, then positive divergence inside a region means material is being produced or spreading locally.
+</p>
+
+<p>
+The divergence theorem says that this net internal production is exactly reflected by the net flow through the boundary.
+</p>
+
+
+<h3>22. Scalar versus vector surface integrals</h3>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\iint_S f\,dS
+=
+\text{accumulation of a scalar over a surface}
+}
+\]
+
+\[
+\boxed{
+\iint_S
+\mathbf{F}\cdot\mathbf{n}\,dS
+=
+\text{flux of a vector field through a surface}
+}
+\]
+
+</div>
+
+
+<h3>23. The pattern of integration</h3>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\int_C f\,ds
+=
+\text{accumulation along a curve}
+}
+\]
+
+\[
+\boxed{
+\iint_S f\,dS
+=
+\text{accumulation over a surface}
+}
+\]
+
+\[
+\boxed{
+\iiint_V f\,dV
+=
+\text{accumulation through a volume}
+}
+\]
+
+</div>
+
+<p>
+The underlying idea is always the same: divide into small pieces, calculate a local contribution, and accumulate.
+</p>
+
+
+<h3>24. The central idea</h3>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{surface}
++
+\text{small area element }dS
+}
+\]
+
+\[
+\downarrow
+\]
+
+\[
+\boxed{
+\text{accumulate a scalar or flux}
+}
+\]
+
+\[
+\downarrow
+\]
+
+\[
+\boxed{
+\text{surface integral}
+}
+\]
+
+</div>
+
+<p>
+Surface integrals extend the idea of integration to curved two-dimensional objects embedded in three-dimensional space.
+</p>
+
+
+<div class="lesson-navigation">
+
+<a href="line-integrals.html">
+← Line Integrals
+</a>
+
+<a href="integral-theorems.html">
+Next: Integral Theorems →
+</a>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<div>
+<strong>dy/dx</strong>
+<p>Calculus Learning</p>
+</div>
+
+</footer>
+
+
+</body>
+
+</html>
