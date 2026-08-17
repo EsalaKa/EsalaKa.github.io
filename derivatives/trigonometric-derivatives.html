@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Trigonometric Derivatives | dy/dx</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']]
+  }
+};
+</script>
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+</head>
+
+<body>
+
+<header class="site-header">
+
+<div class="brand">
+<a href="../index.html">dy/dx</a>
+</div>
+
+<nav class="top-nav">
+<a href="../index.html">Home</a>
+<a href="index.html">Differentiation</a>
+</nav>
+
+</header>
+
+
+<main>
+
+<section class="lesson-header">
+
+<p class="eyebrow">DIFFERENTIATION 10</p>
+
+<h1>Trigonometric Derivatives</h1>
+
+<p class="lesson-intro">
+Sine, cosine and tangent have simple derivative rules that connect directly to their geometric behaviour.
+</p>
+
+</section>
+
+
+<section class="lesson-content">
+
+
+<h2>The main idea</h2>
+
+<p>
+The three basic derivatives are
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\frac{d}{dx}\sin x=\cos x
+}
+\]
+
+\[
+\boxed{
+\frac{d}{dx}\cos x=-\sin x
+}
+\]
+
+\[
+\boxed{
+\frac{d}{dx}\tan x=\sec^2 x
+}
+\]
+
+</div>
+
+<p>
+These formulas assume that angles are measured in radians.
+</p>
+
+
+<h3>1. Derivative of sine</h3>
+
+<p>
+If
+</p>
+
+\[
+y=\sin x,
+\]
+
+<p>
+then
+</p>
+
+\[
+\frac{dy}{dx}=\cos x.
+\]
+
+<p>
+So the rate of change of sine is given by cosine.
+</p>
+
+<p>
+For example, at
+</p>
+
+\[
+x=0,
+\]
+
+<p>
+we have
+</p>
+
+\[
+\frac{dy}{dx}
+=
+\cos 0
+=
+1.
+\]
+
+<p>
+So the sine curve has gradient \(1\) at \(x=0\).
+</p>
+
+
+<h3>2. Derivative of cosine</h3>
+
+<p>
+If
+</p>
+
+\[
+y=\cos x,
+\]
+
+<p>
+then
+</p>
+
+\[
+\frac{dy}{dx}=-\sin x.
+\]
+
+<p>
+At
+</p>
+
+\[
+x=0,
+\]
+
+<p>
+we have
+</p>
+
+\[
+\frac{dy}{dx}=0.
+\]
+
+<p>
+So the cosine curve has a horizontal tangent at \(x=0\).
+</p>
+
+
+<h3>3. Derivative of tangent</h3>
+
+<p>
+Since
+</p>
+
+\[
+\tan x=\frac{\sin x}{\cos x},
+\]
+
+<p>
+we can differentiate using the quotient rule.
+</p>
+
+<p>
+This gives
+</p>
+
+\[
+\frac{d}{dx}\tan x
+=
+\frac{
+\cos^2 x+\sin^2 x
+}{
+\cos^2 x
+}.
+\]
+
+<p>
+Using
+</p>
+
+\[
+\sin^2x+\cos^2x=1,
+\]
+
+<p>
+we obtain
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\frac{d}{dx}\tan x
+=
+\frac{1}{\cos^2x}
+=
+\sec^2x
+}
+\]
+
+</div>
+
+
+<h3>4. Why radians matter</h3>
+
+<p>
+These derivative rules are exact in their simple form only when angles are measured in radians.
+</p>
+
+<p>
+For example,
+</p>
+
+\[
+\frac{d}{dx}\sin x=\cos x
+\]
+
+<p>
+depends on the radian definition of angle.
+</p>
+
+<p>
+Using degrees would introduce an extra constant factor.
+</p>
+
+
+<h3>5. Chain rule with sine</h3>
+
+<p>
+Consider
+</p>
+
+\[
+y=\sin(3x).
+\]
+
+<p>
+The outer derivative is
+</p>
+
+\[
+\cos(3x),
+\]
+
+<p>
+and the inner derivative is
+</p>
+
+\[
+3.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+\boxed{
+\frac{dy}{dx}
+=
+3\cos(3x)
+}
+\]
+
+
+<h3>6. Chain rule with cosine</h3>
+
+<p>
+Consider
+</p>
+
+\[
+y=\cos(x^2).
+\]
+
+<p>
+The outer derivative is
+</p>
+
+\[
+-\sin(x^2),
+\]
+
+<p>
+and the inner derivative is
+</p>
+
+\[
+2x.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+\boxed{
+\frac{dy}{dx}
+=
+-2x\sin(x^2)
+}
+\]
+
+
+<h3>7. Chain rule with tangent</h3>
+
+<p>
+If
+</p>
+
+\[
+y=\tan(5x),
+\]
+
+<p>
+then
+</p>
+
+\[
+\frac{dy}{dx}
+=
+5\sec^2(5x).
+\]
+
+
+<h3>8. Product example</h3>
+
+<p>
+Consider
+</p>
+
+\[
+y=x\sin x.
+\]
+
+<p>
+Using the product rule,
+</p>
+
+\[
+\frac{dy}{dx}
+=
+1\cdot\sin x
++
+x\cos x.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+\boxed{
+\frac{dy}{dx}
+=
+\sin x+x\cos x
+}
+\]
+
+
+<h3>9. Second derivatives</h3>
+
+<p>
+If
+</p>
+
+\[
+y=\sin x,
+\]
+
+<p>
+then
+</p>
+
+\[
+y'=\cos x.
+\]
+
+<p>
+Differentiate again:
+</p>
+
+\[
+y''=-\sin x.
+\]
+
+<p>
+So
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\frac{d^2}{dx^2}\sin x
+=
+-\sin x
+}
+\]
+
+</div>
+
+<p>
+Similarly,
+</p>
+
+\[
+\frac{d^2}{dx^2}\cos x
+=
+-\cos x.
+\]
+
+
+<h3>10. Why this matters for differential equations</h3>
+
+<p>
+The equations
+</p>
+
+\[
+y''=-y
+\]
+
+<p>
+have sine and cosine as solutions.
+</p>
+
+<p>
+That is why trigonometric functions naturally appear in models of oscillation, waves and periodic motion.
+</p>
+
+
+<h3>11. Visual meaning</h3>
+
+<p>
+The derivative of sine is cosine because the slope pattern of the sine curve matches the height pattern of the cosine curve.
+</p>
+
+<div class="lesson-math">
+
+\[
+\sin x
+\quad\xrightarrow{\ d/dx\ }\quad
+\cos x
+\]
+
+\[
+\cos x
+\quad\xrightarrow{\ d/dx\ }\quad
+-\sin x
+\]
+
+\[
+-\sin x
+\quad\xrightarrow{\ d/dx\ }\quad
+-\cos x
+\]
+
+\[
+-\cos x
+\quad\xrightarrow{\ d/dx\ }\quad
+\sin x
+\]
+
+</div>
+
+<p>
+Differentiating repeatedly cycles through these four functions.
+</p>
+
+
+<h3>12. The key rules</h3>
+
+<div class="lesson-math">
+
+\[
+\frac{d}{dx}\sin x=\cos x
+\]
+
+\[
+\frac{d}{dx}\cos x=-\sin x
+\]
+
+\[
+\frac{d}{dx}\tan x=\sec^2x
+\]
+
+\[
+\frac{d}{dx}\sin(g(x))
+=
+\cos(g(x))g'(x)
+\]
+
+\[
+\frac{d}{dx}\cos(g(x))
+=
+-\sin(g(x))g'(x)
+\]
+
+</div>
+
+<p>
+These rules combine naturally with the product rule, quotient rule and chain rule.
+</p>
+
+
+<div class="lesson-navigation">
+
+<a href="exponential-log-derivatives.html">
+← Exponential and Logarithmic Derivatives
+</a>
+
+<a href="implicit-differentiation.html">
+Next: Implicit Differentiation →
+</a>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<div>
+<strong>dy/dx</strong>
+<p>Calculus Learning</p>
+</div>
+
+</footer>
+
+</body>
+
+</html>
