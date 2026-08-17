@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>The Jacobian | dy/dx</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']]
+  }
+};
+</script>
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+</head>
+
+
+<body>
+
+
+<header class="site-header">
+
+<div class="brand">
+<a href="../index.html">dy/dx</a>
+</div>
+
+<nav class="top-nav">
+<a href="../index.html">Home</a>
+<a href="index.html">Multivariable Calculus</a>
+</nav>
+
+</header>
+
+
+<main>
+
+
+<section class="lesson-header">
+
+<p class="eyebrow">MULTIVARIABLE CALCULUS 07</p>
+
+<h1>The Jacobian</h1>
+
+<p class="lesson-intro">
+The Jacobian collects first partial derivatives when several outputs depend on several inputs.
+</p>
+
+</section>
+
+
+<section class="lesson-content">
+
+
+<h2>The main idea</h2>
+
+<p>
+Suppose two outputs depend on two inputs:
+</p>
+
+\[
+u=u(x,y),
+\qquad
+v=v(x,y).
+\]
+
+<p>
+There are four first partial derivatives:
+</p>
+
+\[
+\frac{\partial u}{\partial x},
+\qquad
+\frac{\partial u}{\partial y},
+\qquad
+\frac{\partial v}{\partial x},
+\qquad
+\frac{\partial v}{\partial y}.
+\]
+
+<p>
+The Jacobian matrix collects them:
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+J
+=
+\begin{pmatrix}
+\dfrac{\partial u}{\partial x}
+&
+\dfrac{\partial u}{\partial y}
+\\[8pt]
+\dfrac{\partial v}{\partial x}
+&
+\dfrac{\partial v}{\partial y}
+\end{pmatrix}
+}
+\]
+
+</div>
+
+
+<h3>1. Why do we need a matrix?</h3>
+
+<p>
+For a scalar function
+</p>
+
+\[
+f(x,y),
+\]
+
+<p>
+the gradient contains the derivatives of one output with respect to several inputs.
+</p>
+
+<p>
+But suppose we have several outputs:
+</p>
+
+\[
+\mathbf{F}(x,y)
+=
+\begin{pmatrix}
+u(x,y)\\
+v(x,y)
+\end{pmatrix}.
+\]
+
+<p>
+Each output can change with each input.
+</p>
+
+<p>
+A matrix is a natural way to organise all those rates of change.
+</p>
+
+
+<h3>2. Rows and columns</h3>
+
+<p>
+For
+</p>
+
+\[
+J
+=
+\begin{pmatrix}
+u_x & u_y\\
+v_x & v_y
+\end{pmatrix},
+\]
+
+<p>
+the first row describes how \(u\) changes.
+</p>
+
+<p>
+The second row describes how \(v\) changes.
+</p>
+
+<p>
+The first column describes change with respect to \(x\).
+</p>
+
+<p>
+The second column describes change with respect to \(y\).
+</p>
+
+
+<h3>3. A simple example</h3>
+
+<p>
+Let
+</p>
+
+\[
+u=x^2+y
+\]
+
+<p>
+and
+</p>
+
+\[
+v=xy.
+\]
+
+<p>
+Then
+</p>
+
+\[
+\frac{\partial u}{\partial x}=2x,
+\qquad
+\frac{\partial u}{\partial y}=1,
+\]
+
+<p>
+and
+</p>
+
+\[
+\frac{\partial v}{\partial x}=y,
+\qquad
+\frac{\partial v}{\partial y}=x.
+\]
+
+<p>
+Therefore,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+J(x,y)
+=
+\begin{pmatrix}
+2x & 1\\
+y & x
+\end{pmatrix}
+}
+\]
+
+</div>
+
+
+<h3>4. Evaluate the Jacobian at a point</h3>
+
+<p>
+At
+</p>
+
+\[
+(x,y)=(1,2),
+\]
+
+<p>
+we obtain
+</p>
+
+\[
+J(1,2)
+=
+\begin{pmatrix}
+2 & 1\\
+2 & 1
+\end{pmatrix}.
+\]
+
+<p>
+This matrix describes the local first-order behaviour of the transformation at that point.
+</p>
+
+
+<h3>5. The Jacobian as a local linear map</h3>
+
+<p>
+Suppose the input changes slightly by
+</p>
+
+\[
+d\mathbf{x}
+=
+\begin{pmatrix}
+dx\\
+dy
+\end{pmatrix}.
+\]
+
+<p>
+Then the output changes approximately by
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+d\mathbf{F}
+=
+J\,d\mathbf{x}
+}
+\]
+
+</div>
+
+<p>
+That is,
+</p>
+
+\[
+\begin{pmatrix}
+du\\
+dv
+\end{pmatrix}
+=
+\begin{pmatrix}
+u_x & u_y\\
+v_x & v_y
+\end{pmatrix}
+\begin{pmatrix}
+dx\\
+dy
+\end{pmatrix}.
+\]
+
+
+<h3>6. Expanding the matrix multiplication</h3>
+
+<p>
+The previous expression means
+</p>
+
+\[
+du=u_x\,dx+u_y\,dy
+\]
+
+<p>
+and
+</p>
+
+\[
+dv=v_x\,dx+v_y\,dy.
+\]
+
+<p>
+So each row of the Jacobian gives the total differential of one output.
+</p>
+
+
+<h3>7. Connection with the gradient</h3>
+
+<p>
+For a single scalar function
+</p>
+
+\[
+f(x,y),
+\]
+
+<p>
+the gradient is
+</p>
+
+\[
+\nabla f
+=
+\begin{pmatrix}
+f_x\\
+f_y
+\end{pmatrix}.
+\]
+
+<p>
+For several output functions, the Jacobian is built from several such derivative rows.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{gradient}
+=
+\text{derivatives of one scalar output}
+}
+\]
+
+\[
+\boxed{
+\text{Jacobian}
+=
+\text{derivatives of several outputs}
+}
+\]
+
+</div>
+
+
+<h3>8. General Jacobian matrix</h3>
+
+<p>
+Suppose
+</p>
+
+\[
+\mathbf{F}(x_1,\ldots,x_n)
+=
+\begin{pmatrix}
+F_1\\
+F_2\\
+\vdots\\
+F_m
+\end{pmatrix}.
+\]
+
+<p>
+Then the Jacobian is the \(m\times n\) matrix
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+J_{\mathbf{F}}
+=
+\begin{pmatrix}
+\dfrac{\partial F_1}{\partial x_1}
+&
+\cdots
+&
+\dfrac{\partial F_1}{\partial x_n}
+\\[8pt]
+\vdots
+&
+\ddots
+&
+\vdots
+\\[8pt]
+\dfrac{\partial F_m}{\partial x_1}
+&
+\cdots
+&
+\dfrac{\partial F_m}{\partial x_n}
+\end{pmatrix}
+}
+\]
+
+</div>
+
+
+<h3>9. The Jacobian determinant</h3>
+
+<p>
+When the Jacobian is square, we can take its determinant.
+</p>
+
+<p>
+For
+</p>
+
+\[
+J
+=
+\begin{pmatrix}
+u_x & u_y\\
+v_x & v_y
+\end{pmatrix},
+\]
+
+<p>
+the Jacobian determinant is
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\det J
+=
+u_xv_y-u_yv_x
+}
+\]
+
+</div>
+
+<p>
+This number describes how the transformation locally changes area.
+</p>
+
+
+<h3>10. Area scaling</h3>
+
+<p>
+Suppose a small rectangle in the \(xy\)-plane has area
+</p>
+
+\[
+dA.
+\]
+
+<p>
+After a transformation
+</p>
+
+\[
+(x,y)\mapsto(u,v),
+\]
+
+<p>
+the small region is generally stretched, compressed, rotated or reflected.
+</p>
+
+<p>
+Its new area is approximately
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+dA_{uv}
+\approx
+|\det J|\,dA_{xy}
+}
+\]
+
+</div>
+
+
+<h3>11. Why the absolute value appears</h3>
+
+<p>
+The determinant can be negative.
+</p>
+
+<p>
+A negative sign indicates a reversal of orientation.
+</p>
+
+<p>
+Area itself must be nonnegative, so integration uses
+</p>
+
+\[
+|\det J|.
+\]
+
+
+<h3>12. A simple transformation</h3>
+
+<p>
+Consider
+</p>
+
+\[
+u=2x,
+\qquad
+v=3y.
+\]
+
+<p>
+Then
+</p>
+
+\[
+J
+=
+\begin{pmatrix}
+2 & 0\\
+0 & 3
+\end{pmatrix}.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+\det J=6.
+\]
+
+<p>
+So small areas are multiplied by a factor of
+</p>
+
+\[
+\boxed{6}.
+\]
+
+
+<h3>13. Geometric interpretation</h3>
+
+<p>
+The transformation
+</p>
+
+\[
+u=2x,
+\qquad
+v=3y
+\]
+
+<p>
+stretches lengths by \(2\) in one direction and \(3\) in the other.
+</p>
+
+<p>
+Therefore area is multiplied by
+</p>
+
+\[
+2\times3=6.
+\]
+
+<p>
+The determinant captures exactly this combined scaling.
+</p>
+
+
+<h3>14. Diagram</h3>
+
+<div style="max-width:700px; margin:30px auto;">
+
+<svg viewBox="0 0 700 390"
+     width="100%"
+     role="img"
+     aria-labelledby="jacobian-title jacobian-desc"
+     xmlns="http://www.w3.org/2000/svg">
+
+<title id="jacobian-title">
+Jacobian as local area transformation
+</title>
+
+<desc id="jacobian-desc">
+A small square in the input plane is transformed into a stretched parallelogram-like region in the output plane.
+</desc>
+
+<!-- left coordinate plane -->
+
+<line x1="60" y1="310" x2="300" y2="310"
+      stroke="currentColor"
+      stroke-width="2"/>
+
+<line x1="100" y1="345" x2="100" y2="70"
+      stroke="currentColor"
+      stroke-width="2"/>
+
+<rect x="150" y="210" width="70" height="70"
+      fill="currentColor"
+      opacity="0.08"
+      stroke="currentColor"
+      stroke-width="2"/>
+
+<text x="130" y="55"
+      font-size="17"
+      fill="currentColor">
+input
+</text>
+
+<!-- arrow -->
+
+<line x1="310" y1="190" x2="390" y2="190"
+      stroke="currentColor"
+      stroke-width="2"/>
+
+<polygon points="400,190 384,181 384,199"
+         fill="currentColor"/>
+
+<text x="330" y="170"
+      font-size="16"
+      fill="currentColor">
+F
+</text>
+
+<!-- right coordinate plane -->
+
+<line x1="410" y1="310" x2="650" y2="310"
+      stroke="currentColor"
+      stroke-width="2"/>
+
+<line x1="450" y1="345" x2="450" y2="70"
+      stroke="currentColor"
+      stroke-width="2"/>
+
+<polygon points="
+500,265
+610,245
+625,160
+515,180
+"
+fill="currentColor"
+opacity="0.08"
+stroke="currentColor"
+stroke-width="2"/>
+
+<text x="500" y="55"
+      font-size="17"
+      fill="currentColor">
+output
+</text>
+
+</svg>
+
+</div>
+
+
+<h3>15. Change of variables in integration</h3>
+
+<p>
+The Jacobian determinant appears when changing variables in a multiple integral.
+</p>
+
+<p>
+Very generally,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+du\,dv
+=
+\left|
+\frac{\partial(u,v)}
+{\partial(x,y)}
+\right|
+dx\,dy
+}
+\]
+
+</div>
+
+<p>
+The determinant corrects for the local stretching or compression caused by the coordinate transformation.
+</p>
+
+
+<h3>16. Polar coordinates</h3>
+
+<p>
+A common change of variables is
+</p>
+
+\[
+x=r\cos\theta,
+\qquad
+y=r\sin\theta.
+\]
+
+<p>
+The Jacobian matrix is
+</p>
+
+\[
+J
+=
+\begin{pmatrix}
+\cos\theta & -r\sin\theta\\
+\sin\theta & r\cos\theta
+\end{pmatrix}.
+\]
+
+<p>
+Its determinant is
+</p>
+
+\[
+r\cos^2\theta+r\sin^2\theta.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+\boxed{
+\det J=r
+}
+\]
+
+</div>
+
+
+<h3>17. Why polar area contains \(r\)</h3>
+
+<p>
+Because the Jacobian determinant is \(r\),
+</p>
+
+\[
+dx\,dy
+=
+r\,dr\,d\theta.
+\]
+
+<p>
+So in polar coordinates,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+dA=r\,dr\,d\theta
+}
+\]
+
+</div>
+
+<p>
+The factor \(r\) is not an arbitrary rule.
+It comes from the local area scaling of the polar-coordinate transformation.
+</p>
+
+
+<h3>18. Jacobian in systems of ODEs</h3>
+
+<p>
+The Jacobian is also important in dynamical systems.
+</p>
+
+<p>
+Suppose
+</p>
+
+\[
+\frac{dx}{dt}=f(x,y),
+\]
+
+\[
+\frac{dy}{dt}=g(x,y).
+\]
+
+<p>
+The Jacobian of the vector field is
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+J
+=
+\begin{pmatrix}
+f_x & f_y\\
+g_x & g_y
+\end{pmatrix}
+}
+\]
+
+</div>
+
+<p>
+Evaluating this matrix at an equilibrium helps describe the local behaviour near that equilibrium.
+</p>
+
+
+<h3>19. Linearisation</h3>
+
+<p>
+Near an equilibrium
+</p>
+
+\[
+\mathbf{x}^*,
+\]
+
+<p>
+a nonlinear system can often be approximated by
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\mathbf{u}'
+\approx
+J(\mathbf{x}^*)\mathbf{u}
+}
+\]
+
+</div>
+
+<p>
+where \(\mathbf{u}\) represents a small displacement from the equilibrium.
+</p>
+
+<p>
+The Jacobian therefore provides the best first-order linear description of the nonlinear system near that point.
+</p>
+
+
+<h3>20. Eigenvalues of the Jacobian</h3>
+
+<p>
+The eigenvalues of
+</p>
+
+\[
+J(\mathbf{x}^*)
+\]
+
+<p>
+help determine whether nearby trajectories approach or move away from an equilibrium.
+</p>
+
+<p>
+This connects multivariable calculus, matrices and differential equations.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{partial derivatives}
+\rightarrow
+\text{Jacobian}
+\rightarrow
+\text{eigenvalues}
+\rightarrow
+\text{local stability}
+}
+\]
+
+</div>
+
+
+<h3>21. The central idea</h3>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{one output}
+\rightarrow
+\text{gradient}
+}
+\]
+
+\[
+\boxed{
+\text{several outputs}
+\rightarrow
+\text{Jacobian matrix}
+}
+\]
+
+</div>
+
+<p>
+The Jacobian describes how a multivariable transformation behaves locally.
+</p>
+
+<p>
+Its matrix gives the first-order change, while its determinant measures local area or volume scaling when the dimensions match.
+</p>
+
+
+<div class="lesson-navigation">
+
+<a href="multiple-integrals.html">
+← Multiple Integrals
+</a>
+
+<a href="vector-fields.html">
+Next: Vector Fields →
+</a>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<div>
+<strong>dy/dx</strong>
+<p>Calculus Learning</p>
+</div>
+
+</footer>
+
+
+</body>
+
+</html>
