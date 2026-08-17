@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Integration Using Partial Fractions | dy/dx</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']]
+  }
+};
+</script>
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+</head>
+
+<body>
+
+<header class="site-header">
+
+<div class="brand">
+<a href="../index.html">dy/dx</a>
+</div>
+
+<nav class="top-nav">
+<a href="../index.html">Home</a>
+<a href="index.html">Integration</a>
+</nav>
+
+</header>
+
+
+<main>
+
+<section class="lesson-header">
+
+<p class="eyebrow">INTEGRATION 07</p>
+
+<h1>Integration Using Partial Fractions</h1>
+
+<p class="lesson-intro">
+Partial fractions rewrite a complicated rational function as a sum of simpler fractions that are easier to integrate.
+</p>
+
+</section>
+
+
+<section class="lesson-content">
+
+<h2>The main idea</h2>
+
+<p>
+A rational function has the form
+</p>
+
+\[
+\frac{P(x)}{Q(x)}.
+\]
+
+<p>
+If the denominator can be factorised, we may be able to rewrite the fraction as a sum of simpler terms.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\frac{P(x)}{Q(x)}
+\longrightarrow
+\text{simpler fractions}
+}
+\]
+
+</div>
+
+
+<h3>1. A simple example</h3>
+
+<p>
+Consider
+</p>
+
+\[
+\frac{1}{(x+1)(x+2)}.
+\]
+
+<p>
+We try to write it as
+</p>
+
+\[
+\frac{A}{x+1}
++
+\frac{B}{x+2}.
+\]
+
+<p>
+So
+</p>
+
+\[
+\frac{1}{(x+1)(x+2)}
+=
+\frac{A}{x+1}
++
+\frac{B}{x+2}.
+\]
+
+
+<h3>2. Remove the denominators</h3>
+
+<p>
+Multiply both sides by
+</p>
+
+\[
+(x+1)(x+2).
+\]
+
+<p>
+Then
+</p>
+
+\[
+1
+=
+A(x+2)+B(x+1).
+\]
+
+<p>
+Now we solve for \(A\) and \(B\).
+</p>
+
+
+<h3>3. Find the constants</h3>
+
+<p>
+Let
+</p>
+
+\[
+x=-1.
+\]
+
+<p>
+Then
+</p>
+
+\[
+1=A(1),
+\]
+
+<p>
+so
+</p>
+
+\[
+A=1.
+\]
+
+<p>
+Now let
+</p>
+
+\[
+x=-2.
+\]
+
+<p>
+Then
+</p>
+
+\[
+1=B(-1),
+\]
+
+<p>
+so
+</p>
+
+\[
+B=-1.
+\]
+
+<p>
+Therefore,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\frac{1}{(x+1)(x+2)}
+=
+\frac{1}{x+1}
+-
+\frac{1}{x+2}
+}
+\]
+
+</div>
+
+
+<h3>4. Now integrate</h3>
+
+<p>
+So
+</p>
+
+\[
+\int
+\frac{1}{(x+1)(x+2)}
+\,dx
+\]
+
+<p>
+becomes
+</p>
+
+\[
+\int
+\left(
+\frac{1}{x+1}
+-
+\frac{1}{x+2}
+\right)
+dx.
+\]
+
+<p>
+Integrate term by term:
+</p>
+
+\[
+=
+\ln|x+1|
+-
+\ln|x+2|
++
+C.
+\]
+
+<p>
+Therefore,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\int
+\frac{1}{(x+1)(x+2)}
+\,dx
+=
+\ln|x+1|
+-
+\ln|x+2|
++
+C
+}
+\]
+
+</div>
+
+
+<h3>5. Why this helps</h3>
+
+<p>
+The original fraction was difficult to integrate directly.
+</p>
+
+<p>
+But after decomposition, each term has the familiar form
+</p>
+
+\[
+\frac{1}{x+a},
+\]
+
+<p>
+whose antiderivative is
+</p>
+
+\[
+\ln|x+a|.
+\]
+
+<p>
+Partial fractions therefore transform the problem into known integrals.
+</p>
+
+
+<h3>6. General form with two linear factors</h3>
+
+<p>
+If
+</p>
+
+\[
+Q(x)=(x-a)(x-b),
+\]
+
+<p>
+with \(a\neq b\), we try
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\frac{P(x)}{(x-a)(x-b)}
+=
+\frac{A}{x-a}
++
+\frac{B}{x-b}
+}
+\]
+
+</div>
+
+<p>
+Then determine \(A\) and \(B\).
+</p>
+
+
+<h3>7. Example</h3>
+
+<p>
+Decompose
+</p>
+
+\[
+\frac{5x+1}{(x+1)(x+3)}.
+\]
+
+<p>
+Write
+</p>
+
+\[
+\frac{5x+1}{(x+1)(x+3)}
+=
+\frac{A}{x+1}
++
+\frac{B}{x+3}.
+\]
+
+<p>
+Multiply through:
+</p>
+
+\[
+5x+1
+=
+A(x+3)+B(x+1).
+\]
+
+<p>
+Let
+</p>
+
+\[
+x=-1.
+\]
+
+<p>
+Then
+</p>
+
+\[
+-4=2A,
+\]
+
+<p>
+so
+</p>
+
+\[
+A=-2.
+\]
+
+<p>
+Let
+</p>
+
+\[
+x=-3.
+\]
+
+<p>
+Then
+</p>
+
+\[
+-14=-2B,
+\]
+
+<p>
+so
+</p>
+
+\[
+B=7.
+\]
+
+<p>
+Hence,
+</p>
+
+\[
+\boxed{
+\frac{5x+1}{(x+1)(x+3)}
+=
+-\frac{2}{x+1}
++
+\frac{7}{x+3}
+}
+\]
+
+
+<h3>8. Integrate the result</h3>
+
+<p>
+Therefore,
+</p>
+
+\[
+\int
+\frac{5x+1}{(x+1)(x+3)}
+\,dx
+\]
+
+<p>
+becomes
+</p>
+
+\[
+-2\int\frac{1}{x+1}\,dx
++
+7\int\frac{1}{x+3}\,dx.
+\]
+
+<p>
+So
+</p>
+
+\[
+\boxed{
+\int
+\frac{5x+1}{(x+1)(x+3)}
+\,dx
+=
+-2\ln|x+1|
++
+7\ln|x+3|
++
+C
+}
+\]
+
+
+<h3>9. Repeated linear factors</h3>
+
+<p>
+If the denominator contains a repeated factor such as
+</p>
+
+\[
+(x-a)^2,
+\]
+
+<p>
+we need one term for each power:
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\frac{P(x)}{(x-a)^2}
+=
+\frac{A}{x-a}
++
+\frac{B}{(x-a)^2}
+}
+\]
+
+</div>
+
+<p>
+For a factor
+</p>
+
+\[
+(x-a)^3,
+\]
+
+<p>
+we would use
+</p>
+
+\[
+\frac{A}{x-a}
++
+\frac{B}{(x-a)^2}
++
+\frac{C}{(x-a)^3}.
+\]
+
+
+<h3>10. Example with a repeated factor</h3>
+
+<p>
+Suppose
+</p>
+
+\[
+\frac{1}{x(x+1)^2}.
+\]
+
+<p>
+The correct decomposition has the form
+</p>
+
+\[
+\frac{A}{x}
++
+\frac{B}{x+1}
++
+\frac{C}{(x+1)^2}.
+\]
+
+<p>
+Every repeated power must be included.
+</p>
+
+
+<h3>11. What if the numerator is too large?</h3>
+
+<p>
+Partial fractions is normally applied when the degree of the numerator is smaller than the degree of the denominator.
+</p>
+
+<p>
+For example,
+</p>
+
+\[
+\frac{x^3+1}{x^2-1}
+\]
+
+<p>
+has a numerator of higher degree.
+</p>
+
+<p>
+First perform polynomial division.
+</p>
+
+<p>
+Then apply partial fractions to the remaining proper rational fraction.
+</p>
+
+
+<h3>12. Improper and proper rational functions</h3>
+
+<p>
+A rational function is called <strong>proper</strong> when
+</p>
+
+\[
+\deg P<\deg Q.
+\]
+
+<p>
+If
+</p>
+
+\[
+\deg P\ge\deg Q,
+\]
+
+<p>
+it is <strong>improper</strong>.
+</p>
+
+<p>
+Improper rational functions should first be simplified using polynomial division.
+</p>
+
+
+<h3>13. Irreducible quadratic factors</h3>
+
+<p>
+Sometimes a denominator contains a quadratic factor that cannot be factorised over the real numbers.
+</p>
+
+<p>
+For example,
+</p>
+
+\[
+x^2+1.
+\]
+
+<p>
+For such a factor, the numerator of the partial-fraction term must be linear:
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\frac{Ax+B}{x^2+1}
+}
+\]
+
+</div>
+
+<p>
+rather than simply a constant numerator.
+</p>
+
+
+<h3>14. The practical method</h3>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+1.\; \text{Make sure the rational function is proper}
+}
+\]
+
+\[
+\boxed{
+2.\; \text{Factorise the denominator}
+}
+\]
+
+\[
+\boxed{
+3.\; \text{Write the correct partial-fraction form}
+}
+\]
+
+\[
+\boxed{
+4.\; \text{Find the unknown constants}
+}
+\]
+
+\[
+\boxed{
+5.\; \text{Integrate the simpler fractions}
+}
+\]
+
+</div>
+
+
+<h3>15. The central idea</h3>
+
+<p>
+Partial fractions does not create a new function.
+It rewrites the same rational function in a form that is easier to integrate.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{complicated rational function}
+\rightarrow
+\text{simple fractions}
+\rightarrow
+\text{known antiderivatives}
+}
+\]
+
+</div>
+
+
+<div class="lesson-navigation">
+
+<a href="integration-by-parts.html">
+← Integration by Parts
+</a>
+
+<a href="improper-integrals.html">
+Next: Improper Integrals →
+</a>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<div>
+<strong>dy/dx</strong>
+<p>Calculus Learning</p>
+</div>
+
+</footer>
+
+</body>
+
+</html>
