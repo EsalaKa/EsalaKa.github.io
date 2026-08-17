@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>First-Order Linear Equations | dy/dx</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']]
+  }
+};
+</script>
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+</head>
+
+
+<body>
+
+
+<header class="site-header">
+
+<div class="brand">
+<a href="../index.html">dy/dx</a>
+</div>
+
+<nav class="top-nav">
+<a href="../index.html">Home</a>
+<a href="index.html">Differential Equations</a>
+</nav>
+
+</header>
+
+
+<main>
+
+
+<section class="lesson-header">
+
+<p class="eyebrow">DIFFERENTIAL EQUATIONS 04</p>
+
+<h1>First-Order Linear Equations</h1>
+
+<p class="lesson-intro">
+A first-order linear differential equation can be solved systematically using an integrating factor.
+</p>
+
+</section>
+
+
+<section class="lesson-content">
+
+
+<h2>The main idea</h2>
+
+<p>
+A first-order linear differential equation has the standard form
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\frac{dy}{dx}+P(x)y=Q(x)
+}
+\]
+
+</div>
+
+<p>
+The unknown function \(y\) and its first derivative appear only to the first power.
+</p>
+
+
+<h3>1. Why it is called linear</h3>
+
+<p>
+The equation is linear in \(y\) because it contains terms such as
+</p>
+
+\[
+y
+\]
+
+<p>
+and
+</p>
+
+\[
+\frac{dy}{dx},
+\]
+
+<p>
+but not nonlinear expressions such as
+</p>
+
+\[
+y^2,
+\qquad
+\sin y,
+\qquad
+y\frac{dy}{dx}.
+\]
+
+<p>
+For example,
+</p>
+
+\[
+\frac{dy}{dx}+2y=x
+\]
+
+<p>
+is linear.
+</p>
+
+<p>
+But
+</p>
+
+\[
+\frac{dy}{dx}+y^2=x
+\]
+
+<p>
+is not.
+</p>
+
+
+<h3>2. The integrating factor</h3>
+
+<p>
+For
+</p>
+
+\[
+\frac{dy}{dx}+P(x)y=Q(x),
+\]
+
+<p>
+define the integrating factor
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\mu(x)
+=
+e^{\int P(x)\,dx}
+}
+\]
+
+</div>
+
+<p>
+The symbol \(\mu\) is commonly read as “mu”.
+</p>
+
+
+<h3>3. Why multiply by an integrating factor?</h3>
+
+<p>
+Multiply the entire differential equation by \(\mu(x)\):
+</p>
+
+\[
+\mu\frac{dy}{dx}
++
+\mu P(x)y
+=
+\mu Q(x).
+\]
+
+<p>
+The integrating factor is chosen so that the left side becomes the derivative of a product:
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\frac{d}{dx}\bigl(\mu y\bigr)
+=
+\mu\frac{dy}{dx}
++
+\mu' y
+}
+\]
+
+</div>
+
+<p>
+So we want
+</p>
+
+\[
+\mu'=\mu P(x).
+\]
+
+<p>
+That is exactly what the integrating factor satisfies.
+</p>
+
+
+<h3>4. Why \(\mu'=P\mu\)</h3>
+
+<p>
+Since
+</p>
+
+\[
+\mu(x)
+=
+e^{\int P(x)\,dx},
+\]
+
+<p>
+differentiate using the chain rule:
+</p>
+
+\[
+\mu'
+=
+e^{\int P(x)\,dx}P(x).
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+\boxed{
+\mu'=P(x)\mu
+}
+\]
+
+</div>
+
+
+<h3>5. The equation becomes simpler</h3>
+
+<p>
+After multiplying by the integrating factor,
+</p>
+
+\[
+\mu\frac{dy}{dx}
++
+\mu P(x)y
+=
+\mu Q(x).
+\]
+
+<p>
+Because
+</p>
+
+\[
+\mu'=P(x)\mu,
+\]
+
+<p>
+the left side becomes
+</p>
+
+\[
+\mu\frac{dy}{dx}
++
+\mu' y.
+\]
+
+<p>
+By the product rule,
+</p>
+
+\[
+\mu\frac{dy}{dx}
++
+\mu' y
+=
+\frac{d}{dx}(\mu y).
+\]
+
+<p>
+So the differential equation becomes
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\frac{d}{dx}(\mu y)
+=
+\mu Q(x)
+}
+\]
+
+</div>
+
+
+<h3>6. Integrate both sides</h3>
+
+<p>
+Now integrate:
+</p>
+
+\[
+\int
+\frac{d}{dx}(\mu y)\,dx
+=
+\int
+\mu Q(x)\,dx.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+\mu y
+=
+\int
+\mu Q(x)\,dx
++
+C.
+\]
+
+<p>
+Finally,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+y
+=
+\frac{1}{\mu(x)}
+\left[
+\int
+\mu(x)Q(x)\,dx
++
+C
+\right]
+}
+\]
+
+</div>
+
+
+<h3>7. Simple example</h3>
+
+<p>
+Solve
+</p>
+
+\[
+\frac{dy}{dx}+2y=4.
+\]
+
+<p>
+Here
+</p>
+
+\[
+P(x)=2,
+\qquad
+Q(x)=4.
+\]
+
+<p>
+The integrating factor is
+</p>
+
+\[
+\mu(x)
+=
+e^{\int2\,dx}
+=
+e^{2x}.
+\]
+
+
+<h3>8. Multiply the equation</h3>
+
+<p>
+Multiply everything by \(e^{2x}\):
+</p>
+
+\[
+e^{2x}\frac{dy}{dx}
++
+2e^{2x}y
+=
+4e^{2x}.
+\]
+
+<p>
+The left side is
+</p>
+
+\[
+\frac{d}{dx}
+\left(
+e^{2x}y
+\right).
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+\frac{d}{dx}
+\left(
+e^{2x}y
+\right)
+=
+4e^{2x}.
+\]
+
+
+<h3>9. Integrate</h3>
+
+<p>
+Integrating gives
+</p>
+
+\[
+e^{2x}y
+=
+\int4e^{2x}\,dx+C.
+\]
+
+<p>
+Since
+</p>
+
+\[
+\int4e^{2x}\,dx
+=
+2e^{2x},
+\]
+
+<p>
+we obtain
+</p>
+
+\[
+e^{2x}y
+=
+2e^{2x}+C.
+\]
+
+<p>
+Divide by \(e^{2x}\):
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+y=2+Ce^{-2x}
+}
+\]
+
+</div>
+
+
+<h3>10. Check the solution</h3>
+
+<p>
+Differentiate:
+</p>
+
+\[
+y'= -2Ce^{-2x}.
+\]
+
+<p>
+Then
+</p>
+
+\[
+y'+2y
+=
+-2Ce^{-2x}
++
+2(2+Ce^{-2x}).
+\]
+
+<p>
+So
+</p>
+
+\[
+y'+2y=4.
+\]
+
+<p>
+The solution satisfies the differential equation.
+</p>
+
+
+<h3>11. Apply an initial condition</h3>
+
+<p>
+Suppose
+</p>
+
+\[
+y(0)=5.
+\]
+
+<p>
+Using
+</p>
+
+\[
+y=2+Ce^{-2x},
+\]
+
+<p>
+set \(x=0\):
+</p>
+
+\[
+5=2+C.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+C=3.
+\]
+
+<p>
+The particular solution is
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+y=2+3e^{-2x}
+}
+\]
+
+</div>
+
+
+<h3>12. Example with variable \(P(x)\)</h3>
+
+<p>
+Solve
+</p>
+
+\[
+\frac{dy}{dx}
++
+\frac{1}{x}y
+=
+x,
+\qquad x>0.
+\]
+
+<p>
+Here
+</p>
+
+\[
+P(x)=\frac1x.
+\]
+
+<p>
+So
+</p>
+
+\[
+\mu(x)
+=
+e^{\int1/x\,dx}.
+\]
+
+<p>
+Since
+</p>
+
+\[
+\int\frac1x\,dx=\ln x
+\]
+
+<p>
+for \(x>0\),
+</p>
+
+\[
+\mu(x)=e^{\ln x}=x.
+\]
+
+
+<h3>13. Multiply by the integrating factor</h3>
+
+<p>
+Multiply the equation by \(x\):
+</p>
+
+\[
+x\frac{dy}{dx}
++
+y
+=
+x^2.
+\]
+
+<p>
+The left side is
+</p>
+
+\[
+\frac{d}{dx}(xy).
+\]
+
+<p>
+So
+</p>
+
+\[
+\frac{d}{dx}(xy)=x^2.
+\]
+
+
+<h3>14. Integrate</h3>
+
+<p>
+Integrating gives
+</p>
+
+\[
+xy
+=
+\frac{x^3}{3}+C.
+\]
+
+<p>
+Therefore,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+y
+=
+\frac{x^2}{3}
++
+\frac{C}{x}
+}
+\]
+
+</div>
+
+
+<h3>15. Put the equation into standard form first</h3>
+
+<p>
+Sometimes the equation is not initially written as
+</p>
+
+\[
+\frac{dy}{dx}+P(x)y=Q(x).
+\]
+
+<p>
+For example,
+</p>
+
+\[
+2\frac{dy}{dx}+4y=x.
+\]
+
+<p>
+First divide by \(2\):
+</p>
+
+\[
+\frac{dy}{dx}+2y=\frac{x}{2}.
+\]
+
+<p>
+Now we can identify
+</p>
+
+\[
+P(x)=2.
+\]
+
+<p>
+Only after reaching standard form should the integrating factor be calculated.
+</p>
+
+
+<h3>16. Linear does not mean constant coefficients</h3>
+
+<p>
+The equation
+</p>
+
+\[
+\frac{dy}{dx}+x^2y=\sin x
+\]
+
+<p>
+is still a first-order linear equation.
+</p>
+
+<p>
+Here
+</p>
+
+\[
+P(x)=x^2
+\]
+
+<p>
+and
+</p>
+
+\[
+Q(x)=\sin x.
+\]
+
+<p>
+The coefficients may depend on \(x\).
+</p>
+
+
+<h3>17. Homogeneous first-order linear equation</h3>
+
+<p>
+If
+</p>
+
+\[
+Q(x)=0,
+\]
+
+<p>
+the equation becomes
+</p>
+
+\[
+\frac{dy}{dx}+P(x)y=0.
+\]
+
+<p>
+This is separable:
+</p>
+
+\[
+\frac{1}{y}dy
+=
+-P(x)\,dx.
+\]
+
+<p>
+So first-order linear and separable methods can overlap for some equations.
+</p>
+
+
+<h3>18. The deeper reason the method works</h3>
+
+<p>
+The difficulty in
+</p>
+
+\[
+y'+P(x)y=Q(x)
+\]
+
+<p>
+is that the left side is not immediately a single derivative.
+</p>
+
+<p>
+The integrating factor changes it into one:
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+y'+Py
+\quad\xrightarrow{\times\mu}\quad
+(\mu y)'
+}
+\]
+
+</div>
+
+<p>
+The equation then becomes directly integrable.
+</p>
+
+
+<h3>19. The practical method</h3>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+1.\;
+\text{Write }
+y'+P(x)y=Q(x)
+}
+\]
+
+\[
+\boxed{
+2.\;
+\mu(x)=e^{\int P(x)\,dx}
+}
+\]
+
+\[
+\boxed{
+3.\;
+\text{Multiply the whole equation by }\mu
+}
+\]
+
+\[
+\boxed{
+4.\;
+\text{Recognise }
+(\mu y)'=\mu Q
+}
+\]
+
+\[
+\boxed{
+5.\;
+\text{Integrate}
+}
+\]
+
+\[
+\boxed{
+6.\;
+\text{Solve for }y
+}
+\]
+
+\[
+\boxed{
+7.\;
+\text{Apply any initial condition}
+}
+\]
+
+</div>
+
+
+<h3>20. The central idea</h3>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\frac{dy}{dx}+P(x)y=Q(x)
+}
+\]
+
+\[
+\downarrow\;\times\mu(x)
+\]
+
+\[
+\boxed{
+\frac{d}{dx}[\mu(x)y]
+=
+\mu(x)Q(x)
+}
+\]
+
+\[
+\downarrow\;\int
+\]
+
+\[
+\boxed{
+y(x)
+}
+\]
+
+</div>
+
+<p>
+The integrating factor turns a first-order linear equation into a form that can be integrated directly.
+</p>
+
+
+<div class="lesson-navigation">
+
+<a href="initial-value-problems.html">
+← Initial Value Problems
+</a>
+
+<a href="autonomous-equations.html">
+Next: Autonomous Differential Equations →
+</a>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<div>
+<strong>dy/dx</strong>
+<p>Calculus Learning</p>
+</div>
+
+</footer>
+
+
+</body>
+
+</html>
