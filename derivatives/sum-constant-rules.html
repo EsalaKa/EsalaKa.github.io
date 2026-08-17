@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Sum, Difference and Constant Multiple Rules | dy/dx</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']]
+  }
+};
+</script>
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+</head>
+
+<body>
+
+<header class="site-header">
+
+<div class="brand">
+<a href="../index.html">dy/dx</a>
+</div>
+
+<nav class="top-nav">
+<a href="../index.html">Home</a>
+<a href="index.html">Differentiation</a>
+</nav>
+
+</header>
+
+
+<main>
+
+<section class="lesson-header">
+
+<p class="eyebrow">DIFFERENTIATION 05</p>
+
+<h1>Sum, Difference and Constant Multiple Rules</h1>
+
+<p class="lesson-intro">
+Functions made from simpler terms can often be differentiated one term at a time.
+</p>
+
+</section>
+
+
+<section class="lesson-content">
+
+
+<h2>The main idea</h2>
+
+<p>
+Suppose
+</p>
+
+\[
+y=f(x)+g(x).
+\]
+
+<p>
+Then
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\frac{dy}{dx}
+=
+f'(x)+g'(x)
+}
+\]
+
+</div>
+
+<p>
+Differentiation can be applied separately to each term in a sum.
+</p>
+
+
+<h3>1. The sum rule</h3>
+
+<p>
+The derivative of a sum is the sum of the derivatives:
+</p>
+
+\[
+\boxed{
+\frac{d}{dx}[f(x)+g(x)]
+=
+f'(x)+g'(x)
+}
+\]
+
+<p>
+For example,
+</p>
+
+\[
+y=x^3+x^2.
+\]
+
+<p>
+Differentiate each term:
+</p>
+
+\[
+\frac{dy}{dx}
+=
+3x^2+2x.
+\]
+
+
+<h3>2. Why the sum rule works</h3>
+
+<p>
+From first principles,
+</p>
+
+\[
+\frac{d}{dx}[f(x)+g(x)]
+\]
+
+<p>
+is
+</p>
+
+\[
+\lim_{h\to0}
+\frac{
+[f(x+h)+g(x+h)]
+-
+[f(x)+g(x)]
+}{h}.
+\]
+
+<p>
+Rearranging the numerator,
+</p>
+
+\[
+=
+\lim_{h\to0}
+\left[
+\frac{f(x+h)-f(x)}{h}
++
+\frac{g(x+h)-g(x)}{h}
+\right].
+\]
+
+<p>
+Taking the limits separately gives
+</p>
+
+\[
+f'(x)+g'(x).
+\]
+
+<p>
+So the rule follows directly from the definition of the derivative.
+</p>
+
+
+<h3>3. The difference rule</h3>
+
+<p>
+Subtraction behaves in the same way:
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\frac{d}{dx}[f(x)-g(x)]
+=
+f'(x)-g'(x)
+}
+\]
+
+</div>
+
+<p>
+For example,
+</p>
+
+\[
+y=x^4-x^2.
+\]
+
+<p>
+Then
+</p>
+
+\[
+\frac{dy}{dx}
+=
+4x^3-2x.
+\]
+
+
+<h3>4. The constant multiple rule</h3>
+
+<p>
+Suppose a function is multiplied by a constant \(c\):
+</p>
+
+\[
+y=cf(x).
+\]
+
+<p>
+Then
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\frac{d}{dx}[cf(x)]
+=
+c f'(x)
+}
+\]
+
+</div>
+
+<p>
+The constant remains unchanged while the function is differentiated.
+</p>
+
+
+<h3>5. Example</h3>
+
+<p>
+Consider
+</p>
+
+\[
+y=5x^3.
+\]
+
+<p>
+Since
+</p>
+
+\[
+\frac{d}{dx}x^3=3x^2,
+\]
+
+<p>
+we obtain
+</p>
+
+\[
+\frac{dy}{dx}
+=
+5(3x^2)
+=
+15x^2.
+\]
+
+
+<h3>6. Combining the rules</h3>
+
+<p>
+Consider
+</p>
+
+\[
+y=4x^5-3x^3+2x^2-7x+9.
+\]
+
+<p>
+Differentiate each term:
+</p>
+
+\[
+\frac{dy}{dx}
+=
+20x^4-9x^2+4x-7.
+\]
+
+<p>
+The constant \(9\) has derivative \(0\).
+</p>
+
+
+<h3>7. Why constants disappear</h3>
+
+<p>
+Suppose
+</p>
+
+\[
+f(x)=7.
+\]
+
+<p>
+No matter how \(x\) changes, the output remains \(7\).
+</p>
+
+<p>
+Therefore its rate of change is zero:
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\frac{d}{dx}(7)=0
+}
+\]
+
+</div>
+
+<p>
+More generally,
+</p>
+
+\[
+\frac{d}{dx}(c)=0.
+\]
+
+
+<h3>8. Example with negative powers</h3>
+
+<p>
+Consider
+</p>
+
+\[
+y=3x^2+4x^{-1}.
+\]
+
+<p>
+Differentiate term by term:
+</p>
+
+\[
+\frac{dy}{dx}
+=
+6x-4x^{-2}.
+\]
+
+<p>
+Equivalently,
+</p>
+
+\[
+\boxed{
+\frac{dy}{dx}
+=
+6x-\frac{4}{x^2}
+}
+\]
+
+
+<h3>9. Example with roots</h3>
+
+<p>
+Consider
+</p>
+
+\[
+y=2\sqrt{x}+x^3.
+\]
+
+<p>
+First write the root as a power:
+</p>
+
+\[
+y=2x^{1/2}+x^3.
+\]
+
+<p>
+Then
+</p>
+
+\[
+\frac{dy}{dx}
+=
+2\left(\frac12x^{-1/2}\right)
++
+3x^2.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+\boxed{
+\frac{dy}{dx}
+=
+\frac{1}{\sqrt{x}}
++
+3x^2
+}
+\]
+
+<p>
+for \(x>0\).
+</p>
+
+
+<h3>10. What these rules allow us to do</h3>
+
+<p>
+A polynomial may contain many terms, but each term can be handled separately.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{differentiate each term}
+\quad\longrightarrow\quad
+\text{combine the results}
+}
+\]
+
+</div>
+
+<p>
+For example,
+</p>
+
+\[
+3x^4+2x^3-5x+8
+\]
+
+<p>
+becomes
+</p>
+
+\[
+12x^3+6x^2-5.
+\]
+
+
+<h3>11. But multiplication of functions is different</h3>
+
+<p>
+Suppose
+</p>
+
+\[
+y=f(x)g(x).
+\]
+
+<p>
+We cannot generally differentiate both functions separately and simply multiply:
+</p>
+
+\[
+\frac{d}{dx}[f(x)g(x)]
+\neq
+f'(x)g'(x).
+\]
+
+<p>
+For example,
+</p>
+
+\[
+x^2\cdot x^3=x^5.
+\]
+
+<p>
+Its derivative is
+</p>
+
+\[
+5x^4.
+\]
+
+<p>
+But differentiating the two factors separately and multiplying would give
+</p>
+
+\[
+(2x)(3x^2)=6x^3,
+\]
+
+<p>
+which is incorrect.
+</p>
+
+<p>
+Products therefore require a new rule.
+</p>
+
+
+<h3>12. The rules so far</h3>
+
+<div class="lesson-math">
+
+\[
+\frac{d}{dx}(c)=0
+\]
+
+\[
+\frac{d}{dx}(x^n)=nx^{n-1}
+\]
+
+\[
+\frac{d}{dx}[f+g]
+=
+f'+g'
+\]
+
+\[
+\frac{d}{dx}[f-g]
+=
+f'-g'
+\]
+
+\[
+\frac{d}{dx}[cf]
+=
+cf'
+\]
+
+</div>
+
+<p>
+These rules are enough to differentiate any polynomial directly.
+</p>
+
+
+<div class="lesson-navigation">
+
+<a href="power-rule.html">
+← The Power Rule
+</a>
+
+<a href="product-rule.html">
+Next: The Product Rule →
+</a>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<div>
+<strong>dy/dx</strong>
+<p>Calculus Learning</p>
+</div>
+
+</footer>
+
+</body>
+
+</html>
