@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Multiple Integrals | dy/dx</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']]
+  }
+};
+</script>
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+</head>
+
+
+<body>
+
+
+<header class="site-header">
+
+<div class="brand">
+<a href="../index.html">dy/dx</a>
+</div>
+
+<nav class="top-nav">
+<a href="../index.html">Home</a>
+<a href="index.html">Multivariable Calculus</a>
+</nav>
+
+</header>
+
+
+<main>
+
+
+<section class="lesson-header">
+
+<p class="eyebrow">MULTIVARIABLE CALCULUS 06</p>
+
+<h1>Multiple Integrals</h1>
+
+<p class="lesson-intro">
+Multiple integrals extend ordinary integration to quantities spread over regions in two or more dimensions.
+</p>
+
+</section>
+
+
+<section class="lesson-content">
+
+
+<h2>The main idea</h2>
+
+<p>
+An ordinary integral such as
+</p>
+
+\[
+\int_a^b f(x)\,dx
+\]
+
+<p>
+accumulates contributions along a one-dimensional interval.
+</p>
+
+<p>
+A double integral such as
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\iint_R f(x,y)\,dA
+}
+\]
+
+</div>
+
+<p>
+accumulates contributions over a two-dimensional region \(R\).
+</p>
+
+
+<h3>1. From small intervals to small areas</h3>
+
+<p>
+In one variable, a small contribution has the form
+</p>
+
+\[
+f(x)\,\Delta x.
+\]
+
+<p>
+In two variables, divide a region into small pieces of area
+</p>
+
+\[
+\Delta A.
+\]
+
+<p>
+A small contribution is approximately
+</p>
+
+\[
+f(x,y)\Delta A.
+\]
+
+<p>
+Adding many such pieces gives
+</p>
+
+\[
+\sum f(x_i,y_i)\Delta A_i.
+\]
+
+<p>
+As the pieces become smaller, this approaches the double integral.
+</p>
+
+
+<h3>2. Double integral notation</h3>
+
+<p>
+The expression
+</p>
+
+\[
+\iint_R f(x,y)\,dA
+\]
+
+<p>
+is read as
+</p>
+
+<p>
+<strong>“the double integral of \(f(x,y)\) over the region \(R\)”</strong>.
+</p>
+
+<p>
+The symbol
+</p>
+
+\[
+dA
+\]
+
+<p>
+represents a small element of area.
+</p>
+
+
+<h3>3. Rectangular regions</h3>
+
+<p>
+Suppose
+</p>
+
+\[
+R=
+\{(x,y):a\le x\le b,\;c\le y\le d\}.
+\]
+
+<p>
+Then
+</p>
+
+\[
+dA=dy\,dx
+\]
+
+<p>
+or
+</p>
+
+\[
+dA=dx\,dy.
+\]
+
+<p>
+The double integral can be calculated as an iterated integral:
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\iint_R f(x,y)\,dA
+=
+\int_a^b
+\int_c^d
+f(x,y)\,dy\,dx
+}
+\]
+
+</div>
+
+
+<h3>4. Why two integrations?</h3>
+
+<p>
+The inner integral accumulates in one direction.
+</p>
+
+<p>
+The outer integral then accumulates those results in the second direction.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{integrate in }y
+\rightarrow
+\text{then integrate in }x
+}
+\]
+
+</div>
+
+<p>
+This turns a two-dimensional accumulation problem into two one-dimensional integrations.
+</p>
+
+
+<h3>5. Simple example</h3>
+
+<p>
+Evaluate
+</p>
+
+\[
+\int_0^2\int_0^1 (x+y)\,dy\,dx.
+\]
+
+<p>
+First integrate with respect to \(y\), treating \(x\) as constant:
+</p>
+
+\[
+\int_0^1(x+y)\,dy.
+\]
+
+<p>
+This gives
+</p>
+
+\[
+xy+\frac{y^2}{2}
+\Bigg|_0^1.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+x+\frac12.
+\]
+
+
+<h3>6. Now integrate with respect to \(x\)</h3>
+
+<p>
+So the double integral becomes
+</p>
+
+\[
+\int_0^2
+\left(
+x+\frac12
+\right)dx.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+\left[
+\frac{x^2}{2}+\frac{x}{2}
+\right]_0^2.
+\]
+
+<p>
+So
+</p>
+
+\[
+2+1=3.
+\]
+
+<p>
+Hence,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\int_0^2\int_0^1(x+y)\,dy\,dx=3
+}
+\]
+
+</div>
+
+
+<h3>7. Geometric meaning</h3>
+
+<p>
+If
+</p>
+
+\[
+f(x,y)\ge0,
+\]
+
+<p>
+then
+</p>
+
+\[
+\iint_R f(x,y)\,dA
+\]
+
+<p>
+can be interpreted as the volume under the surface
+</p>
+
+\[
+z=f(x,y)
+\]
+
+<p>
+and above the region \(R\).
+</p>
+
+
+<h3>8. Diagram</h3>
+
+<div style="max-width:700px; margin:30px auto;">
+
+<svg viewBox="0 0 700 430"
+     width="100%"
+     role="img"
+     aria-labelledby="double-title double-desc"
+     xmlns="http://www.w3.org/2000/svg">
+
+<title id="double-title">
+Double integral as volume under a surface
+</title>
+
+<desc id="double-desc">
+A surface lies above a rectangular region in the xy-plane. A small vertical column illustrates the contribution f of x y times a small area.
+</desc>
+
+<!-- axes -->
+
+<line x1="330" y1="345" x2="610" y2="345"
+      stroke="currentColor"
+      stroke-width="2"/>
+
+<line x1="330" y1="345" x2="135" y2="250"
+      stroke="currentColor"
+      stroke-width="2"/>
+
+<line x1="330" y1="345" x2="330" y2="55"
+      stroke="currentColor"
+      stroke-width="2"/>
+
+<text x="618" y="350"
+      font-size="18"
+      fill="currentColor">x</text>
+
+<text x="118" y="245"
+      font-size="18"
+      fill="currentColor">y</text>
+
+<text x="320" y="42"
+      font-size="18"
+      fill="currentColor">z</text>
+
+<!-- base region -->
+
+<polygon points="
+235,320
+435,320
+520,280
+315,280
+"
+fill="currentColor"
+opacity="0.06"
+stroke="currentColor"
+stroke-width="1.5"/>
+
+<!-- surface -->
+
+<path d="
+M 225 210
+C 290 185, 360 160, 440 150
+C 490 145, 530 160, 550 185
+"
+fill="none"
+stroke="currentColor"
+stroke-width="3"/>
+
+<path d="
+M 250 235
+C 315 205, 380 185, 470 180
+"
+fill="none"
+stroke="currentColor"
+stroke-width="2"
+opacity="0.55"/>
+
+<!-- small column -->
+
+<polygon points="
+360,300
+390,300
+405,292
+375,292
+"
+fill="currentColor"
+opacity="0.13"
+stroke="currentColor"
+stroke-width="1.5"/>
+
+<line x1="360" y1="300" x2="360" y2="205"
+      stroke="currentColor"
+      stroke-width="1.5"/>
+
+<line x1="390" y1="300" x2="390" y2="198"
+      stroke="currentColor"
+      stroke-width="1.5"/>
+
+<line x1="405" y1="292" x2="405" y2="190"
+      stroke="currentColor"
+      stroke-width="1.5"/>
+
+<line x1="375" y1="292" x2="375" y2="199"
+      stroke="currentColor"
+      stroke-width="1.5"/>
+
+<text x="420" y="245"
+      font-size="16"
+      fill="currentColor">
+small column
+</text>
+
+</svg>
+
+</div>
+
+
+<h3>9. Integrating the constant function \(1\)</h3>
+
+<p>
+If
+</p>
+
+\[
+f(x,y)=1,
+\]
+
+<p>
+then
+</p>
+
+\[
+\iint_R1\,dA
+\]
+
+<p>
+gives the area of the region \(R\).
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{Area}(R)
+=
+\iint_R dA
+}
+\]
+
+</div>
+
+
+<h3>10. Example: area of a rectangle</h3>
+
+<p>
+Let
+</p>
+
+\[
+0\le x\le3,
+\qquad
+0\le y\le2.
+\]
+
+<p>
+Then
+</p>
+
+\[
+\text{Area}
+=
+\int_0^3\int_0^2 1\,dy\,dx.
+\]
+
+<p>
+The inner integral gives
+</p>
+
+\[
+2.
+\]
+
+<p>
+Then
+</p>
+
+\[
+\int_0^3 2\,dx=6.
+\]
+
+<p>
+So
+</p>
+
+\[
+\boxed{
+\text{Area}=6
+}
+\]
+
+
+<h3>11. Non-rectangular regions</h3>
+
+<p>
+Suppose a region is bounded by
+</p>
+
+\[
+a\le x\le b
+\]
+
+<p>
+and
+</p>
+
+\[
+g_1(x)\le y\le g_2(x).
+\]
+
+<p>
+Then
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\iint_R f(x,y)\,dA
+=
+\int_a^b
+\int_{g_1(x)}^{g_2(x)}
+f(x,y)\,dy\,dx
+}
+\]
+
+</div>
+
+<p>
+The inner limits may depend on the outer variable.
+</p>
+
+
+<h3>12. Example over a triangular region</h3>
+
+<p>
+Consider the region
+</p>
+
+\[
+0\le x\le1,
+\qquad
+0\le y\le x.
+\]
+
+<p>
+Its area is
+</p>
+
+\[
+\int_0^1\int_0^x1\,dy\,dx.
+\]
+
+<p>
+The inner integral gives
+</p>
+
+\[
+x.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+\int_0^1x\,dx
+=
+\frac12.
+\]
+
+<p>
+Hence,
+</p>
+
+\[
+\boxed{
+\text{Area}=\frac12
+}
+\]
+
+
+<h3>13. Order of integration</h3>
+
+<p>
+We may sometimes integrate
+</p>
+
+\[
+dy\,dx
+\]
+
+<p>
+or reverse the order and integrate
+</p>
+
+\[
+dx\,dy.
+\]
+
+<p>
+For sufficiently well-behaved functions over suitable regions, both orders give the same result.
+</p>
+
+<p>
+But the limits must be rewritten to describe the region correctly.
+</p>
+
+
+<h3>14. Why changing the order can help</h3>
+
+<p>
+One order of integration may produce a difficult integral while the other is simpler.
+</p>
+
+<p>
+So understanding the geometry of the region is often as important as the integration itself.
+</p>
+
+
+<h3>15. Triple integrals</h3>
+
+<p>
+A triple integral accumulates over a three-dimensional region \(V\):
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\iiint_V f(x,y,z)\,dV
+}
+\]
+
+</div>
+
+<p>
+Here
+</p>
+
+\[
+dV
+\]
+
+<p>
+represents a small volume element.
+</p>
+
+
+<h3>16. Volume from a triple integral</h3>
+
+<p>
+If
+</p>
+
+\[
+f(x,y,z)=1,
+\]
+
+<p>
+then
+</p>
+
+\[
+\iiint_V1\,dV
+\]
+
+<p>
+gives the volume of \(V\).
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{Volume}(V)
+=
+\iiint_V dV
+}
+\]
+
+</div>
+
+
+<h3>17. Density and mass</h3>
+
+<p>
+Suppose a thin plate has density
+</p>
+
+\[
+\rho(x,y).
+\]
+
+<p>
+Then a small piece of area \(dA\) has approximate mass
+</p>
+
+\[
+\rho(x,y)\,dA.
+\]
+
+<p>
+The total mass is
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+M
+=
+\iint_R \rho(x,y)\,dA
+}
+\]
+
+</div>
+
+
+<h3>18. Probability densities</h3>
+
+<p>
+For two continuous random variables with joint density
+</p>
+
+\[
+p(x,y),
+\]
+
+<p>
+the probability of lying in a region \(R\) is
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+P((X,Y)\in R)
+=
+\iint_R p(x,y)\,dA
+}
+\]
+
+</div>
+
+<p>
+The total probability must satisfy
+</p>
+
+\[
+\iint_{\mathbb{R}^2}
+p(x,y)\,dA
+=
+1.
+\]
+
+
+<h3>19. Average value over a region</h3>
+
+<p>
+The average value of \(f\) over a region \(R\) is
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+f_{\text{avg}}
+=
+\frac{1}{\text{Area}(R)}
+\iint_R f(x,y)\,dA
+}
+\]
+
+</div>
+
+<p>
+This is the two-dimensional version of the one-variable average-value formula.
+</p>
+
+
+<h3>20. The pattern from one to several dimensions</h3>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\int f(x)\,dx
+=
+\text{accumulation along a line}
+}
+\]
+
+\[
+\boxed{
+\iint f(x,y)\,dA
+=
+\text{accumulation over an area}
+}
+\]
+
+\[
+\boxed{
+\iiint f(x,y,z)\,dV
+=
+\text{accumulation through a volume}
+}
+\]
+
+</div>
+
+
+<h3>21. The central idea</h3>
+
+<p>
+Multiple integrals extend the same accumulation principle used in ordinary integration.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{small contribution}
+=
+\text{density or height}
+\times
+\text{small region}
+}
+\]
+
+\[
+\downarrow
+\]
+
+\[
+\boxed{
+\text{sum over all small regions}
+}
+\]
+
+\[
+\downarrow
+\]
+
+\[
+\boxed{
+\text{multiple integral}
+}
+\]
+
+</div>
+
+<p>
+The dimension changes, but the underlying idea of accumulation remains the same.
+</p>
+
+
+<div class="lesson-navigation">
+
+<a href="total-differential.html">
+← Total Differential
+</a>
+
+<a href="jacobian.html">
+Next: The Jacobian →
+</a>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<div>
+<strong>dy/dx</strong>
+<p>Calculus Learning</p>
+</div>
+
+</footer>
+
+
+</body>
+
+</html>
