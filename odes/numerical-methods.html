@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Numerical Methods for ODEs | dy/dx</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']]
+  }
+};
+</script>
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+</head>
+
+
+<body>
+
+
+<header class="site-header">
+
+<div class="brand">
+<a href="../index.html">dy/dx</a>
+</div>
+
+<nav class="top-nav">
+<a href="../index.html">Home</a>
+<a href="index.html">Differential Equations</a>
+</nav>
+
+</header>
+
+
+<main>
+
+
+<section class="lesson-header">
+
+<p class="eyebrow">DIFFERENTIAL EQUATIONS 09</p>
+
+<h1>Numerical Methods for ODEs</h1>
+
+<p class="lesson-intro">
+When an exact formula is difficult or impossible to obtain, numerical methods approximate the solution step by step.
+</p>
+
+</section>
+
+
+<section class="lesson-content">
+
+
+<h2>The main idea</h2>
+
+<p>
+Consider an initial value problem
+</p>
+
+\[
+\frac{dy}{dt}=f(t,y),
+\qquad
+y(t_0)=y_0.
+\]
+
+<p>
+The differential equation tells us the slope of the solution at each point.
+</p>
+
+<p>
+A numerical method uses this slope information to estimate future values of \(y\).
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{current value}
++
+\text{estimated change}
+=
+\text{next value}
+}
+\]
+
+</div>
+
+
+<h3>1. Why numerical methods are needed</h3>
+
+<p>
+Some differential equations have simple exact solutions.
+</p>
+
+<p>
+For example,
+</p>
+
+\[
+\frac{dy}{dt}=y
+\]
+
+<p>
+has the solution
+</p>
+
+\[
+y(t)=Ce^t.
+\]
+
+<p>
+But many differential equations, especially nonlinear systems, do not have a convenient closed-form solution.
+</p>
+
+<p>
+We can still approximate their solutions numerically.
+</p>
+
+
+<h3>2. Divide time into steps</h3>
+
+<p>
+Choose a step size
+</p>
+
+\[
+h>0.
+\]
+
+<p>
+Starting at \(t_0\), define
+</p>
+
+\[
+t_1=t_0+h,
+\]
+
+\[
+t_2=t_0+2h,
+\]
+
+<p>
+and in general
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+t_n=t_0+nh
+}
+\]
+
+</div>
+
+<p>
+The numerical method estimates the solution at these discrete time points.
+</p>
+
+
+<h3>3. From derivative to approximate change</h3>
+
+<p>
+Recall that
+</p>
+
+\[
+\frac{dy}{dt}
+\]
+
+<p>
+represents the instantaneous rate of change.
+</p>
+
+<p>
+Over a small time interval \(h\),
+</p>
+
+\[
+\Delta y
+\approx
+\frac{dy}{dt}h.
+\]
+
+<p>
+Since
+</p>
+
+\[
+\frac{dy}{dt}=f(t,y),
+\]
+
+<p>
+we obtain
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\Delta y
+\approx
+f(t,y)h
+}
+\]
+
+</div>
+
+
+<h3>4. Euler's method</h3>
+
+<p>
+Euler's method uses the slope at the beginning of each step.
+</p>
+
+<p>
+If the current approximation is
+</p>
+
+\[
+(t_n,y_n),
+\]
+
+<p>
+then
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+y_{n+1}
+=
+y_n
++
+h f(t_n,y_n)
+}
+\]
+
+</div>
+
+<p>
+and
+</p>
+
+\[
+t_{n+1}=t_n+h.
+\]
+
+
+<h3>5. Understanding the formula</h3>
+
+<p>
+The Euler update
+</p>
+
+\[
+y_{n+1}
+=
+y_n
++
+h f(t_n,y_n)
+\]
+
+<p>
+has three parts:
+</p>
+
+\[
+y_n
+=
+\text{current value},
+\]
+
+\[
+f(t_n,y_n)
+=
+\text{current rate of change},
+\]
+
+<p>
+and
+</p>
+
+\[
+h f(t_n,y_n)
+=
+\text{approximate change during the step}.
+\]
+
+<p>
+Therefore,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{new value}
+=
+\text{old value}
++
+\text{rate}\times\text{time step}
+}
+\]
+
+</div>
+
+
+<h3>6. A simple example</h3>
+
+<p>
+Consider
+</p>
+
+\[
+\frac{dy}{dt}=y,
+\qquad
+y(0)=1.
+\]
+
+<p>
+Choose
+</p>
+
+\[
+h=0.1.
+\]
+
+<p>
+Initially,
+</p>
+
+\[
+t_0=0,
+\qquad
+y_0=1.
+\]
+
+<p>
+The initial slope is
+</p>
+
+\[
+f(t_0,y_0)=y_0=1.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+y_1
+=
+1+(0.1)(1)
+=
+1.1.
+\]
+
+<p>
+So
+</p>
+
+\[
+\boxed{
+y(0.1)\approx1.1
+}
+\]
+
+
+<h3>7. Take another step</h3>
+
+<p>
+Now
+</p>
+
+\[
+t_1=0.1,
+\qquad
+y_1=1.1.
+\]
+
+<p>
+The new slope is
+</p>
+
+\[
+f(t_1,y_1)=1.1.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+y_2
+=
+1.1+(0.1)(1.1).
+\]
+
+<p>
+Hence,
+</p>
+
+\[
+y_2=1.21.
+\]
+
+<p>
+So
+</p>
+
+\[
+\boxed{
+y(0.2)\approx1.21
+}
+\]
+
+
+<h3>8. Continue step by step</h3>
+
+<p>
+For this example,
+</p>
+
+\[
+y_{n+1}
+=
+y_n+0.1y_n.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+y_{n+1}=1.1y_n.
+\]
+
+<p>
+The approximations begin
+</p>
+
+\[
+1,
+\quad
+1.1,
+\quad
+1.21,
+\quad
+1.331,
+\quad
+\ldots
+\]
+
+<p>
+The numerical trajectory is built one step at a time.
+</p>
+
+
+<h3>9. Compare with the exact solution</h3>
+
+<p>
+The exact solution of
+</p>
+
+\[
+y'=y,
+\qquad
+y(0)=1
+\]
+
+<p>
+is
+</p>
+
+\[
+y=e^t.
+\]
+
+<p>
+At
+</p>
+
+\[
+t=0.2,
+\]
+
+<p>
+the exact value is approximately
+</p>
+
+\[
+e^{0.2}\approx1.2214.
+\]
+
+<p>
+Euler's method gave
+</p>
+
+\[
+1.21.
+\]
+
+<p>
+So the approximation is close, but not exact.
+</p>
+
+
+<h3>10. Geometric interpretation</h3>
+
+<p>
+At the current point, Euler's method follows the tangent line for a short distance.
+</p>
+
+<div style="max-width:680px; margin:30px auto;">
+
+<svg viewBox="0 0 680 400"
+     width="100%"
+     role="img"
+     aria-labelledby="euler-title euler-desc"
+     xmlns="http://www.w3.org/2000/svg">
+
+<title id="euler-title">
+Euler approximation compared with a smooth solution curve
+</title>
+
+<desc id="euler-desc">
+A smooth curved solution is approximated by several short straight tangent-line steps.
+</desc>
+
+<line x1="70" y1="335" x2="620" y2="335"
+      stroke="currentColor"
+      stroke-width="2"/>
+
+<line x1="100" y1="365" x2="100" y2="45"
+      stroke="currentColor"
+      stroke-width="2"/>
+
+<text x="630" y="340"
+      font-size="18"
+      fill="currentColor">t</text>
+
+<text x="85" y="35"
+      font-size="18"
+      fill="currentColor">y</text>
+
+<!-- smooth exact curve -->
+<path d="
+M 120 300
+C 210 285, 285 245, 355 195
+C 430 140, 500 90, 585 60
+"
+fill="none"
+stroke="currentColor"
+stroke-width="3"/>
+
+<!-- Euler steps -->
+<polyline points="
+120,300
+220,275
+320,235
+420,180
+520,110
+"
+fill="none"
+stroke="currentColor"
+stroke-width="2"
+stroke-dasharray="8 6"/>
+
+<circle cx="120" cy="300" r="5" fill="currentColor"/>
+<circle cx="220" cy="275" r="5" fill="currentColor"/>
+<circle cx="320" cy="235" r="5" fill="currentColor"/>
+<circle cx="420" cy="180" r="5" fill="currentColor"/>
+<circle cx="520" cy="110" r="5" fill="currentColor"/>
+
+<text x="395" y="265"
+      font-size="16"
+      fill="currentColor">
+short numerical steps
+</text>
+
+</svg>
+
+</div>
+
+<p>
+Because the true solution curves while the tangent line is straight, an approximation error is introduced during each step.
+</p>
+
+
+<h3>11. The step size matters</h3>
+
+<p>
+A smaller step size usually gives a more accurate approximation.
+</p>
+
+<p>
+For example,
+</p>
+
+\[
+h=0.01
+\]
+
+<p>
+normally follows the solution more closely than
+</p>
+
+\[
+h=0.5.
+\]
+
+<p>
+However, a smaller step size requires more calculations.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{smaller }h
+\Rightarrow
+\text{usually greater accuracy but more computation}
+}
+\]
+
+</div>
+
+
+<h3>12. Local error</h3>
+
+<p>
+During one Euler step, the method replaces the curved solution by a tangent-line approximation.
+</p>
+
+<p>
+The error introduced in a single step is called the local truncation error.
+</p>
+
+<p>
+For Euler's method, the local truncation error is of order
+</p>
+
+\[
+O(h^2).
+\]
+
+
+<h3>13. Global error</h3>
+
+<p>
+Errors accumulate as many steps are taken.
+</p>
+
+<p>
+Over a fixed time interval, the global error of Euler's method is generally of order
+</p>
+
+\[
+\boxed{
+O(h)
+}
+\]
+
+<p>
+under suitable regularity conditions.
+</p>
+
+<p>
+This means that reducing \(h\) tends to reduce the overall error approximately in proportion to the step size.
+</p>
+
+
+<h3>14. Euler's method for a system</h3>
+
+<p>
+Suppose
+</p>
+
+\[
+\frac{dx}{dt}=f(x,y),
+\]
+
+\[
+\frac{dy}{dt}=g(x,y).
+\]
+
+<p>
+Euler's method updates both variables:
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+x_{n+1}
+=
+x_n
++
+h f(x_n,y_n)
+}
+\]
+
+\[
+\boxed{
+y_{n+1}
+=
+y_n
++
+h g(x_n,y_n)
+}
+\]
+
+</div>
+
+<p>
+Both new values are calculated from the state at the beginning of the step.
+</p>
+
+
+<h3>15. Example with an epidemic model</h3>
+
+<p>
+Consider the SIR system
+</p>
+
+\[
+\frac{dS}{dt}
+=
+-\beta\frac{SI}{N},
+\]
+
+\[
+\frac{dI}{dt}
+=
+\beta\frac{SI}{N}-\gamma I,
+\]
+
+\[
+\frac{dR}{dt}
+=
+\gamma I.
+\]
+
+<p>
+Euler's method gives
+</p>
+
+\[
+S_{n+1}
+=
+S_n
+-
+h\beta\frac{S_nI_n}{N},
+\]
+
+\[
+I_{n+1}
+=
+I_n
++
+h\left(
+\beta\frac{S_nI_n}{N}
+-
+\gamma I_n
+\right),
+\]
+
+<p>
+and
+</p>
+
+\[
+R_{n+1}
+=
+R_n
++
+h\gamma I_n.
+\]
+
+<p>
+This produces an approximate epidemic trajectory at discrete time points.
+</p>
+
+
+<h3>16. Continuous model, discrete calculation</h3>
+
+<p>
+The differential equation itself describes continuous time.
+</p>
+
+<p>
+Euler's method does not change the ODE into a discrete-time model.
+It creates a discrete numerical approximation to the continuous solution.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{continuous ODE}
+\neq
+\text{numerical time grid}
+}
+\]
+
+</div>
+
+<p>
+The grid is a computational device used to approximate the continuous trajectory.
+</p>
+
+
+<h3>17. Better numerical methods</h3>
+
+<p>
+Euler's method uses only the slope at the beginning of each step.
+</p>
+
+<p>
+More accurate methods use additional slope information.
+</p>
+
+<p>
+One important family is the Runge–Kutta methods.
+</p>
+
+<p>
+The widely used fourth-order Runge–Kutta method is commonly called RK4.
+</p>
+
+
+<h3>18. The idea behind RK4</h3>
+
+<p>
+Instead of relying on one slope, RK4 evaluates several slopes within each time step and combines them.
+</p>
+
+<p>
+For
+</p>
+
+\[
+y'=f(t,y),
+\]
+
+<p>
+define
+</p>
+
+\[
+k_1=f(t_n,y_n),
+\]
+
+\[
+k_2=
+f\left(
+t_n+\frac h2,
+y_n+\frac h2k_1
+\right),
+\]
+
+\[
+k_3=
+f\left(
+t_n+\frac h2,
+y_n+\frac h2k_2
+\right),
+\]
+
+<p>
+and
+</p>
+
+\[
+k_4=
+f(t_n+h,y_n+hk_3).
+\]
+
+<p>
+Then
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+y_{n+1}
+=
+y_n
++
+\frac h6
+\left(
+k_1+2k_2+2k_3+k_4
+\right)
+}
+\]
+
+</div>
+
+
+<h3>19. Numerical solution versus exact solution</h3>
+
+<p>
+An exact solution gives a function such as
+</p>
+
+\[
+y(t)=e^t.
+\]
+
+<p>
+A numerical solution usually gives approximations
+</p>
+
+\[
+y_0,\;
+y_1,\;
+y_2,\;
+\ldots
+\]
+
+<p>
+at selected time points
+</p>
+
+\[
+t_0,\;
+t_1,\;
+t_2,\;
+\ldots
+\]
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{exact solution}
+\rightarrow
+\text{formula}
+}
+\]
+
+\[
+\boxed{
+\text{numerical solution}
+\rightarrow
+\text{sequence of approximations}
+}
+\]
+
+</div>
+
+
+<h3>20. Numerical methods do not remove the mathematics</h3>
+
+<p>
+A computer can perform thousands of numerical steps quickly, but the mathematical model still determines the calculation.
+</p>
+
+<p>
+We must still understand the differential equation, initial conditions, parameter values, step size and possible numerical error.
+</p>
+
+
+<h3>21. The practical Euler method</h3>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+1.\;
+\text{Write }y'=f(t,y)
+}
+\]
+
+\[
+\boxed{
+2.\;
+\text{Specify }y(t_0)=y_0
+}
+\]
+
+\[
+\boxed{
+3.\;
+\text{Choose a step size }h
+}
+\]
+
+\[
+\boxed{
+4.\;
+\text{Calculate the slope }f(t_n,y_n)
+}
+\]
+
+\[
+\boxed{
+5.\;
+y_{n+1}=y_n+h f(t_n,y_n)
+}
+\]
+
+\[
+\boxed{
+6.\;
+t_{n+1}=t_n+h
+}
+\]
+
+\[
+\boxed{
+7.\;
+\text{Repeat}
+}
+\]
+
+</div>
+
+
+<h3>22. The central idea</h3>
+
+<p>
+A differential equation gives an instantaneous rate of change.
+</p>
+
+<p>
+A numerical method uses that local information repeatedly to construct an approximation to the full trajectory.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{slope}
+\times
+\text{small time step}
+\approx
+\text{small change}
+}
+\]
+
+\[
+\downarrow
+\]
+
+\[
+\boxed{
+\text{repeat many times}
+}
+\]
+
+\[
+\downarrow
+\]
+
+\[
+\boxed{
+\text{approximate solution trajectory}
+}
+\]
+
+</div>
+
+
+<div class="lesson-navigation">
+
+<a href="systems-of-odes.html">
+← Systems of Differential Equations
+</a>
+
+<a href="modelling-with-odes.html">
+Next: Modelling with ODEs →
+</a>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<div>
+<strong>dy/dx</strong>
+<p>Calculus Learning</p>
+</div>
+
+</footer>
+
+
+</body>
+
+</html>
