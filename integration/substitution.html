@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Integration by Substitution | dy/dx</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']]
+  }
+};
+</script>
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+</head>
+
+<body>
+
+<header class="site-header">
+
+<div class="brand">
+<a href="../index.html">dy/dx</a>
+</div>
+
+<nav class="top-nav">
+<a href="../index.html">Home</a>
+<a href="index.html">Integration</a>
+</nav>
+
+</header>
+
+
+<main>
+
+<section class="lesson-header">
+
+<p class="eyebrow">INTEGRATION 05</p>
+
+<h1>Integration by Substitution</h1>
+
+<p class="lesson-intro">
+Substitution simplifies an integral by replacing a complicated inner expression with a new variable.
+</p>
+
+</section>
+
+
+<section class="lesson-content">
+
+<h2>The main idea</h2>
+
+<p>
+Substitution is the integration counterpart of the chain rule.
+</p>
+
+<p>
+Suppose an integral contains
+</p>
+
+\[
+f(g(x))g'(x).
+\]
+
+<p>
+Let
+</p>
+
+\[
+u=g(x).
+\]
+
+<p>
+Then
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+du=g'(x)\,dx
+}
+\]
+
+</div>
+
+<p>
+and the integral becomes
+</p>
+
+\[
+\int f(u)\,du.
+\]
+
+
+<h3>1. Why substitution works</h3>
+
+<p>
+The chain rule says
+</p>
+
+\[
+\frac{d}{dx}F(g(x))
+=
+F'(g(x))g'(x).
+\]
+
+<p>
+If
+</p>
+
+\[
+F'(u)=f(u),
+\]
+
+<p>
+then
+</p>
+
+\[
+\frac{d}{dx}F(g(x))
+=
+f(g(x))g'(x).
+\]
+
+<p>
+Reversing this relationship gives
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\int f(g(x))g'(x)\,dx
+=
+F(g(x))+C
+}
+\]
+
+</div>
+
+
+<h3>2. A simple example</h3>
+
+<p>
+Consider
+</p>
+
+\[
+\int 2x(x^2+1)^3\,dx.
+\]
+
+<p>
+The inner expression is
+</p>
+
+\[
+x^2+1.
+\]
+
+<p>
+Let
+</p>
+
+\[
+u=x^2+1.
+\]
+
+<p>
+Differentiate:
+</p>
+
+\[
+du=2x\,dx.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+\int 2x(x^2+1)^3\,dx
+=
+\int u^3\,du.
+\]
+
+<p>
+Integrate:
+</p>
+
+\[
+\int u^3\,du
+=
+\frac{u^4}{4}+C.
+\]
+
+<p>
+Substitute back:
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\int 2x(x^2+1)^3\,dx
+=
+\frac{(x^2+1)^4}{4}+C
+}
+\]
+
+</div>
+
+
+<h3>3. The structure to look for</h3>
+
+<p>
+A useful pattern is
+</p>
+
+\[
+\text{function of }g(x)
+\]
+
+<p>
+together with
+</p>
+
+\[
+g'(x)\,dx.
+\]
+
+<p>
+For example,
+</p>
+
+\[
+(3x+2)^5
+\]
+
+<p>
+contains the inner function
+</p>
+
+\[
+g(x)=3x+2.
+\]
+
+<p>
+Its derivative is
+</p>
+
+\[
+g'(x)=3.
+\]
+
+<p>
+So a factor of \(3\) is exactly what substitution needs.
+</p>
+
+
+<h3>4. Example with a linear inner function</h3>
+
+<p>
+Evaluate
+</p>
+
+\[
+\int (3x+2)^5\,dx.
+\]
+
+<p>
+Let
+</p>
+
+\[
+u=3x+2.
+\]
+
+<p>
+Then
+</p>
+
+\[
+du=3\,dx.
+\]
+
+<p>
+So
+</p>
+
+\[
+dx=\frac{du}{3}.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+\int(3x+2)^5\,dx
+=
+\frac13\int u^5\,du.
+\]
+
+<p>
+Hence,
+</p>
+
+\[
+=
+\frac13\cdot\frac{u^6}{6}+C.
+\]
+
+<p>
+So
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\int(3x+2)^5\,dx
+=
+\frac{(3x+2)^6}{18}+C
+}
+\]
+
+</div>
+
+
+<h3>5. Example with an exponential</h3>
+
+<p>
+Consider
+</p>
+
+\[
+\int 2xe^{x^2}\,dx.
+\]
+
+<p>
+Let
+</p>
+
+\[
+u=x^2.
+\]
+
+<p>
+Then
+</p>
+
+\[
+du=2x\,dx.
+\]
+
+<p>
+So the integral becomes
+</p>
+
+\[
+\int e^u\,du.
+\]
+
+<p>
+Therefore,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\int 2xe^{x^2}\,dx
+=
+e^{x^2}+C
+}
+\]
+
+</div>
+
+
+<h3>6. Example with a logarithm</h3>
+
+<p>
+Consider
+</p>
+
+\[
+\int \frac{2x}{x^2+1}\,dx.
+\]
+
+<p>
+Let
+</p>
+
+\[
+u=x^2+1.
+\]
+
+<p>
+Then
+</p>
+
+\[
+du=2x\,dx.
+\]
+
+<p>
+So
+</p>
+
+\[
+\int \frac{2x}{x^2+1}\,dx
+=
+\int\frac1u\,du.
+\]
+
+<p>
+Therefore,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\int \frac{2x}{x^2+1}\,dx
+=
+\ln(x^2+1)+C
+}
+\]
+
+</div>
+
+
+<h3>7. Example with trigonometric functions</h3>
+
+<p>
+Consider
+</p>
+
+\[
+\int \cos(4x)\,dx.
+\]
+
+<p>
+Let
+</p>
+
+\[
+u=4x.
+\]
+
+<p>
+Then
+</p>
+
+\[
+du=4\,dx
+\]
+
+<p>
+so
+</p>
+
+\[
+dx=\frac14\,du.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+\int\cos(4x)\,dx
+=
+\frac14\int\cos u\,du.
+\]
+
+<p>
+Thus,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\int\cos(4x)\,dx
+=
+\frac14\sin(4x)+C
+}
+\]
+
+</div>
+
+
+<h3>8. Definite integrals and substitution</h3>
+
+<p>
+Substitution can also be used in definite integrals.
+</p>
+
+<p>
+For example,
+</p>
+
+\[
+\int_0^1 2x(x^2+1)^2\,dx.
+\]
+
+<p>
+Let
+</p>
+
+\[
+u=x^2+1.
+\]
+
+<p>
+Then
+</p>
+
+\[
+du=2x\,dx.
+\]
+
+<p>
+The limits must also change.
+</p>
+
+<p>
+When
+</p>
+
+\[
+x=0,
+\]
+
+<p>
+we have
+</p>
+
+\[
+u=1.
+\]
+
+<p>
+When
+</p>
+
+\[
+x=1,
+\]
+
+<p>
+we have
+</p>
+
+\[
+u=2.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+\int_0^1 2x(x^2+1)^2\,dx
+=
+\int_1^2 u^2\,du.
+\]
+
+<p>
+So
+</p>
+
+\[
+=
+\left[
+\frac{u^3}{3}
+\right]_1^2
+=
+\frac83-\frac13
+=
+\frac73.
+\]
+
+<p>
+Hence,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\int_0^1 2x(x^2+1)^2\,dx
+=
+\frac73
+}
+\]
+
+</div>
+
+
+<h3>9. Two valid methods for definite integrals</h3>
+
+<p>
+After making a substitution in a definite integral, there are two valid approaches.
+</p>
+
+<p>
+Either change the limits into the new variable \(u\),
+</p>
+
+<p>
+or integrate in \(u\), substitute back to \(x\), and then use the original \(x\)-limits.
+</p>
+
+<p>
+Do not mix \(u\)-expressions with \(x\)-limits.
+</p>
+
+
+<h3>10. Choosing the substitution</h3>
+
+<p>
+A good substitution usually replaces an inner expression whose derivative also appears in the integral.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+u=\text{inner expression}
+}
+\]
+
+</div>
+
+<p>
+For example:
+</p>
+
+\[
+(x^2+1)^5(2x)
+\]
+
+<p>
+suggests
+</p>
+
+\[
+u=x^2+1.
+\]
+
+<p>
+And
+</p>
+
+\[
+e^{3x}
+\]
+
+<p>
+suggests
+</p>
+
+\[
+u=3x.
+\]
+
+
+<h3>11. Not every integral fits immediately</h3>
+
+<p>
+Consider
+</p>
+
+\[
+\int x(x^2+1)^3\,dx.
+\]
+
+<p>
+If
+</p>
+
+\[
+u=x^2+1,
+\]
+
+<p>
+then
+</p>
+
+\[
+du=2x\,dx.
+\]
+
+<p>
+The integral contains only \(x\,dx\), so write
+</p>
+
+\[
+x\,dx=\frac12du.
+\]
+
+<p>
+Then
+</p>
+
+\[
+\int x(x^2+1)^3\,dx
+=
+\frac12\int u^3\,du.
+\]
+
+<p>
+Thus,
+</p>
+
+\[
+\boxed{
+\int x(x^2+1)^3\,dx
+=
+\frac18(x^2+1)^4+C
+}
+\]
+
+
+<h3>12. Why \(du\) is useful</h3>
+
+<p>
+If
+</p>
+
+\[
+u=g(x),
+\]
+
+<p>
+then the differential is
+</p>
+
+\[
+du=g'(x)\,dx.
+\]
+
+<p>
+This allows the original integral to be rewritten entirely in terms of \(u\).
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+u=g(x)
+\qquad\Rightarrow\qquad
+du=g'(x)\,dx
+}
+\]
+
+</div>
+
+<p>
+The differential notation makes the chain-rule structure especially visible.
+</p>
+
+
+<h3>13. The connection with the chain rule</h3>
+
+<p>
+Differentiation:
+</p>
+
+<div class="lesson-math">
+
+\[
+F(g(x))
+\xrightarrow{\ d/dx\ }
+F'(g(x))g'(x)
+\]
+
+</div>
+
+<p>
+Integration by substitution reverses this:
+</p>
+
+<div class="lesson-math">
+
+\[
+F'(g(x))g'(x)
+\xrightarrow{\ \int\ }
+F(g(x))+C.
+\]
+
+</div>
+
+
+<h3>14. Practical method</h3>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+1.\; \text{Choose }u=g(x)
+}
+\]
+
+\[
+\boxed{
+2.\; \text{Find }du=g'(x)\,dx
+}
+\]
+
+\[
+\boxed{
+3.\; \text{Rewrite the entire integral in }u
+}
+\]
+
+\[
+\boxed{
+4.\; \text{Integrate}
+}
+\]
+
+\[
+\boxed{
+5.\; \text{Substitute back, or use transformed limits}
+}
+\]
+
+</div>
+
+<p>
+The goal is to replace a complicated integral with a simpler one whose antiderivative is already known.
+</p>
+
+
+<div class="lesson-navigation">
+
+<a href="fundamental-theorem.html">
+← Fundamental Theorem of Calculus
+</a>
+
+<a href="integration-by-parts.html">
+Next: Integration by Parts →
+</a>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<div>
+<strong>dy/dx</strong>
+<p>Calculus Learning</p>
+</div>
+
+</footer>
+
+</body>
+
+</html>
