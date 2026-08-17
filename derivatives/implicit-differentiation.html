@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Implicit Differentiation | dy/dx</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']]
+  }
+};
+</script>
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+</head>
+
+<body>
+
+<header class="site-header">
+
+<div class="brand">
+<a href="../index.html">dy/dx</a>
+</div>
+
+<nav class="top-nav">
+<a href="../index.html">Home</a>
+<a href="index.html">Differentiation</a>
+</nav>
+
+</header>
+
+
+<main>
+
+<section class="lesson-header">
+
+<p class="eyebrow">DIFFERENTIATION 11</p>
+
+<h1>Implicit Differentiation</h1>
+
+<p class="lesson-intro">
+Implicit differentiation is used when \(y\) is defined by an equation involving both \(x\) and \(y\), rather than being isolated explicitly.
+</p>
+
+</section>
+
+
+<section class="lesson-content">
+
+<h2>The main idea</h2>
+
+<p>
+Sometimes a relationship is written as
+</p>
+
+<div class="lesson-math">
+
+\[
+F(x,y)=0
+\]
+
+</div>
+
+<p>
+instead of
+</p>
+
+\[
+y=f(x).
+\]
+
+<p>
+We can still differentiate with respect to \(x\), remembering that \(y\) depends on \(x\).
+</p>
+
+
+<h3>1. Explicit versus implicit form</h3>
+
+<p>
+An explicit function gives \(y\) directly:
+</p>
+
+\[
+y=x^2+1.
+\]
+
+<p>
+An implicit relationship may look like
+</p>
+
+\[
+x^2+y^2=25.
+\]
+
+<p>
+Here \(y\) is not isolated.
+</p>
+
+
+<h3>2. Differentiate both sides</h3>
+
+<p>
+Consider
+</p>
+
+\[
+x^2+y^2=25.
+\]
+
+<p>
+Differentiate both sides with respect to \(x\):
+</p>
+
+\[
+\frac{d}{dx}(x^2)
++
+\frac{d}{dx}(y^2)
+=
+\frac{d}{dx}(25).
+\]
+
+<p>
+This gives
+</p>
+
+\[
+2x
++
+\frac{d}{dx}(y^2)
+=
+0.
+\]
+
+
+<h3>3. Why the chain rule appears</h3>
+
+<p>
+Because \(y\) depends on \(x\), \(y^2\) is really a composite function.
+</p>
+
+<p>
+Using the chain rule,
+</p>
+
+\[
+\frac{d}{dx}(y^2)
+=
+2y\frac{dy}{dx}.
+\]
+
+<p>
+So
+</p>
+
+\[
+2x
++
+2y\frac{dy}{dx}
+=
+0.
+\]
+
+
+<h3>4. Solve for \(dy/dx\)</h3>
+
+<p>
+Rearrange:
+</p>
+
+\[
+2y\frac{dy}{dx}
+=
+-2x.
+\]
+
+<p>
+Therefore,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\frac{dy}{dx}
+=
+-\frac{x}{y}
+}
+\]
+
+</div>
+
+<p>
+This gives the slope of the circle at any point where \(y\neq0\).
+</p>
+
+
+<h3>5. Example at a particular point</h3>
+
+<p>
+For the circle
+</p>
+
+\[
+x^2+y^2=25,
+\]
+
+<p>
+consider the point
+</p>
+
+\[
+(3,4).
+\]
+
+<p>
+Then
+</p>
+
+\[
+\frac{dy}{dx}
+=
+-\frac{3}{4}.
+\]
+
+<p>
+So the tangent gradient at \((3,4)\) is \(-3/4\).
+</p>
+
+
+<h3>6. Another example</h3>
+
+<p>
+Consider
+</p>
+
+\[
+x^2+xy+y^2=7.
+\]
+
+<p>
+Differentiate with respect to \(x\):
+</p>
+
+\[
+2x
++
+\frac{d}{dx}(xy)
++
+2y\frac{dy}{dx}
+=
+0.
+\]
+
+<p>
+Use the product rule on \(xy\):
+</p>
+
+\[
+\frac{d}{dx}(xy)
+=
+y+x\frac{dy}{dx}.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+2x+y
++x\frac{dy}{dx}
++
+2y\frac{dy}{dx}
+=
+0.
+\]
+
+
+<h3>7. Collect the derivative terms</h3>
+
+<p>
+Group the terms containing \(dy/dx\):
+</p>
+
+\[
+\left(x+2y\right)\frac{dy}{dx}
+=
+-(2x+y).
+\]
+
+<p>
+Therefore,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\frac{dy}{dx}
+=
+-\frac{2x+y}{x+2y}
+}
+\]
+
+</div>
+
+
+<h3>8. Why every derivative of \(y\) gains \(dy/dx\)</h3>
+
+<p>
+If \(y=y(x)\), then differentiating a function of \(y\) with respect to \(x\) requires the chain rule.
+</p>
+
+<p>
+For example,
+</p>
+
+\[
+\frac{d}{dx}(y^3)
+=
+3y^2\frac{dy}{dx},
+\]
+
+\[
+\frac{d}{dx}(\sin y)
+=
+\cos y\frac{dy}{dx},
+\]
+
+\[
+\frac{d}{dx}(e^y)
+=
+e^y\frac{dy}{dx}.
+\]
+
+<p>
+The factor \(dy/dx\) appears because \(y\) itself changes with \(x\).
+</p>
+
+
+<h3>9. Example with a trigonometric term</h3>
+
+<p>
+Suppose
+</p>
+
+\[
+x+\sin y=2.
+\]
+
+<p>
+Differentiate:
+</p>
+
+\[
+1+\cos y\frac{dy}{dx}=0.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+\boxed{
+\frac{dy}{dx}
+=
+-\frac{1}{\cos y}
+}
+\]
+
+
+<h3>10. Why implicit differentiation is useful</h3>
+
+<p>
+Some curves cannot easily be written as one single function \(y=f(x)\).
+</p>
+
+<p>
+For example,
+</p>
+
+\[
+x^2+y^2=25
+\]
+
+<p>
+describes a full circle.
+</p>
+
+<p>
+Solving explicitly gives
+</p>
+
+\[
+y=\pm\sqrt{25-x^2},
+\]
+
+<p>
+which separates the upper and lower halves.
+</p>
+
+<p>
+Implicit differentiation lets us work directly with the original curve.
+</p>
+
+
+<h3>11. The structure to remember</h3>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{differentiate both sides with respect to }x
+}
+\]
+
+\[
+\boxed{
+\text{use the chain rule whenever }y\text{ is differentiated}
+}
+\]
+
+\[
+\boxed{
+\text{collect the } \frac{dy}{dx}\text{ terms and solve}
+}
+\]
+
+</div>
+
+
+<div class="lesson-navigation">
+
+<a href="trigonometric-derivatives.html">
+← Trigonometric Derivatives
+</a>
+
+<a href="higher-derivatives.html">
+Next: Higher Derivatives →
+</a>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<div>
+<strong>dy/dx</strong>
+<p>Calculus Learning</p>
+</div>
+
+</footer>
+
+</body>
+
+</html>
