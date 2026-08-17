@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Stochastic Modelling and Interpretation | dy/dx</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']]
+  }
+};
+</script>
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+</head>
+
+
+<body>
+
+
+<header class="site-header">
+
+<div class="brand">
+<a href="../index.html">dy/dx</a>
+</div>
+
+<nav class="top-nav">
+<a href="../index.html">Home</a>
+<a href="index.html">Stochastic Calculus</a>
+</nav>
+
+</header>
+
+
+<main>
+
+
+<section class="lesson-header">
+
+<p class="eyebrow">STOCHASTIC CALCULUS 09</p>
+
+<h1>Stochastic Modelling and Interpretation</h1>
+
+<p class="lesson-intro">
+A stochastic model describes both systematic change and uncertainty, allowing us to study distributions, probabilities and the range of possible outcomes.
+</p>
+
+</section>
+
+
+<section class="lesson-content">
+
+
+<h2>The main idea</h2>
+
+<p>
+A deterministic model produces one trajectory when the initial conditions and parameters are fixed.
+</p>
+
+<p>
+A stochastic model instead produces a distribution of possible trajectories.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{deterministic model}
+\rightarrow
+\text{one trajectory}
+}
+\]
+
+\[
+\boxed{
+\text{stochastic model}
+\rightarrow
+\text{many possible trajectories}
+}
+\]
+
+</div>
+
+
+<h3>1. Why introduce randomness?</h3>
+
+<p>
+Randomness should not be added simply because a real system looks irregular.
+</p>
+
+<p>
+A stochastic term should represent a genuine source of uncertainty or random variation in the mechanism being modelled.
+</p>
+
+<p>
+Examples include random transmission events, environmental fluctuations, demographic variation and measurement uncertainty.
+</p>
+
+
+<h3>2. Mechanism comes first</h3>
+
+<p>
+Suppose a deterministic model is
+</p>
+
+\[
+\frac{dX}{dt}=a(X,t).
+\]
+
+<p>
+A stochastic version may be written as
+</p>
+
+\[
+dX_t
+=
+a(X_t,t)\,dt
++
+b(X_t,t)\,dW_t.
+\]
+
+<p>
+The drift should retain the underlying mechanism of the model.
+</p>
+
+<p>
+The diffusion term should represent the source and scale of random variation.
+</p>
+
+
+<h3>3. The diffusion coefficient is not arbitrary</h3>
+
+<p>
+The coefficient
+</p>
+
+\[
+b(X_t,t)
+\]
+
+<p>
+determines how strongly randomness affects the state.
+</p>
+
+<p>
+Its form should therefore be justified by the modelling assumptions.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{diffusion coefficient}
+=
+\text{mathematical representation of uncertainty strength}
+}
+\]
+
+</div>
+
+
+<h3>4. Additive and multiplicative noise</h3>
+
+<p>
+If
+</p>
+
+\[
+dX_t
+=
+a(X_t,t)\,dt
++
+\sigma\,dW_t,
+\]
+
+<p>
+the noise strength is independent of the state.
+</p>
+
+<p>
+This is additive noise.
+</p>
+
+<p>
+If instead
+</p>
+
+\[
+dX_t
+=
+a(X_t,t)\,dt
++
+\sigma X_t\,dW_t,
+\]
+
+<p>
+the fluctuation size changes with the state.
+</p>
+
+<p>
+This is multiplicative noise.
+</p>
+
+
+<h3>5. Interpretation of a sample path</h3>
+
+<p>
+A sample path is one possible realisation of the stochastic model.
+</p>
+
+<p>
+It should not automatically be interpreted as the prediction of the model.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{one path}
+=
+\text{one possible outcome}
+}
+\]
+
+</div>
+
+<p>
+The full stochastic prediction is represented by the distribution of possible outcomes.
+</p>
+
+
+<h3>6. Why many trajectories are useful</h3>
+
+<p>
+Simulating many independent paths allows us to estimate:
+</p>
+
+\[
+E[X_t],
+\]
+
+\[
+\operatorname{Var}(X_t),
+\]
+
+<p>
+quantiles, threshold probabilities and distributions of important outcomes.
+</p>
+
+<p>
+This gives more information than a single trajectory.
+</p>
+
+
+<h3>7. Mean trajectory</h3>
+
+<p>
+The mean
+</p>
+
+\[
+E[X_t]
+\]
+
+<p>
+describes the average across possible realisations at time \(t\).
+</p>
+
+<p>
+It is useful, but it does not describe the full uncertainty.
+</p>
+
+<p>
+Two models can have the same mean while having very different variances and tail probabilities.
+</p>
+
+
+<h3>8. Variance and uncertainty</h3>
+
+<p>
+The variance
+</p>
+
+\[
+\operatorname{Var}(X_t)
+\]
+
+<p>
+describes how widely the possible values are spread.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{mean}
+=
+\text{central behaviour}
+}
+\]
+
+\[
+\boxed{
+\text{variance}
+=
+\text{uncertainty around that behaviour}
+}
+\]
+
+</div>
+
+
+<h3>9. Quantiles</h3>
+
+<p>
+A quantile gives a value below which a specified proportion of the distribution lies.
+</p>
+
+<p>
+For example, the \(95\%\) quantile \(q_{0.95}\) satisfies approximately
+</p>
+
+\[
+P(X_t\le q_{0.95})=0.95.
+\]
+
+<p>
+Quantiles are useful when the full distribution is asymmetric or when extreme outcomes matter.
+</p>
+
+
+<h3>10. Threshold probabilities</h3>
+
+<p>
+Suppose \(L\) is an important threshold.
+</p>
+
+<p>
+A stochastic model allows us to investigate
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+P(X_t>L)
+}
+\]
+
+</div>
+
+<p>
+rather than only asking whether the mean is above or below \(L\).
+</p>
+
+
+<h3>11. Mean below a threshold does not imply safety</h3>
+
+<p>
+Suppose
+</p>
+
+\[
+E[X_t]<L.
+\]
+
+<p>
+There may still be a substantial probability that
+</p>
+
+\[
+X_t>L.
+\]
+
+<p>
+Therefore,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+E[X_t]<L
+\not\Rightarrow
+P(X_t>L)=0
+}
+\]
+
+</div>
+
+<p>
+This distinction is important in risk-based decision making.
+</p>
+
+
+<h3>12. Diagram: same mean, different uncertainty</h3>
+
+<div style="max-width:760px; margin:30px auto;">
+
+<svg viewBox="0 0 760 430"
+     width="100%"
+     role="img"
+     aria-labelledby="uncertainty-title uncertainty-desc"
+     xmlns="http://www.w3.org/2000/svg">
+
+<title id="uncertainty-title">
+Two distributions with the same mean but different spread
+</title>
+
+<desc id="uncertainty-desc">
+Two bell-shaped curves are centred at the same value. One is narrow and tall while the other is wider and lower, illustrating equal means but different variances.
+</desc>
+
+<line x1="80" y1="350" x2="700" y2="350"
+      stroke="currentColor"
+      stroke-width="2"/>
+
+<line x1="390" y1="350" x2="390" y2="65"
+      stroke="currentColor"
+      stroke-width="1.5"
+      stroke-dasharray="6 5"
+      opacity="0.5"/>
+
+<path d="
+M 260 345
+C 320 338, 350 285, 370 170
+C 378 120, 385 90, 390 85
+C 395 90, 402 120, 410 170
+C 430 285, 460 338, 520 345
+"
+fill="none"
+stroke="currentColor"
+stroke-width="3"/>
+
+<path d="
+M 135 345
+C 220 335, 295 295, 345 235
+C 370 205, 385 190, 390 188
+C 395 190, 410 205, 435 235
+C 485 295, 560 335, 645 345
+"
+fill="none"
+stroke="currentColor"
+stroke-width="2"
+opacity="0.55"/>
+
+<text x="410" y="78"
+      font-size="16"
+      fill="currentColor">
+same mean
+</text>
+
+<text x="520" y="245"
+      font-size="16"
+      fill="currentColor">
+larger variance
+</text>
+
+</svg>
+
+</div>
+
+
+<h3>13. Deterministic and stochastic models answer different questions</h3>
+
+<p>
+A deterministic model is often useful for questions such as
+</p>
+
+\[
+\boxed{
+\text{What is the expected or typical direction of the system?}
+}
+\]
+
+<p>
+A stochastic model can additionally address
+</p>
+
+\[
+\boxed{
+\text{How uncertain is the outcome?}
+}
+\]
+
+\[
+\boxed{
+\text{What is the probability of an extreme event?}
+}
+\]
+
+\[
+\boxed{
+\text{How variable is the timing of an event?}
+}
+\]
+
+
+<h3>14. Stochastic does not automatically mean better</h3>
+
+<p>
+A stochastic model is not automatically superior to a deterministic model.
+</p>
+
+<p>
+The appropriate model depends on the question, scale, available data and importance of uncertainty.
+</p>
+
+<p>
+If only the average trend is required, a deterministic model may be sufficient.
+</p>
+
+<p>
+If probabilities and variability matter, stochastic modelling may provide essential additional information.
+</p>
+
+
+<h3>15. Randomness at different scales</h3>
+
+<p>
+Different sources of randomness can matter at different scales.
+</p>
+
+<p>
+In a very large population, some individual-level fluctuations may average out.
+</p>
+
+<p>
+In a small population, individual random events may strongly affect the outcome.
+</p>
+
+<p>
+The model should reflect the scale of the system.
+</p>
+
+
+<h3>16. Intrinsic uncertainty</h3>
+
+<p>
+Intrinsic uncertainty arises from randomness inside the process itself.
+</p>
+
+<p>
+For example, infection and recovery may occur as random individual events.
+</p>
+
+<p>
+Even if all parameters were known exactly, different epidemic realisations could still occur.
+</p>
+
+
+<h3>17. Parameter uncertainty</h3>
+
+<p>
+A different source of uncertainty comes from not knowing parameter values exactly.
+</p>
+
+<p>
+For example,
+</p>
+
+\[
+\beta
+\]
+
+<p>
+or
+</p>
+
+\[
+\gamma
+\]
+
+<p>
+may be estimated from data and therefore uncertain.
+</p>
+
+<p>
+This is different from stochastic process noise.
+</p>
+
+
+<h3>18. Observation uncertainty</h3>
+
+<p>
+Observed data can also contain measurement error, reporting delays or incomplete detection.
+</p>
+
+<p>
+This is another distinct source of uncertainty.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{process uncertainty}
+\neq
+\text{parameter uncertainty}
+\neq
+\text{observation uncertainty}
+}
+\]
+
+</div>
+
+
+<h3>19. Why the distinction matters</h3>
+
+<p>
+Different uncertainties should generally be represented differently.
+</p>
+
+<p>
+A diffusion term in an SDE represents process-level random fluctuation.
+</p>
+
+<p>
+It should not automatically be used as a substitute for uncertain parameters or measurement error.
+</p>
+
+
+<h3>20. Epidemic modelling example</h3>
+
+<p>
+A deterministic SIR model is
+</p>
+
+\[
+\frac{dS}{dt}
+=
+-\beta\frac{SI}{N},
+\]
+
+\[
+\frac{dI}{dt}
+=
+\beta\frac{SI}{N}
+-
+\gamma I,
+\]
+
+\[
+\frac{dR}{dt}
+=
+\gamma I.
+\]
+
+<p>
+This describes one deterministic epidemic trajectory for fixed parameters and initial conditions.
+</p>
+
+
+<h3>21. A stochastic epidemic model</h3>
+
+<p>
+A diffusion approximation may be written schematically as
+</p>
+
+\[
+d\mathbf{X}_t
+=
+\mathbf{a}(\mathbf{X}_t)\,dt
++
+B(\mathbf{X}_t)\,d\mathbf{W}_t,
+\]
+
+<p>
+where
+</p>
+
+\[
+\mathbf{X}_t
+=
+\begin{pmatrix}
+S_t\\
+I_t\\
+R_t
+\end{pmatrix}.
+\]
+
+<p>
+The drift describes the epidemic flows, while the diffusion matrix describes stochastic variation generated by those flows.
+</p>
+
+
+<h3>22. Peak size becomes random</h3>
+
+<p>
+In a deterministic epidemic model, the infectious peak
+</p>
+
+\[
+I_{\max}
+=
+\max_t I(t)
+\]
+
+<p>
+is one fixed value.
+</p>
+
+<p>
+In a stochastic model,
+</p>
+
+\[
+I_{\max}
+\]
+
+<p>
+is itself a random variable.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+I_{\max}^{(1)},
+\;
+I_{\max}^{(2)},
+\;
+\ldots
+}
+\]
+
+</div>
+
+<p>
+can differ across epidemic realisations.
+</p>
+
+
+<h3>23. Peak time is also random</h3>
+
+<p>
+Define
+</p>
+
+\[
+T_{\max}
+=
+\operatorname*{arg\,max}_t I_t.
+\]
+
+<p>
+In a stochastic model, the time of the epidemic peak may vary between trajectories.
+</p>
+
+<p>
+So we may study both
+</p>
+
+\[
+E[I_{\max}]
+\]
+
+<p>
+and</p>
+
+\[
+E[T_{\max}],
+\]
+
+<p>
+together with their distributions.
+</p>
+
+
+<h3>24. Capacity exceedance</h3>
+
+<p>
+Suppose \(C\) is a hospital-capacity threshold.
+</p>
+
+<p>
+A deterministic model might compare
+</p>
+
+\[
+I_{\max}
+\]
+
+<p>
+directly with \(C\).
+</p>
+
+<p>
+A stochastic model can instead estimate
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+P(I_{\max}>C)
+}
+\]
+
+</div>
+
+<p>
+which may be more useful when decisions depend on risk.
+</p>
+
+
+<h3>25. Extinction probability</h3>
+
+<p>
+Another question that may be invisible in a deterministic model is whether an outbreak dies out early by chance.
+</p>
+
+<p>
+For a stochastic epidemic process, we may study
+</p>
+
+\[
+\boxed{
+P(\text{early extinction})
+}
+\]
+
+<p>
+or</p>
+
+\[
+\boxed{
+P(\text{major outbreak})
+}
+\]
+
+<p>
+from a small number of initial infections.
+</p>
+
+
+<h3>26. Simulation workflow</h3>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+1.\;
+\text{Specify the stochastic model}
+}
+\]
+
+\[
+\boxed{
+2.\;
+\text{Choose parameters and initial conditions}
+}
+\]
+
+\[
+\boxed{
+3.\;
+\text{Simulate many independent trajectories}
+}
+\]
+
+\[
+\boxed{
+4.\;
+\text{Calculate the outcome of interest for each trajectory}
+}
+\]
+
+\[
+\boxed{
+5.\;
+\text{Summarise the resulting distribution}
+}
+\]
+
+</div>
+
+
+<h3>27. Example of an outcome distribution</h3>
+
+<p>
+Suppose \(M\) epidemic trajectories are simulated.
+</p>
+
+<p>
+For each trajectory, record
+</p>
+
+\[
+I_{\max}^{(m)}.
+\]
+
+<p>
+Then the collection
+</p>
+
+\[
+I_{\max}^{(1)},
+\ldots,
+I_{\max}^{(M)}
+\]
+
+<p>
+approximates the distribution of possible epidemic peaks.
+</p>
+
+
+<h3>28. Estimating exceedance probability</h3>
+
+<p>
+If \(K\) of the \(M\) simulated peaks exceed capacity \(C\), then
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+P(I_{\max}>C)
+\approx
+\frac{K}{M}
+}
+\]
+
+</div>
+
+<p>
+This is a Monte Carlo estimate.
+</p>
+
+
+<h3>29. Confidence in Monte Carlo estimates</h3>
+
+<p>
+A Monte Carlo probability estimate contains sampling error because only finitely many trajectories are used.
+</p>
+
+<p>
+For an estimated probability \(\hat p\), a common approximate standard error is
+</p>
+
+\[
+\boxed{
+\sqrt{
+\frac{
+\hat p(1-\hat p)
+}{M}
+}
+}
+\]
+
+<p>
+so increasing \(M\) improves sampling precision.
+</p>
+
+
+<h3>30. Validation remains essential</h3>
+
+<p>
+A stochastic model should still be compared with data and checked against the real process it is intended to describe.
+</p>
+
+<p>
+Adding randomness does not compensate for poor assumptions, incorrect parameters or an inappropriate model structure.
+</p>
+
+
+<h3>31. Model complexity should serve the question</h3>
+
+<p>
+A useful model is not necessarily the most complicated one.
+</p>
+
+<p>
+The model should contain enough structure to answer the scientific question while remaining interpretable and testable.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{model complexity}
+\text{ should be justified by the modelling objective}
+}
+\]
+
+</div>
+
+
+<h3>32. The central idea</h3>
+
+<p>
+Stochastic modelling changes the focus from one predicted path to a distribution of possible outcomes.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{mechanism}
++
+\text{randomness}
+\rightarrow
+\text{distribution of trajectories}
+}
+\]
+
+\[
+\boxed{
+\text{distribution of trajectories}
+\rightarrow
+\text{means, variances and probabilities}
+}
+\]
+
+</div>
+
+<p>
+This makes stochastic models particularly useful when uncertainty itself is part of the scientific or decision-making question.
+</p>
+
+
+<div class="lesson-navigation">
+
+<a href="fokker-planck.html">
+← The Fokker–Planck Equation
+</a>
+
+<a href="deterministic-vs-stochastic.html">
+Next: Deterministic and Stochastic Models →
+</a>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<div>
+<strong>dy/dx</strong>
+<p>Calculus Learning</p>
+</div>
+
+</footer>
+
+
+</body>
+
+</html>
