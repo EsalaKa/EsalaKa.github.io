@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Exponential and Logarithmic Derivatives | dy/dx</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']]
+  }
+};
+</script>
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+</head>
+
+<body>
+
+<header class="site-header">
+
+<div class="brand">
+<a href="../index.html">dy/dx</a>
+</div>
+
+<nav class="top-nav">
+<a href="../index.html">Home</a>
+<a href="index.html">Differentiation</a>
+</nav>
+
+</header>
+
+
+<main>
+
+<section class="lesson-header">
+
+<p class="eyebrow">DIFFERENTIATION 09</p>
+
+<h1>Exponential and Logarithmic Derivatives</h1>
+
+<p class="lesson-intro">
+Exponential and logarithmic functions have derivative rules that are closely connected through the number \(e\).
+</p>
+
+</section>
+
+
+<section class="lesson-content">
+
+<h2>The main idea</h2>
+
+<p>
+The most important exponential derivative is
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\frac{d}{dx}e^x=e^x
+}
+\]
+
+</div>
+
+<p>
+The natural exponential function is special because its derivative is itself.
+</p>
+
+
+<h3>1. Why \(e^x\) is special</h3>
+
+<p>
+Most functions change into a different expression when differentiated.
+</p>
+
+<p>
+For example,
+</p>
+
+\[
+x^3
+\longrightarrow
+3x^2.
+\]
+
+<p>
+But
+</p>
+
+\[
+e^x
+\longrightarrow
+e^x.
+\]
+
+<p>
+Its instantaneous rate of change at every point equals its current value.
+</p>
+
+
+<h3>2. Example</h3>
+
+<p>
+If
+</p>
+
+\[
+y=e^x,
+\]
+
+<p>
+then
+</p>
+
+\[
+\frac{dy}{dx}=e^x.
+\]
+
+<p>
+At \(x=0\),
+</p>
+
+\[
+\left.
+\frac{dy}{dx}
+\right|_{x=0}
+=
+e^0
+=
+1.
+\]
+
+
+<h3>3. Exponential functions with an inner function</h3>
+
+<p>
+If
+</p>
+
+\[
+y=e^{g(x)},
+\]
+
+<p>
+use the chain rule:
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\frac{dy}{dx}
+=
+e^{g(x)}g'(x)
+}
+\]
+
+</div>
+
+<p>
+For example,
+</p>
+
+\[
+y=e^{3x}.
+\]
+
+<p>
+Then
+</p>
+
+\[
+\frac{dy}{dx}
+=
+3e^{3x}.
+\]
+
+
+<h3>4. Another example</h3>
+
+<p>
+Consider
+</p>
+
+\[
+y=e^{x^2}.
+\]
+
+<p>
+The outer derivative is
+</p>
+
+\[
+e^{x^2},
+\]
+
+<p>
+and the inner derivative is
+</p>
+
+\[
+2x.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+\boxed{
+\frac{dy}{dx}
+=
+2xe^{x^2}
+}
+\]
+
+
+<h3>5. General exponential base</h3>
+
+<p>
+For a constant base \(a>0\),
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\frac{d}{dx}a^x
+=
+a^x\ln a
+}
+\]
+
+</div>
+
+<p>
+The extra factor \(\ln a\) appears because \(e\) is the natural base for differentiation.
+</p>
+
+
+<h3>6. Why the formula works</h3>
+
+<p>
+Write
+</p>
+
+\[
+a^x=e^{x\ln a}.
+\]
+
+<p>
+Differentiate using the chain rule:
+</p>
+
+\[
+\frac{d}{dx}a^x
+=
+e^{x\ln a}\ln a.
+\]
+
+<p>
+Since
+</p>
+
+\[
+e^{x\ln a}=a^x,
+\]
+
+<p>
+we obtain
+</p>
+
+\[
+\frac{d}{dx}a^x
+=
+a^x\ln a.
+\]
+
+
+<h3>7. The natural logarithm</h3>
+
+<p>
+The most important logarithmic derivative is
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\frac{d}{dx}\ln x
+=
+\frac{1}{x},
+\qquad x>0.
+}
+\]
+
+</div>
+
+<p>
+So the derivative of the natural logarithm is the reciprocal function.
+</p>
+
+
+<h3>8. Why this is connected to \(e^x\)</h3>
+
+<p>
+The functions
+</p>
+
+\[
+e^x
+\]
+
+<p>
+and
+</p>
+
+\[
+\ln x
+\]
+
+<p>
+are inverse functions.
+</p>
+
+<p>
+Their derivative rules are therefore closely connected.
+</p>
+
+
+<h3>9. Logarithm with an inner function</h3>
+
+<p>
+If
+</p>
+
+\[
+y=\ln(g(x)),
+\]
+
+<p>
+then by the chain rule,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\frac{dy}{dx}
+=
+\frac{g'(x)}{g(x)}
+}
+\]
+
+</div>
+
+<p>
+provided \(g(x)>0\).
+</p>
+
+
+<h3>10. Example</h3>
+
+<p>
+Let
+</p>
+
+\[
+y=\ln(2x+1).
+\]
+
+<p>
+Then
+</p>
+
+\[
+g(x)=2x+1
+\]
+
+<p>
+and
+</p>
+
+\[
+g'(x)=2.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+\boxed{
+\frac{dy}{dx}
+=
+\frac{2}{2x+1}
+}
+\]
+
+
+<h3>11. Example with a power</h3>
+
+<p>
+Consider
+</p>
+
+\[
+y=\ln(x^2+1).
+\]
+
+<p>
+Then
+</p>
+
+\[
+\frac{dy}{dx}
+=
+\frac{2x}{x^2+1}.
+\]
+
+<p>
+The numerator comes from differentiating the inside.
+</p>
+
+
+<h3>12. Logarithms with other bases</h3>
+
+<p>
+For \(a>0\) and \(a\neq1\),
+</p>
+
+\[
+\log_a x
+=
+\frac{\ln x}{\ln a}.
+\]
+
+<p>
+Since \(\ln a\) is constant,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\frac{d}{dx}\log_a x
+=
+\frac{1}{x\ln a}
+}
+\]
+
+</div>
+
+
+<h3>13. Exponential growth and decay</h3>
+
+<p>
+Consider
+</p>
+
+\[
+P(t)=P_0e^{kt}.
+\]
+
+<p>
+Differentiate with respect to time:
+</p>
+
+\[
+\frac{dP}{dt}
+=
+kP_0e^{kt}.
+\]
+
+<p>
+But
+</p>
+
+\[
+P_0e^{kt}=P(t).
+\]
+
+<p>
+Therefore,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\frac{dP}{dt}=kP
+}
+\]
+
+</div>
+
+<p>
+The rate of change is proportional to the current value.
+</p>
+
+
+<h3>14. Logarithmic differentiation idea</h3>
+
+<p>
+Logarithms can also simplify differentiation when variables appear in powers or complicated products.
+</p>
+
+<p>
+For example, if
+</p>
+
+\[
+y=x^x,
+\]
+
+<p>
+take logarithms:
+</p>
+
+\[
+\ln y=x\ln x.
+\]
+
+<p>
+Differentiating gives
+</p>
+
+\[
+\frac{1}{y}\frac{dy}{dx}
+=
+\ln x+1.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+\boxed{
+\frac{dy}{dx}
+=
+x^x(\ln x+1)
+}
+\]
+
+</div>
+
+
+<h3>15. The key rules</h3>
+
+<div class="lesson-math">
+
+\[
+\frac{d}{dx}e^x=e^x
+\]
+
+\[
+\frac{d}{dx}e^{g(x)}
+=
+e^{g(x)}g'(x)
+\]
+
+\[
+\frac{d}{dx}a^x
+=
+a^x\ln a
+\]
+
+\[
+\frac{d}{dx}\ln x
+=
+\frac{1}{x}
+\]
+
+\[
+\frac{d}{dx}\ln(g(x))
+=
+\frac{g'(x)}{g(x)}
+\]
+
+</div>
+
+<p>
+These rules appear constantly in calculus, differential equations and mathematical modelling.
+</p>
+
+
+<div class="lesson-navigation">
+
+<a href="chain-rule.html">
+← The Chain Rule
+</a>
+
+<a href="trigonometric-derivatives.html">
+Next: Trigonometric Derivatives →
+</a>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<div>
+<strong>dy/dx</strong>
+<p>Calculus Learning</p>
+</div>
+
+</footer>
+
+</body>
+
+</html>
