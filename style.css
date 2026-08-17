@@ -31,7 +31,6 @@ a { color: inherit; }
   --graph-grey: #727980;
 }
 
-/* Existing inline SVG graphs automatically inherit a calm, consistent style. */
 .lesson-content svg {
   color: var(--graph-label);
   overflow: visible;
@@ -39,8 +38,16 @@ a { color: inherit; }
 .lesson-content svg text {
   fill: var(--graph-label) !important;
 }
-.lesson-content svg circle {
+.lesson-content svg circle:not(.open-point) {
   fill: var(--graph-point) !important;
+}
+.lesson-content svg circle.open-point {
+  fill: #ffffff !important;
+  stroke: var(--graph-point) !important;
+}
+.lesson-content svg circle.closed-point {
+  fill: var(--graph-point) !important;
+  stroke: var(--graph-point) !important;
 }
 .lesson-content svg line {
   stroke: var(--graph-axis) !important;
@@ -56,7 +63,6 @@ a { color: inherit; }
   fill: var(--graph-blue);
 }
 
-/* Reusable classes for accurate graphs and future lessons. */
 .math-graph {
   max-width: 720px;
   margin: 30px auto;
