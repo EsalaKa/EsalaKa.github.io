@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Improper Integrals | dy/dx</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']]
+  }
+};
+</script>
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+</head>
+
+<body>
+
+<header class="site-header">
+
+<div class="brand">
+<a href="../index.html">dy/dx</a>
+</div>
+
+<nav class="top-nav">
+<a href="../index.html">Home</a>
+<a href="index.html">Integration</a>
+</nav>
+
+</header>
+
+
+<main>
+
+<section class="lesson-header">
+
+<p class="eyebrow">INTEGRATION 08</p>
+
+<h1>Improper Integrals</h1>
+
+<p class="lesson-intro">
+An improper integral is defined using a limit when the interval is infinite or the integrand becomes unbounded.
+</p>
+
+</section>
+
+
+<section class="lesson-content">
+
+<h2>The main idea</h2>
+
+<p>
+Ordinary definite integrals use a finite interval and a function that remains finite on that interval.
+</p>
+
+<p>
+Improper integrals extend the idea using limits.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{improper integral}
+=
+\text{limit of ordinary definite integrals}
+}
+\]
+
+</div>
+
+
+<h3>1. Infinite intervals</h3>
+
+<p>
+Consider
+</p>
+
+\[
+\int_1^\infty \frac{1}{x^2}\,dx.
+\]
+
+<p>
+The upper limit is not a finite number, so we define the integral by introducing a finite endpoint \(b\):
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\int_1^\infty \frac{1}{x^2}\,dx
+=
+\lim_{b\to\infty}
+\int_1^b \frac{1}{x^2}\,dx
+}
+\]
+
+</div>
+
+
+<h3>2. Evaluate the finite integral first</h3>
+
+<p>
+Write
+</p>
+
+\[
+\frac{1}{x^2}=x^{-2}.
+\]
+
+<p>
+An antiderivative is
+</p>
+
+\[
+-\frac{1}{x}.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+\int_1^b \frac{1}{x^2}\,dx
+=
+\left[
+-\frac1x
+\right]_1^b.
+\]
+
+<p>
+So
+</p>
+
+\[
+=
+-\frac1b+1.
+\]
+
+
+<h3>3. Now take the limit</h3>
+
+<p>
+As
+</p>
+
+\[
+b\to\infty,
+\]
+
+<p>
+we have
+</p>
+
+\[
+\frac1b\to0.
+\]
+
+<p>
+Therefore,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\int_1^\infty \frac{1}{x^2}\,dx=1
+}
+\]
+
+</div>
+
+<p>
+The interval is infinite, but the total accumulated value is finite.
+</p>
+
+
+<h3>4. Convergence</h3>
+
+<p>
+If the defining limit exists as a finite number, the improper integral is said to <strong>converge</strong>.
+</p>
+
+<p>
+So
+</p>
+
+\[
+\int_1^\infty \frac{1}{x^2}\,dx
+\]
+
+<p>
+converges.
+</p>
+
+
+<h3>5. Divergence</h3>
+
+<p>
+Now consider
+</p>
+
+\[
+\int_1^\infty \frac1x\,dx.
+\]
+
+<p>
+Define
+</p>
+
+\[
+\int_1^\infty \frac1x\,dx
+=
+\lim_{b\to\infty}
+\int_1^b \frac1x\,dx.
+\]
+
+<p>
+Since
+</p>
+
+\[
+\int\frac1x\,dx=\ln x,
+\]
+
+<p>
+we obtain
+</p>
+
+\[
+\lim_{b\to\infty}\ln b.
+\]
+
+<p>
+But
+</p>
+
+\[
+\ln b\to\infty.
+\]
+
+<p>
+Therefore the integral does not approach a finite value.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\int_1^\infty \frac1x\,dx
+\text{ diverges}
+}
+\]
+
+</div>
+
+
+<h3>6. Infinite interval to the left</h3>
+
+<p>
+An integral such as
+</p>
+
+\[
+\int_{-\infty}^{a}f(x)\,dx
+\]
+
+<p>
+is defined by
+</p>
+
+\[
+\boxed{
+\int_{-\infty}^{a}f(x)\,dx
+=
+\lim_{b\to-\infty}
+\int_b^a f(x)\,dx
+}
+\]
+
+
+<h3>7. Infinite in both directions</h3>
+
+<p>
+For
+</p>
+
+\[
+\int_{-\infty}^{\infty}f(x)\,dx,
+\]
+
+<p>
+we split at a finite point \(c\):
+</p>
+
+\[
+\int_{-\infty}^{\infty}f(x)\,dx
+=
+\int_{-\infty}^{c}f(x)\,dx
++
+\int_c^{\infty}f(x)\,dx.
+\]
+
+<p>
+Both improper integrals must converge for the whole integral to converge in the usual sense.
+</p>
+
+
+<h3>8. Unbounded functions</h3>
+
+<p>
+Improper integrals also occur when the interval is finite but the function becomes unbounded.
+</p>
+
+<p>
+Consider
+</p>
+
+\[
+\int_0^1 \frac{1}{\sqrt{x}}\,dx.
+\]
+
+<p>
+The function
+</p>
+
+\[
+\frac1{\sqrt{x}}
+\]
+
+<p>
+becomes unbounded as \(x\to0^+\).
+</p>
+
+<p>
+So define
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\int_0^1 \frac1{\sqrt{x}}\,dx
+=
+\lim_{a\to0^+}
+\int_a^1 \frac1{\sqrt{x}}\,dx
+}
+\]
+
+</div>
+
+
+<h3>9. Evaluate the integral</h3>
+
+<p>
+Since
+</p>
+
+\[
+\frac1{\sqrt{x}}
+=
+x^{-1/2},
+\]
+
+<p>
+an antiderivative is
+</p>
+
+\[
+2\sqrt{x}.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+\int_a^1 x^{-1/2}\,dx
+=
+[2\sqrt{x}]_a^1.
+\]
+
+<p>
+So
+</p>
+
+\[
+=
+2-2\sqrt{a}.
+\]
+
+<p>
+As
+</p>
+
+\[
+a\to0^+,
+\]
+
+<p>
+we obtain
+</p>
+
+\[
+2-0=2.
+\]
+
+<p>
+Therefore,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\int_0^1 \frac1{\sqrt{x}}\,dx=2
+}
+\]
+
+</div>
+
+
+<h3>10. Unbounded does not automatically mean divergent</h3>
+
+<p>
+The previous function becomes infinitely large near \(x=0\), but the integral still converges.
+</p>
+
+<p>
+So an infinite function value near one point does not by itself determine whether the total accumulation is infinite.
+</p>
+
+
+<h3>11. A comparison</h3>
+
+<p>
+Compare
+</p>
+
+\[
+\int_0^1 x^{-1/2}\,dx
+\]
+
+<p>
+with
+</p>
+
+\[
+\int_0^1 x^{-1}\,dx.
+\]
+
+<p>
+The first converges.
+</p>
+
+<p>
+The second is
+</p>
+
+\[
+\lim_{a\to0^+}
+\int_a^1 \frac1x\,dx.
+\]
+
+<p>
+This gives
+</p>
+
+\[
+-\ln a.
+\]
+
+<p>
+As
+</p>
+
+\[
+a\to0^+,
+\]
+
+<p>
+we have
+</p>
+
+\[
+-\ln a\to\infty.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+\boxed{
+\int_0^1 \frac1x\,dx
+\text{ diverges}
+}
+\]
+
+
+<h3>12. The \(p\)-integral</h3>
+
+<p>
+An important family is
+</p>
+
+\[
+\int_1^\infty \frac{1}{x^p}\,dx.
+\]
+
+<p>
+This converges exactly when
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+p>1
+}
+\]
+
+</div>
+
+<p>
+and diverges when
+</p>
+
+\[
+p\le1.
+\]
+
+
+<h3>13. Near zero</h3>
+
+<p>
+For
+</p>
+
+\[
+\int_0^1 \frac{1}{x^p}\,dx,
+\]
+
+<p>
+the condition is reversed:
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{converges when }p<1
+}
+\]
+
+</div>
+
+<p>
+and diverges when
+</p>
+
+\[
+p\ge1.
+\]
+
+
+<h3>14. Why limits are essential</h3>
+
+<p>
+We never substitute the symbol \(\infty\) directly into an antiderivative as though it were an ordinary number.
+</p>
+
+<p>
+Instead, we introduce a finite variable and take a limit.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\infty
+\text{ describes unbounded behaviour, not a real endpoint}
+}
+\]
+
+</div>
+
+
+<h3>15. Visual idea</h3>
+
+<div style="max-width:680px; margin:30px auto;">
+
+<svg viewBox="0 0 680 420"
+     width="100%"
+     role="img"
+     aria-labelledby="improper-title improper-desc"
+     xmlns="http://www.w3.org/2000/svg">
+
+<title id="improper-title">
+Improper integral over an infinite interval
+</title>
+
+<desc id="improper-desc">
+A positive decreasing curve extends indefinitely to the right, while the shaded area beneath it approaches a finite total.
+</desc>
+
+<line x1="70" y1="340" x2="625" y2="340"
+      stroke="currentColor" stroke-width="2"/>
+
+<line x1="100" y1="380" x2="100" y2="45"
+      stroke="currentColor" stroke-width="2"/>
+
+<text x="632" y="345"
+      font-size="18"
+      fill="currentColor">x</text>
+
+<path d="
+M 150 105
+C 190 180, 240 240, 310 280
+C 390 315, 490 330, 600 335
+"
+fill="none"
+stroke="currentColor"
+stroke-width="3"/>
+
+<path d="
+M 150 340
+L 150 105
+C 190 180, 240 240, 310 280
+C 390 315, 490 330, 600 335
+L 600 340
+Z
+"
+fill="currentColor"
+opacity="0.08"/>
+
+<text x="142" y="365"
+      font-size="17"
+      fill="currentColor">1</text>
+
+<text x="540" y="320"
+      font-size="16"
+      fill="currentColor">
+x → ∞
+</text>
+
+</svg>
+
+</div>
+
+
+<h3>16. The practical method</h3>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+1.\; \text{Identify why the integral is improper}
+}
+\]
+
+\[
+\boxed{
+2.\; \text{Replace the problematic endpoint by a finite variable}
+}
+\]
+
+\[
+\boxed{
+3.\; \text{Evaluate the ordinary definite integral}
+}
+\]
+
+\[
+\boxed{
+4.\; \text{Take the required limit}
+}
+\]
+
+\[
+\boxed{
+5.\; \text{Decide whether the result converges or diverges}
+}
+\]
+
+</div>
+
+
+<h3>17. The central idea</h3>
+
+<p>
+Improper integrals do not abandon the definition of a definite integral.
+They extend it through limits.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{ordinary definite integral}
++
+\text{limit}
+=
+\text{improper integral}
+}
+\]
+
+</div>
+
+
+<div class="lesson-navigation">
+
+<a href="partial-fractions.html">
+← Integration Using Partial Fractions
+</a>
+
+<a href="applications.html">
+Next: Applications of Integration →
+</a>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<div>
+<strong>dy/dx</strong>
+<p>Calculus Learning</p>
+</div>
+
+</footer>
+
+</body>
+
+</html>
