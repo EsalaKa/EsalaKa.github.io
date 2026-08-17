@@ -4,11 +4,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Inverse Functions | dy/dx</title>
-
 <link rel="stylesheet" href="../style.css">
-
 <script>
 window.MathJax = {
   tex: {
@@ -17,201 +14,74 @@ window.MathJax = {
   }
 };
 </script>
-
-<script defer
-src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-</script>
-
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 
 <body>
-
 <header class="site-header">
-
-<div class="brand">
-<a href="../index.html">dy/dx</a>
-</div>
-
-<nav class="top-nav">
-<a href="../index.html">Home</a>
-<a href="index.html">Functions</a>
-</nav>
-
+<div class="brand"><a href="../index.html">dy/dx</a></div>
+<nav class="top-nav"><a href="../index.html">Home</a><a href="index.html">Functions</a></nav>
 </header>
 
-
 <main>
-
 <section class="lesson-header">
-
 <p class="eyebrow">FUNCTIONS 12</p>
-
 <h1>Inverse Functions</h1>
-
-<p class="lesson-intro">
-An inverse function reverses the action of the original function.
-</p>
-
+<p class="lesson-intro">An inverse function reverses the action of the original function, exchanging inputs and outputs.</p>
 </section>
-
 
 <section class="lesson-content">
 
 <h2>The main idea</h2>
-
-<p>
-If a function maps an input \(x\) to an output \(y\),
-its inverse maps that output back to the original input.
-</p>
-
+<p>If a function maps an input \(x\) to an output \(y\), its inverse maps that output back to the original input.</p>
 <div class="lesson-math">
-
 \[
-x
-\xrightarrow{\ f\ }
-y
-\xrightarrow{\ f^{-1}\ }
-x
+x\xrightarrow{\ f\ }y\xrightarrow{\ f^{-1}\ }x
 \]
-
 </div>
-
+<p>The original function and its inverse therefore describe the same relationship in opposite directions.</p>
 
 <h3>1. A simple example</h3>
-
-<p>
-Suppose
-</p>
-
+<p>Suppose</p>
 \[
 f(x)=x+3.
 \]
-
-<p>
-The function adds \(3\).
-</p>
-
-<p>
-To reverse this, subtract \(3\):
-</p>
-
+<p>The function adds \(3\). To reverse it, subtract \(3\):</p>
 \[
 f^{-1}(x)=x-3.
 \]
-
-<p>
-So
-</p>
-
+<p>Hence</p>
 \[
 f^{-1}(f(x))=x.
 \]
 
-
 <h3>2. Inverse notation</h3>
-
-<p>
-The notation
-</p>
-
-\[
-f^{-1}(x)
-\]
-
-<p>
-means the inverse function of \(f\).
-</p>
-
-<p>
-It does not mean
-</p>
-
+<p>The notation \(f^{-1}(x)\) means the inverse function of \(f\). It does not mean</p>
 \[
 \frac{1}{f(x)}.
 \]
-
-<p>
-These are completely different expressions.
-</p>
-
+<p>These are different mathematical ideas.</p>
 
 <h3>3. Finding an inverse</h3>
-
-<p>
-Consider
-</p>
-
+<p>Consider</p>
 \[
 f(x)=2x+5.
 \]
-
-<p>
-Write
-</p>
-
-\[
-y=2x+5.
-\]
-
-<p>
-Now solve for \(x\):
-</p>
-
+<p>Write \(y=2x+5\), solve for \(x\), then interchange the roles of \(x\) and \(y\):</p>
 \[
 y-5=2x,
-\]
-
-\[
+\qquad
 x=\frac{y-5}{2}.
 \]
-
-<p>
-Interchange \(x\) and \(y\):
-</p>
-
-\[
-y=\frac{x-5}{2}.
-\]
-
-<p>
-Therefore,
-</p>
-
+<p>Therefore</p>
 <div class="lesson-math">
-
 \[
-f^{-1}(x)=\frac{x-5}{2}.
+\boxed{f^{-1}(x)=\frac{x-5}{2}}
 \]
-
 </div>
 
-
 <h3>4. Checking an inverse</h3>
-
-<p>
-A correct inverse should undo the original function.
-</p>
-
-<p>
-For
-</p>
-
-\[
-f(x)=2x+5
-\]
-
-<p>
-and
-</p>
-
-\[
-f^{-1}(x)=\frac{x-5}{2},
-\]
-
-<p>
-we have
-</p>
-
+<p>A correct inverse must undo the original function:</p>
 \[
 f^{-1}(f(x))
 =
@@ -219,191 +89,161 @@ f^{-1}(f(x))
 =
 x.
 \]
+<p>Likewise, \(f(f^{-1}(x))=x\) on the appropriate domain.</p>
 
-<p>
-So the inverse works.
-</p>
-
-
-<h3>5. Not every function has an inverse</h3>
-
-<p>
-For an inverse function to exist, different inputs must not produce the same output.
-</p>
-
-<p>
-For example,
-</p>
-
-\[
-f(x)=x^2
-\]
-
-<p>
-gives
-</p>
-
-\[
-f(2)=4
-\]
-
-<p>
-and
-</p>
-
-\[
-f(-2)=4.
-\]
-
-<p>
-So on all real numbers, \(f(x)=x^2\) does not have an inverse function.
-</p>
-
-
-<h3>6. Restricting the domain</h3>
-
-<p>
-If we restrict the domain of
-</p>
-
-\[
-f(x)=x^2
-\]
-
-<p>
-to
-</p>
-
-\[
-x\ge0,
-\]
-
-<p>
-then each output corresponds to only one input.
-</p>
-
-<p>
-The inverse is then
-</p>
-
-\[
-f^{-1}(x)=\sqrt{x}.
-\]
-
-
-<h3>7. Graphs of inverse functions</h3>
-
-<p>
-The graphs of a function and its inverse are reflections of each other in the line
-</p>
-
+<h3>5. The graphical meaning</h3>
+<p>When a function contains the point \((a,b)\), its inverse contains \((b,a)\). Interchanging the coordinates reflects the graph in the line</p>
 \[
 y=x.
 \]
 
-<p>
-This happens because the coordinates
-</p>
+<div style="max-width:700px; margin:30px auto;">
+<svg viewBox="0 0 700 440" width="100%" role="img" aria-labelledby="inverse-reflection-title inverse-reflection-desc" xmlns="http://www.w3.org/2000/svg">
+<title id="inverse-reflection-title">A function and its inverse reflected in y equals x</title>
+<desc id="inverse-reflection-desc">The line y equals 2x plus 1 and its inverse y equals one half x minus one half are reflections across the diagonal line y equals x.</desc>
+<line x1="65" y1="220" x2="650" y2="220" stroke="currentColor" stroke-width="2"/>
+<line x1="350" y1="390" x2="350" y2="35" stroke="currentColor" stroke-width="2"/>
+<line x1="125" y1="385" x2="575" y2="55" stroke="currentColor" stroke-width="2" stroke-dasharray="7 6"/>
+<line x1="245" y1="390" x2="470" y2="35" stroke="currentColor" stroke-width="3"/>
+<line x1="105" y1="330" x2="620" y2="75" stroke="currentColor" stroke-width="3"/>
+<text x="575" y="70" font-size="17" fill="currentColor">y = x</text>
+<text x="445" y="55" font-size="17" fill="currentColor">f(x)</text>
+<text x="555" y="118" font-size="17" fill="currentColor">f⁻¹(x)</text>
+<text x="656" y="225" font-size="18" fill="currentColor">x</text>
+<text x="357" y="30" font-size="18" fill="currentColor">y</text>
+</svg>
+</div>
 
+<p>The picture shows the key geometric idea:</p>
+<div class="lesson-math">
 \[
-(x,y)
+\boxed{\text{inverse graph}=\text{reflection of the original graph in }y=x}
+\]
+</div>
+
+<h3>6. Not every function has an inverse</h3>
+<p>For an inverse function to exist, each output must come from only one input. For example,</p>
+\[
+f(x)=x^2
+\]
+<p>gives \(f(2)=4\) and \(f(-2)=4\). Therefore, on all real numbers, \(x^2\) is not one-to-one and has no inverse function.</p>
+
+<h3>7. The horizontal line test</h3>
+<p>A function has an inverse exactly when every horizontal line meets its graph at most once. If a horizontal line meets the graph twice, one output corresponds to two inputs.</p>
+
+<div style="max-width:700px; margin:30px auto;">
+<svg viewBox="0 0 700 420" width="100%" role="img" aria-labelledby="horizontal-test-title horizontal-test-desc" xmlns="http://www.w3.org/2000/svg">
+<title id="horizontal-test-title">Horizontal line test for x squared</title>
+<desc id="horizontal-test-desc">A parabola is crossed twice by a horizontal line, showing that x squared on all real numbers does not have an inverse.</desc>
+<line x1="60" y1="350" x2="645" y2="350" stroke="currentColor" stroke-width="2"/>
+<line x1="350" y1="390" x2="350" y2="40" stroke="currentColor" stroke-width="2"/>
+<path d="M145 70 C230 220 285 330 350 350 C415 330 470 220 555 70" fill="none" stroke="currentColor" stroke-width="3"/>
+<line x1="110" y1="170" x2="590" y2="170" stroke="currentColor" stroke-width="2" stroke-dasharray="8 6"/>
+<circle cx="230" cy="170" r="5" fill="currentColor"/>
+<circle cx="470" cy="170" r="5" fill="currentColor"/>
+<text x="500" y="150" font-size="17" fill="currentColor">same y-value</text>
+<text x="650" y="355" font-size="18" fill="currentColor">x</text>
+<text x="358" y="35" font-size="18" fill="currentColor">y</text>
+</svg>
+</div>
+
+<h3>8. Restricting the domain</h3>
+<p>If we restrict</p>
+\[
+f(x)=x^2
+\]
+<p>to</p>
+\[
+x\ge0,
+\]
+<p>then every output comes from only one input. The inverse is</p>
+\[
+f^{-1}(x)=\sqrt{x}.
 \]
 
-<p>
-become
-</p>
+<div style="max-width:700px; margin:30px auto;">
+<svg viewBox="0 0 700 430" width="100%" role="img" aria-labelledby="square-root-title square-root-desc" xmlns="http://www.w3.org/2000/svg">
+<title id="square-root-title">Restricted square function and square root inverse</title>
+<desc id="square-root-desc">The right half of y equals x squared and y equals square root of x are reflected across y equals x.</desc>
+<line x1="65" y1="355" x2="640" y2="355" stroke="currentColor" stroke-width="2"/>
+<line x1="120" y1="390" x2="120" y2="35" stroke="currentColor" stroke-width="2"/>
+<line x1="120" y1="355" x2="520" y2="55" stroke="currentColor" stroke-width="2" stroke-dasharray="7 6"/>
+<path d="M120 355 C175 350 220 325 260 275 C305 220 340 145 370 55" fill="none" stroke="currentColor" stroke-width="3"/>
+<path d="M120 355 C175 300 235 260 300 225 C365 190 440 160 535 135" fill="none" stroke="currentColor" stroke-width="3"/>
+<text x="385" y="65" font-size="17" fill="currentColor">y = x², x ≥ 0</text>
+<text x="455" y="155" font-size="17" fill="currentColor">y = √x</text>
+<text x="525" y="72" font-size="17" fill="currentColor">y = x</text>
+<text x="646" y="360" font-size="18" fill="currentColor">x</text>
+<text x="128" y="30" font-size="18" fill="currentColor">y</text>
+</svg>
+</div>
 
+<p>This graph explains why the domain restriction is necessary: we keep only the one-to-one half of the parabola before reflecting it.</p>
+
+<h3>9. Domain and range swap</h3>
+<p>Because inputs and outputs exchange roles, the domain of a function becomes the range of its inverse, and the range becomes the domain:</p>
+<div class="lesson-math">
 \[
-(y,x)
+\boxed{\operatorname{Dom}(f)=\operatorname{Ran}(f^{-1})}
 \]
+\[
+\boxed{\operatorname{Ran}(f)=\operatorname{Dom}(f^{-1})}
+\]
+</div>
 
-<p>
-when input and output are reversed.
-</p>
-
-
-<h3>8. Exponential and logarithmic functions</h3>
-
-<p>
-The exponential function
-</p>
-
+<h3>10. Exponential and logarithmic functions</h3>
+<p>The exponential function</p>
 \[
 f(x)=e^x
 \]
-
-<p>
-has inverse
-</p>
-
+<p>has inverse</p>
 \[
 f^{-1}(x)=\ln x.
 \]
-
-<p>
-So
-</p>
-
+<p>Therefore</p>
 \[
 \ln(e^x)=x
 \]
-
-<p>
-and, for \(x>0\),
-</p>
-
+<p>and, for \(x\gt0\),</p>
 \[
 e^{\ln x}=x.
 \]
 
-
-<h3>9. Why inverse functions matter for calculus</h3>
-
-<p>
-Inverse functions allow us to reverse mathematical relationships.
-</p>
-
-<p>
-They are especially important for logarithms, inverse trigonometric functions and solving equations.
-</p>
-
-<div class="lesson-math">
-
-\[
-\text{function}
-\longleftrightarrow
-\text{inverse function}
-\]
-
+<div style="max-width:700px; margin:30px auto;">
+<svg viewBox="0 0 700 440" width="100%" role="img" aria-labelledby="exp-log-title exp-log-desc" xmlns="http://www.w3.org/2000/svg">
+<title id="exp-log-title">Exponential and logarithmic inverse graphs</title>
+<desc id="exp-log-desc">The graphs of y equals e to the x and y equals natural logarithm x are reflections across y equals x.</desc>
+<line x1="65" y1="300" x2="650" y2="300" stroke="currentColor" stroke-width="2"/>
+<line x1="250" y1="395" x2="250" y2="35" stroke="currentColor" stroke-width="2"/>
+<line x1="110" y1="390" x2="560" y2="55" stroke="currentColor" stroke-width="2" stroke-dasharray="7 6"/>
+<path d="M85 290 C150 285 205 272 250 250 C300 225 335 175 370 95 C390 55 410 40 430 35" fill="none" stroke="currentColor" stroke-width="3"/>
+<path d="M260 390 C265 330 280 295 310 270 C355 232 425 205 610 175" fill="none" stroke="currentColor" stroke-width="3"/>
+<text x="390" y="80" font-size="17" fill="currentColor">y = eˣ</text>
+<text x="520" y="195" font-size="17" fill="currentColor">y = ln x</text>
+<text x="560" y="70" font-size="17" fill="currentColor">y = x</text>
+<text x="656" y="305" font-size="18" fill="currentColor">x</text>
+<text x="258" y="30" font-size="18" fill="currentColor">y</text>
+</svg>
 </div>
 
+<p>The exponential graph has range \((0,\infty)\), so the logarithm has domain \((0,\infty)\). The graph makes this domain-range exchange visible.</p>
+
+<h3>11. Why inverse functions matter for calculus</h3>
+<p>Inverse functions allow relationships to be reversed. They are essential for logarithms, inverse trigonometric functions, solving equations and later for differentiating inverse functions.</p>
+<div class="lesson-math">
+\[
+\boxed{\text{function}\longleftrightarrow\text{inverse function}}
+\]
+</div>
 
 <div class="lesson-navigation">
-
-<a href="composite-functions.html">
-← Composite Functions
-</a>
-
-<a href="transformations.html">
-Next: Transformations of Functions →
-</a>
-
+<a href="composite-functions.html">← Composite Functions</a>
+<a href="transformations.html">Next: Transformations of Functions →</a>
 </div>
 
 </section>
-
 </main>
 
-
-<footer>
-
-<div>
-<strong>dy/dx</strong>
-<p>Calculus Learning</p>
-</div>
-
-</footer>
-
+<footer><div><strong>dy/dx</strong><p>Calculus Learning</p></div></footer>
 </body>
-
 </html>
