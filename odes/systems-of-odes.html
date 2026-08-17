@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Systems of Differential Equations | dy/dx</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']]
+  }
+};
+</script>
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+</head>
+
+
+<body>
+
+
+<header class="site-header">
+
+<div class="brand">
+<a href="../index.html">dy/dx</a>
+</div>
+
+<nav class="top-nav">
+<a href="../index.html">Home</a>
+<a href="index.html">Differential Equations</a>
+</nav>
+
+</header>
+
+
+<main>
+
+
+<section class="lesson-header">
+
+<p class="eyebrow">DIFFERENTIAL EQUATIONS 08</p>
+
+<h1>Systems of Differential Equations</h1>
+
+<p class="lesson-intro">
+A system of differential equations describes several quantities that change together and influence one another.
+</p>
+
+</section>
+
+
+<section class="lesson-content">
+
+
+<h2>The main idea</h2>
+
+<p>
+Many models involve more than one changing quantity.
+</p>
+
+<p>
+Instead of one equation such as
+</p>
+
+\[
+\frac{dy}{dt}=f(y),
+\]
+
+<p>
+we may have several equations:
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\frac{dx}{dt}=f(x,y),
+\qquad
+\frac{dy}{dt}=g(x,y)
+}
+\]
+
+</div>
+
+<p>
+The two variables evolve together.
+</p>
+
+
+<h3>1. Why a system is needed</h3>
+
+<p>
+Suppose \(x(t)\) affects \(y(t)\), and \(y(t)\) also affects \(x(t)\).
+</p>
+
+<p>
+One equation alone cannot fully describe the interaction.
+</p>
+
+<p>
+We therefore use one differential equation for each changing quantity.
+</p>
+
+
+<h3>2. A simple system</h3>
+
+<p>
+Consider
+</p>
+
+\[
+\frac{dx}{dt}=y,
+\]
+
+\[
+\frac{dy}{dt}=-x.
+\]
+
+<p>
+The rate of change of \(x\) depends on \(y\), while the rate of change of \(y\) depends on \(x\).
+</p>
+
+
+<h3>3. Connection to a second-order equation</h3>
+
+<p>
+From
+</p>
+
+\[
+\frac{dx}{dt}=y,
+\]
+
+<p>
+differentiate again:
+</p>
+
+\[
+\frac{d^2x}{dt^2}
+=
+\frac{dy}{dt}.
+\]
+
+<p>
+But
+</p>
+
+\[
+\frac{dy}{dt}=-x.
+\]
+
+<p>
+Therefore,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\frac{d^2x}{dt^2}=-x
+}
+\]
+
+</div>
+
+<p>
+So this two-equation system is equivalent to a second-order equation.
+</p>
+
+
+<h3>4. Converting second-order equations into systems</h3>
+
+<p>
+The reverse process is also important.
+</p>
+
+<p>
+Suppose
+</p>
+
+\[
+y''=-y.
+\]
+
+<p>
+Define
+</p>
+
+\[
+v=y'.
+\]
+
+<p>
+Then
+</p>
+
+\[
+y'=v
+\]
+
+<p>
+and
+</p>
+
+\[
+v'=-y.
+\]
+
+<p>
+So the second-order equation becomes the first-order system
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\begin{aligned}
+y' &= v,\\
+v' &= -y.
+\end{aligned}
+}
+\]
+
+</div>
+
+<p>
+This idea is fundamental because higher-order ODEs can be rewritten as systems of first-order ODEs.
+</p>
+
+
+<h3>5. Vector notation</h3>
+
+<p>
+A system can be written compactly using a vector.
+</p>
+
+<p>
+Define
+</p>
+
+\[
+\mathbf{x}(t)
+=
+\begin{pmatrix}
+x(t)\\
+y(t)
+\end{pmatrix}.
+\]
+
+<p>
+Then
+</p>
+
+\[
+\frac{d\mathbf{x}}{dt}
+=
+\begin{pmatrix}
+dx/dt\\
+dy/dt
+\end{pmatrix}.
+\]
+
+<p>
+So the system
+</p>
+
+\[
+\frac{dx}{dt}=f(x,y),
+\qquad
+\frac{dy}{dt}=g(x,y)
+\]
+
+<p>
+can be written as
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\frac{d\mathbf{x}}{dt}
+=
+\mathbf{F}(\mathbf{x})
+}
+\]
+
+</div>
+
+
+<h3>6. Linear systems</h3>
+
+<p>
+A linear two-dimensional system can be written as
+</p>
+
+\[
+\frac{dx}{dt}
+=
+ax+by,
+\]
+
+\[
+\frac{dy}{dt}
+=
+cx+dy.
+\]
+
+<p>
+In matrix form,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\frac{d}{dt}
+\begin{pmatrix}
+x\\
+y
+\end{pmatrix}
+=
+\begin{pmatrix}
+a & b\\
+c & d
+\end{pmatrix}
+\begin{pmatrix}
+x\\
+y
+\end{pmatrix}
+}
+\]
+
+</div>
+
+
+<h3>7. What the matrix means</h3>
+
+<p>
+The matrix contains the coefficients that describe how the variables affect each other's rates of change.
+</p>
+
+<p>
+For example,
+</p>
+
+\[
+\frac{dx}{dt}=2x-y
+\]
+
+<p>
+and
+</p>
+
+\[
+\frac{dy}{dt}=3x+4y
+\]
+
+<p>
+correspond to
+</p>
+
+\[
+\begin{pmatrix}
+2 & -1\\
+3 & 4
+\end{pmatrix}.
+\]
+
+
+<h3>8. Initial conditions</h3>
+
+<p>
+A system also needs initial values.
+</p>
+
+<p>
+For example,
+</p>
+
+\[
+x(0)=x_0,
+\qquad
+y(0)=y_0.
+\]
+
+<p>
+Together, these specify the starting state
+</p>
+
+\[
+\boxed{
+\mathbf{x}(0)
+=
+\begin{pmatrix}
+x_0\\
+y_0
+\end{pmatrix}
+}
+\]
+
+</div>
+
+
+<h3>9. State space</h3>
+
+<p>
+For a two-variable system, the pair
+</p>
+
+\[
+(x,y)
+\]
+
+<p>
+represents the state of the system.
+</p>
+
+<p>
+All possible states form the <strong>state space</strong>.
+</p>
+
+<p>
+For two variables, this can be visualised as the \(xy\)-plane.
+</p>
+
+
+<h3>10. Trajectories in the phase plane</h3>
+
+<p>
+As time changes, the point
+</p>
+
+\[
+(x(t),y(t))
+\]
+
+<p>
+moves through the state space.
+</p>
+
+<p>
+The path it follows is called a trajectory.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+t
+\longrightarrow
+(x(t),y(t))
+}
+\]
+
+</div>
+
+
+<h3>11. Phase-plane diagram</h3>
+
+<div style="max-width:680px; margin:30px auto;">
+
+<svg viewBox="0 0 680 420"
+     width="100%"
+     role="img"
+     aria-labelledby="system-title system-desc"
+     xmlns="http://www.w3.org/2000/svg">
+
+<title id="system-title">
+Trajectory in a two-dimensional phase plane
+</title>
+
+<desc id="system-desc">
+A curved trajectory moves through an x-y state space with an arrow indicating the direction of time.
+</desc>
+
+<line x1="70" y1="340" x2="620" y2="340"
+      stroke="currentColor" stroke-width="2"/>
+
+<line x1="110" y1="380" x2="110" y2="45"
+      stroke="currentColor" stroke-width="2"/>
+
+<text x="628" y="345"
+      font-size="18"
+      fill="currentColor">x</text>
+
+<text x="96" y="35"
+      font-size="18"
+      fill="currentColor">y</text>
+
+<path d="
+M 180 290
+C 240 230, 250 125, 355 115
+C 460 105, 525 185, 475 265
+C 430 335, 325 335, 285 270
+"
+fill="none"
+stroke="currentColor"
+stroke-width="3"/>
+
+<polygon points="475,265 458,260 468,245"
+         fill="currentColor"/>
+
+<circle cx="180" cy="290"
+        r="6"
+        fill="currentColor"/>
+
+<text x="195" y="307"
+      font-size="16"
+      fill="currentColor">
+initial state
+</text>
+
+</svg>
+
+</div>
+
+
+<h3>12. Direction field for a system</h3>
+
+<p>
+At each point \((x,y)\), the system gives
+</p>
+
+\[
+\left(
+\frac{dx}{dt},
+\frac{dy}{dt}
+\right).
+\]
+
+<p>
+This vector tells us the instantaneous direction of movement in the phase plane.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+(x,y)
+\longrightarrow
+\left(
+\frac{dx}{dt},
+\frac{dy}{dt}
+\right)
+}
+\]
+
+</div>
+
+
+<h3>13. Equilibrium points</h3>
+
+<p>
+An equilibrium occurs where all rates of change are zero.
+</p>
+
+<p>
+For
+</p>
+
+\[
+x'=f(x,y),
+\qquad
+y'=g(x,y),
+\]
+
+<p>
+an equilibrium \((x^*,y^*)\) satisfies
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+f(x^*,y^*)=0,
+\qquad
+g(x^*,y^*)=0
+}
+\]
+
+</div>
+
+<p>
+If the system starts there, it remains there.
+</p>
+
+
+<h3>14. Example of an equilibrium</h3>
+
+<p>
+Consider
+</p>
+
+\[
+x'=x-y,
+\]
+
+\[
+y'=x+y.
+\]
+
+<p>
+At equilibrium,
+</p>
+
+\[
+x-y=0
+\]
+
+<p>
+and
+</p>
+
+\[
+x+y=0.
+\]
+
+<p>
+Adding the equations gives
+</p>
+
+\[
+2x=0,
+\]
+
+<p>
+so
+</p>
+
+\[
+x=0.
+\]
+
+<p>
+Then
+</p>
+
+\[
+y=0.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+\boxed{
+(0,0)
+}
+\]
+
+<p>
+is the equilibrium.
+</p>
+
+
+<h3>15. Stability in systems</h3>
+
+<p>
+As in one-dimensional autonomous equations, we can ask whether trajectories move toward or away from an equilibrium.
+</p>
+
+<p>
+If nearby trajectories approach the equilibrium, it is stable.
+</p>
+
+<p>
+If they move away, it is unstable.
+</p>
+
+
+<h3>16. Eigenvalues and stability</h3>
+
+<p>
+For a linear system
+</p>
+
+\[
+\mathbf{x}'=A\mathbf{x},
+\]
+
+<p>
+the eigenvalues of the matrix \(A\) help determine the behaviour near the equilibrium.
+</p>
+
+<p>
+Very roughly:
+</p>
+
+\[
+\text{negative real parts}
+\Rightarrow
+\text{decay toward equilibrium},
+\]
+
+\[
+\text{positive real parts}
+\Rightarrow
+\text{growth away from equilibrium}.
+\]
+
+<p>
+This will become especially useful in multivariable modelling.
+</p>
+
+
+<h3>17. Why eigenvectors matter</h3>
+
+<p>
+If
+</p>
+
+\[
+A\mathbf{v}
+=
+\lambda\mathbf{v},
+\]
+
+<p>
+then the matrix changes the size of the eigenvector but not its direction.
+</p>
+
+<p>
+A solution along this direction often has the form
+</p>
+
+\[
+\mathbf{x}(t)
+=
+e^{\lambda t}\mathbf{v}.
+\]
+
+<p>
+So eigenvectors give important directions of motion, while eigenvalues determine growth or decay along those directions.
+</p>
+
+
+<h3>18. Population example</h3>
+
+<p>
+Suppose two populations interact:
+</p>
+
+\[
+\frac{dx}{dt}=ax-by,
+\]
+
+\[
+\frac{dy}{dt}=cx-dy.
+\]
+
+<p>
+The growth rate of each population depends on both populations.
+</p>
+
+<p>
+This type of coupled structure appears throughout population dynamics and mathematical biology.
+</p>
+
+
+<h3>19. Epidemic model example</h3>
+
+<p>
+The SIR epidemic model is a system of differential equations:
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\frac{dS}{dt}
+=
+-\beta\frac{SI}{N}
+}
+\]
+
+\[
+\boxed{
+\frac{dI}{dt}
+=
+\beta\frac{SI}{N}
+-
+\gamma I
+}
+\]
+
+\[
+\boxed{
+\frac{dR}{dt}
+=
+\gamma I
+}
+\]
+
+</div>
+
+<p>
+The susceptible, infectious and recovered populations change together.
+</p>
+
+<p>
+A change in one compartment affects the others.
+</p>
+
+
+<h3>20. Conservation in the SIR system</h3>
+
+<p>
+Add the three equations:
+</p>
+
+\[
+\frac{dS}{dt}
++
+\frac{dI}{dt}
++
+\frac{dR}{dt}.
+\]
+
+<p>
+Substituting,
+</p>
+
+\[
+-\beta\frac{SI}{N}
++
+\beta\frac{SI}{N}
+-
+\gamma I
++
+\gamma I
+=
+0.
+\]
+
+<p>
+Therefore,
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\frac{d}{dt}(S+I+R)=0
+}
+\]
+
+</div>
+
+<p>
+So
+</p>
+
+\[
+S+I+R
+\]
+
+<p>
+remains constant when the model assumes a closed population.
+</p>
+
+
+<h3>21. Why systems matter</h3>
+
+<p>
+Real models often contain several interacting quantities.
+</p>
+
+<p>
+Systems of ODEs allow us to represent these interactions directly.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{one state variable}
+\rightarrow
+\text{one ODE}
+}
+\]
+
+\[
+\boxed{
+\text{several interacting state variables}
+\rightarrow
+\text{system of ODEs}
+}
+\]
+
+</div>
+
+
+<h3>22. The central idea</h3>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\mathbf{x}'(t)
+=
+\mathbf{F}(\mathbf{x},t)
+}
+\]
+
+</div>
+
+<p>
+The vector \(\mathbf{x}\) describes the current state.
+The vector field \(\mathbf{F}\) gives the rate of change of that state.
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{current state}
+\longrightarrow
+\text{vector of rates}
+\longrightarrow
+\text{trajectory}
+}
+\]
+
+</div>
+
+
+<div class="lesson-navigation">
+
+<a href="second-order-equations.html">
+← Second-Order Differential Equations
+</a>
+
+<a href="numerical-methods.html">
+Next: Numerical Methods for ODEs →
+</a>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<div>
+<strong>dy/dx</strong>
+<p>Calculus Learning</p>
+</div>
+
+</footer>
+
+
+</body>
+
+</html>
