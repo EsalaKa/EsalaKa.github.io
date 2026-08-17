@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Derivative from First Principles | dy/dx</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']]
+  }
+};
+</script>
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+</head>
+
+<body>
+
+<header class="site-header">
+
+<div class="brand">
+<a href="../index.html">dy/dx</a>
+</div>
+
+<nav class="top-nav">
+<a href="../index.html">Home</a>
+<a href="index.html">Differentiation</a>
+</nav>
+
+</header>
+
+
+<main>
+
+<section class="lesson-header">
+
+<p class="eyebrow">DIFFERENTIATION 01</p>
+
+<h1>Derivative from First Principles</h1>
+
+<p class="lesson-intro">
+The derivative is the limiting value of the average rate of change as the input interval shrinks toward zero.
+</p>
+
+</section>
+
+
+<section class="lesson-content">
+
+<h2>The main idea</h2>
+
+<p>
+For a function
+</p>
+
+\[
+y=f(x),
+\]
+
+<p>
+the average rate of change over a finite input change \(\Delta x\) is
+</p>
+
+<div class="lesson-math">
+
+\[
+\frac{\Delta y}{\Delta x}
+=
+\frac{f(x+\Delta x)-f(x)}{\Delta x}.
+\]
+
+</div>
+
+<p>
+This uses two different points on the curve.
+</p>
+
+
+<h3>1. The problem</h3>
+
+<p>
+To find the rate of change at one point, we need the second point to move closer to the first.
+</p>
+
+<p>
+So we let
+</p>
+
+\[
+\Delta x\to0.
+\]
+
+<p>
+But we do not set \(\Delta x=0\) inside the fraction, because that would divide by zero.
+</p>
+
+
+<h3>2. The definition</h3>
+
+<p>
+The derivative of \(f\) at \(x\) is defined by
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+f'(x)
+=
+\lim_{\Delta x\to0}
+\frac{f(x+\Delta x)-f(x)}
+{\Delta x}
+}
+\]
+
+</div>
+
+<p>
+provided this limit exists.
+</p>
+
+
+<h3>3. What this means geometrically</h3>
+
+<p>
+For \(\Delta x\neq0\), the fraction
+</p>
+
+\[
+\frac{f(x+\Delta x)-f(x)}
+{\Delta x}
+\]
+
+<p>
+is the gradient of a secant line.
+</p>
+
+<p>
+As
+</p>
+
+\[
+\Delta x\to0,
+\]
+
+<p>
+the second point approaches the first, and the secant line approaches a tangent line.
+</p>
+
+<div class="lesson-math">
+
+\[
+\text{secant gradient}
+\longrightarrow
+\text{tangent gradient}
+\]
+
+</div>
+
+<p>
+The derivative is this limiting gradient.
+</p>
+
+
+<h3>4. Diagram</h3>
+
+<div style="max-width:700px; margin:30px auto;">
+
+<svg viewBox="0 0 700 430"
+     width="100%"
+     role="img"
+     aria-labelledby="derivative-title derivative-desc"
+     xmlns="http://www.w3.org/2000/svg">
+
+<title id="derivative-title">
+Secant line approaching a tangent line
+</title>
+
+<desc id="derivative-desc">
+A curve with a fixed point P and a nearby point Q. The secant line through P and Q approaches the tangent line as Q moves toward P.
+</desc>
+
+<line x1="70" y1="360" x2="650" y2="360"
+      stroke="currentColor" stroke-width="2"/>
+
+<line x1="100" y1="390" x2="100" y2="35"
+      stroke="currentColor" stroke-width="2"/>
+
+<text x="655" y="365"
+      font-size="18"
+      fill="currentColor">x</text>
+
+<text x="88" y="28"
+      font-size="18"
+      fill="currentColor">y</text>
+
+<path d="
+M 120 330
+C 190 315, 250 280, 310 230
+C 380 175, 455 120, 610 70
+"
+fill="none"
+stroke="currentColor"
+stroke-width="3"/>
+
+<circle cx="300" cy="238" r="6"
+        fill="currentColor"/>
+
+<text x="276" y="220"
+      font-size="18"
+      fill="currentColor">P</text>
+
+<circle cx="430" cy="150" r="6"
+        fill="currentColor"/>
+
+<text x="442" y="143"
+      font-size="18"
+      fill="currentColor">Q</text>
+
+<line x1="270" y1="260"
+      x2="485" y2="115"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-dasharray="8 6"/>
+
+<line x1="220" y1="300"
+      x2="470" y2="130"
+      stroke="currentColor"
+      stroke-width="2"/>
+
+<text x="465" y="105"
+      font-size="16"
+      fill="currentColor">
+secant
+</text>
+
+<text x="185" y="295"
+      font-size="16"
+      fill="currentColor">
+tangent
+</text>
+
+</svg>
+
+</div>
+
+
+<h3>5. Example: \(f(x)=x^2\)</h3>
+
+<p>
+Let
+</p>
+
+\[
+f(x)=x^2.
+\]
+
+<p>
+Using the definition,
+</p>
+
+\[
+f'(x)
+=
+\lim_{\Delta x\to0}
+\frac{(x+\Delta x)^2-x^2}
+{\Delta x}.
+\]
+
+<p>
+Expand:
+</p>
+
+\[
+(x+\Delta x)^2
+=
+x^2+2x\Delta x+(\Delta x)^2.
+\]
+
+<p>
+Therefore,
+</p>
+
+\[
+f'(x)
+=
+\lim_{\Delta x\to0}
+\frac{2x\Delta x+(\Delta x)^2}
+{\Delta x}.
+\]
+
+<p>
+For \(\Delta x\neq0\),
+</p>
+
+\[
+f'(x)
+=
+\lim_{\Delta x\to0}
+\left(2x+\Delta x\right).
+\]
+
+<p>
+Now take the limit:
+</p>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+f'(x)=2x
+}
+\]
+
+</div>
+
+
+<h3>6. What \(f'(x)=2x\) means</h3>
+
+<p>
+The derivative is itself a function.
+</p>
+
+<p>
+For
+</p>
+
+\[
+f(x)=x^2,
+\]
+
+<p>
+we found
+</p>
+
+\[
+f'(x)=2x.
+\]
+
+<p>
+So the slope depends on the point.
+</p>
+
+<p>
+At \(x=1\),
+</p>
+
+\[
+f'(1)=2.
+\]
+
+<p>
+At \(x=3\),
+</p>
+
+\[
+f'(3)=6.
+\]
+
+<p>
+The curve becomes steeper as \(x\) increases.
+</p>
+
+
+<h3>7. Derivative at a particular point</h3>
+
+<p>
+If we want the derivative at \(x=a\), we can write
+</p>
+
+<div class="lesson-math">
+
+\[
+f'(a)
+=
+\lim_{h\to0}
+\frac{f(a+h)-f(a)}{h}.
+\]
+
+</div>
+
+<p>
+Here \(h\) plays the same role as \(\Delta x\).
+</p>
+
+
+<h3>8. Why \(h\) is often used</h3>
+
+<p>
+The letters
+</p>
+
+\[
+h
+\qquad\text{and}\qquad
+\Delta x
+\]
+
+<p>
+are both commonly used for the finite input change in the difference quotient.
+</p>
+
+<p>
+So
+</p>
+
+\[
+\lim_{h\to0}
+\frac{f(x+h)-f(x)}{h}
+\]
+
+<p>
+and
+</p>
+
+\[
+\lim_{\Delta x\to0}
+\frac{f(x+\Delta x)-f(x)}
+{\Delta x}
+\]
+
+<p>
+express the same definition.
+</p>
+
+
+<h3>9. The derivative as a rate of change</h3>
+
+<p>
+The derivative is not only a slope.
+It also gives an instantaneous rate of change.
+</p>
+
+<p>
+If \(s(t)\) is position, then
+</p>
+
+\[
+s'(t)
+\]
+
+<p>
+is instantaneous velocity.
+</p>
+
+<p>
+If \(P(t)\) is population, then
+</p>
+
+\[
+P'(t)
+\]
+
+<p>
+is the instantaneous population growth rate.
+</p>
+
+
+<h3>10. The central idea</h3>
+
+<div class="lesson-math">
+
+\[
+\boxed{
+\text{finite change}
+\rightarrow
+\text{average rate}
+\rightarrow
+\text{limit}
+\rightarrow
+\text{instantaneous rate}
+}
+\]
+
+</div>
+
+<p>
+This is the conceptual foundation of differentiation.
+</p>
+
+
+<div class="lesson-navigation">
+
+<a href="../limits/continuity.html">
+← Continuity
+</a>
+
+<a href="derivative-notation.html">
+Next: Derivative Notation →
+</a>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<div>
+<strong>dy/dx</strong>
+<p>Calculus Learning</p>
+</div>
+
+</footer>
+
+</body>
+
+</html>
