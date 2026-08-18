@@ -58,12 +58,23 @@ a { color: inherit; }
 .lesson-content svg line[stroke-dasharray] {
   stroke: var(--graph-guide) !important;
 }
+
+/* Ordinary graph curves must never acquire a filled area accidentally. */
+.lesson-content svg path:not([fill]),
+.lesson-content svg polyline:not([fill]) {
+  fill: none !important;
+}
 .lesson-content svg path[fill="none"],
 .lesson-content svg polyline[fill="none"] {
+  fill: none !important;
   stroke: var(--graph-blue) !important;
 }
-.lesson-content svg path:not([fill="none"]) {
-  fill: var(--graph-blue);
+
+/* Only explicitly declared mathematical regions are shaded. */
+.lesson-content svg .graph-region {
+  fill: var(--graph-blue) !important;
+  opacity: .12;
+  stroke: none !important;
 }
 
 .math-graph {
@@ -78,9 +89,9 @@ a { color: inherit; }
 .graph-axis { stroke: var(--graph-axis) !important; stroke-width: 1.6; }
 .graph-grid { stroke: var(--graph-grid) !important; stroke-width: .7; opacity: .7; }
 .graph-guide { stroke: var(--graph-guide) !important; stroke-width: 1.4; stroke-dasharray: 7 6; }
-.graph-curve { fill: none; stroke: var(--graph-blue) !important; stroke-width: 3; }
-.graph-curve-secondary { fill: none; stroke: var(--graph-rust) !important; stroke-width: 3; }
-.graph-curve-tertiary { fill: none; stroke: var(--graph-green) !important; stroke-width: 2.6; }
+.graph-curve { fill: none !important; stroke: var(--graph-blue) !important; stroke-width: 3; }
+.graph-curve-secondary { fill: none !important; stroke: var(--graph-rust) !important; stroke-width: 3; }
+.graph-curve-tertiary { fill: none !important; stroke: var(--graph-green) !important; stroke-width: 2.6; }
 .graph-point { fill: var(--graph-point) !important; }
 .graph-label { fill: var(--graph-label) !important; font-size: 15px; }
 .graph-region { fill: var(--graph-blue) !important; opacity: .12; stroke: none !important; }
