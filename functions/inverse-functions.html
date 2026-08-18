@@ -1,103 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Inverse Functions | dy/dx</title>
-<link rel="stylesheet" href="../style.css?v=3">
-<script>
-window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]}};
-</script>
-<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-<style>
-.math-graph{max-width:720px;margin:30px auto}
-.math-graph svg{width:100%;height:auto;display:block}
-.graph-label{font-size:15px;fill:#171717!important}
-.graph-axis{stroke:#171717!important;stroke-width:1.6}
-.graph-grid{stroke:#d9dde2!important;stroke-width:.7;opacity:.75}
-.graph-guide{stroke:#5f6469!important;stroke-width:1.4;stroke-dasharray:7 6}
-.graph-curve{fill:none;stroke:#496f8a!important;stroke-width:3}
-.graph-curve-secondary{fill:none;stroke:#9a6754!important;stroke-width:3}
-.graph-point{fill:#171717!important}
-</style>
-</head>
-<body>
-<header class="site-header"><div class="brand"><a href="../index.html">dy/dx</a></div><nav class="top-nav"><a href="../index.html">Home</a><a href="index.html">Functions</a></nav></header>
-<main>
-<section class="lesson-header"><p class="eyebrow">FUNCTIONS 12</p><h1>Inverse Functions</h1><p class="lesson-intro">An inverse function reverses the action of the original function, exchanging inputs and outputs.</p></section>
-<section class="lesson-content">
-<h2>The main idea</h2><p>If a function maps an input \(x\) to an output \(y\), its inverse maps that output back to the original input.</p><div class="lesson-math">\[x\xrightarrow{\ f\ }y\xrightarrow{\ f^{-1}\ }x\]</div><p>The original function and its inverse therefore describe the same relationship in opposite directions.</p>
-<h3>1. A simple example</h3><p>If \(f(x)=x+3\), then the inverse must subtract \(3\):</p>\[f^{-1}(x)=x-3.\]<p>Hence \(f^{-1}(f(x))=x\).</p>
-<h3>2. Inverse notation</h3><p>\(f^{-1}(x)\) means the inverse function. It does not mean \(1/f(x)\).</p>
-<h3>3. Finding an inverse</h3><p>For \(f(x)=2x+5\), write \(y=2x+5\), solve for \(x\), then swap the variable names:</p>\[x=\frac{y-5}{2}.\]<div class="lesson-math">\[\boxed{f^{-1}(x)=\frac{x-5}{2}}\]</div>
-<h3>4. Checking an inverse</h3>\[f^{-1}(f(x))=\frac{(2x+5)-5}{2}=x.\]<p>A correct inverse undoes the original function.</p>
-<h3>5. The graphical meaning</h3><p>If \((a,b)\) lies on \(y=f(x)\), then \((b,a)\) lies on \(y=f^{-1}(x)\). The two graphs are therefore exact reflections in \(y=x\).</p>
-<div id="inverse-linear-graph" class="math-graph" aria-label="Accurate graph of a linear function and its inverse"></div>
-<p>For example, the point \((1,3)\) on \(y=2x+1\) corresponds exactly to \((3,1)\) on \(y=(x-1)/2\).</p>
-<h3>6. Not every function has an inverse</h3><p>For \(f(x)=x^2\), both \(2\) and \(-2\) produce \(4\). So on all real numbers, \(x^2\) is not one-to-one.</p>
-<h3>7. The horizontal line test</h3><p>A function has an inverse exactly when every horizontal line meets its graph at most once.</p>
-<div id="horizontal-test-graph" class="math-graph" aria-label="Accurate horizontal line test for y equals x squared"></div>
-<p>The horizontal line \(y=4\) meets \(y=x^2\) at the exact points \((-2,4)\) and \((2,4)\).</p>
-<h3>8. Restricting the domain</h3><p>If we restrict \(f(x)=x^2\) to \(x\ge0\), every output has one input and</p>\[f^{-1}(x)=\sqrt{x}.\]
-<div id="square-root-graph" class="math-graph" aria-label="Accurate graph of x squared restricted to nonnegative x and square root x"></div>
-<p>Because both axes use the same scale, the reflection across \(y=x\) is geometrically exact.</p>
-<h3>9. Domain and range swap</h3><div class="lesson-math">\[\boxed{\operatorname{Dom}(f)=\operatorname{Ran}(f^{-1})}\]\[\boxed{\operatorname{Ran}(f)=\operatorname{Dom}(f^{-1})}\]</div>
-<h3>10. Exponential and logarithmic functions</h3><p>\(e^x\) and \(\ln x\) are inverse functions:</p>\[\ln(e^x)=x,\qquad e^{\ln x}=x\quad(x\gt0).\]
-<div id="exp-log-graph" class="math-graph" aria-label="Accurate graph of exponential and logarithmic inverse functions"></div>
-<p>Again, corresponding points swap coordinates. For example, \((0,1)\) lies on \(y=e^x\), while \((1,0)\) lies on \(y=\ln x\).</p>
-<h3>11. Why inverse functions matter for calculus</h3><p>Inverse functions are essential for logarithms, inverse trigonometric functions, solving equations and differentiating inverse relationships.</p><div class="lesson-math">\[\boxed{\text{function}\longleftrightarrow\text{inverse function}}\]</div>
-<div class="lesson-navigation"><a href="composite-functions.html">← Composite Functions</a><a href="transformations.html">Next: Transformations of Functions →</a></div>
-</section></main>
-<footer><div><strong>dy/dx</strong><p>Calculus Learning</p></div></footer>
-<script>
-(function(){
-const NS='http://www.w3.org/2000/svg';
-function el(name,attrs,text){const e=document.createElementNS(NS,name);for(const k in attrs)e.setAttribute(k,attrs[k]);if(text!==undefined)e.textContent=text;return e;}
-function makePlot(id,xmin,xmax,ymin,ymax,curves,extras){
- const host=document.getElementById(id); if(!host)return;
- const W=700,H=500,m=55,pw=W-2*m,ph=H-2*m;
- const X=x=>m+(x-xmin)/(xmax-xmin)*pw;
- const Y=y=>H-m-(y-ymin)/(ymax-ymin)*ph;
- const svg=el('svg',{viewBox:`0 0 ${W} ${H}`,role:'img'});
- const defs=el('defs',{}); const clip=el('clipPath',{id:id+'-clip'}); clip.appendChild(el('rect',{x:m,y:m,width:pw,height:ph})); defs.appendChild(clip); svg.appendChild(defs);
- for(let k=Math.ceil(xmin);k<=Math.floor(xmax);k++)svg.appendChild(el('line',{x1:X(k),y1:m,x2:X(k),y2:H-m,class:'graph-grid'}));
- for(let k=Math.ceil(ymin);k<=Math.floor(ymax);k++)svg.appendChild(el('line',{x1:m,y1:Y(k),x2:W-m,y2:Y(k),class:'graph-grid'}));
- if(ymin<=0&&0<=ymax)svg.appendChild(el('line',{x1:m,y1:Y(0),x2:W-m,y2:Y(0),class:'graph-axis'}));
- if(xmin<=0&&0<=xmax)svg.appendChild(el('line',{x1:X(0),y1:m,x2:X(0),y2:H-m,class:'graph-axis'}));
- const g=el('g',{'clip-path':`url(#${id}-clip)`});
- curves.forEach((c,j)=>{
-   let pts=[]; const n=900;
-   for(let i=0;i<=n;i++){
-     const x=c.a+(c.b-c.a)*i/n; const y=c.f(x);
-     if(Number.isFinite(y) && y>=ymin-1 && y<=ymax+1)pts.push(`${X(x).toFixed(2)},${Y(y).toFixed(2)}`);
-   }
-   g.appendChild(el('polyline',{points:pts.join(' '),class:j===0?'graph-curve':'graph-curve-secondary'}));
- });
- svg.appendChild(g);
- if(extras)extras(svg,X,Y,W,H,m);
- host.appendChild(svg);
-}
-function label(svg,x,y,t){svg.appendChild(el('text',{x,y,class:'graph-label'},t));}
-makePlot('inverse-linear-graph',-4,4,-4,4,[{a:-2.5,b:1.5,f:x=>2*x+1},{a:-4,b:4,f:x=>(x-1)/2}],(s,X,Y)=>{
- s.appendChild(el('line',{x1:X(-4),y1:Y(-4),x2:X(4),y2:Y(4),class:'graph-guide'}));
- [[1,3],[3,1]].forEach(p=>s.appendChild(el('circle',{cx:X(p[0]),cy:Y(p[1]),r:5,class:'graph-point'})));
- label(s,X(1)+8,Y(3)-8,'(1,3)'); label(s,X(3)+8,Y(1)-8,'(3,1)'); label(s,X(1.05),Y(3.7),'y=2x+1'); label(s,X(2.0),Y(.25),'y=(x−1)/2'); label(s,X(2.7),Y(3.25),'y=x');
-});
-makePlot('horizontal-test-graph',-3,3,-1,6,[{a:-2.5,b:2.5,f:x=>x*x}],(s,X,Y)=>{
- s.appendChild(el('line',{x1:X(-3),y1:Y(4),x2:X(3),y2:Y(4),class:'graph-guide'}));
- [[-2,4],[2,4]].forEach(p=>s.appendChild(el('circle',{cx:X(p[0]),cy:Y(p[1]),r:5,class:'graph-point'})));
- label(s,X(-2)-48,Y(4)-10,'(−2,4)'); label(s,X(2)+8,Y(4)-10,'(2,4)'); label(s,X(2.15),Y(5.1),'y=x²'); label(s,X(-2.85),Y(4)-8,'y=4');
-});
-makePlot('square-root-graph',0,4,0,4,[{a:0,b:2,f:x=>x*x},{a:0,b:4,f:x=>Math.sqrt(x)}],(s,X,Y)=>{
- s.appendChild(el('line',{x1:X(0),y1:Y(0),x2:X(4),y2:Y(4),class:'graph-guide'}));
- [[2,4],[4,2],[1,1]].forEach(p=>s.appendChild(el('circle',{cx:X(p[0]),cy:Y(p[1]),r:5,class:'graph-point'})));
- label(s,X(1.45),Y(3.2),'y=x²'); label(s,X(2.65),Y(1.55),'y=√x'); label(s,X(3.1),Y(3.45),'y=x');
-});
-makePlot('exp-log-graph',-2.5,4,-2.5,4,[{a:-2.5,b:Math.log(4),f:x=>Math.exp(x)},{a:Math.exp(-2.5),b:4,f:x=>Math.log(x)}],(s,X,Y)=>{
- s.appendChild(el('line',{x1:X(-2.5),y1:Y(-2.5),x2:X(4),y2:Y(4),class:'graph-guide'}));
- [[0,1],[1,0],[1,Math.E],[Math.E,1]].forEach(p=>s.appendChild(el('circle',{cx:X(p[0]),cy:Y(p[1]),r:4.5,class:'graph-point'})));
- label(s,X(.65),Y(3.35),'y=eˣ'); label(s,X(2.55),Y(.75),'y=ln x'); label(s,X(3.05),Y(3.45),'y=x');
-});
-})();
-</script>
-<script src="graph-renderer-v2.js?v=2"></script></body></html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Inverse Functions | dy/dx</title><link rel="stylesheet" href="../style.css?v=17"><script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]}};</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><style>.i-stack{display:grid;gap:16px;margin-top:28px}.i-card{border:1px solid #cfd8e3;border-radius:14px;background:#fff;padding:20px 22px}.i-card h3{margin-top:0}.i-grid{display:grid;grid-template-columns:minmax(220px,.9fr) minmax(0,1.25fr);gap:28px;align-items:center}.i-visual{border:1px solid #d7dee7;border-radius:12px;padding:16px;background:#fff;min-height:150px}.steps{text-align:center;font-family:Georgia,serif;font-size:1.12rem;line-height:2}.takeaways{margin-top:24px;border:1px solid #e7c56c;border-radius:12px;background:#fffaf0;padding:18px 22px}@media(max-width:800px){.i-grid{grid-template-columns:1fr}}</style></head><body><header class="site-header"><div class="brand"><a href="../index.html">dy/dx</a></div><nav class="top-nav"><a href="../index.html">Home</a><a href="index.html">Functions</a></nav></header><main><section class="lesson-header"><p class="eyebrow">FUNCTIONS 12</p><h1>Inverse Functions</h1><p class="lesson-intro">An inverse function reverses the action of the original function, exchanging inputs and outputs.</p></section><section class="lesson-content"><h2>The main idea</h2><p>If</p>\[f(a)=b,\]<p>then the inverse function satisfies</p>\[\boxed{f^{-1}(b)=a}.\]<p>The original function and its inverse describe the same relationship in opposite directions.</p><div class="i-stack">
+<section class="i-card"><div class="i-grid"><div><h3>1. A simple inverse</h3><p>If</p>\[f(x)=x+3,\]<p>then the inverse must undo the addition:</p>\[\boxed{f^{-1}(x)=x-3}.\]</div><div class="i-visual"><div class="steps">\(x\)<br>↓ add 3<br>\(x+3\)<br>↓ subtract 3<br>\(x\)</div></div></div></section>
+<section class="i-card"><div class="i-grid"><div><h3>2. Inverse notation</h3><p>The notation \(f^{-1}(x)\) means the inverse function.</p><p>It does <strong>not</strong> mean</p>\[\frac1{f(x)}.\]</div><div class="i-visual"><div class="steps">\(f^{-1}\) = reverse function<br><br>\(1/f\) = reciprocal<br><br>these are different ideas</div></div></div></section>
+<section class="i-card"><div class="i-grid"><div><h3>3. How to find an inverse</h3><p>For</p>\[f(x)=2x+5,\]<p>write \(y=2x+5\), solve for \(x\), then rename the variables:</p>\[x=\frac{y-5}{2}.\]<p>Hence</p>\[\boxed{f^{-1}(x)=\frac{x-5}{2}}.\]</div><div class="i-visual"><div class="steps">\(y=2x+5\)<br>↓ solve for \(x\)<br>\(x=(y-5)/2\)<br>↓ swap names<br>\(f^{-1}(x)=(x-5)/2\)</div></div></div></section>
+<section class="i-card"><div class="i-grid"><div><h3>4. Checking an inverse</h3><p>A correct inverse returns the original input:</p>\[f^{-1}(f(x))=x.\]<p>For the example above,</p>\[f^{-1}(2x+5)=\frac{(2x+5)-5}{2}=x.\]</div><div class="i-visual"><div class="steps">apply \(f\)<br>then apply \(f^{-1}\)<br>↓<br>return to the starting value</div></div></div></section>
+<section class="i-card"><div class="i-grid"><div><h3>5. Graphs of inverse functions</h3><p>If \((a,b)\) lies on \(y=f(x)\), then \((b,a)\) lies on \(y=f^{-1}(x)\).</p><p>Therefore the two graphs are reflections in the line</p>\[\boxed{y=x}.\]<p>The graph compares \(y=2x+1\) with its inverse \(y=(x-1)/2\).</p></div><div class="i-visual"></div></div></section>
+<section class="i-card"><div class="i-grid"><div><h3>6. Not every function has an inverse</h3><p>For</p>\[f(x)=x^2,\]<p>both \(2\) and \(-2\) give the same output:</p>\[f(2)=f(-2)=4.\]<p>So \(x^2\) is not one-to-one on all real numbers.</p></div><div class="i-visual"><div class="steps">\(-2\to4\)<br>\(2\to4\)<br><br>two inputs, one output<br>↓<br>inverse would be ambiguous</div></div></div></section>
+<section class="i-card"><div class="i-grid"><div><h3>7. The horizontal line test</h3><p>A function has an inverse on its domain only if every horizontal line meets its graph at most once.</p><p>The line \(y=4\) meets \(y=x^2\) at both \((-2,4)\) and \((2,4)\), so the test fails.</p></div><div class="i-visual"></div></div></section>
+<section class="i-card"><div class="i-grid"><div><h3>8. Restricting the domain</h3><p>If we restrict</p>\[f(x)=x^2\]<p>to \(x\ge0\), each output has only one allowed input. Then</p>\[\boxed{f^{-1}(x)=\sqrt{x}}.\]<p>The two graphs are reflections in \(y=x\).</p></div><div class="i-visual"></div></div></section>
+<section class="i-card"><div class="i-grid"><div><h3>9. Domain and range swap</h3><p>When \(f\) has an inverse,</p>\[\boxed{\operatorname{Dom}(f)=\operatorname{Ran}(f^{-1})},\]\[\boxed{\operatorname{Ran}(f)=\operatorname{Dom}(f^{-1})}.\]</div><div class="i-visual"><div class="steps">domain of \(f\)<br>↔<br>range of \(f^{-1}\)<br><br>range of \(f\)<br>↔<br>domain of \(f^{-1}\)</div></div></div></section>
+<section class="i-card"><div class="i-grid"><div><h3>10. Exponential and logarithmic inverses</h3><p>The functions</p>\[y=e^x\quad\text{and}\quad y=\ln x\]<p>are inverses because</p>\[\ln(e^x)=x,\qquad e^{\ln x}=x\quad(x>0).\]</div><div class="i-visual"></div></div></section>
+<section class="i-card"><div class="i-grid"><div><h3>11. Why inverse functions matter for calculus</h3><p>Inverse functions are essential for logarithms, inverse trigonometric functions and solving equations.</p><p>The derivative of an inverse also satisfies</p>\[\boxed{(f^{-1})'(x)=\frac{1}{f'(f^{-1}(x))}},\]<p>where the denominator is non-zero.</p></div><div class="i-visual"><div class="steps">function<br>↔ inverse function<br>↔ reciprocal slope relationship</div></div></div></section>
+</div><div class="takeaways"><strong>Key takeaways</strong><p>An inverse reverses a function. Its graph is reflected in \(y=x\), domain and range exchange roles, and a function must be one-to-one on its chosen domain before an inverse function can exist.</p></div><div class="lesson-navigation"><a href="composite-functions.html">← Composite Functions</a><a href="transformations.html">Next: Transformations of Functions →</a></div></section></main><footer><div><strong>dy/dx</strong><p>Calculus Learning</p></div></footer><script src="graph-renderer-v2.js?v=7"></script></body></html>
