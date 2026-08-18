@@ -8,7 +8,7 @@
   }
   function buildPath(fn,cfg,step){
     const m=mapper(cfg);
-    const dx=step || (cfg.xMax-cfg.xMin)/500;
+    const dx=step || (cfg.xMax-cfg.xMin)/700;
     let d='',started=false;
     for(let x=cfg.xMin;x<=cfg.xMax+1e-12;x+=dx){
       const y=fn(x);
@@ -25,8 +25,7 @@
   }
   function point(id,x,y,cfg){
     const el=document.getElementById(id); if(!el)return;
-    const m=mapper(cfg);
-    el.setAttribute('cx',m.X(x)); el.setAttribute('cy',m.Y(y));
+    const m=mapper(cfg); el.setAttribute('cx',m.X(x)); el.setAttribute('cy',m.Y(y));
   }
   function line(id,x1,y1,x2,y2,cfg){
     const el=document.getElementById(id); if(!el)return;
@@ -36,13 +35,19 @@
   }
   function text(id,x,y,cfg){
     const el=document.getElementById(id); if(!el)return;
+    const m=mapper(cfg); el.setAttribute('x',m.X(x)); el.setAttribute('y',m.Y(y));
+  }
+  function axes(xAxisId,yAxisId,cfg){
     const m=mapper(cfg);
-    el.setAttribute('x',m.X(x)); el.setAttribute('y',m.Y(y));
+    const xAxis=document.getElementById(xAxisId), yAxis=document.getElementById(yAxisId);
+    const y0=(cfg.yMin<=0&&0<=cfg.yMax)?m.Y(0):m.Y(cfg.yMin);
+    const x0=(cfg.xMin<=0&&0<=cfg.xMax)?m.X(0):m.X(cfg.xMin);
+    if(xAxis){xAxis.setAttribute('x1',cfg.left);xAxis.setAttribute('x2',cfg.right);xAxis.setAttribute('y1',y0);xAxis.setAttribute('y2',y0);}
+    if(yAxis){yAxis.setAttribute('x1',x0);yAxis.setAttribute('x2',x0);yAxis.setAttribute('y1',cfg.top);yAxis.setAttribute('y2',cfg.bottom);}
   }
-  function tangent(fnPrime,x0,x1,x2,pathId,cfg){
-    const y0=cfg.fn(x0),m0=fnPrime(x0);
-    const lineFn=x=>y0+m0*(x-x0);
-    plot(pathId,lineFn,{...cfg,xMin:x1,xMax:x2},(x2-x1)/80);
+  function tangent(fn,fnPrime,x0,x1,x2,pathId,cfg){
+    const y0=fn(x0),m0=fnPrime(x0);
+    plot(pathId,x=>y0+m0*(x-x0),{...cfg,xMin:x1,xMax:x2},(x2-x1)/120);
   }
-  global.DYDXGraph={mapper,buildPath,plot,point,line,text,tangent};
+  global.DYDXGraph={mapper,buildPath,plot,point,line,text,axes,tangent};
 })(window);
